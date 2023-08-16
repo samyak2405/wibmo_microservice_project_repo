@@ -12,6 +12,22 @@ public class User {
 	private String userName;
 	private String userEmail;
 	private long userPhonenumber;
+	private String userPassword;
+	
+	
+	
+	/**
+	 * @return the userPassword
+	 */
+	public String getUserPassword() {
+		return userPassword;
+	}
+	/**
+	 * @param userPassword the userPassword to set
+	 */
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
 	/**
 	 * @return the userId
 	 */
