@@ -7,12 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 import com.wibmo.bean.ProfessorCourseMap;
+
 import com.wibmo.business.*;
 /**
  * 
  */
 public class CRSProfessorMenu {
+
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
 	
@@ -32,6 +35,7 @@ public class CRSProfessorMenu {
         
        while(true) {
    		System.out.println("1.Request Course Offering");
+
 
         System.out.println("2.View Student List");
 

@@ -24,6 +24,7 @@ public class CRSApplicationClient {
 
 	/**
 	 * @param args
+
 	 * @throws DuplicateCourseEntryException 
 	 * @throws NoCourseAvailableException 
 	 * @throws StudentNotFoundException 
@@ -33,6 +34,7 @@ public class CRSApplicationClient {
 		// TODO Auto-generated method stub
 		
 		
+
 		LocalDate localDate = LocalDate.now();
 
         LocalTime localTime = LocalTime.now();
@@ -69,15 +71,19 @@ public class CRSApplicationClient {
         				+"\n1. Student"
         				+"\n2. Professor"
         				+"\n3. Admin");
+
         		int role = scan.nextInt();
         		System.out.print("\nEnter your UserId: ");
         		int userId = scan.nextInt();
+
+
         		System.out.print("\nEnter your Password: ");
         		String password = scan.next();
         		
         		//Authentication
         		AuthenticationOperation loggedin=new AuthenticationOperationImpl();
         		
+
         		if(loggedin.loggedin(userId, password,role)) {
         			
         		switch(role) {
@@ -95,6 +101,7 @@ public class CRSApplicationClient {
         			
         		case 3: 
         			System.out.println("You are logged in successfully as a Admin");
+
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
         			break;
@@ -110,7 +117,9 @@ public class CRSApplicationClient {
         		break;
         	case 3:
         		System.out.print("Enter Username:");
+
         		userId = scan.nextInt();
+
         		System.out.print("\nEnter Current Password: ");
         		password = scan.next();
         		System.out.println("\nChange Password");

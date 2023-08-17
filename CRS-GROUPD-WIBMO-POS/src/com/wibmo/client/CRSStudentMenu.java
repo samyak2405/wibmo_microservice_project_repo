@@ -123,31 +123,16 @@ public class CRSStudentMenu {
 		studentOp.registerStudent(user);
 	}
 	
-	
-	
-	
-	
-	
-	/**
-	 * 
-	 * @throws StudentNotFoundException
-	 * @throws NoCourseAvailableException
-	 * @throws DuplicateCourseEntryException
-	 */
-	public void studentMenu() throws StudentNotFoundException, NoCourseAvailableException, DuplicateCourseEntryException {
-		System.out.println("1.Register for course");
-
-        System.out.println("2.Add course");
-
-        System.out.println("3.Drop course");
-
-        System.out.println("4.view list of Registered Courses");
-
-        System.out.println("5.view ReportCard");
-
-        System.out.println("6.viewCourseCatalog");
-
-        System.out.println("7.exit");
+	public void studentMenu() throws DuplicateCourseEntryException, NoCourseAvailableException, StudentNotFoundException {
+		
+		System.out.print("\nChoose From below given list"
+				+"\n\n1.Register for course"
+				+"\n2.Add course"
+				+"\n3.Drop course"
+				+"\n4.view list of Registered Courses"
+				+"\n5.view ReportCard"
+				+"\n6.viewCourseCatalog"
+				+"7.exit\n");
 
        boolean flag = false;
         

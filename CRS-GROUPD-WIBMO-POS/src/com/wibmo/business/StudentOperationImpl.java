@@ -37,9 +37,11 @@ public class StudentOperationImpl implements StudentOperation{
 	public void addCourses(StudentCourseMap studCoMap) throws DuplicateCourseEntryException {
 		
 		// TODO Auto-generated method stub
+
 		
 		
 		
+
 		studentDao.addCourses(studCoMap);
 	}
 
@@ -95,6 +97,7 @@ public class StudentOperationImpl implements StudentOperation{
 	@Override
 	public void registerStudent(User user)throws StudentAlreadyRegisteredException {
 		// TODO Auto-generated method stub
+
 		
 		
 		Student student = new Student();

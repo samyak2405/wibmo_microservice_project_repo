@@ -20,6 +20,7 @@ public class PaymentOperationImpl implements PaymentOperation{
 		
 	}
 
+
 	@Override
 	public boolean offline() {
 		// TODO Auto-generated method stub
@@ -43,5 +44,6 @@ public class PaymentOperationImpl implements PaymentOperation{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 
 }

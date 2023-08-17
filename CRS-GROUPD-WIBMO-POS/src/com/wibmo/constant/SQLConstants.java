@@ -7,6 +7,7 @@ package com.wibmo.constant;
  * 
  */
 public class SQLConstants {
+
 	
 		/*
 		 * Student
@@ -38,5 +39,5 @@ public class SQLConstants {
 		
 		
 		
-		
+
 }
