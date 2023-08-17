@@ -44,17 +44,11 @@ public class CRSAdminMenu {
 	public void adminMenu() {
 		System.out.println("1. Approve Course Requests from students");
 
-        System.out.println("2. Approve new Admin");
+        System.out.println("2. Register and Approve an Admin");
+
+        System.out.println("3. Assign courses to Professor");
         
-        System.out.println("3. Register as an Admin");
-
-        System.out.println("4. Assign courses to Professor");
-
-        System.out.println("5. Add Course");
-
-        System.out.println("6. Drop Course");
-        
-        System.out.println("7. Exit");
+        System.out.println("4. Exit");
 
        boolean flag = false;
         
@@ -66,20 +60,13 @@ public class CRSAdminMenu {
        case 1:
     	  adminOp.approveStudent();
         break;
-
        case 2:
-    	   adminOp.assignCoursesProf(opt, opt);
-        break;
-
+    	   adminRegistration();
+    	   break;
        case 3:
-    	   adminOp.addCourse(opt);
+    	   adminOp.assignCoursesProf();
         break;
-        
-       case 4:
-    	   adminOp.dropCourse(opt);
-        break;
-           
-       case 5: flag = true;
+       case 4: flag = true;
        break;
        }
        if(flag)

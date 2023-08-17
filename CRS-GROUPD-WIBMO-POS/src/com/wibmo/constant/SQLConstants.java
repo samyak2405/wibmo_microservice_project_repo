@@ -25,9 +25,9 @@ public class SQLConstants {
 		public static final String SELECT_COURSEMAPPING = "SELECT courseid, coursecategory FROM crs.studentcoursemapping WHERE studentid=?";
 		public static final String INSERT_GRADECARD = "INSERT INTO crs.gradecard VALUES(?,?,?)";
 		public static final String DROP_COURSE =  "DELETE FROM crs.coursecatalog WHERE courseid=?";
-		
-		
-		
+		public static final String PROFESSOR_COURSE_DATA = "SELECT professorid FROM crs.professorcoursemapping WHERE courseid=?";
+		public static final String LIST_COURSES = "SELECT courseId from crs.coursecatalog";
+		public static final String PROF_COURSE_ASSIGNMENT="UPDATE crs.professorcoursemapping SET isassigned=1 WHERE professorId=? && courseId=?";
 		/*
 		 * Professor
 		 */

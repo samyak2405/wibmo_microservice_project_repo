@@ -17,6 +17,10 @@ public class CRSProfessorMenu {
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
 	
+	public CRSProfessorMenu() {
+		
+	}
+	
 	public CRSProfessorMenu(int userId)
 	{
 		this.userId=userId;
