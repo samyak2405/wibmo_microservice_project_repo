@@ -18,4 +18,10 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 		return verified;
 	}
 
+	@Override
+	public void updatePassword(int userId, String password,int role) {
+		// TODO Auto-generated method stub
+		authenticate.updatePassword(userId,password,role);
+	}
+
 }

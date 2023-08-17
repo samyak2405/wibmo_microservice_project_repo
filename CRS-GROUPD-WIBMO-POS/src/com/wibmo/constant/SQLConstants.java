@@ -19,16 +19,13 @@ public class SQLConstants {
 		public static final String UPDATE_REGISTER=" UPDATE crs.studentcoursemapping SET isRegister=1 WHERE studentid=?";
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentid) as distinct FROM crs.studentcoursemapping";
 		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.GradeCard";
-		
-		
-		
-		
-		
+		public static final String UPDATE_PASSWORD_STUDENT="UPDATE crs.student SET password=? WHERE studentid=?";
 		//Admin Queries
 		public static final String INSERT_ADMIN = "INSERT INTO crs.admin VALUES(?,?,?,?,?)";
 		public static final String SELECT_COURSEMAPPING = "SELECT courseid, coursecategory FROM crs.studentcoursemapping WHERE studentid=?";
 		public static final String INSERT_GRADECARD = "INSERT INTO crs.gradecard VALUES(?,?,?)";
 		public static final String DROP_COURSE =  "DELETE FROM crs.coursecatalog WHERE courseid=?";
+		public static final String UPDATE_PASSWORD_ADMIN="UPDATE crs.admin SET password=? WHERE adminId=?";
 		public static final String SEND_NOTIFICATION="INSERT INTO crs.notificationstudentmapping VALUES(?,?)";
 
 		
@@ -39,6 +36,7 @@ public class SQLConstants {
 		/*
 		 * Professor
 		 */
+		public static final String INSERT_PROFESSOR ="INSERT INTO crs.professor VALUES(?,?,?,?,?)" ;
 		public static final String SET_GRADES = "UPDATE crs.gradecard SET grade=? WHERE studentId=? && courseId=?";
 		public static final String VERIFY_PROFESSOR=" SELECT professorid,password FROM crs.professor WHERE professorid=?";
 		public static final String STUDENT_LIST = "SELECT studentid,studentname, studentemail,phonenumber FROM crs.student"
@@ -47,6 +45,12 @@ public class SQLConstants {
 		
 		public static final String VERIFY_ADMIN=" SELECT adminId,password FROM crs.admin WHERE adminId=?";
 		public static final String REQUEST_COURSE="INSERT INTO crs.professorcoursemapping VALUES(?,?)";
+		
+		public static final String UPDATE_PASSWORD_PROFESSOR ="UPDATE crs.professor SET password=? WHERE professorid=?";
+		
+		
+		
+		
 		
 	/**
 	 * Common for student And Professor

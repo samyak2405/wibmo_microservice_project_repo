@@ -2,7 +2,7 @@
  * 
  */
 package com.wibmo.client;
-
+import com.wibmo.business.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -122,6 +122,7 @@ public class CRSStudentMenu {
 		studentOp.registerStudent(user);
 	}
 	
+	
 	public void studentMenu() throws DuplicateCourseEntryException, NoCourseAvailableException, StudentNotFoundException {
 		
 		System.out.print("\nChoose From below given list"
@@ -182,7 +183,8 @@ public class CRSStudentMenu {
     	   studentOp.viewCourseCatalog();      
 		break;
        case 7:
-    	   //call PaymentMethod     
+    	   CRSPaymentMenu payment=new CRSPaymentMenu();
+    	   payment.payfee();
 		break;
        case 8:
     	   notificationOp.getNotificationMessage(userId);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import com.wibmo.bean.ProfessorCourseMap;
-
+import com.wibmo.bean.User;
 import com.wibmo.business.*;
 /**
  * 
@@ -16,6 +16,12 @@ public class CRSProfessorMenu {
 
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
+	public CRSProfessorMenu()
+	{
+		
+	}
+	
+	
 	
 	public CRSProfessorMenu()
 	{
@@ -117,6 +123,31 @@ public class CRSProfessorMenu {
 	}
 	public void professorRegistration() {
 		// TODO Auto-generated method stub
+		System.out.println("Enter the Details for Registration");
+		User user = new User();
+		System.out.print("Enter User ID: ");
+		user.setUserId(scan.nextInt());
+		System.out.print("\nEnter Name: ");
+		user.setUserName(scan.next());
+		System.out.print("\nEnter Email: ");
+		user.setUserEmail(scan.next());
+		while(true) {
+			System.out.print("\nEnter Password: ");
+    		String passwordOne = scan.next();
+    		System.out.print("\nEnter Password Again: ");
+    		String passwordAgain = scan.next();
+    		if(passwordOne.equals(passwordAgain))
+    		{
+    			user.setUserPassword(passwordOne);
+    			break;
+    		}
+    		else
+    			System.out.println("Password does not match");
+		}
+		
+		System.out.print("\nEnter Phone Number: ");
+		user.setUserPhonenumber(scan.nextLong());
+		professorOp.registerProfessor(user);
 		
 	}
 }
