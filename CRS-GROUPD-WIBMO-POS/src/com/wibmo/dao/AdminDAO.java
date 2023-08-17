@@ -20,4 +20,7 @@ public interface AdminDAO {
 	public List<Integer> getProfCourseData(int courseId);
 	public List<Integer> getListOfCourses();
 	public void setProfCourse(int professorid, int courseid);
+	public void setApprovedStudents();
+	public List<Integer> pendingRegistration();
+	public void setApprovedStudentById(int studentId);
 }

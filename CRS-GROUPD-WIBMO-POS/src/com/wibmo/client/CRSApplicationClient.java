@@ -97,7 +97,8 @@ public class CRSApplicationClient {
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
         			break;
-        		}}
+        		}
+        		}
         		else {
         			System.out.println("invalid credentials");
         		}

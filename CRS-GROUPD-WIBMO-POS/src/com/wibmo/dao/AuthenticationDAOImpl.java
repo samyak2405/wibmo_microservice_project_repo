@@ -64,17 +64,20 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 			stmt.setInt(1, userid);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				if(userid==rs.getInt(roleId))
+				if(userid==rs.getInt(roleId) && password.equalsIgnoreCase(rs.getString("password")))
 				{
 					
-					if(password.equalsIgnoreCase(rs.getString("password")))
-					{
+					if(rs.getInt("isapproved")==1)
 						return true;
+					else
+					{
+						System.out.println("Pending Approval from Admin");
+						return false;
 					}
-					
-					return false;
+						
 				}
-				System.out.println("User Does Not Exist!");
+				else System.out.println("Invalid Credentials");
+				
 				return false;
 			}
 	        
