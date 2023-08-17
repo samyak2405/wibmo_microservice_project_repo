@@ -26,8 +26,13 @@ public class SQLConstants {
 		public static final String INSERT_GRADECARD = "INSERT INTO crs.gradecard VALUES(?,?,?)";
 		public static final String DROP_COURSE =  "DELETE FROM crs.coursecatalog WHERE courseid=?";
 		public static final String UPDATE_PASSWORD_ADMIN="UPDATE crs.admin SET password=? WHERE adminId=?";
+		public static final String SEND_NOTIFICATION="INSERT INTO crs.notificationstudentmapping VALUES(?,?)";
+
 		
 		
+		public static final String PROFESSOR_COURSE_DATA = "SELECT professorid FROM crs.professorcoursemapping WHERE courseid=?";
+		public static final String LIST_COURSES = "SELECT courseId from crs.coursecatalog";
+		public static final String PROF_COURSE_ASSIGNMENT="UPDATE crs.professorcoursemapping SET isassigned=1 WHERE professorId=? && courseId=?";
 		/*
 		 * Professor
 		 */
@@ -47,6 +52,12 @@ public class SQLConstants {
 		
 		
 		
+	/**
+	 * Common for student And Professor
+	 */
+		public static final String GET_NOTIFICATION = "SELECT notificationMessage FROM crs.notification"
+                + " WHERE notificationId IN (SELECT notifId FROM crs.notificationstudentmapping WHERE studentId=?)";
+
 		
 		
 

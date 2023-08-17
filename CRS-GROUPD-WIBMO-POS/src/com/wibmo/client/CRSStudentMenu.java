@@ -24,6 +24,7 @@ import com.wibmo.exception.StudentNotFoundException;
  */
 public class CRSStudentMenu {
 	StudentOperation studentOp = new StudentOperationImpl();
+	NotificationOperation notificationOp=new NotificationOperationImpl();
 	Scanner scan = new Scanner(System.in);
 	int cnt;
 	int compulsory;
@@ -131,8 +132,9 @@ public class CRSStudentMenu {
 				+"\n4.view list of Registered Courses"
 				+"\n5.view ReportCard"
 				+"\n6.viewCourseCatalog"
-				+"\n7.pay fee"
-				+"\n8.exit\n");
+				+"\n7.Pay Fee"
+				+"\n8.View Notification\n"
+				+"\n9.Exit\n");
 
        boolean flag = false;
         
@@ -184,7 +186,10 @@ public class CRSStudentMenu {
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
     	   payment.payfee();
 		break;
-       case 8: flag = true;
+       case 8:
+    	   notificationOp.getNotificationMessage(userId);
+		break;
+       case 9: flag = true;
        break;
        }
        if(flag)
