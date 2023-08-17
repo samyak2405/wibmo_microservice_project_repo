@@ -1,0 +1,125 @@
+/**
+ * 
+ */
+package com.wibmo.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.wibmo.bean.Admin;
+import com.wibmo.business.AdminOperation;
+import com.wibmo.constant.SQLConstants;
+import com.wibmo.utils.DButils;
+
+/**
+ * 
+ */
+public class AdminDAOImpl implements AdminDAO {
+
+	public static volatile AdminDAOImpl instance = null;
+	
+	public AdminDAOImpl() {
+		
+	}
+	
+	public static AdminDAOImpl getInstance() {
+		if(instance==null)
+		{
+			synchronized(AdminDAOImpl.class) {
+				instance = new AdminDAOImpl();
+			}
+		}
+		return instance;
+	}
+	
+	Connection conn = DButils.getConnection();
+	@Override
+	public void addCourse(long courseId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setGradeCard(int studentId,int courseId) {
+		PreparedStatement stmt = null;
+		
+		try {	
+			stmt = conn.prepareStatement(SQLConstants.INSERT_GRADECARD);
+			stmt.setInt(1,studentId);
+			stmt.setInt(2, courseId);
+			stmt.setString(3, "NA");
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+	}
+
+	@Override
+	public void dropCourse(long courseId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.DROP_COURSE);
+			
+			stmt.setLong(1, courseId);
+			
+			stmt.executeUpdate();
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		
+	}
+
+	@Override
+	public boolean approveStudent(long studentId, List<Long> courses) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void addAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.INSERT_ADMIN);
+			
+			stmt.setLong(1, admin.getUserId());
+			stmt.setString(2,admin.getUserName());
+			stmt.setString(3,admin.getUserEmail());
+			stmt.setString(4,admin.getUserPassword());
+			stmt.setLong(5,admin.getUserPhonenumber());
+			
+			
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+	}
+
+	@Override
+	public void assignCoursesProf(int professorId, int courseId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
