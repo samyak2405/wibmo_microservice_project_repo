@@ -71,7 +71,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 					{
 						return true;
 					}
-					System.out.println(rs.getString("password")+" "+ password);
+					
 					return false;
 				}
 				System.out.println("User Does Not Exist!");
@@ -87,6 +87,42 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		   }
 		
 		return false;
+	}
+
+	@Override
+	public void updatePassword(int userId, String password,int role) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		
+		try {
+			if(role==1)
+			{
+				stmt = conn.prepareStatement(SQLConstants.UPDATE_PASSWORD_STUDENT);
+				
+			}
+			
+			else if(role==2)
+			{
+				stmt = conn.prepareStatement(SQLConstants.UPDATE_PASSWORD_PROFESSOR);
+				
+			}
+			
+			else if(role==3)
+			{
+				stmt = conn.prepareStatement(SQLConstants.UPDATE_PASSWORD_ADMIN);
+                   
+			}
+			
+			
+			stmt.setString(1, password);
+			stmt.setLong(2, userId);
+			stmt.executeUpdate();
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

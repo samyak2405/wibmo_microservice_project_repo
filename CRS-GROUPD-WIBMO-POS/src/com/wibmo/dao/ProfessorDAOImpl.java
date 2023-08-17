@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.wibmo.bean.CourseCatalog;
+import com.wibmo.bean.Professor;
 import com.wibmo.bean.Student;
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.utils.DButils;
@@ -160,4 +161,31 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 		return courses;
 
 }
+
+	@Override
+	public void registerProfessor(Professor professor) {
+PreparedStatement stmt = null;
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.INSERT_PROFESSOR);
+			
+			stmt.setLong(1, professor.getUserId());
+			stmt.setString(2,professor.getUserName());
+			stmt.setString(3,professor.getUserEmail());
+			stmt.setString(4,professor.getUserPassword());
+			stmt.setLong(5,professor.getUserPhonenumber());
+			
+			
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		// TODO Auto-generated method stub
+		
+	}
 }

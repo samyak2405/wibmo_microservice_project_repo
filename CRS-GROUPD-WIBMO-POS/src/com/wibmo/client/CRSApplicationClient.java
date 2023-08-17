@@ -127,18 +127,28 @@ public class CRSApplicationClient {
         		userId = scan.nextInt();
         		System.out.print("\nEnter Current Password: ");
         		password = scan.next();
-        		System.out.println("\nChange Password");
-        		while(true) {
-        			System.out.print("\nEnter New Password: ");
-            		String passwordOne = scan.next();
-            		System.out.print("\nEnter Password Again: ");
-            		String passwordAgain = scan.next();
-            		if(passwordOne.equals(passwordAgain))
-            			break;
-            		else
-            			System.out.println("Password does not match");
+        		
+        		AuthenticationOperation loggedin1=new AuthenticationOperationImpl();
+        		if(loggedin1.loggedin(userId, password,role)) {
+        			System.out.println("\nChange Password");
+        			while(true) {
+            			System.out.print("\nEnter New Password: ");
+                		String passwordOne = scan.next();
+                		System.out.print("\nEnter Password Again: ");
+                		String passwordAgain = scan.next();
+                		if(passwordOne.equals(passwordAgain))
+                		   {loggedin1.updatePassword(userId, passwordOne, role);
+                			break;
+                		   }
+                		else
+                			System.out.println("Password does not match");
+            		}
         		}
-        		break;
+        		else {
+        			System.out.println("invalid credentials");
+        		}
+        		
+        	break;
         	case 4: flag = true;
         		break;
         	}

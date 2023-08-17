@@ -2,6 +2,8 @@ package com.wibmo.business;
 
 import java.util.List;
 
+import com.wibmo.bean.User;
+
 public interface ProfessorOperation {
 	
 	
@@ -12,5 +14,7 @@ public interface ProfessorOperation {
   public void viewStudentList(long courseId);
   
   public  void viewCourseCatalog();
+
+  public void registerProfessor(User user);
   
 }

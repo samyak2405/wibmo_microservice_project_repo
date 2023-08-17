@@ -50,11 +50,9 @@ public class CRSAdminMenu {
 
         System.out.println("4. Assign courses to Professor");
 
-        System.out.println("5. Add Course");
 
-        System.out.println("6. Drop Course");
         
-        System.out.println("7. Exit");
+        System.out.println("5. Exit");
 
        boolean flag = false;
         
@@ -68,15 +66,15 @@ public class CRSAdminMenu {
         break;
 
        case 2:
-    	   adminOp.assignCoursesProf(opt, opt);
+    	   
         break;
 
        case 3:
-    	   adminOp.addCourse(opt);
+    	   
         break;
         
        case 4:
-    	   adminOp.dropCourse(opt);
+    	   adminOp.assignCoursesProf(opt, opt);
         break;
            
        case 5: flag = true;

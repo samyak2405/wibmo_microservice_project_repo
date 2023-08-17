@@ -6,7 +6,9 @@ package com.wibmo.business;
 import java.util.List;
 
 import com.wibmo.bean.CourseCatalog;
+import com.wibmo.bean.Professor;
 import com.wibmo.bean.Student;
+import com.wibmo.bean.User;
 import com.wibmo.dao.*;
 
 /**
@@ -67,6 +69,23 @@ System.out.println("List of Students Registered For this particular course: ");
 				,course.getProfessorName()
 				,course.getPrerequisites()
 				)));
+		
+	}
+
+
+
+
+	@Override
+	public void registerProfessor(User user) {
+		// TODO Auto-generated method stub
+		Professor professor = new Professor();
+		professor.setUserId(user.getUserId());
+		professor.setUserName(user.getUserName());
+		professor.setUserEmail(user.getUserEmail());
+		professor.setUserPhonenumber(user.getUserPhonenumber());
+		professor.setUserPassword(user.getUserPassword());
+		
+		professorDao.registerProfessor(professor);
 		
 	}
 
