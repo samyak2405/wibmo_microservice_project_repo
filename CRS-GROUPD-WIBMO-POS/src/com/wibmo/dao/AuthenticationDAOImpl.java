@@ -71,7 +71,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 					{
 						return true;
 					}
-					System.out.println(rs.getString("password")+" "+ password);
+//					System.out.println(rs.getString("password")+" "+ password);
 					return false;
 				}
 				System.out.println("User Does Not Exist!");

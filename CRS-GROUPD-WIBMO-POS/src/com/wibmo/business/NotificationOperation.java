@@ -7,7 +7,7 @@ package com.wibmo.business;
  * 
  */
 public interface NotificationOperation {
-	public String sendNotificationMessage(long studentId);
 	
-
+	public void getNotificationMessage(long studentId);
+	public void sendNotification(int notifid, int studentId);
 }

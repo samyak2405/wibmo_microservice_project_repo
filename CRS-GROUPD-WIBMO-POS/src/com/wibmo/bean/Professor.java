@@ -1,5 +1,6 @@
 package com.wibmo.bean;
 
-public class Professor extends User {
+public class Professor extends User 
+{
 
 }

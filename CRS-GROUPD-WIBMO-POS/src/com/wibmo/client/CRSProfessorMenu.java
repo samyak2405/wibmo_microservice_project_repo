@@ -17,6 +17,12 @@ public class CRSProfessorMenu {
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
 	
+	public CRSProfessorMenu()
+	{
+		
+	}
+	
+	
 	public CRSProfessorMenu(int userId)
 	{
 		this.userId=userId;
@@ -107,6 +113,10 @@ public class CRSProfessorMenu {
        if(flag)
     	   break;
       }
+		
+	}
+	public void professorRegistration() {
+		// TODO Auto-generated method stub
 		
 	}
 }

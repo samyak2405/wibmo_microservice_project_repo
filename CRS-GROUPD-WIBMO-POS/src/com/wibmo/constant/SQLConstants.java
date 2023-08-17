@@ -20,12 +20,17 @@ public class SQLConstants {
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentid) as distinct FROM crs.studentcoursemapping";
 		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.GradeCard";
 		
+		
+		
+		
+		
 		//Admin Queries
 		public static final String INSERT_ADMIN = "INSERT INTO crs.admin VALUES(?,?,?,?,?)";
 		public static final String SELECT_COURSEMAPPING = "SELECT courseid, coursecategory FROM crs.studentcoursemapping WHERE studentid=?";
 		public static final String INSERT_GRADECARD = "INSERT INTO crs.gradecard VALUES(?,?,?)";
 		public static final String DROP_COURSE =  "DELETE FROM crs.coursecatalog WHERE courseid=?";
-		
+		public static final String SEND_NOTIFICATION="INSERT INTO crs.notificationstudentmapping VALUES(?,?)";
+
 		
 		
 		/*
@@ -40,8 +45,12 @@ public class SQLConstants {
 		public static final String VERIFY_ADMIN=" SELECT adminId,password FROM crs.admin WHERE adminId=?";
 		public static final String REQUEST_COURSE="INSERT INTO crs.professorcoursemapping VALUES(?,?)";
 		
-		
-		
+	/**
+	 * Common for student And Professor
+	 */
+		public static final String GET_NOTIFICATION = "SELECT notificationMessage FROM crs.notification"
+                + " WHERE notificationId IN (SELECT notifId FROM crs.notificationstudentmapping WHERE studentId=?)";
+
 		
 		
 
