@@ -7,6 +7,7 @@ package com.wibmo.bean;
  * 
  */
 public class Notification {
+
 	public int getId() {
 		return id;
 	}
