@@ -81,16 +81,19 @@ public class CRSApplicationClient {
         		switch(role) {
         		case 1:
         			System.out.println("You are logged in successfully as a student");
-        			CRSStudentMenu studentMenu = new CRSStudentMenu(userId);
+        			CRSStudentMenu studentMenu = new CRSStudentMenu();
         			studentMenu.studentMenu();
         			break;
-        		case 2: //Professor
-        			System.out.println("You are logged in successfully as a professor");
-        			CRSProfessorMenu professorMenu = new CRSProfessorMenu();
+        		case 2:
+        			//Professor
+        			System.out.println("You are logged in successfully as a Professor");
+        			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userId);
         			professorMenu.professorMenu();
         			break;
-        		case 3: //Admin
-        			System.out.println("You are logged in successfully as an Admin");
+        			
+        		case 3: 
+        			System.out.println("You are logged in successfully as a Admin");
+
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
         			break;

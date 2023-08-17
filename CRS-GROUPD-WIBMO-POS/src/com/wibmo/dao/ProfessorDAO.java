@@ -6,13 +6,23 @@ package com.wibmo.dao;
 import java.util.List;
 
 import com.wibmo.bean.CourseCatalog;
+import com.wibmo.bean.Student;
 
 /**
  * 
  */
 public interface ProfessorDAO {
-	public void setGrades(long studentId,long courseId);
-	  public boolean requestCourseOffering(List<Long> courseIdList);
-	  public void viewStudentList(long courseId);
-	  public  List<CourseCatalog> viewCourseCatalog();
+	
+	/**
+	 * 
+	 * @param studentId
+	 * @param courseId
+	 * @param grade
+	 */
+	
+	public void setGrades(long studentId,long courseId,String grade);
+	public boolean requestCourseOffering(int professorId,List<Long> courseIdList);
+	public List<Student> viewStudentList(long courseId);
+	public  List<CourseCatalog> viewCourseCatalog();
+	
 }

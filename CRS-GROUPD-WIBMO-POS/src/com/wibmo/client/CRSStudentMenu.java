@@ -86,6 +86,12 @@ public class CRSStudentMenu {
  	   System.out.println("Course Added Successfully.");
 	}
 	
+	
+	
+	/**
+	 * 
+	 * @throws StudentAlreadyRegisteredException
+	 */
 	public void studentRegistration() throws StudentAlreadyRegisteredException {
 		
 		System.out.println("Enter the Details for Registration");
@@ -115,19 +121,20 @@ public class CRSStudentMenu {
 		studentOp.registerStudent(user);
 	}
 	
-	public void studentMenu() throws StudentNotFoundException, NoCourseAvailableException, DuplicateCourseEntryException {
+	public void studentMenu() throws DuplicateCourseEntryException, NoCourseAvailableException, StudentNotFoundException {
 		
+		System.out.print("\nChoose From below given list"
+				+"\n\n1.Register for course"
+				+"\n2.Add course"
+				+"\n3.Drop course"
+				+"\n4.view list of Registered Courses"
+				+"\n5.view ReportCard"
+				+"\n6.viewCourseCatalog"
+				+"7.exit\n");
+
        boolean flag = false;
         
        while(true) {
-    	   System.out.print(
-   				"\n1.Add course"
-   				+"\n2.Drop course"
-   				+"\n3.Register for course"
-   				+"\n4.view list of Registered Courses"
-   				+"\n5.view ReportCard"
-   				+"\n6.viewCourseCatalog"
-   				+"\n7.exit");
     	System.out.print("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {

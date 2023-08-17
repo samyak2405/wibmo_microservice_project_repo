@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.wibmo.bean.CourseCatalog;
+import com.wibmo.bean.Student;
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.utils.DButils;
 
@@ -47,22 +48,93 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 
 
 	@Override
-	public void setGrades(long studentId, long courseId) {
+	public void setGrades(long studentId, long courseId, String grade) {
 		// TODO Auto-generated method stub
+		PreparedStatement stmt=null;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SET_GRADES);
+			stmt.setString(3,grade);
+			stmt.setLong(1, studentId);
+			stmt.setLong(2,courseId);
+			stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
 	@Override
-	public boolean requestCourseOffering(List<Long> courseIdList) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean requestCourseOffering(int professorid,List<Long> courseIdList) {
+
+        // TODO Auto-generated method stub
+
+        PreparedStatement stmt = null;
+
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.REQUEST_COURSE);
+
+            for(Long courseId:courseIdList)
+            {
+                stmt.setLong(1,professorid);
+                stmt.setLong(2,courseId);
+                stmt.executeUpdate();
+
+            }
+
+        } catch (SQLException e) {
+
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+
+        }
+
+         return false;
+
+    }
+
+ 
 
 	@Override
-	public void viewStudentList(long courseId) {
-		// TODO Auto-generated method stub
-		
-	}
+	public List<Student> viewStudentList(long courseId) {
+
+        // TODO Auto-generated method stub
+
+        PreparedStatement stmt = null;
+
+        List<Student> students = new ArrayList<>();
+
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.STUDENT_LIST);
+
+            stmt.setLong(1,courseId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+              Student student=new Student();
+
+                student.setUserId(rs.getInt("studentid"));
+
+                student.setUserName(rs.getString("studentname"));
+
+                student.setUserEmail(rs.getString("studentemail"));
+
+                student.setUserPhonenumber(rs.getLong("phonenumber"));
+
+                students.add(student);
+            }
+     } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return students;
+
+    }
 
 	public List<CourseCatalog> viewCourseCatalog() {
 		PreparedStatement stmt = null;

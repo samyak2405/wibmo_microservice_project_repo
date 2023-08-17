@@ -6,6 +6,7 @@ package com.wibmo.business;
 import java.util.List;
 
 import com.wibmo.bean.CourseCatalog;
+import com.wibmo.bean.Student;
 import com.wibmo.dao.*;
 
 /**
@@ -17,22 +18,43 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	
 	
 	@Override
-	public void setGrades(long studentId, long courseId) {
-		// TODO Auto-generated method stub
+	public void setGrades(long studentId, long courseId,String grade) {
 		
+		professorDao.setGrades(studentId, courseId, grade);
 	}
+	
+	
+	
 
 	@Override
-	public boolean requestCourseOffering(List<Long> courseIdList) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean requestCourseOffering(int professorid,List<Long> courseIdList) {
+
+        // TODO Auto-generated method stub
+
+        professorDao.requestCourseOffering(professorid,courseIdList);
+
+        return false;
+
+    }
 
 	@Override
 	public void viewStudentList(long courseId) {
-		// TODO Auto-generated method stub
-		
-	}
+
+        List<Student>students=professorDao.viewStudentList(courseId);    
+
+System.out.println("List of Students Registered For this particular course: ");
+       students.forEach(course->System.out.println(String.format("%20s %20s %20s %20s\n"
+
+                , course.getUserId()
+
+                ,course.getUserName()
+
+                ,course.getUserEmail()
+
+                ,course.getUserPhonenumber()
+
+                )));
+    }
 
 	@Override
 	public void viewCourseCatalog() {

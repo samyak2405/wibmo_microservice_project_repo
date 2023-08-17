@@ -40,14 +40,31 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		
 		
 		PreparedStatement stmt = null;
+		String roleId=null;
 		
 		try {
+			if(role==1)
+			{
+				stmt = conn.prepareStatement(SQLConstants.VERIFY_STUDENT);
+				roleId="studentid";
+			}
 			
-			stmt = conn.prepareStatement(SQLConstants.VERIFY_STUDENT);
+			else if(role==2)
+			{
+				stmt = conn.prepareStatement(SQLConstants.VERIFY_PROFESSOR);
+				roleId="professorid";
+			}
+			
+			else if(role==3)
+			{
+				stmt = conn.prepareStatement(SQLConstants.VERIFY_ADMIN);
+				roleId="adminId";
+			}
+			
 			stmt.setInt(1, userid);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				if(userid==rs.getInt("studentid"))
+				if(userid==rs.getInt(roleId))
 				{
 					
 					if(password.equalsIgnoreCase(rs.getString("password")))
