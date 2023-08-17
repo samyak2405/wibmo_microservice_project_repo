@@ -111,7 +111,7 @@ public class CRSApplicationClient {
         		else if(role==2)
         		{
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu();
-	    			professorMenu.professorRegistration();
+//	    			professorMenu.professorRegistration();
         		}
         		else if(role==3)
         		{

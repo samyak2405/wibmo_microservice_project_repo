@@ -17,4 +17,7 @@ public interface AdminDAO {
 	 public void addAdmin(Admin admin);
 	 public void assignCoursesProf(int professorId,int courseId);
 	public void setGradeCard(int studentId, int courseId);
+	public List<Integer> getProfCourseData(int courseId);
+	public List<Integer> getListOfCourses();
+	public void setProfCourse(int professorid, int courseid);
 }

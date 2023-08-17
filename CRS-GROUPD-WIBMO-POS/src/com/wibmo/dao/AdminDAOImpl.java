@@ -121,5 +121,79 @@ public class AdminDAOImpl implements AdminDAO {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public List<Integer> getProfCourseData(int courseId)
+	{
+		PreparedStatement stmt = null;
+		List<Integer> courseProfData= new ArrayList<>();
+ 		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.PROFESSOR_COURSE_DATA);
+			
+			stmt.setLong(1, courseId);
+			
+			ResultSet rs=stmt.executeQuery();
+			
+			while(rs.next())
+			{
+				courseProfData.add(rs.getInt("professorid"));
+			}
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		return courseProfData;
+	}
+	
+	public List<Integer> getListOfCourses()
+	{
+		PreparedStatement stmt = null;
+		List<Integer> listOfCourses= new ArrayList<>();
+ 		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.LIST_COURSES);
+			
+			ResultSet rs=stmt.executeQuery();
+			
+			while(rs.next())
+			{
+				listOfCourses.add(rs.getInt("courseId"));
+			}
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		return listOfCourses;
+	}
+	public void setProfCourse(int professorid, int courseid)
+	{
+		PreparedStatement stmt = null;
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.PROF_COURSE_ASSIGNMENT);
+			
+			stmt.setInt(1,professorid);
+			stmt.setInt(2,courseid);
+			stmt.executeUpdate();
 
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+	}
 }
