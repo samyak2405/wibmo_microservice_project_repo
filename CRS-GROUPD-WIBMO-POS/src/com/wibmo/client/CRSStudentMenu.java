@@ -17,6 +17,7 @@ import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
+import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 
 /**
@@ -93,7 +94,7 @@ public class CRSStudentMenu {
 	 * 
 	 * @throws StudentAlreadyRegisteredException
 	 */
-	public void studentRegistration() throws StudentAlreadyRegisteredException {
+	public void studentRegistration() throws StudentAlreadyRegisteredException  {
 		
 		System.out.println("Enter the Details for Registration");
 		User user = new User();
@@ -119,12 +120,15 @@ public class CRSStudentMenu {
 		
 		System.out.print("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());
-		studentOp.registerStudent(user);
+		try {
+		studentOp.registerStudent(user);}
+		catch(StudentAlreadyRegisteredException e) {
+			System.out.println("student with id "+e.getStudentId()+"is already registered");
+		}
 	}
 	
 	
 	public void studentMenu() throws DuplicateCourseEntryException, CourseNotFoundException, UserNotFoundException {
-
 
        boolean flag = false;
         
@@ -158,7 +162,8 @@ public class CRSStudentMenu {
     	   int courseId = scan.nextInt();
     	   System.out.println("Enter your id");
     	   int studentId = scan.nextInt();
-    	   int coursePref = studentOp.dropCourses(studentId,courseId); 
+    	   try {
+    	   int coursePref = studentOp.dropCourses(studentId,courseId);    	  
     	   if(coursePref==0)
     		   compulsory++;
     	   if(coursePref==1)
@@ -166,17 +171,31 @@ public class CRSStudentMenu {
     	   System.out.println("Select Course Ids from below given Course Catalog");
      	   System.out.print("You have to select "+compulsory+" complusory and "+alternative+" Alternative");
      	   System.out.println("\nFor complusory enter 0 and for alternative enter 1");
-    	   addCourses();
+    	   addCourses(); }
+    	   catch(UserNotFoundException e) {
+    		   System.out.println("User with id "+e.getUserId()+" is not found");
+    	   } catch(CourseNotFoundException e) {
+    		   System.out.println("Course with id "+e.getCourseId()+" is not found");
+    	   }
+
         break;
 
        case 4:
-    	   studentOp.listCourse();       
+    	   try {
+    	   studentOp.listCourse(userId);}
+    	   catch(UserNotApprovedException e) {
+    		   System.out.println("User with id "+e.getUserId()+" is not approved by admin");
+    	   }
         break;
 
        case 5:
-    	   System.out.print("Enter your Id: ");
-    	   int studId = scan.nextInt();
-    	   studentOp.viewReportCard(studId);       
+//    	   System.out.print("Enter your Id: ");
+//    	   int studId = scan.nextInt();
+    	   try {
+    	   studentOp.viewReportCard(userId); }      
+    	   catch(UserNotApprovedException e) {
+    		   System.out.println("Use with id "+e.getUserId()+" is not approved by admin");
+    	   }
         break;
 
        case 6:
@@ -186,8 +205,12 @@ public class CRSStudentMenu {
        case 7:
     	   
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
-    	   payment.payfee(userId);
     	   
+    	   if(studentOp.isApproved(userId)) {
+    	   payment.payfee();}
+    	   else {
+    		   System.out.println("Student courses are not approved by admin");
+    	   }
 		break;
        case 8:
     	   notificationOp.getNotificationMessage(userId);

@@ -58,6 +58,9 @@ public interface StudentDAO {
 	 * @return
 	 */
 	public List<GradeCard> viewReportCard(int studentId);
+
 	
+
+	public boolean isApproved(int userId);
 	public boolean searchStudent(long userId);
 }

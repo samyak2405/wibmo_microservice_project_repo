@@ -10,6 +10,7 @@ public class GradeCard {
 	private int studentId;
 	private int courseId;
 	private String grade;
+
 	/**
 	 * @return the studentId
 	 */

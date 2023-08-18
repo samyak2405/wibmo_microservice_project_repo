@@ -303,10 +303,8 @@ public class StudentDAOImpl implements StudentDAO {
 			stmt.executeUpdate();
 		}catch(SQLException se){
 		      //Handle errors for JDBC
+			
 		      se.printStackTrace();
-		   }catch(Exception e){
-		      //Handle errors for Class.forName
-		      e.printStackTrace();
 		   }
 	}
 
@@ -341,6 +339,51 @@ public class StudentDAOImpl implements StudentDAO {
 		   }
 //		System.out.println(grades.size());
 		return grades;
+	}
+
+	@Override
+	public boolean isApproved(int userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.IS_APPROVED);
+			ResultSet rs=stmt.executeQuery();
+			while(rs.next()) {
+				
+				if(rs.getInt("studentId")==userId) {
+					return true;
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("userId");
+		return false;
+	}
+
+	@Override
+	public boolean searchStudent(long userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SEARCH_STUDENT);
+			stmt.setLong(1,userId);
+			
+			ResultSet rs=stmt.executeQuery();
+			if(rs.next()) {
+				
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
 	}
 
 }

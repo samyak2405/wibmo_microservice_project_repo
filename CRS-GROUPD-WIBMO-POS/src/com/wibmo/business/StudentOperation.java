@@ -39,7 +39,7 @@ public interface StudentOperation {
 	/**
 	 * To view list of already registered courses
 	 */
-	public void listCourse();
+	public void listCourse(int studentId) throws UserNotApprovedException;
 	
 	/**
 	 * To view the list of offered courses
@@ -60,9 +60,9 @@ public interface StudentOperation {
 	 * @param studId
 	 * @throws UserNotFoundException
 	 */
-	public void viewReportCard(int studId)throws UserNotFoundException;
-	
-	
+	public void viewReportCard(int studId) throws UserNotApprovedException;
+
+	public boolean isApproved(int userId) ;
 	
 }
 		

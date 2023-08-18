@@ -60,7 +60,7 @@ public class CRSApplicationClient {
         			+"\n4. Exit");
         	System.out.print("\nEnter your choice: ");
         	int choice = scan.nextInt();
-        	System.out.print("Enter your Role "
+        	System.out.print("\nEnter your Role "
     				+"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
@@ -80,8 +80,8 @@ public class CRSApplicationClient {
         			
         		switch(role) {
         		case 1:
-        			System.out.println("You are logged in successfully as a student");
-        			CRSStudentMenu studentMenu = new CRSStudentMenu();
+        			System.out.println("\nYou are logged in successfully as a student");
+        			CRSStudentMenu studentMenu = new CRSStudentMenu(userId);
         			studentMenu.studentMenu();
         			break;
         		case 2:
@@ -90,16 +90,16 @@ public class CRSApplicationClient {
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userId);
         			professorMenu.professorMenu();
         			break;
-        			
         		case 3: 
         			System.out.println("You are logged in successfully as a Admin");
 
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
         			break;
-        		}}
+        		}
+        		}
         		else {
-        			System.out.println("invalid credentials");
+        			System.out.println("\ninvalid credentials");
         		}
         		break;
         	case 2:
@@ -146,6 +146,7 @@ public class CRSApplicationClient {
         		}
         		else {
         			System.out.println("invalid credentials");
+        			
         		}
         		
         	break;
