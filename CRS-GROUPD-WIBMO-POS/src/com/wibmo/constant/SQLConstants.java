@@ -73,10 +73,7 @@ public class SQLConstants {
 
 	    public static final String SEARCH_COURSE = "SELECT * FROM coursecatalog WHERE courseId=?";
 	public static final String IS_APPROVED = "SELECT * FROM gradecard";
-	public static final String SEARCH_STUDENT = "SELECT * FROM student WHERE studentid=?";
-	public static final String SEARCH_PROFESSOR = "SELECT * FROM professor WHERE professorid=? ";
-	public static final String SEARCH_ADMIN = "SELECT * FROM admin WHERE adminId=?";
-	public static final String SEARCH_COURSE = "SELECT * FROM coursecatalog WHERE courseId=?";
+
 		
 		
 

@@ -7,7 +7,7 @@ package com.wibmo.exception;
  * 
  */
 public class UserAlreadyExistsException extends Exception {
-int userId;
+long userId;
 	
 	
 	public UserAlreadyExistsException () {

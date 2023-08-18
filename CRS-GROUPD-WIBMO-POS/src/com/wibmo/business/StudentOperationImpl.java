@@ -25,7 +25,7 @@ import com.wibmo.exception.UserNotFoundException;
 public class StudentOperationImpl implements StudentOperation{
 	
 	StudentDAO studentDao = StudentDAOImpl.getInstance();
-	CourseDAO course=new CourseDAOImpl();
+	CourseDAO course=CourseDAOImpl.getInstance();
 	
 	public static StudentOperationImpl studentOp = new StudentOperationImpl();
 	

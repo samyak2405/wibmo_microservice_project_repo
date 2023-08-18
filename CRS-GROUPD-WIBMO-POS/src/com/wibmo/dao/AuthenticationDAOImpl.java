@@ -4,10 +4,7 @@
 package com.wibmo.dao;
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 796f5018b8ac57d29be9fd61a2cb220f3d442c67
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

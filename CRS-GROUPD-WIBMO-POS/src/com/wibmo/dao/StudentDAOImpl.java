@@ -44,27 +44,7 @@ public class StudentDAOImpl implements StudentDAO {
 	
 	Connection conn = DButils.getConnection();
 	
-	
-	public boolean searchStudent(long userId) {
 
-        PreparedStatement stmt = null;
-        try {
-
-            stmt = conn.prepareStatement(SQLConstants.SEARCH_STUDENT);
-
-            stmt.setLong(1,userId);
-            ResultSet rs=stmt.executeQuery();
-
-            if(rs.next()) {
-               return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-
-        return false;
-    }
 	
 	public int getCourseCount(int courseid) {
 		PreparedStatement stmt = null;

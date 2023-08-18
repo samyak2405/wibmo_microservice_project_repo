@@ -224,6 +224,7 @@ public class AdminDAOImpl implements AdminDAO {
         }
 
 		return false;
+	}
 	public void setApprovedStudents() {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt = null;

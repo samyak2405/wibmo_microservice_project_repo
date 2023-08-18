@@ -207,7 +207,7 @@ public class CRSStudentMenu {
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
     	   
     	   if(studentOp.isApproved(userId)) {
-    	   payment.payfee();}
+    	   payment.payfee(userId);}
     	   else {
     		   System.out.println("Student courses are not approved by admin");
     	   }
