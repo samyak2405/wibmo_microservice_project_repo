@@ -43,7 +43,13 @@ public class CRSAdminMenu {
 	}
 	
 	public void adminMenu() {
-		System.out.println("1. Approve Student Registration");
+		
+
+       boolean flag = false;
+        
+       while(true) {
+    	
+    	System.out.println("1. Approve Student Registration");
 		
 		System.out.println("2. Approve Student's Course Registration");
 
@@ -52,11 +58,7 @@ public class CRSAdminMenu {
         System.out.println("4. Assign courses to Professor");
         
         System.out.println("5. Exit");
-
-       boolean flag = false;
-        
-       while(true) {
-    	System.out.print("Enter your Choice: ");
+        System.out.print("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {
 

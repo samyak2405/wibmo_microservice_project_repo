@@ -24,4 +24,5 @@ public interface AdminDAO {
 	public void setApprovedStudents();
 	public List<Integer> pendingRegistration();
 	public void setApprovedStudentById(int studentId);
+	
 }

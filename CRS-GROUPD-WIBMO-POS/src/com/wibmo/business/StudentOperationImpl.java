@@ -5,6 +5,7 @@ package com.wibmo.business;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.wibmo.bean.CourseCatalog;
@@ -85,9 +86,16 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			throw new UserNotApprovedException(studentId);
 		}
-		List<String> courses = studentDao.listCourse();
+		Map<Integer,String> courses = studentDao.listCourse(studentId);
+		if(courses.size()==0)
+		{
+			System.out.println("Course Registration pending");
+			return;
+		}
 		System.out.println("List of Courses Approved");
-		courses.forEach((course)->System.out.println(String.format("%20s\n",course)));
+		for(Map.Entry<Integer, String> entry: courses.entrySet()) {
+			System.out.println(String.format("%20s %20s\n", entry.getKey(),entry.getValue()));
+		}
 	}
 
 	@Override

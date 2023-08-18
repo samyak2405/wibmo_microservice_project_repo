@@ -194,7 +194,7 @@ public class CRSStudentMenu {
     	   try {
     	   studentOp.viewReportCard(userId); }      
     	   catch(UserNotApprovedException e) {
-    		   System.out.println("Use with id "+e.getUserId()+" is not approved by admin");
+    		   System.out.println("Courses of student with id "+e.getUserId()+" is not approved by admin");
     	   }
         break;
 

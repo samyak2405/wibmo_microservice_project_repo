@@ -71,13 +71,18 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 				if(userid==rs.getInt(roleId) && password.equalsIgnoreCase(rs.getString("password")))
 				{
 					
-					if(rs.getInt("isapproved")==1)
-						return true;
-					else
-					{
-						logger.debug("Pending Approval from Admin");
-						return false;
+					if(role==1) {
+						if(rs.getInt("isapproved")==1) {
+							return true;
+						}
+						else {
+							logger.debug("Pending Approval from Admin");
+							return false;
+						}
+							
 					}
+					else
+						return true;
 						
 				}
 				else

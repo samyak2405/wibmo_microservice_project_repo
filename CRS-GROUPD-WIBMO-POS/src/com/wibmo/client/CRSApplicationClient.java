@@ -60,11 +60,13 @@ public class CRSApplicationClient {
         			+"\n4. Exit");
         	System.out.print("\nEnter your choice: ");
         	int choice = scan.nextInt();
+        	
         	System.out.print("\nEnter your Role "
     				+"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
     		role = scan.nextInt();
+    		
         	boolean flag = false;
         	switch(choice) {
         	case 1:
@@ -77,7 +79,6 @@ public class CRSApplicationClient {
         		AuthenticationOperation loggedin=new AuthenticationOperationImpl();
         		
         		if(loggedin.loggedin(userId, password,role)) {
-        			
         		switch(role) {
         		case 1:
         			System.out.println("\nYou are logged in successfully as a student");
@@ -111,7 +112,7 @@ public class CRSApplicationClient {
         		else if(role==2)
         		{
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu();
-//	    			professorMenu.professorRegistration();
+	    			professorMenu.professorRegistration();
         		}
         		else if(role==3)
         		{
