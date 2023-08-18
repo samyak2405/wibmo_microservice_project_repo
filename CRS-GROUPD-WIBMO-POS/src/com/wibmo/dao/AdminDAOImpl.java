@@ -224,5 +224,67 @@ public class AdminDAOImpl implements AdminDAO {
         }
 
 		return false;
+	public void setApprovedStudents() {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.APPROVE_STUDENT);
+			stmt.executeUpdate();
+
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+	}
+	
+	public List<Integer> pendingRegistration() {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		List<Integer> result = new ArrayList<>();
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.PENDING_REGISTRATION);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				result.add(rs.getInt("studentid"));
+			}
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		return result;
+	}
+
+	@Override
+	public void setApprovedStudentById(int studentId) {
+		// TODO Auto-generated method stub
+PreparedStatement stmt = null;
+		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.APPROVE_STUDENT_BY_ID);
+			stmt.setInt(1, studentId);
+			stmt.executeUpdate();
+
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		
 	}
 }

@@ -18,13 +18,6 @@ public class CRSProfessorMenu {
 	int userId;
 	
 	
-	
-	public CRSProfessorMenu()
-	{
-		
-	}
-	
-	
 	public CRSProfessorMenu(int userId)
 	{
 		this.userId=userId;

@@ -13,6 +13,7 @@ public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
 	Scanner scan = new Scanner(System.in);
 	
+	
 	public void adminRegistration() {
 		System.out.println("Enter the Details for Registration");
    		Admin user = new Admin();
@@ -42,13 +43,15 @@ public class CRSAdminMenu {
 	}
 	
 	public void adminMenu() {
-		System.out.println("1. Approve Course Requests from students");
+		System.out.println("1. Approve Student Registration");
+		
+		System.out.println("2. Approve Student's Course Registration");
 
-        System.out.println("2. Register and Approve an Admin");
+        System.out.println("3. Register and Approve an Admin");
 
-        System.out.println("3. Assign courses to Professor");
+        System.out.println("4. Assign courses to Professor");
         
-        System.out.println("4. Exit");
+        System.out.println("5. Exit");
 
        boolean flag = false;
         
@@ -58,15 +61,29 @@ public class CRSAdminMenu {
        switch(opt) {
 
        case 1:
-    	  adminOp.approveStudent();
+    	   System.out.println("a. Approve all students at once"
+    			   +"\nb. Approve Student by Id");
+    	   System.out.print("\nEnter your Choice: ");
+    	   char choice = scan.next().charAt(0);
+    	   switch(choice) {
+    	   case 'a':
+    	    	  adminOp.approveStudent();
+    		   break;
+    	   case 'b':
+    		   adminOp.approveStudentById();
+    		   break;
+    	   }
         break;
        case 2:
-    	   adminRegistration();
+    	   adminOp.approveCourseRegistration();
     	   break;
        case 3:
+    	   adminRegistration();
+    	   break;
+       case 4:
     	   adminOp.assignCoursesProf();
         break;
-       case 4: flag = true;
+       case 5: flag = true;
        break;
        }
        if(flag)

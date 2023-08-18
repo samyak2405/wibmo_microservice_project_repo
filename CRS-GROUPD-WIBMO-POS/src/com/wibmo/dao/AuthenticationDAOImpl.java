@@ -4,7 +4,10 @@
 package com.wibmo.dao;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 796f5018b8ac57d29be9fd61a2cb220f3d442c67
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +30,9 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	//2.DEBUG-->replace sysout debug statements(logger.debug)
 	//3.ERROR-->catch handled exceptions(logger.error)
 
+	//Plug logger in AuthenticationDAOImpl
+	private static Logger logger = Logger.getLogger(AuthenticationDAOImpl.class);
+	
 	public static volatile AuthenticationDAOImpl instance = null;
 	
 	private AuthenticationDAOImpl() {
@@ -74,26 +80,29 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 			stmt.setInt(1, userid);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				if(userid==rs.getInt(roleId))
+				if(userid==rs.getInt(roleId) && password.equalsIgnoreCase(rs.getString("password")))
 				{
 					
-					if(password.equalsIgnoreCase(rs.getString("password")))
-					{
+					if(rs.getInt("isapproved")==1)
 						return true;
+					else
+					{
+						logger.debug("Pending Approval from Admin");
+						return false;
 					}
-					
-					return false;
+						
 				}
-				System.out.println("User Does Not Exist!");
+				else
+					logger.debug("Invalid Credentials");
 				return false;
 			}
 	        
 		}catch(SQLException se){
 		      //Handle errors for JDBC
-		      se.printStackTrace();
+		      logger.error("SQL Exception: "+se.getMessage());
 		   }catch(Exception e){
 		      //Handle errors for Class.forName
-		      e.printStackTrace();
+			   logger.error("Unknown Exception");
 		   }
 		
 		return false;

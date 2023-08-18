@@ -15,7 +15,7 @@ public class SQLConstants {
 		public static final String COURSE_CATALOG = "SELECT * FROM crs.coursecatalog";
 		public static final String COURSE_PREFERENCE = "SELECT coursecategory FROM crs.studentcoursemapping WHERE studentid=? && courseid=?";
 		public static final String SELECT_COURSEID = "SELECT courseid FROM crs.studentcoursemapping WHERE studentid=?";
-		public static final String VERIFY_STUDENT=" SELECT studentid,password FROM crs.student WHERE studentid=?";
+		public static final String VERIFY_STUDENT=" SELECT studentid,password,isapproved FROM crs.student WHERE studentid=?";
 		public static final String UPDATE_REGISTER=" UPDATE crs.studentcoursemapping SET isRegister=1 WHERE studentid=?";
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentid) as distinct FROM crs.studentcoursemapping";
 		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.GradeCard";
@@ -27,8 +27,9 @@ public class SQLConstants {
 		public static final String DROP_COURSE =  "DELETE FROM crs.coursecatalog WHERE courseid=?";
 		public static final String UPDATE_PASSWORD_ADMIN="UPDATE crs.admin SET password=? WHERE adminId=?";
 		public static final String SEND_NOTIFICATION="INSERT INTO crs.notificationstudentmapping VALUES(?,?)";
-
-		
+		public static final String APPROVE_STUDENT = "UPDATE crs.student SET isapproved=1";
+		public static final String APPROVE_STUDENT_BY_ID = "UPDATE crs.student SET isapproved=1 WHERE studentid=?";
+		public static final String PENDING_REGISTRATION = "SELECT studentid FROM student where isapproved=0";
 		
 		public static final String PROFESSOR_COURSE_DATA = "SELECT professorid FROM crs.professorcoursemapping WHERE courseid=?";
 		public static final String LIST_COURSES = "SELECT courseId from crs.coursecatalog";
@@ -38,12 +39,12 @@ public class SQLConstants {
 		 */
 		public static final String INSERT_PROFESSOR ="INSERT INTO crs.professor VALUES(?,?,?,?,?)" ;
 		public static final String SET_GRADES = "UPDATE crs.gradecard SET grade=? WHERE studentId=? && courseId=?";
-		public static final String VERIFY_PROFESSOR=" SELECT professorid,password FROM crs.professor WHERE professorid=?";
+		public static final String VERIFY_PROFESSOR=" SELECT professorid,password,isapproved FROM crs.professor WHERE professorid=?";
 		public static final String STUDENT_LIST = "SELECT studentid,studentname, studentemail,phonenumber FROM crs.student"
                 + " WHERE studentid IN (SELECT studentid FROM crs.studentcoursemapping WHERE courseid=?)";
 
 		
-		public static final String VERIFY_ADMIN=" SELECT adminId,password FROM crs.admin WHERE adminId=?";
+		public static final String VERIFY_ADMIN=" SELECT adminId,password,isapproved FROM crs.admin WHERE adminId=?";
 		public static final String REQUEST_COURSE="INSERT INTO crs.professorcoursemapping VALUES(?,?)";
 		
 		public static final String UPDATE_PASSWORD_PROFESSOR ="UPDATE crs.professor SET password=? WHERE professorid=?";

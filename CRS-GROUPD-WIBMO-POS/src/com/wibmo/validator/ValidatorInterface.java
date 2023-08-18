@@ -6,6 +6,6 @@ package com.wibmo.validator;
 /**
  * 
  */
-public class ValidatorInterface {
-
+public interface ValidatorInterface {
+	public boolean emailValidator(String email);
 }
