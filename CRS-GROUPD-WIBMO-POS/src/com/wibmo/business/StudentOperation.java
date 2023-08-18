@@ -30,16 +30,16 @@ public interface StudentOperation {
 	 * @param studentId
 	 * @param courseId
 	 * @return
-	 * @throws NoCourseAvailableException
-	 * @throws StudentNotFoundException
+	 * @throws CourseNotFoundException
+	 * @throws UserNotFoundException
 	 */
-	public int dropCourses(long studentId, int courseId) throws NoCourseAvailableException,StudentNotFoundException;
+	public int dropCourses(long studentId, int courseId) throws CourseNotFoundException,UserNotFoundException;
 	
 	
 	/**
 	 * To view list of already registered courses
 	 */
-	public void listCourse();
+	public void listCourse(int studentId) throws UserNotApprovedException;
 	
 	/**
 	 * To view the list of offered courses
@@ -58,9 +58,11 @@ public interface StudentOperation {
 	/**
 	 * To view the Grade card of all the courses of a student.
 	 * @param studId
-	 * @throws StudentNotFoundException
+	 * @throws UserNotFoundException
 	 */
-	public void viewReportCard(int studId)throws StudentNotFoundException;
+	public void viewReportCard(int studId) throws UserNotApprovedException;
+
+	public boolean isApproved(int userId) ;
 	
 }
 		

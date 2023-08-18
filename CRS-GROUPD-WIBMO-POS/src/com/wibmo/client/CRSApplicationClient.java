@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
-import com.wibmo.exception.NoCourseAvailableException;
+import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
-import com.wibmo.exception.StudentNotFoundException;
+import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.bean.User;
 
 /**
@@ -25,11 +25,11 @@ public class CRSApplicationClient {
 	/**
 	 * @param args
 	 * @throws DuplicateCourseEntryException 
-	 * @throws NoCourseAvailableException 
-	 * @throws StudentNotFoundException 
+	 * @throws CourseNotFoundException 
+	 * @throws UserNotFoundException 
 	 * @throws StudentAlreadyRegisteredException 
 	 */
-	public static void main(String[] args) throws StudentNotFoundException, NoCourseAvailableException, DuplicateCourseEntryException, StudentAlreadyRegisteredException {
+	public static void main(String[] args) throws UserNotFoundException, CourseNotFoundException, DuplicateCourseEntryException, StudentAlreadyRegisteredException {
 		// TODO Auto-generated method stub
 		LocalDate localDate = LocalDate.now();
 
@@ -60,7 +60,7 @@ public class CRSApplicationClient {
         			+"\n4. Exit");
         	System.out.print("\nEnter your choice: ");
         	int choice = scan.nextInt();
-        	System.out.print("Enter your Role "
+        	System.out.print("\nEnter your Role "
     				+"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
@@ -80,8 +80,8 @@ public class CRSApplicationClient {
         			
         		switch(role) {
         		case 1:
-        			System.out.println("You are logged in successfully as a student");
-        			CRSStudentMenu studentMenu = new CRSStudentMenu();
+        			System.out.println("\nYou are logged in successfully as a student");
+        			CRSStudentMenu studentMenu = new CRSStudentMenu(userId);
         			studentMenu.studentMenu();
         			break;
         		case 2:
@@ -90,7 +90,6 @@ public class CRSApplicationClient {
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userId);
         			professorMenu.professorMenu();
         			break;
-        			
         		case 3: 
         			System.out.println("You are logged in successfully as a Admin");
 
@@ -99,7 +98,7 @@ public class CRSApplicationClient {
         			break;
         		}}
         		else {
-        			System.out.println("invalid credentials");
+        			System.out.println("\ninvalid credentials");
         		}
         		break;
         	case 2:
@@ -146,6 +145,7 @@ public class CRSApplicationClient {
         		}
         		else {
         			System.out.println("invalid credentials");
+        			
         		}
         		
         	break;

@@ -196,4 +196,33 @@ public class AdminDAOImpl implements AdminDAO {
 		      e.printStackTrace();
 		   }
 	}
+
+	@Override
+	public boolean searchAdmin(int userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.SEARCH_ADMIN);
+
+            ResultSet rs=stmt.executeQuery();
+            stmt.setLong(1,userId);
+            if(rs.next()) {
+                if(rs.getInt("adminId")==userId) {
+
+                    return true;}
+
+            }
+
+        } catch (SQLException e) {
+
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+
+        }
+
+		return false;
+	}
 }

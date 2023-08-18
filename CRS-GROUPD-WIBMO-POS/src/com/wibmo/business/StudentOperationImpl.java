@@ -14,9 +14,10 @@ import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.dao.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
-import com.wibmo.exception.NoCourseAvailableException;
+import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
-import com.wibmo.exception.StudentNotFoundException;
+import com.wibmo.exception.UserNotApprovedException;
+import com.wibmo.exception.UserNotFoundException;
 
 /**
  * 
@@ -24,6 +25,7 @@ import com.wibmo.exception.StudentNotFoundException;
 public class StudentOperationImpl implements StudentOperation{
 	
 	StudentDAO studentDao = StudentDAOImpl.getInstance();
+	CourseDAO course=new CourseDAOImpl();
 	
 	public static StudentOperationImpl studentOp = new StudentOperationImpl();
 	
@@ -38,15 +40,24 @@ public class StudentOperationImpl implements StudentOperation{
 	public void addCourses(StudentCourseMap studCoMap) throws DuplicateCourseEntryException {
 		
 		// TODO Auto-generated method stub
+		
 		studentDao.addCourses(studCoMap);
 	}
 
 
 	
 	@Override
-	public int dropCourses(long studentId,int courseId) throws NoCourseAvailableException,StudentNotFoundException {
+	public int dropCourses(long studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
 		Set<Integer> courses = new HashSet<>();
+		if(studentDao.searchStudent(studentId)==false)
+		{
+			throw new UserNotFoundException(studentId);
+		}
+		if(course.searchCourse(courseId)==false)
+		{
+			throw new CourseNotFoundException(studentId);
+		}
 		
 		int coursePref = studentDao.dropCourses(studentId,courseId,courses);
 		
@@ -68,8 +79,12 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	public void listCourse() {
+	public void listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
+		if(studentDao.isApproved(studentId)==false)
+		{
+			throw new UserNotApprovedException(studentId);
+		}
 		List<String> courses = studentDao.listCourse();
 		System.out.println("List of Courses Approved");
 		courses.forEach((course)->System.out.println(String.format("%20s\n",course)));
@@ -95,19 +110,26 @@ public class StudentOperationImpl implements StudentOperation{
 		// TODO Auto-generated method stub
 		Student student = new Student();
 		student.setUserId(user.getUserId());
+		if(studentDao.searchStudent(user.getUserId())==true)
+		{
+			throw new StudentAlreadyRegisteredException(user.getUserId());
+		}
 		student.setUserName(user.getUserName());
 		student.setUserEmail(user.getUserEmail());
 		student.setUserPhonenumber(user.getUserPhonenumber());
 		student.setUserPassword(user.getUserPassword());
-		
 		studentDao.registerStudent(student);
 //		System.out.println(user.getUserPassword()+" "+user.getUserPassword().getClass().getName());
 	}
 
 
 	@Override
-	public void viewReportCard(int studentId) {
+	public void viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
+		if(studentDao.isApproved(studentId)==false)
+		{
+			throw new UserNotApprovedException(studentId);
+		}
 		List<GradeCard> grades = studentDao.viewReportCard(studentId);
 		System.out.println(grades.size());
 		System.out.println("Your Grades");
@@ -115,6 +137,13 @@ public class StudentOperationImpl implements StudentOperation{
 		grades.forEach(grade->System.out.println(String.format("%20s %20s\n"
 				, grade.getCourseId(),
 				grade.getGrade())));
+	}
+
+	@Override
+	public boolean isApproved(int userId) {
+		// TODO Auto-generated method stub
+		boolean flag=studentDao.isApproved(userId);
+		return flag;
 	}
 
 }

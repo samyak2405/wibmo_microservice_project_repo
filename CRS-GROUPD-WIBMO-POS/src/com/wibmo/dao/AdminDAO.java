@@ -20,4 +20,5 @@ public interface AdminDAO {
 	public List<Integer> getProfCourseData(int courseId);
 	public List<Integer> getListOfCourses();
 	public void setProfCourse(int professorid, int courseid);
+	public boolean searchAdmin(int userId);
 }

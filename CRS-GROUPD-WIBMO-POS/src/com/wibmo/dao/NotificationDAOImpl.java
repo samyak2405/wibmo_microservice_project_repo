@@ -47,7 +47,7 @@ public class NotificationDAOImpl implements NotificationDAO {
 		
 		try {
 			
-			stmt = conn.prepareStatement(SQLConstants.COURSE_CATALOG);
+			stmt = conn.prepareStatement(SQLConstants.GET_NOTIFICATION);
 			stmt.setLong(1, studentId);
 			
 			ResultSet rs = stmt.executeQuery();

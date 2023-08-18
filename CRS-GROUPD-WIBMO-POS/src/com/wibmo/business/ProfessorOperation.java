@@ -2,7 +2,9 @@ package com.wibmo.business;
 
 import java.util.List;
 
+
 import com.wibmo.bean.User;
+import com.wibmo.dao.*;
 
 public interface ProfessorOperation {
 	

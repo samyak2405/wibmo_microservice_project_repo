@@ -20,7 +20,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	
 	
 	@Override
-	public void setGrades(long studentId, long courseId,String grade) {
+	public void setGrades(long studentId, long courseId,String grade)  {
 		
 		professorDao.setGrades(studentId, courseId, grade);
 	}

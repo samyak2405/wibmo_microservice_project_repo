@@ -21,10 +21,11 @@ public interface ProfessorDAO {
 	 * @param grade
 	 */
 	
-	public void setGrades(long studentId,long courseId,String grade);
+	public void setGrades(long studentId,long courseId,String grade) ;
 	public boolean requestCourseOffering(int professorId,List<Long> courseIdList);
 	public List<Student> viewStudentList(long courseId);
 	public  List<CourseCatalog> viewCourseCatalog();
 	public void registerProfessor(Professor professor);
+	public boolean searchProfessor(int userId);
 	
 }

@@ -188,4 +188,37 @@ PreparedStatement stmt = null;
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public boolean searchProfessor(int userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.SEARCH_PROFESSOR);
+
+            ResultSet rs=stmt.executeQuery();
+            stmt.setLong(1,userId);
+
+            if(rs.next()) {
+                if(rs.getInt("professorid")==userId) {
+
+                    return true;}
+
+            }
+
+        } catch (SQLException e) {
+
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+
+        }
+
+        return false;
+
+        
+		
+	}
 }
