@@ -3,11 +3,14 @@
  */
 package com.wibmo.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.utils.DButils;
@@ -17,6 +20,9 @@ import com.wibmo.utils.DButils;
  */
 public class AuthenticationDAOImpl implements AuthenticationDAO {
 
+	//Plug logger in AuthenticationDAOImpl
+	private static Logger logger = Logger.getLogger(AuthenticationDAOImpl.class);
+	
 	public static volatile AuthenticationDAOImpl instance = null;
 	
 	private AuthenticationDAOImpl() {
@@ -71,22 +77,22 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 						return true;
 					else
 					{
-						System.out.println("Pending Approval from Admin");
+						logger.debug("Pending Approval from Admin");
 						return false;
 					}
 						
 				}
-				else System.out.println("Invalid Credentials");
-				
+				else
+					logger.debug("Invalid Credentials");
 				return false;
 			}
 	        
 		}catch(SQLException se){
 		      //Handle errors for JDBC
-		      se.printStackTrace();
+		      logger.error("SQL Exception: "+se.getMessage());
 		   }catch(Exception e){
 		      //Handle errors for Class.forName
-		      e.printStackTrace();
+			   logger.error("Unknown Exception");
 		   }
 		
 		return false;
