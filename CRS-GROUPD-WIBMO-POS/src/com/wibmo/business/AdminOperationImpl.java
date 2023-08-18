@@ -100,7 +100,6 @@ public class AdminOperationImpl implements AdminOperation{
 					
 					for(List<Integer> course: studentData) {
 						int studentPerCourseCount = studentDAO.getStudentCourseCount(course.get(0));
-//						System.out.println(course.get(0)+" "+studentPerCourseCount);
 						if(count==4)
 							break;
 						if(studentPerCourseCount>=3 && studentPerCourseCount<=10)

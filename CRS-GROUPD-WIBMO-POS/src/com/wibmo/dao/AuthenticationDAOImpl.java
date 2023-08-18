@@ -21,6 +21,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	//plug logger in AuthenticationDAOImpl 
 	private static Logger logger = Logger.getLogger(AuthenticationDAOImpl.class);
 
+	//Plug logger in AuthenticationDAOImpl
+	
 	public static volatile AuthenticationDAOImpl instance = null;
 	
 	private AuthenticationDAOImpl() {

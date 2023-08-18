@@ -65,4 +65,7 @@ public interface StudentDAO {
 	public boolean isApproved(int userId);
 	public boolean searchStudent(long userId);
 	public int isStudentRegistered(int studentId);
+	public int getStudentCourseCount(int courseid);
+	public int getCourseCount(long studentId);
+	
 }

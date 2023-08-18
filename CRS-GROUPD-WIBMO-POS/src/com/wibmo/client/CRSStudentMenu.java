@@ -15,6 +15,7 @@ import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
+import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
@@ -84,7 +85,14 @@ public class CRSStudentMenu {
          	   cnt--;
  	   }
  	   studCoMap.setCourses(courses);
- 	   studentOp.addCourses(studCoMap);
+ 	   try {
+		studentOp.addCourses(studCoMap);
+	} catch (CourseNotFoundException e) {
+		System.out.println("Course with course id: "+e.getCourseId()+" Not Found!!");
+	}catch(CourseLimitExceededException e)
+ 	   {
+		System.out.println("Course Limit Exceeded");
+ 	   }
  	   System.out.println("Course Added Successfully.");
 	}
 	
@@ -160,10 +168,8 @@ public class CRSStudentMenu {
        case 3:
     	   System.out.println("Enter course id");
     	   int courseId = scan.nextInt();
-    	   System.out.println("Enter your id");
-    	   int studentId = scan.nextInt();
     	   try {
-    	   int coursePref = studentOp.dropCourses(studentId,courseId);    	  
+    	   int coursePref = studentOp.dropCourses(userId,courseId);    	  
     	   if(coursePref==0)
     		   compulsory++;
     	   if(coursePref==1)

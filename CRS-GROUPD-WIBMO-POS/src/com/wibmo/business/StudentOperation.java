@@ -23,7 +23,7 @@ public interface StudentOperation {
 	 * @param studCoMap
 	 * @throws DuplicateCourseEntryException
 	 */
-	public void addCourses(StudentCourseMap studCoMap) throws DuplicateCourseEntryException;
+	public void addCourses(StudentCourseMap studCoMap) throws CourseNotFoundException,CourseLimitExceededException ;
 	
 	/**
 	 * To drop course from registration list

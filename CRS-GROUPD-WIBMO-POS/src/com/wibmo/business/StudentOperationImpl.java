@@ -15,6 +15,7 @@ import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.dao.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
+import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
@@ -28,6 +29,7 @@ public class StudentOperationImpl implements StudentOperation{
 	StudentDAO studentDao = StudentDAOImpl.getInstance();
 	CourseDAO course=CourseDAOImpl.getInstance();
 	
+	
 	public static StudentOperationImpl studentOp = new StudentOperationImpl();
 	
 	@Override
@@ -38,11 +40,23 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	public void addCourses(StudentCourseMap studCoMap) throws DuplicateCourseEntryException {
+	public void addCourses(StudentCourseMap studentCoMap) throws CourseNotFoundException,CourseLimitExceededException {
 		
-		// TODO Auto-generated method stub
-		
-		studentDao.addCourses(studCoMap);
+		Map<Integer,Integer>map=studentCoMap.getCourses();
+		if(studentDao.getCourseCount(studentCoMap.getStudentId())>6)
+		{
+			throw new CourseLimitExceededException();
+		}
+		for(Map.Entry<Integer,Integer>entry:map.entrySet())
+		{
+			int courseId=entry.getKey();
+			int pref=entry.getValue();
+			if(course.searchCourse(courseId)==false)
+			{
+				throw new CourseNotFoundException(courseId);
+			}
+		}
+		studentDao.addCourses(studentCoMap);
 	}
 
 
