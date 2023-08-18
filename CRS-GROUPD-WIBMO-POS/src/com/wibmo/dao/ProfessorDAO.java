@@ -26,5 +26,7 @@ public interface ProfessorDAO {
 	public List<Student> viewStudentList(long courseId);
 	public  List<CourseCatalog> viewCourseCatalog();
 	public void registerProfessor(Professor professor);
+	public boolean searchProfessor(long userId);
+
 	
 }

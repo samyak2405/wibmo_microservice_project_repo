@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
-import com.wibmo.exception.NoCourseAvailableException;
+import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
-import com.wibmo.exception.StudentNotFoundException;
+import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.bean.User;
 
 /**
@@ -25,11 +25,11 @@ public class CRSApplicationClient {
 	/**
 	 * @param args
 	 * @throws DuplicateCourseEntryException 
-	 * @throws NoCourseAvailableException 
-	 * @throws StudentNotFoundException 
+	 * @throws CourseNotFoundException 
+	 * @throws UserNotFoundException 
 	 * @throws StudentAlreadyRegisteredException 
 	 */
-	public static void main(String[] args) throws StudentNotFoundException, NoCourseAvailableException, DuplicateCourseEntryException, StudentAlreadyRegisteredException {
+	public static void main(String[] args) throws UserNotFoundException, CourseNotFoundException, DuplicateCourseEntryException, StudentAlreadyRegisteredException {
 		// TODO Auto-generated method stub
 		LocalDate localDate = LocalDate.now();
 

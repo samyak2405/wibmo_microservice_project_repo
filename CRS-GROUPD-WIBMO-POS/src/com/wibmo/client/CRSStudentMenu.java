@@ -15,9 +15,9 @@ import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
-import com.wibmo.exception.NoCourseAvailableException;
+import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
-import com.wibmo.exception.StudentNotFoundException;
+import com.wibmo.exception.UserNotFoundException;
 
 /**
  * 
@@ -123,22 +123,22 @@ public class CRSStudentMenu {
 	}
 	
 	
-	public void studentMenu() throws DuplicateCourseEntryException, NoCourseAvailableException, StudentNotFoundException {
-		
-		System.out.print("\nChoose From below given list"
-				+"\n\n1.Register for course"
-				+"\n2.Add course"
-				+"\n3.Drop course"
-				+"\n4.view list of Registered Courses"
-				+"\n5.view ReportCard"
-				+"\n6.viewCourseCatalog"
-				+"\n7.Pay Fee"
-				+"\n8.View Notification\n"
-				+"\n9.Exit\n");
+	public void studentMenu() throws DuplicateCourseEntryException, CourseNotFoundException, UserNotFoundException {
+
 
        boolean flag = false;
         
        while(true) {
+   		System.out.print("\nChoose From below given list"
+   				+"\n\n1.Register for course"
+   				+"\n2.Add course"
+   				+"\n3.Drop course"
+   				+"\n4.view list of Registered Courses"
+   				+"\n5.view ReportCard"
+   				+"\n6.viewCourseCatalog"
+   				+"\n7.Pay Fee"
+   				+"\n8.View Notification"
+   				+"\n9.Exit\n");
     	System.out.print("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {
@@ -182,9 +182,12 @@ public class CRSStudentMenu {
        case 6:
     	   studentOp.viewCourseCatalog();      
 		break;
+		
        case 7:
+    	   
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
-    	   payment.payfee();
+    	   payment.payfee(userId);
+    	   
 		break;
        case 8:
     	   notificationOp.getNotificationMessage(userId);

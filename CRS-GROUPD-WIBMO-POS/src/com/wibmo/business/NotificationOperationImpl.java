@@ -19,7 +19,11 @@ public class NotificationOperationImpl implements NotificationOperation {
 	@Override
 	public void getNotificationMessage(long studentId) 
 	{
-		notification.getNotificationMessage(studentId).forEach(notif->System.out.println(notif.getNotificationMessage()));
+		List<Notification>notifications=notification.getNotificationMessage(studentId);
+		if(notifications!=null)
+			notifications.forEach(notif->System.out.println(notif.getNotificationMessage()));
+		else
+			System.out.println("No Notifications");
 	}
 	
 	public void sendNotification(int notifid, int studentId)

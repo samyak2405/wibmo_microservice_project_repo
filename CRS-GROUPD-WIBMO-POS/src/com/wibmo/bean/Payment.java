@@ -8,6 +8,9 @@ package com.wibmo.bean;
  */
 public class Payment {
 	private long userId;
+	private long transactionId;
+	private long amount;
+
 	public long getUserId() {
 		return userId;
 	}
@@ -26,7 +29,5 @@ public class Payment {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
-	private long transactionId;
-	private long amount;
 
 }

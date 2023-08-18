@@ -22,7 +22,6 @@ import com.wibmo.utils.DButils;
 public class ProfessorDAOImpl implements ProfessorDAO {
 	
 	
-	
 	public static volatile ProfessorDAOImpl instance = null;
 	
 	private ProfessorDAOImpl() {
@@ -51,14 +50,14 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	@Override
 	public void setGrades(long studentId, long courseId, String grade) {
 		// TODO Auto-generated method stub
+		int result=0;
 		PreparedStatement stmt=null;
 		try {
 			stmt = conn.prepareStatement(SQLConstants.SET_GRADES);
 			stmt.setString(3,grade);
 			stmt.setLong(1, studentId);
 			stmt.setLong(2,courseId);
-			stmt.executeUpdate();
-			
+			result=stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -187,5 +186,33 @@ PreparedStatement stmt = null;
 		   }
 		// TODO Auto-generated method stub
 		
+	}
+	
+	
+	public boolean searchProfessor(long userId)
+	{
+
+        PreparedStatement stmt = null;
+
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.SEARCH_PROFESSOR);
+
+            stmt.setLong(1,userId);
+
+            
+
+            ResultSet rs=stmt.executeQuery();
+
+            if(rs.next()) {
+                return true;
+
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+        return false;
 	}
 }

@@ -14,9 +14,9 @@ import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.dao.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
-import com.wibmo.exception.NoCourseAvailableException;
+import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
-import com.wibmo.exception.StudentNotFoundException;
+import com.wibmo.exception.UserNotFoundException;
 
 /**
  * 
@@ -44,7 +44,7 @@ public class StudentOperationImpl implements StudentOperation{
 
 	
 	@Override
-	public int dropCourses(long studentId,int courseId) throws NoCourseAvailableException,StudentNotFoundException {
+	public int dropCourses(long studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
 		Set<Integer> courses = new HashSet<>();
 		
