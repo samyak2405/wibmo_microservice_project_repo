@@ -6,19 +6,18 @@ package com.wibmo.exception;
 /**
  * 
  */
-public class CourseLimitExceededException {
-int userId;
-	
-	
+public class CourseLimitExceededException extends Exception {
+
+	long courseId;
 	public CourseLimitExceededException  () {
 		
 	}
 	
-	public CourseLimitExceededException  (int userId) {
-		this.userId = userId;
+	public CourseLimitExceededException  (long courseId) {
+		this.courseId = courseId;
 	}
 	
-	public int getStudentId()  {
-		return userId;
+	public long getCourseId()  {
+		return courseId;
 	}
 }

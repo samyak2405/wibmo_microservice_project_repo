@@ -46,12 +46,12 @@ public class StudentDAOImpl implements StudentDAO {
 	
 
 	
-	public int getCourseCount(int courseid) {
+	public int getStudentCourseCount(int courseid) {
 		PreparedStatement stmt = null;
 		int count = 0;
 		try {
 			
-			stmt = conn.prepareStatement(SQLConstants.SELECT_STUDENTID);
+			stmt = conn.prepareStatement(SQLConstants.COUNT_STUDENT_COURSES);
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt("courseCount");
@@ -64,7 +64,32 @@ public class StudentDAOImpl implements StudentDAO {
 		      //Handle errors for Class.forName
 		      e.printStackTrace();
 		   }
-		
+		return count;
+	}
+	
+	
+	
+	
+	public int getCourseCount(long studentId) {
+		PreparedStatement stmt = null;
+		int count = 0;
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.COUNT_COURSES);
+			stmt.setLong(1, studentId);
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("courseCount");
+			}
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
 		return count;
 	}
 	

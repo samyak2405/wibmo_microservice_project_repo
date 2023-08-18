@@ -19,7 +19,7 @@ public class SQLConstants {
 		public static final String VERIFY_STUDENT=" SELECT studentid,password,isapproved FROM crs.student WHERE studentid=?";
 		public static final String UPDATE_REGISTER=" UPDATE crs.studentcoursemapping SET isRegister=1 WHERE studentid=?";
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentid) as distinct FROM crs.studentcoursemapping";
-		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.GradeCard";
+		public static final String COUNT_STUDENT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.GradeCard";
 		public static final String UPDATE_PASSWORD_STUDENT="UPDATE crs.student SET password=? WHERE studentid=?";
 		//Admin Queries
 		public static final String INSERT_ADMIN = "INSERT INTO crs.admin VALUES(?,?,?,?,?)";
@@ -73,6 +73,7 @@ public class SQLConstants {
 
 	    public static final String SEARCH_COURSE = "SELECT * FROM coursecatalog WHERE courseId=?";
 	public static final String IS_APPROVED = "SELECT * FROM gradecard";
+	public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.studentcoursemapping WHERE studentId=?";
 
 		
 		

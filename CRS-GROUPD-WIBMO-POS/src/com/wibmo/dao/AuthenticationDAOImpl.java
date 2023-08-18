@@ -28,7 +28,6 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	//3.ERROR-->catch handled exceptions(logger.error)
 
 	//Plug logger in AuthenticationDAOImpl
-	private static Logger logger = Logger.getLogger(AuthenticationDAOImpl.class);
 	
 	public static volatile AuthenticationDAOImpl instance = null;
 	
