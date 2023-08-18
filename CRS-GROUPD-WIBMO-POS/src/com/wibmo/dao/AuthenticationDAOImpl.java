@@ -3,11 +3,6 @@
  */
 package com.wibmo.dao;
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 796f5018b8ac57d29be9fd61a2cb220f3d442c67
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,14 +20,7 @@ import com.wibmo.utils.DButils;
 public class AuthenticationDAOImpl implements AuthenticationDAO {
 	//plug logger in AuthenticationDAOImpl 
 	private static Logger logger = Logger.getLogger(AuthenticationDAOImpl.class);
-	//NOTE:
-	//1.INFO-->Toget the information.(logger.info)
-	//2.DEBUG-->replace sysout debug statements(logger.debug)
-	//3.ERROR-->catch handled exceptions(logger.error)
 
-	//Plug logger in AuthenticationDAOImpl
-	private static Logger logger = Logger.getLogger(AuthenticationDAOImpl.class);
-	
 	public static volatile AuthenticationDAOImpl instance = null;
 	
 	private AuthenticationDAOImpl() {
