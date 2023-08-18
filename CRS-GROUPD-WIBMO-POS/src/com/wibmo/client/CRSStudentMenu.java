@@ -129,22 +129,21 @@ public class CRSStudentMenu {
 	
 	
 	public void studentMenu() throws DuplicateCourseEntryException, CourseNotFoundException, UserNotFoundException {
-		
-		System.out.print("\nChoose From below given list"
-				+"\n\n1.Register for course"
-				+"\n2.Add course"
-				+"\n3.Drop course"
-				+"\n4.view list of Registered Courses"
-				+"\n5.view ReportCard"
-				+"\n6.viewCourseCatalog"
-				+"\n7.Pay Fee"
-				+"\n8.View Notification"
-				+"\n9.Exit\n");
 
        boolean flag = false;
         
        while(true) {
-    	System.out.print("\nEnter your Choice: ");
+   		System.out.print("\nChoose From below given list"
+   				+"\n\n1.Register for course"
+   				+"\n2.Add course"
+   				+"\n3.Drop course"
+   				+"\n4.view list of Registered Courses"
+   				+"\n5.view ReportCard"
+   				+"\n6.viewCourseCatalog"
+   				+"\n7.Pay Fee"
+   				+"\n8.View Notification"
+   				+"\n9.Exit\n");
+    	System.out.print("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {
        case 1:
@@ -202,11 +201,13 @@ public class CRSStudentMenu {
        case 6:
     	   studentOp.viewCourseCatalog();      
 		break;
+		
        case 7:
+    	   
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
     	   
     	   if(studentOp.isApproved(userId)) {
-    	   payment.payfee();}
+    	   payment.payfee(userId);}
     	   else {
     		   System.out.println("Student courses are not approved by admin");
     	   }

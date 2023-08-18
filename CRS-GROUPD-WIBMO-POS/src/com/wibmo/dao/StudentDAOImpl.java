@@ -44,6 +44,8 @@ public class StudentDAOImpl implements StudentDAO {
 	
 	Connection conn = DButils.getConnection();
 	
+
+	
 	public int getCourseCount(int courseid) {
 		PreparedStatement stmt = null;
 		int count = 0;

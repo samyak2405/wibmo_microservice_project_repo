@@ -9,6 +9,9 @@ import java.util.Scanner;
 import com.wibmo.bean.ProfessorCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
+import com.wibmo.exception.CourseNotFoundException;
+import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.exception.UserNotFoundException;
 /**
  * 
  */
@@ -16,6 +19,12 @@ public class CRSProfessorMenu {
 
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
+
+	
+	public CRSProfessorMenu()
+	{
+		
+	}
 	
 	
 	public CRSProfessorMenu(int userId)
@@ -27,6 +36,8 @@ public class CRSProfessorMenu {
 	Scanner scan = new Scanner(System.in);
 	/**
 	 * To display professor choice menu
+	 * @throws CourseNotFoundException 
+	 * @throws UserNotFoundException 
 	 */
 	public void professorMenu() {
 
@@ -71,7 +82,11 @@ public class CRSProfessorMenu {
 
                case 2:
                   flag1=true;
-                   professorOp.requestCourseOffering(userId,courseIdList);
+                   try {
+					professorOp.requestCourseOffering(userId,courseIdList);
+				} catch (CourseNotFoundException e) {
+					System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
+				}
                   break;
               }
 
@@ -85,7 +100,12 @@ public class CRSProfessorMenu {
        case 2:
     	   System.out.println("Enter courseid: ");
            int courseid=scan.nextInt();
-           professorOp.viewStudentList(courseid);
+           try {
+			professorOp.viewStudentList(courseid);
+		} catch (CourseNotFoundException e) {
+			System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
+
+		}
         break;
 
        case 3:
@@ -99,7 +119,15 @@ public class CRSProfessorMenu {
 	    	   long courseId=scan.nextLong();
 	    	   System.out.println("Enter grades");
 	    	   String grade=scan.next();
-	    	   professorOp.setGrades(studentId,courseId,grade);
+		try {
+			professorOp.setGrades(studentId,courseId,grade);
+		} catch (UserNotFoundException e) {
+			System.out.println("Student with id:"+e.getUserId()+" Not Found");
+			
+		}catch(CourseNotFoundException e)
+		{
+			System.out.println("Course with id:"+e.getCourseId()+" Not Found");
+		}
         break;
         
        case 5: flag = true;
@@ -136,7 +164,12 @@ public class CRSProfessorMenu {
 		
 		System.out.print("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());
-		professorOp.registerProfessor(user);
+		try {
+			professorOp.registerProfessor(user);
+		} catch (UserAlreadyExistsException e) {
+			System.out.println("User with user id:"+e.getUserId()+" Already Exists");
+
+		}
 		
 	}
 }

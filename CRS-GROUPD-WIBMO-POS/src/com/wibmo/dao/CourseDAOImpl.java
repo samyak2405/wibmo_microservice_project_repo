@@ -15,34 +15,46 @@ import com.wibmo.utils.DButils;
  * 
  */
 public class CourseDAOImpl implements CourseDAO{
+
+	public static volatile CourseDAOImpl instance = null;
+	
+	private CourseDAOImpl() {
+		
+	}
+	
+	public static CourseDAOImpl getInstance() {
+		if(instance==null)
+		{
+			synchronized(StudentDAOImpl.class) {
+				instance = new CourseDAOImpl();
+			}
+		}
+		return instance;
+	}
+	
 	Connection conn = DButils.getConnection();
-	@Override
-	public boolean searchCourse(int courseId) {
-		// TODO Auto-generated method stub
-		PreparedStatement stmt = null;
 
+    @Override
+    public boolean searchCourse(long courseId) {
+
+        // TODO Auto-generated method stub
+
+        PreparedStatement stmt = null;
         try {
-
             stmt = conn.prepareStatement(SQLConstants.SEARCH_COURSE);
-            stmt.setLong(1, courseId);
             ResultSet rs=stmt.executeQuery();
-
             if(rs.next()) {
                 if(rs.getInt("courseId")==courseId) {
-
-                    return true;}
-
+                  return true;}
             }
-
         } catch (SQLException e) {
 
-            // TODO Auto-generated catch block
-
-            e.printStackTrace();
+           e.printStackTrace(); 
 
         }
 
-		return false;
-	}
+        return false;
+
+    }
 
 }

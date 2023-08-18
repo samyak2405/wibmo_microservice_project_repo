@@ -51,19 +51,22 @@ public class NotificationDAOImpl implements NotificationDAO {
 			stmt.setLong(1, studentId);
 			
 			ResultSet rs = stmt.executeQuery();
-			
-			while(rs.next()) {
-				Notification notification =new Notification();
-				notification.setId(rs.getInt("notificationId"));
-				notification.setNotificationMessage(rs.getString("notificationMessage"));
-				notifs.add(notification);
-				}
+			if(rs.next())
+			{
+				while(rs.next()) {
+					Notification notification =new Notification();
+					notification.setId(rs.getInt("notificationId"));
+					notification.setNotificationMessage(rs.getString("notificationMessage"));
+					notifs.add(notification);
+					}
+			}
+			else
+				notifs=null;
 		}catch(SQLException se){
 		      //Handle errors for JDBC
 		      se.printStackTrace();
 		   }
 		return notifs;
-
 }
 	
 
