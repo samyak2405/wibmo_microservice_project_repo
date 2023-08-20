@@ -42,35 +42,35 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	Connection conn = DButils.getConnection();
 
 	@Override
-	public boolean loggedin(int userid, String password,int role) {
+	public boolean loggedin(String userEmail, String password,int role) {
 		
 		
 		PreparedStatement stmt = null;
-		String roleId=null;
+		String roleEmail=null;
 		
 		try {
 			if(role==1)
 			{
 				stmt = conn.prepareStatement(SQLConstants.VERIFY_STUDENT);
-				roleId="studentid";
+				roleEmail="studentemail";
 			}
 			
 			else if(role==2)
 			{
 				stmt = conn.prepareStatement(SQLConstants.VERIFY_PROFESSOR);
-				roleId="professorid";
+				roleEmail="professoremail";
 			}
 			
 			else if(role==3)
 			{
 				stmt = conn.prepareStatement(SQLConstants.VERIFY_ADMIN);
-				roleId="adminId";
+				roleEmail="adminEmail";
 			}
 			
-			stmt.setInt(1, userid);
+			stmt.setString(1, userEmail);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				if(userid==rs.getInt(roleId) && password.equalsIgnoreCase(rs.getString("password")))
+				if(userEmail.equals(rs.getString(roleEmail)) && password.equalsIgnoreCase(rs.getString("password")))
 				{
 					
 					if(role==1) {
@@ -104,7 +104,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	}
 
 	@Override
-	public void updatePassword(int userId, String password,int role) {
+	public void updatePassword(String userEmail, String password,int role) {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt = null;
 		
@@ -129,7 +129,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 			
 			
 			stmt.setString(1, password);
-			stmt.setLong(2, userId);
+			stmt.setString(2, userEmail);
 			stmt.executeUpdate();
 				
 		} catch (SQLException e) {

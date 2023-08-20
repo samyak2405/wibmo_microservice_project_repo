@@ -39,6 +39,9 @@ public class StudentOperationImpl implements StudentOperation{
 		studentDao.registerCourses(studentId);
 	}
 
+	public void AddSingleCourse(int studentId,int courseId,int coursePref) {
+		studentDao.AddSingleCourse(studentId, courseId, coursePref);
+	}
 	@Override
 	public void addCourses(StudentCourseMap studentCoMap) throws CourseNotFoundException,CourseLimitExceededException {
 		
@@ -62,10 +65,10 @@ public class StudentOperationImpl implements StudentOperation{
 
 	
 	@Override
-	public int dropCourses(long studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
+	public int dropCourses(int studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
 		Set<Integer> courses = new HashSet<>();
-		if(studentDao.searchStudent(studentId)==false)
+		if(studentDao.searchStudentByID(studentId)==false)
 		{
 			throw new UserNotFoundException(studentId);
 		}
@@ -76,20 +79,6 @@ public class StudentOperationImpl implements StudentOperation{
 		
 		int coursePref = studentDao.dropCourses(studentId,courseId,courses);
 		
-//		List<CourseCatalog> coursesList = studentDao.viewCourseCatalog();
-//		System.out.println(coursesList.size());
-//		System.out.println("Choose courses from below given list");
-//		coursesList.forEach(courseCatalog->{
-//			if(!courses.contains(courseCatalog.getCourseId()))
-//			{
-//				System.out.println(String.format("%20s %20s %20s %20s\n"
-//						, courseCatalog.getCourseId()
-//						,courseCatalog.getCourseName()
-//						,courseCatalog.getProfessorName()
-//						,courseCatalog.getPrerequisites()
-//						));
-//			}
-//		});
 		return coursePref;
 	}
 
@@ -118,7 +107,7 @@ public class StudentOperationImpl implements StudentOperation{
 		List<CourseCatalog> courses = studentDao.viewCourseCatalog();
 		System.out.println("Course Catalog: ");
 		
-		courses.forEach(course->System.out.println(String.format("%20s %20s %20s %20s\n"
+		courses.forEach(course->System.out.println(String.format("%10s %25s %25s %30s\n"
 				, course.getCourseId()
 				,course.getCourseName()
 				,course.getProfessorName()
@@ -131,10 +120,10 @@ public class StudentOperationImpl implements StudentOperation{
 	public void registerStudent(User user)throws StudentAlreadyRegisteredException {
 		// TODO Auto-generated method stub
 		Student student = new Student();
-		student.setUserId(user.getUserId());
-		if(studentDao.searchStudent(user.getUserId())==true)
+
+		if(studentDao.doesEmailExist(user.getUserEmail()))
 		{
-			throw new StudentAlreadyRegisteredException(user.getUserId());
+			throw new StudentAlreadyRegisteredException(user.getUserEmail());
 		}
 		student.setUserName(user.getUserName());
 		student.setUserEmail(user.getUserEmail());
@@ -166,6 +155,26 @@ public class StudentOperationImpl implements StudentOperation{
 		// TODO Auto-generated method stub
 		boolean flag=studentDao.isApproved(userId);
 		return flag;
+	}
+
+	@Override
+	public int getStudentByEmail(String userEmail) {
+		int studentId = studentDao.getStudentByEmail(userEmail);
+		return studentId;
+	}
+
+	@Override
+	public Map<Integer, String> getAddedCourses(int userId) {
+		// TODO Auto-generated method stub
+		Map<Integer,String> map = studentDao.getAddedCourses(userId);
+		return map;
+	}
+
+	@Override
+	public int isStudentRegistered(int userId) {
+		// TODO Auto-generated method stub
+		int isRegistered = studentDao.isStudentRegistered(userId);
+		return isRegistered;
 	}
 
 }

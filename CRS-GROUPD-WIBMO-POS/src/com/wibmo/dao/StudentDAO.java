@@ -63,9 +63,18 @@ public interface StudentDAO {
 	
 
 	public boolean isApproved(int userId);
-	public boolean searchStudent(long userId);
+	public boolean searchStudentByID(int studentId);
 	public int isStudentRegistered(int studentId);
 	public int getStudentCourseCount(int courseid);
 	public int getCourseCount(long studentId);
+
+	public int getStudentByEmail(String userEmail);
+
+	public boolean doesEmailExist(String userEmail);
+
+	public Map<Integer, String> getAddedCourses(int userId);
+	
+	public void AddSingleCourse(int studentId,int courseId,int coursePref);
+
 	
 }

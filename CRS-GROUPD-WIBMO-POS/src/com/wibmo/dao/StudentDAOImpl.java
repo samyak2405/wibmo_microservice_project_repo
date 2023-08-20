@@ -160,6 +160,24 @@ public class StudentDAOImpl implements StudentDAO {
 		      e.printStackTrace();
 		   }
 	}
+	
+	public void AddSingleCourse(int studentId,int courseId,int coursePref) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.ADD_COURSES);
+			stmt.setLong(1, studentId);
+			stmt.setInt(2, courseId);
+			stmt.setInt(3, coursePref);
+			stmt.setInt(4, 0);
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+	}
 
 	@Override
 	public void addCourses(StudentCourseMap studCoMap) {
@@ -314,12 +332,10 @@ public class StudentDAOImpl implements StudentDAO {
 			
 			stmt = conn.prepareStatement(SQLConstants.INSERT_STUDENT);
 			
-			stmt.setLong(1, student.getUserId());
-			stmt.setString(2,student.getUserName());
-			stmt.setString(3,student.getUserEmail());
-			stmt.setString(4,student.getUserPassword());
-			stmt.setLong(5,student.getUserPhonenumber());
-			stmt.setInt(6, 0);
+			stmt.setString(1,student.getUserName());
+			stmt.setString(2,student.getUserEmail());
+			stmt.setString(3,student.getUserPassword());
+			stmt.setLong(4,student.getUserPhonenumber());
 			
 			stmt.executeUpdate();
 		}catch(SQLException se){
@@ -384,28 +400,6 @@ public class StudentDAOImpl implements StudentDAO {
 		return false;
 	}
 
-	@Override
-	public boolean searchStudent(long userId) {
-		// TODO Auto-generated method stub
-		PreparedStatement stmt = null;
-		try {
-			stmt = conn.prepareStatement(SQLConstants.SEARCH_STUDENT);
-			stmt.setLong(1,userId);
-			
-			ResultSet rs=stmt.executeQuery();
-			if(rs.next()) {
-				
-				return true;
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return false;
-		
-	}
 	
 	public int isStudentRegistered(int studentId) {
 		// TODO Auto-generated method stub
@@ -446,6 +440,93 @@ public class StudentDAOImpl implements StudentDAO {
 		
 		return isApproved;
 		
+	}
+
+	@Override
+	public int getStudentByEmail(String userEmail) {
+		PreparedStatement stmt = null;
+		int studentId = 0;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SELECT_STUDENT_BY_EMAIL);
+			stmt.setString(1,userEmail);
+			ResultSet rs=stmt.executeQuery();
+			if(rs.next()) {
+				studentId = rs.getInt("studentid");
+				System.out.println(studentId);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return studentId;
+	}
+	
+	@Override
+	public boolean searchStudentByID(int studentId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SEARCH_STUDENT_BY_ID);
+			stmt.setInt(1,studentId);
+			
+			ResultSet rs=stmt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+
+	@Override
+	public boolean doesEmailExist(String userEmail) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.STUDENT_BY_EMAIL);
+			stmt.setString(1,userEmail);
+			
+			ResultSet rs=stmt.executeQuery();
+			if(rs.next()) {
+				int count = rs.getInt(1);
+				return count>0;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	@Override
+	public Map<Integer, String> getAddedCourses(int userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		Map<Integer,String> map = new HashMap<>();
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SELECT_ADDED_COURSE);
+			stmt.setInt(1,userId);
+			
+			ResultSet rs=stmt.executeQuery();
+			while(rs.next()) {
+				map.put(rs.getInt("courseid"),rs.getString("courseName"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return map;
 	}
 
 }

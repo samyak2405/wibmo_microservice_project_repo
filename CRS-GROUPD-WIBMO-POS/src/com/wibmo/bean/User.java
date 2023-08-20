@@ -7,14 +7,23 @@ package com.wibmo.bean;
  * 
  */
 public class User {
-	
-	private long userId;
+	private int userId;
 	private String userName;
 	private String userEmail;
 	private long userPhonenumber;
 	private String userPassword;
 	
 	
+	/*
+	 * @return userId
+	 * */
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId; 
+	}
 	
 	/**
 	 * @return the userPassword
@@ -28,18 +37,7 @@ public class User {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	/**
-	 * @return the userId
-	 */
-	public long getUserId() {
-		return userId;
-	}
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
+	
 	/**
 	 * @return the userName
 	 */

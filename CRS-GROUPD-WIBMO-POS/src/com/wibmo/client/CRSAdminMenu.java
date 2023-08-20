@@ -5,12 +5,15 @@ package com.wibmo.client;
 import com.wibmo.bean.Admin;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
+import com.wibmo.validator.ClientValidatorImpl;
+
 import java.util.*;
 /**
  * 
  */
 public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
+	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
 	Scanner scan = new Scanner(System.in);
 	
 	
@@ -23,20 +26,8 @@ public class CRSAdminMenu {
    		user.setUserName(scan.next());
    		System.out.print("\nEnter Email: ");
    		user.setUserEmail(scan.next());
-   		while(true) {
-   			System.out.print("\nEnter Password: ");
-       		String passwordOne = scan.next();
-       		System.out.print("\nEnter Password Again: ");
-       		String passwordAgain = scan.next();
-       		if(passwordOne.equals(passwordAgain))
-       		{
-       			user.setUserPassword(passwordOne);
-       			break;
-       		}
-       		else
-       			System.out.println("Password does not match");
-   		}
-   		
+   		String password = clientValidator.passwordValidator();
+   		user.setUserPassword(password);
    		System.out.print("\nEnter Phone Number: ");
    		user.setUserPhonenumber(scan.nextLong());
     	   adminOp.adminRegistration(user);

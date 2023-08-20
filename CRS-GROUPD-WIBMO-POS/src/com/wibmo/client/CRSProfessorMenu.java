@@ -12,13 +12,15 @@ import com.wibmo.business.*;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.validator.ClientValidatorImpl;
 /**
  * 
  */
 public class CRSProfessorMenu {
 
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
-	int userId;
+	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
+	String userEmail;
 
 	
 	public CRSProfessorMenu()
@@ -27,9 +29,9 @@ public class CRSProfessorMenu {
 	}
 	
 	
-	public CRSProfessorMenu(int userId)
+	public CRSProfessorMenu(String userEmail)
 	{
-		this.userId=userId;
+		this.userEmail=userEmail;
 	}
 	
 	
@@ -45,7 +47,6 @@ public class CRSProfessorMenu {
         
        while(true) {
    		System.out.println("1.Request Course Offering");
-
 
         System.out.println("2.View Student List");
 
@@ -66,7 +67,7 @@ public class CRSProfessorMenu {
 //           System.out.println("2.Exit");
             boolean flag1=false;
 
-            List<Long> courseIdList =new ArrayList<>();
+            List<Integer> courseIdList =new ArrayList<>();
                while(true) {
                    System.out.println("1.Request Course");
                    System.out.println("2.Freeze list");
@@ -76,13 +77,14 @@ public class CRSProfessorMenu {
 
                case 1:
                 System.out.print("Enter courseid: ");
-                long courseid1=scan.nextLong();
+                int courseid1=scan.nextInt();
                 courseIdList.add(courseid1);
                 break;
 
                case 2:
                   flag1=true;
                    try {
+                	int userId = professorOp.getProfessorById(userEmail);
 					professorOp.requestCourseOffering(userId,courseIdList);
 				} catch (CourseNotFoundException e) {
 					System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
@@ -114,9 +116,11 @@ public class CRSProfessorMenu {
 
        case 4:
     	   	   System.out.println("Enter the StudentId");
-	    	   long studentId=scan.nextLong();
+	    	   int studentId=scan.nextInt();
+	    	   
 	    	   System.out.println("Course Id");
-	    	   long courseId=scan.nextLong();
+	    	   int courseId=scan.nextInt();
+	    	   
 	    	   System.out.println("Enter grades");
 	    	   String grade=scan.next();
 		try {
@@ -142,25 +146,12 @@ public class CRSProfessorMenu {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the Details for Registration");
 		User user = new User();
-		System.out.print("Enter User ID: ");
-		user.setUserId(scan.nextInt());
 		System.out.print("\nEnter Name: ");
 		user.setUserName(scan.next());
 		System.out.print("\nEnter Email: ");
 		user.setUserEmail(scan.next());
-		while(true) {
-			System.out.print("\nEnter Password: ");
-    		String passwordOne = scan.next();
-    		System.out.print("\nEnter Password Again: ");
-    		String passwordAgain = scan.next();
-    		if(passwordOne.equals(passwordAgain))
-    		{
-    			user.setUserPassword(passwordOne);
-    			break;
-    		}
-    		else
-    			System.out.println("Password does not match");
-		}
+		String password = clientValidator.passwordValidator();
+		user.setUserPassword(password);
 		
 		System.out.print("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());

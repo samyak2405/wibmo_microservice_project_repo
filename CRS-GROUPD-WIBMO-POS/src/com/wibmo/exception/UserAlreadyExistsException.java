@@ -7,18 +7,19 @@ package com.wibmo.exception;
  * 
  */
 public class UserAlreadyExistsException extends Exception {
-long userId;
+	
+	private String userEmail;
 	
 	
 	public UserAlreadyExistsException () {
 		
 	}
 	
-	public UserAlreadyExistsException(long userId) {
-		this.userId = userId;
+	public UserAlreadyExistsException(String userEmail) {
+		this.userEmail= userEmail;
 	}
 	
-	public long getUserId()  {
-		return userId;
+	public String getUserId()  {
+		return userEmail;
 	}
 }

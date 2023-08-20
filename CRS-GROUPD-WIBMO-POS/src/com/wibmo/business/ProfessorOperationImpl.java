@@ -23,14 +23,14 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	CourseDAO courseDao=CourseDAOImpl.getInstance();
 	
 	@Override
-	public void setGrades(long studentId, long courseId,String grade)throws UserNotFoundException,CourseNotFoundException
+	public void setGrades(int studentId, int courseId,String grade)throws UserNotFoundException,CourseNotFoundException
 	{
 		
 		if(courseDao.searchCourse(courseId)==false)
 		{
 			throw new CourseNotFoundException(courseId);
 		}
-		else if(studentDao.searchStudent(studentId)==false)
+		else if(studentDao.searchStudentByID(studentId)==false)
 		{
 			throw new UserNotFoundException(studentId);
 		}
@@ -38,10 +38,10 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 	
 	@Override
-	public boolean requestCourseOffering(int professorid,List<Long> courseIdList)throws CourseNotFoundException {
+	public boolean requestCourseOffering(int professorid,List<Integer> courseIdList)throws CourseNotFoundException {
 
         // TODO Auto-generated method stub
-		for(long courseId:courseIdList)
+		for(Integer courseId:courseIdList)
 		{
 			if(courseDao.searchCourse(courseId)==false)
 			{
@@ -56,7 +56,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
     }
 
 	@Override
-	public void viewStudentList(long courseId) throws CourseNotFoundException{
+	public void viewStudentList(Integer courseId) throws CourseNotFoundException{
 		
 		if(courseDao.searchCourse(courseId)==false)
 		{
@@ -100,19 +100,25 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	public void registerProfessor(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		
-		if(professorDao.searchProfessor(user.getUserId())==true)
+		if(professorDao.searchProfessor(user.getUserEmail())==true)
 		{
-			throw new UserAlreadyExistsException(user.getUserId());
+			throw new UserAlreadyExistsException(user.getUserEmail());
 		}
 		
 		Professor professor = new Professor();
-		professor.setUserId(user.getUserId());
 		professor.setUserName(user.getUserName());
 		professor.setUserEmail(user.getUserEmail());
 		professor.setUserPhonenumber(user.getUserPhonenumber());
 		professor.setUserPassword(user.getUserPassword());
 		professorDao.registerProfessor(professor);
 		
+	}
+
+	@Override
+	public int getProfessorById(String userEmail) {
+		// TODO Auto-generated method stub
+		int professorId = professorDao.getProfessorById(userEmail);
+		return 0;
 	}
 
 	

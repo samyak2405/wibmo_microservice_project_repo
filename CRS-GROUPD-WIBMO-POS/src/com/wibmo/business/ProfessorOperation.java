@@ -10,14 +10,16 @@ import com.wibmo.dao.*;
 public interface ProfessorOperation {
 	
 	
-  public void setGrades(long studentId,long courseId,String grade) throws UserNotFoundException,CourseNotFoundException ;
+  public void setGrades(int studentId,int courseId,String grade) throws UserNotFoundException,CourseNotFoundException ;
   
-  public boolean requestCourseOffering(int professorid,List<Long> courseIdList) throws CourseNotFoundException;
+  public boolean requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException;
   
-  public void viewStudentList(long courseId) throws CourseNotFoundException;
+  public void viewStudentList(Integer courseId) throws CourseNotFoundException;
   
   public  void viewCourseCatalog();
 
   public void registerProfessor(User user)throws UserAlreadyExistsException;
+
+public int getProfessorById(String userEmail);
   
 }
