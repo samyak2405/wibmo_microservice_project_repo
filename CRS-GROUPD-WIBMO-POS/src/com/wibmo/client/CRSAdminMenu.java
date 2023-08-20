@@ -6,6 +6,8 @@ import com.wibmo.bean.Admin;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
 import java.util.*;
+
+import org.apache.log4j.Logger;
 /**
  * 
  */
@@ -13,20 +15,21 @@ public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
 	Scanner scan = new Scanner(System.in);
 	
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public void adminRegistration() {
-		System.out.println("Enter the Details for Registration");
+		log.info("Enter the Details for Registration");
    		Admin user = new Admin();
-   		System.out.print("Enter User ID: ");
+   		log.info("Enter User ID: ");
    		user.setUserId(scan.nextInt());
-   		System.out.print("\nEnter Name: ");
+   		log.info("\nEnter Name: ");
    		user.setUserName(scan.next());
-   		System.out.print("\nEnter Email: ");
+   		log.info("\nEnter Email: ");
    		user.setUserEmail(scan.next());
    		while(true) {
-   			System.out.print("\nEnter Password: ");
+   			log.info("\nEnter Password: ");
        		String passwordOne = scan.next();
-       		System.out.print("\nEnter Password Again: ");
+       		log.info("\nEnter Password Again: ");
        		String passwordAgain = scan.next();
        		if(passwordOne.equals(passwordAgain))
        		{
@@ -34,10 +37,10 @@ public class CRSAdminMenu {
        			break;
        		}
        		else
-       			System.out.println("Password does not match");
+       			log.info("Password does not match");
    		}
    		
-   		System.out.print("\nEnter Phone Number: ");
+   		log.info("\nEnter Phone Number: ");
    		user.setUserPhonenumber(scan.nextLong());
     	   adminOp.adminRegistration(user);
 	}
@@ -49,23 +52,23 @@ public class CRSAdminMenu {
         
        while(true) {
     	
-    	System.out.println("1. Approve Student Registration");
+    	log.info("1. Approve Student Registration");
 		
-		System.out.println("2. Approve Student's Course Registration");
+		log.info("2. Approve Student's Course Registration");
 
-        System.out.println("3. Register and Approve an Admin");
+        log.info("3. Register and Approve an Admin");
 
-        System.out.println("4. Assign courses to Professor");
+        log.info("4. Assign courses to Professor");
         
-        System.out.println("5. Exit");
-        System.out.print("Enter your Choice: ");
+        log.info("5. Exit");
+        log.info("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {
 
        case 1:
-    	   System.out.println("a. Approve all students at once"
+    	   log.info("a. Approve all students at once"
     			   +"\nb. Approve Student by Id");
-    	   System.out.print("\nEnter your Choice: ");
+    	   log.info("\nEnter your Choice: ");
     	   char choice = scan.next().charAt(0);
     	   switch(choice) {
     	   case 'a':

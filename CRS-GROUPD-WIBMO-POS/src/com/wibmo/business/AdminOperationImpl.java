@@ -1,4 +1,5 @@
 package com.wibmo.business;
+import org.apache.log4j.Logger;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,7 +14,9 @@ import com.wibmo.dao.*;
 import com.wibmo.validator.*;
 
 public class AdminOperationImpl implements AdminOperation{
-
+	
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+	
 	Scanner scan = new Scanner(System.in);
 	static AdminOperationImpl adminOp = new AdminOperationImpl();
 	AdminDAO adminDAO = AdminDAOImpl.getInstance();
@@ -59,7 +62,8 @@ public class AdminOperationImpl implements AdminOperation{
 			}
 			else
 			{
-				System.out.println("No professor is assigned for the course id: " +course);
+				//log.info("No professor is assigned for the course id: " +course);
+				log.info("No professor is assigned for the course id: " +course);
 			}
 		}
 
@@ -71,7 +75,8 @@ public class AdminOperationImpl implements AdminOperation{
 		if(validate.emailValidator(user.getUserEmail()))
 			adminOp.addAdmin(user);
 		else
-			System.out.println("Invalid Email Id");
+			//System.out.println("Invalid Email Id");
+			log.info("Invalid Email Id");
 	}
 
 	@Override
@@ -88,11 +93,12 @@ public class AdminOperationImpl implements AdminOperation{
 						continue;
 					}
 					if(isRegistered==0) {
-						System.out.println("Student has not Registered till now");
+						//System.out.println("Student has not Registered till now");
+						log.info("Student has not Registered till now");
 						continue;
 					}
 					else
-						System.out.println("Student has Registered Successfully");
+						log.info("Student has Registered Successfully");
 					
 					List<List<Integer>> studentData = studentDAO.getStudentCourseData(studentId);
 					studentData = sortByCoursePref(studentData);
@@ -124,14 +130,14 @@ public class AdminOperationImpl implements AdminOperation{
 					}
 					if(count==4)
 					{
-						System.out.println("Student Course Registration Successful");
+						log.info("Student Course Registration Successful");
 						notification.sendNotification(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION, studentId);
 						notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);						
 					}
 			
 					else {
 						
-						System.out.println("Student Course Registration UnSuccessful");
+						log.info("Student Course Registration UnSuccessful");
 						notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
 						
 					}
@@ -142,9 +148,9 @@ public class AdminOperationImpl implements AdminOperation{
 	public void approveStudentById() {
 		// TODO Auto-generated method stub
 		List<Integer> studentIds = adminDAO.pendingRegistration();
-		System.out.println("Choose from below given student ids");
-		studentIds.forEach(studentId->System.out.println(String.format("%20s\n", studentId)));
-		System.out.println("Enter the StudentId: ");
+		log.info("Choose from below given student ids");
+		studentIds.forEach(studentId->log.info(String.format("%20s\n", studentId)));
+		log.info("Enter the StudentId: ");
 		int studentId = scan.nextInt();
 		adminDAO.setApprovedStudentById(studentId);
 	}

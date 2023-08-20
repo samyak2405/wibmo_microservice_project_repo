@@ -14,11 +14,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.bean.CourseCatalog;
 import com.wibmo.bean.GradeCard;
 import com.wibmo.bean.Student;
 import com.wibmo.bean.StudentCourseMap;
+import com.wibmo.business.AdminOperationImpl;
 import com.wibmo.utils.DButils;
 
 /**
@@ -28,6 +31,7 @@ public class StudentDAOImpl implements StudentDAO {
 
 //	public static StudentDAOImpl studentDao = new StudentDAOImpl();
 	public static volatile StudentDAOImpl instance = null;
+	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	private StudentDAOImpl() {
 		
@@ -349,7 +353,7 @@ public class StudentDAOImpl implements StudentDAO {
 				grade.setCourseId(rs.getInt("courseId"));
 				grade.setGrade(rs.getString("grade"));
 				grades.add(grade);
-//				System.out.println(grade.getGrade());
+//				log.info(grade.getGrade());
 				}
 		}catch(SQLException se){
 		      //Handle errors for JDBC
@@ -358,7 +362,7 @@ public class StudentDAOImpl implements StudentDAO {
 		      //Handle errors for Class.forName
 		      e.printStackTrace();
 		   }
-//		System.out.println(grades.size());
+//		log.info(grades.size());
 		return grades;
 	}
 
@@ -380,7 +384,7 @@ public class StudentDAOImpl implements StudentDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("userId");
+		log.info("userId");
 		return false;
 	}
 

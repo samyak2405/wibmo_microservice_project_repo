@@ -6,6 +6,9 @@ package com.wibmo.client;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
 import com.wibmo.bean.ProfessorCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
@@ -19,7 +22,7 @@ public class CRSProfessorMenu {
 
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
-
+	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public CRSProfessorMenu()
 	{
@@ -44,16 +47,16 @@ public class CRSProfessorMenu {
        boolean flag = false;
         
        while(true) {
-   		System.out.println("1.Request Course Offering");
+   		log.info("1.Request Course Offering");
 
 
-        System.out.println("2.View Student List");
+        log.info("2.View Student List");
 
-        System.out.println("3.View Course Catalog");
+        log.info("3.View Course Catalog");
 
-        System.out.println("4.Set Grades");
+        log.info("4.Set Grades");
 
-        System.out.println("5.Exit");
+        log.info("5.Exit");
 
     	System.out.print("Enter your Choice: ");
     	int opt=scan.nextInt();
@@ -62,14 +65,14 @@ public class CRSProfessorMenu {
        case 1:
     	   ProfessorCourseMap profcomap=new ProfessorCourseMap();
            professorOp.viewCourseCatalog();
-//           System.out.println("1.Request Course");
-//           System.out.println("2.Exit");
+//           log.info("1.Request Course");
+//           log.info("2.Exit");
             boolean flag1=false;
 
             List<Long> courseIdList =new ArrayList<>();
                while(true) {
-                   System.out.println("1.Request Course");
-                   System.out.println("2.Freeze list");
+                   log.info("1.Request Course");
+                   log.info("2.Freeze list");
                System.out.print("Enter your Choice: ");
             int opt1=scan.nextInt();
                switch(opt1) {
@@ -85,7 +88,7 @@ public class CRSProfessorMenu {
                    try {
 					professorOp.requestCourseOffering(userId,courseIdList);
 				} catch (CourseNotFoundException e) {
-					System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
+					log.info("Course with course id:"+e.getCourseId()+" Not Found");
 				}
                   break;
               }
@@ -98,12 +101,12 @@ public class CRSProfessorMenu {
         break;
 
        case 2:
-    	   System.out.println("Enter courseid: ");
+    	   log.info("Enter courseid: ");
            int courseid=scan.nextInt();
            try {
 			professorOp.viewStudentList(courseid);
 		} catch (CourseNotFoundException e) {
-			System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
+			log.info("Course with course id:"+e.getCourseId()+" Not Found");
 
 		}
         break;
@@ -113,20 +116,20 @@ public class CRSProfessorMenu {
         break;
 
        case 4:
-    	   	   System.out.println("Enter the StudentId");
+    	   	   log.info("Enter the StudentId");
 	    	   long studentId=scan.nextLong();
-	    	   System.out.println("Course Id");
+	    	   log.info("Course Id");
 	    	   long courseId=scan.nextLong();
-	    	   System.out.println("Enter grades");
+	    	   log.info("Enter grades");
 	    	   String grade=scan.next();
 		try {
 			professorOp.setGrades(studentId,courseId,grade);
 		} catch (UserNotFoundException e) {
-			System.out.println("Student with id:"+e.getUserId()+" Not Found");
+			log.info("Student with id:"+e.getUserId()+" Not Found");
 			
 		}catch(CourseNotFoundException e)
 		{
-			System.out.println("Course with id:"+e.getCourseId()+" Not Found");
+			log.info("Course with id:"+e.getCourseId()+" Not Found");
 		}
         break;
         
@@ -140,7 +143,7 @@ public class CRSProfessorMenu {
 	}
 	public void professorRegistration() {
 		// TODO Auto-generated method stub
-		System.out.println("Enter the Details for Registration");
+		log.info("Enter the Details for Registration");
 		User user = new User();
 		System.out.print("Enter User ID: ");
 		user.setUserId(scan.nextInt());
@@ -159,7 +162,7 @@ public class CRSProfessorMenu {
     			break;
     		}
     		else
-    			System.out.println("Password does not match");
+    			log.info("Password does not match");
 		}
 		
 		System.out.print("\nEnter Phone Number: ");
@@ -167,7 +170,7 @@ public class CRSProfessorMenu {
 		try {
 			professorOp.registerProfessor(user);
 		} catch (UserAlreadyExistsException e) {
-			System.out.println("User with user id:"+e.getUserId()+" Already Exists");
+			log.info("User with user id:"+e.getUserId()+" Already Exists");
 
 		}
 		
