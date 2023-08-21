@@ -4,13 +4,15 @@
 package com.wibmo.bean;
 
 /**
- * 
+ * Class representing the payment
  */
 public class Payment {
 	
 	private long userId;
 	private long transactionId;
-	private long amount;
+	private int amount=100000;
+	private int paymentStatus;
+	
 	
 	/**
 	 * @return User ID
@@ -43,14 +45,30 @@ public class Payment {
 	/**
 	 * @return amount
 	 */
-	public long getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 	
 	/**
 	 * @param set amount
 	 */
-	public void setAmount(long amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public int getPaymentStatus() {
+		return paymentStatus;
+	}
+
+	/**
+	 * 
+	 * @param paymentStatus
+	 */
+	public void setPaymentStatus(int paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}
 }

@@ -16,7 +16,7 @@ import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.bean.User;
 
 /**
- * 
+ * Main Class.
  */
 public class CRSApplicationClient {
 	

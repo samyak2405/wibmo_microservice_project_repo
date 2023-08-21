@@ -7,13 +7,15 @@ import com.wibmo.bean.User;
 import com.wibmo.business.*;
 import java.util.*;
 /**
- * 
+ * Admin Menu Class
  */
 public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
 	Scanner scan = new Scanner(System.in);
 	
-	
+	/**
+	 * To display the admin registration menu.
+	 */
 	public void adminRegistration() {
 		System.out.println("Enter the Details for Registration");
    		Admin user = new Admin();
@@ -42,6 +44,10 @@ public class CRSAdminMenu {
     	   adminOp.adminRegistration(user);
 	}
 	
+	
+	/**
+	 * To display admin registration menu.
+	 */
 	public void adminMenu() {
 		
 

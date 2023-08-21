@@ -4,7 +4,7 @@
 package com.wibmo.bean;
 
 /**
- * 
+ * Class to represent Notifications
  */
 public class Notification {
 	

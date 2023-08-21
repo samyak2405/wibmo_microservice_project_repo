@@ -4,7 +4,7 @@
 package com.wibmo.bean;
 
 /**
- * 
+ * Mapping class for professor and Courses
  */
 public class ProfessorCourseMap {
 	

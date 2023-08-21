@@ -9,38 +9,40 @@ import com.wibmo.bean.Admin;
 import com.wibmo.bean.User;
 
 /**
- * 
+ * For performing various admin operations
  */
 public interface AdminOperation {
-	//Approve Student Registration
+	
+	
+	
 	/**
-	 * 
+	 * To Approve Student Registration
 	 */	
 	public void approveStudent();
  
-	//Approve Student Course Registration
+	
 	/**
-	 * 
+	 * To Approve Student Course Registration
 	 */
 	public void approveCourseRegistration();
  
 	/**
-	 * 
+	 * To Add a new Admin
 	 */
 	public void addAdmin(Admin admin);
  
 	/**
-	 * 
+	 * To assign which course will be taught by which professor
 	 */
 	public void assignCoursesProf();
  
 	/**
-	 * 
+	 * To approve registration of a new admin
 	 */
 	public void adminRegistration(Admin user);
 
 	/**
-	 * 
+	 * To approve a specific student
 	 */
 	public void approveStudentById();
 }

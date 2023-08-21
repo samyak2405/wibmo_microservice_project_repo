@@ -4,7 +4,7 @@
 package com.wibmo.constant;
 
 /**
- * 
+ * Constants to store various SQL Queries.
  */
 public class SQLConstants {
 		//student queries
@@ -25,6 +25,7 @@ public class SQLConstants {
 		public static final String UPDATE_PASSWORD_STUDENT="UPDATE crs.student SET password=? WHERE studentid=?";
 		public static final String LIST_STUDENT_REG_COURSES = "SELECT gradecard.courseId, courseCatalog.courseName FROM crs.gradecard as gradecard INNER JOIN crs.coursecatalog as courseCatalog ON gradecard.courseId=courseCatalog.courseId WHERE gradecard.studentId=?";
 		public static final String SELECT_STUDENT_APPROVED = "SELECT studentId FROM crs.gradecard WHERE studentId=?";
+		public static final String RECORD_PAYMENT = "INSERT INTO crs.payment VALUES(?,?,?,?)";
 		
 		//Admin Queries
 		public static final String INSERT_ADMIN = "INSERT INTO crs.admin VALUES(?,?,?,?,?)";

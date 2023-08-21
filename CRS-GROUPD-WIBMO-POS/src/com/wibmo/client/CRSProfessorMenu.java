@@ -13,7 +13,7 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 /**
- * 
+ * Professor Menu Class.
  */
 public class CRSProfessorMenu {
 
@@ -138,6 +138,10 @@ public class CRSProfessorMenu {
       }
 		
 	}
+	
+	/**
+	 * To display the professor Registration menu.
+	 */
 	public void professorRegistration() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the Details for Registration");

@@ -4,7 +4,7 @@
 package com.wibmo.exception;
 
 /**
- * 
+ * Exception in case User has not been registered/approved
  */
 public class UserNotApprovedException extends Exception {
 int userId;

@@ -22,9 +22,10 @@ import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 
 /**
- * 
+ * Student menu class.
  */
 public class CRSStudentMenu {
+	
 	StudentOperation studentOp = new StudentOperationImpl();
 	NotificationOperation notificationOp=new NotificationOperationImpl();
 	Scanner scan = new Scanner(System.in);
@@ -46,6 +47,11 @@ public class CRSStudentMenu {
 		this.userId = userId;
 	}
 	
+	
+	/**
+	 * To display the menu for adding new courses.
+	 * @throws DuplicateCourseEntryException
+	 */
 	public void addCourses() throws DuplicateCourseEntryException {
  	   
  	   studentOp.viewCourseCatalog();
@@ -99,7 +105,7 @@ public class CRSStudentMenu {
 	
 	
 	/**
-	 * 
+	 * To display the student registration menu.
 	 * @throws StudentAlreadyRegisteredException
 	 */
 	public void studentRegistration() throws StudentAlreadyRegisteredException  {
@@ -136,6 +142,13 @@ public class CRSStudentMenu {
 	}
 	
 	
+	
+	/**
+	 * To display the student choice menu.
+	 * @throws DuplicateCourseEntryException
+	 * @throws CourseNotFoundException
+	 * @throws UserNotFoundException
+	 */
 	public void studentMenu() throws DuplicateCourseEntryException, CourseNotFoundException, UserNotFoundException {
 
        boolean flag = false;

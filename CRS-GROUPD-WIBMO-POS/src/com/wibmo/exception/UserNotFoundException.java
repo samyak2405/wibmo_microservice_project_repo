@@ -4,7 +4,7 @@
 package com.wibmo.exception;
 
 /**
- * 
+ * Exception in case user does not exist.
  */
 public class UserNotFoundException extends Exception {
 

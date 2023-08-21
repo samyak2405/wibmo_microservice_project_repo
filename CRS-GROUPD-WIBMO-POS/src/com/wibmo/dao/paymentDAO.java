@@ -3,14 +3,16 @@
  */
 package com.wibmo.dao;
 
+import com.wibmo.bean.Payment;
+
 /**
- * 
+ * To perform read and write operations in the database for Payment.
  */
 public interface paymentDAO {
-	public void getAmount(long studentId);
-	public void getPaymentStatus(long studentId);
-	public boolean offline();
-	public boolean UPI();
-	public boolean cards();
-	public boolean wallet();
+	
+	/**
+	 * To record payment details in the database.
+	 * @param payment
+	 */
+	public void setPaymentRecord(Payment payment);
 }

@@ -4,7 +4,7 @@
 package com.wibmo.utils;
 
 /**
- * 
+ * Class containing database connection Info.
  */
 
 import java.io.FileNotFoundException;

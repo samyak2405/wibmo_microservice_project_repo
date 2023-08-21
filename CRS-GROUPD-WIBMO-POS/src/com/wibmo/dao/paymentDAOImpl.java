@@ -3,45 +3,58 @@
  */
 package com.wibmo.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.wibmo.bean.Payment;
+import com.wibmo.constant.SQLConstants;
+import com.wibmo.utils.DButils;
+
 /**
  * 
  */
 public class paymentDAOImpl implements paymentDAO{
 
-	@Override
-	public void getAmount(long studentId) {
-		// TODO Auto-generated method stub
+	public static volatile paymentDAOImpl instance = null;
+	Connection conn = DButils.getConnection();
+
+	
+	private paymentDAOImpl() {
 		
 	}
+	
+	public static paymentDAOImpl getInstance() {
+		if(instance==null)
+		{
+			synchronized(StudentDAOImpl.class) {
+				instance = new paymentDAOImpl();
+			}
+		}
+		return instance;
+	}
 
 	@Override
-	public void getPaymentStatus(long studentId) {
+	public void setPaymentRecord(Payment payment) {
 		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
 		
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.RECORD_PAYMENT);
+			
+			stmt.setLong(1, payment.getUserId());
+			stmt.setInt(2,payment.getPaymentStatus());
+			stmt.setLong(3,payment.getTransactionId());
+			stmt.setInt(4,payment.getAmount());
+			
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+			
+		      se.printStackTrace();
+		   }
 	}
-
-	@Override
-	public boolean offline() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean UPI() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean cards() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean wallet() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 }
