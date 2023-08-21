@@ -53,7 +53,7 @@ public class CRSStudentMenu {
 	     	   course = courseId;
 	     	   if(courses.containsKey(courseId))
 	     	   {
-	     		   System.out.println("You entered duplicate choice. Please add another Course");
+	     		   log.info("You entered duplicate choice. Please add another Course");
 	     		   continue;
 	     	   }
 	     	   courses.put(courseId, 0);
@@ -71,7 +71,7 @@ public class CRSStudentMenu {
 	     	   course = courseId;
 	     	   if(courses.containsKey(courseId))
 	     	   {
-	     		   System.out.println("You entered duplicate choice. Please add another Course");
+	     		   log.info("You entered duplicate choice. Please add another Course");
 	     		   continue;
 	     	   }
 	     	   courses.put(courseId, 1);
@@ -86,19 +86,24 @@ public class CRSStudentMenu {
 	 * @throws DuplicateCourseEntryException
 	 */
 	public void addCourses() throws DuplicateCourseEntryException {
- 	   
+		log.info("");
+
+        log.info("===================================================================================");
  	   studentOp.viewCourseCatalog();
+ 	  log.info("");
+
+      log.info("===================================================================================");
  	   StudentCourseMap studCoMap = new StudentCourseMap();
  	   studCoMap.setStudentId(userId);
- 	   System.out.println("Add Compulsory Courses");
+ 	   log.info("Add Compulsory Courses");
  	   addCompulsoryCourse(4);
- 	   System.out.println("Add Alternative Courses");
+ 	   log.info("Add Alternative Courses");
  	   addAlternativeCourse(2);
  	   
  	   studCoMap.setCourses(courses);
  	   try {
 		studentOp.addCourses(studCoMap);
-		System.out.println("Course Added Successfully.");
+		log.info("Course Added Successfully.");
 	} catch (CourseNotFoundException e) {
 		log.info("Course with course id: "+e.getCourseId()+" Not Found!!");
 	}catch(CourseLimitExceededException e)
@@ -126,8 +131,8 @@ public class CRSStudentMenu {
 		user.setUserPassword(password);
 		System.out.print("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());
-//		System.out.println();
-//      	 System.out.println("===================================================================================");
+//		log.info();
+//      	 log.info("===================================================================================");
 		try {
 		studentOp.registerStudent(user);}
 		catch(StudentAlreadyRegisteredException e) {
@@ -148,6 +153,9 @@ public class CRSStudentMenu {
        boolean flag = false;
         
        while(true) {
+   		log.info("");
+    	 log.info("============================ Student Menu =========================================");
+    	 log.info("");
    		System.out.print("\nChoose From below given list"
    				+"\n1. Add course"
    				+"\n2. Drop course"
@@ -158,6 +166,8 @@ public class CRSStudentMenu {
    				+"\n7. Pay Fee"
    				+"\n8. View Notification"
    				+"\n9. Exit\n\n");
+		log.info("");
+ 	    log.info("===================================================================================");
    		
     	System.out.print("Enter your Choice: ");
     	int studentChoice=scan.nextInt();
@@ -165,31 +175,31 @@ public class CRSStudentMenu {
     	switch(studentChoice) {
     	case 1:
     		int isRegistered = studentOp.isStudentRegistered(userId);
-    		System.out.println("Student Registration Status: "+isRegistered);
+    		log.info("Student Registration Status: "+isRegistered);
     		if(isRegistered==1)
     		{
-    			System.out.println("Your Registration is completed. You can't add courses");
+    			log.info("Your Registration is completed. You can't add courses");
     			break;
     		}
-     	   System.out.println("\nSelect Course Ids from below given Course Catalog");
+     	   log.info("\nSelect Course Ids from below given Course Catalog");
       	   System.out.print("\nYou have to select 4 complusory and 2 Alternative");
-      	   System.out.println("\nFor complusory enter 0 and for alternative enter 1");
+      	   log.info("\nFor complusory enter 0 and for alternative enter 1");
       	   
      	   addCourses();
          break;
 
         case 2:
         	isRegistered = studentOp.isStudentRegistered(userId);
-        	System.out.println("Student Registration Status: "+isRegistered);
+        	log.info("Student Registration Status: "+isRegistered);
         	if(isRegistered==1)
     		{
-    			System.out.println("Your Registration is completed. You can't drop courses");
+    			log.info("Your Registration is completed. You can't drop courses");
     			break;
     		}
-        	System.out.println("You added following courses");
+        	log.info("You added following courses");
         	Map<Integer,String> map = studentOp.getAddedCourses(userId);
         	for(Map.Entry<Integer, String> entry:map.entrySet())
-        		System.out.println(String.format("%25s %25s", entry.getKey(),entry.getValue()));
+        		log.info(String.format("%25s %25s", entry.getKey(),entry.getValue()));
      	   
            System.out.print("\nEnter course Id: ");
      	   int courseId = scan.nextInt();
@@ -197,28 +207,29 @@ public class CRSStudentMenu {
      	   int coursePref = studentOp.dropCourses(userId,courseId); 
      	   courses.remove(courseId);
      	   
-     	   System.out.println("Select Course Ids from below given Course Catalog");
+     	   log.info("Select Course Ids from below given Course Catalog");
      	   studentOp.viewCourseCatalog();
      	   if(coursePref==0) {
-     		   System.out.println("You have to add Complusory course");
+     		   log.info("You have to add Complusory course");
      		  courseId = addCompulsoryCourse(1);
      		  studentOp.AddSingleCourse(userId,courseId,0);
      	   }
      	   if(coursePref==1) {
-     		   System.out.println("You have to add Alternative course");
+     		   log.info("You have to add Alternative course");
      		   courseId = addAlternativeCourse(1);
      		  studentOp.AddSingleCourse(userId,courseId,1);
      	   }
      	   }
      	   catch(UserNotFoundException e) {
-     		   System.out.println("User with id "+e.getUserId()+" is not found");
+     		   log.info("User with id "+e.getUserId()+" is not found");
      	   } catch(CourseNotFoundException e) {
-     		   System.out.println("Course with id "+e.getCourseId()+" is not found");
+     		   log.info("Course with id "+e.getCourseId()+" is not found");
      	   }
 
          break;
        case 3:
     	   studentOp.registerCourses(userId);
+    	   
     	   break;
 
        case 4:

@@ -52,7 +52,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 			if(adminDAO.searchAdmin(user.getUserId()))
 			{
-				throw new UserAlreadyExistsException();
+				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
 			adminOp.addAdmin(user);
 			

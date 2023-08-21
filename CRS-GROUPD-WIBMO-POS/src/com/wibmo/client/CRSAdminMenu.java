@@ -10,10 +10,8 @@ import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
 import java.util.*;
-
-import org.apache.log4j.Logger;
 /**
- * Admin Menu Class
+ * Admin Menu Class.
  */
 public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
@@ -23,16 +21,14 @@ public class CRSAdminMenu {
 	/**
 	 * To display the admin registration menu.
 	 */
-	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
-	
 	public void adminRegistration() {
-		log.info("Enter the Details for Registration");
+		System.out.println("Enter the Details for Registration");
    		Admin user = new Admin();
-   		log.info("Enter User ID: ");
+   		System.out.print("Enter User ID: ");
    		user.setUserId(scan.nextInt());
-   		log.info("\nEnter Name: ");
+   		System.out.print("\nEnter Name: ");
    		user.setUserName(scan.next());
-   		log.info("\nEnter Email: ");
+   		System.out.print("\nEnter Email: ");
    		user.setUserEmail(scan.next());
    		String password = clientValidator.passwordValidator();
    		user.setUserPassword(password);
@@ -41,7 +37,7 @@ public class CRSAdminMenu {
    		try {
     	   adminOp.adminRegistration(user);}
    		catch(UserAlreadyExistsException e){
-   			System.out.println("Admin with AdminId "+e.getUserId()+" alreadyExists");
+   			log.info("Admin with AdminId "+e.getUserId()+" alreadyExists");
    		}
 	}
 	
@@ -55,31 +51,31 @@ public class CRSAdminMenu {
        boolean flag = false;
         
        while(true) {
-    	   System.out.println();
-         	 System.out.println("===================================================================================");
-    	
+    	   log.info("");
+    	   log.info("============================ Admin Menu ===========================================");
+    	   log.info("");
     	log.info("1. Approve Student Registration");
 		
-		log.info("2. Approve Student's Course Registration");
+		System.out.println("2. Approve Student's Course Registration");
 
-        log.info("3. Register and Approve an Admin");
+        System.out.println("3. Register and Approve an Admin");
 
         log.info("4. Assign courses to Professor");
         
          log.info("5. Exit");
-        System.out.println();
-      	 System.out.println("===================================================================================");
+        log.info("");
+      	 log.info("===================================================================================");
        log.info("Enter your Choice: ");
-        System.out.println();
+        log.info("");
        
         
     	int opt=scan.nextInt();
        switch(opt) {
 
        case 1:
-    	   log.info("a. Approve all students at once"
+    	   System.out.println("a. Approve all students at once"
     			   +"\nb. Approve Student by Id");
-    	   log.info("\nEnter your Choice: ");
+    	   System.out.print("\nEnter your Choice: ");
     	   char choice = scan.next().charAt(0);
     	   switch(choice) {
     	   case 'a':
@@ -89,7 +85,7 @@ public class CRSAdminMenu {
     		   try {
     		   adminOp.approveStudentById();}
     		   catch(UserNotFoundException e) {
-    			   System.out.println("'Student with id "+e.getUserId()+" does not exist'");
+    			   log.info("'Student with id "+e.getUserId()+" does not exist'");
     		   }
     		   break;
     	   }
