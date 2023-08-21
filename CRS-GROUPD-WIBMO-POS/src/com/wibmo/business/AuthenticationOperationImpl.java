@@ -13,9 +13,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 	@Override
 	public boolean loggedin(String userEmail, String password,int role) {
 		// TODO Auto-generated method stub
-		
 		boolean verified=authenticate.loggedin(userEmail, password, role);
-		
 		return verified;
 	}
 

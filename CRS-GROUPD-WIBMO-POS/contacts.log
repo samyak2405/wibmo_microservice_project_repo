@@ -34,3 +34,26 @@ Invalid Credentials
 19:59:07,655 DEBUG AuthenticationDAOImpl,main:91 - 
 Invalid Credentials
 
+14:06:51,649 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:06:51,651  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:06:51,664  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:07:44,572 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:07:44,574  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:08:41,241 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:08:41,243  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:08:41,251  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:14:48,630 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+14:14:48,632  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:14:48,640  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:16:09,548  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:16:09,558  INFO AuthenticationOperationTest,main:39 - 
+Test Completed

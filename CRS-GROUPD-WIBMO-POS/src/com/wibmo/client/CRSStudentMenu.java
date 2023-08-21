@@ -131,7 +131,7 @@ public class CRSStudentMenu {
 		try {
 		studentOp.registerStudent(user);}
 		catch(StudentAlreadyRegisteredException e) {
-			log.info("student with id "+e.getStudentId()+"is already registered");
+			log.info("student with id "+userId+"is already registered");
 		}
 	}
 	
