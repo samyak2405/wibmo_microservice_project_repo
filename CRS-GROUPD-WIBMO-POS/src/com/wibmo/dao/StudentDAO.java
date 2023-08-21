@@ -66,14 +66,12 @@ public interface StudentDAO {
 	 * @return
 	 */
 	public boolean isApproved(int userId);
-	
 	/**
 	 * To search a student by ID in database using SQL queries.
 	 * @param userId
 	 * @return
 	 */
-	public boolean searchStudent(long userId);
-	
+	public boolean searchStudentByID(int studentId);
 	/**
 	 * to check if student has been registered or not using SQL queries.
 	 * @param studentId
@@ -94,5 +92,14 @@ public interface StudentDAO {
 	 * @return
 	 */
 	public int getCourseCount(long studentId);
+
+	public int getStudentByEmail(String userEmail);
+
+	public boolean doesEmailExist(String userEmail);
+
+	public Map<Integer, String> getAddedCourses(int userId);
+	
+	public void AddSingleCourse(int studentId,int courseId,int coursePref);
+
 	
 }

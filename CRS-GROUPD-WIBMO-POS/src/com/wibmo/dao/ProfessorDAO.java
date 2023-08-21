@@ -20,7 +20,8 @@ public interface ProfessorDAO {
 	 * @param courseId
 	 * @param grade
 	 */
-	public void setGrades(long studentId,long courseId,String grade) ;
+	
+	public void setGrades(long studentId,Integer courseId,String grade) ;
 	
 	/**
 	 * To request to teach a specific course usign SQL Queries.
@@ -28,14 +29,14 @@ public interface ProfessorDAO {
 	 * @param courseIdList
 	 * @return
 	 */
-	public boolean requestCourseOffering(int professorId,List<Long> courseIdList);
+	public boolean requestCourseOffering(int professorId,List<Integer> courseIdList);
 	
 	/**
 	 * To get the list of registered students using SQL queries.
 	 * @param courseId
 	 * @return List of registered student.
 	 */
-	public List<Student> viewStudentList(long courseId);
+	public List<Student> viewStudentList(Integer courseId);
 	
 	/**
 	 * 	To view list of all available courses in the database using SQL queries.
@@ -48,13 +49,13 @@ public interface ProfessorDAO {
 	 * @param professor
 	 */
 	public void registerProfessor(Professor professor);
-	
 	/**
 	 * To search a new professor in the database using SQL queries.
 	 * @param userId
 	 * @return True if professor of given userId present else returns false.
 	 */
-	public boolean searchProfessor(long userId);
+	public boolean searchProfessor(String userEmail);
+	public int getProfessorById(String userEmail);
 
 	
 }

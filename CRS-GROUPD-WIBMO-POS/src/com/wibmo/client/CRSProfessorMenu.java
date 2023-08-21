@@ -15,13 +15,15 @@ import com.wibmo.business.*;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.validator.ClientValidatorImpl;
 /**
  * Professor Menu Class.
  */
 public class CRSProfessorMenu {
 
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
-	int userId;
+	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
+	String userEmail;
 	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public CRSProfessorMenu()
@@ -30,9 +32,9 @@ public class CRSProfessorMenu {
 	}
 	
 	
-	public CRSProfessorMenu(int userId)
+	public CRSProfessorMenu(String userEmail)
 	{
-		this.userId=userId;
+		this.userEmail=userEmail;
 	}
 	
 	
@@ -76,7 +78,7 @@ public class CRSProfessorMenu {
 //           log.info("2.Exit");
             boolean flag1=false;
 
-            List<Long> courseIdList =new ArrayList<>();
+            List<Integer> courseIdList =new ArrayList<>();
                while(true) {
                    System.out.println();
 
@@ -92,13 +94,14 @@ public class CRSProfessorMenu {
 
                case 1:
                 System.out.print("Enter courseid: ");
-                long courseid1=scan.nextLong();
+                int courseid1=scan.nextInt();
                 courseIdList.add(courseid1);
                 break;
 
                case 2:
                   flag1=true;
                    try {
+                	int userId = professorOp.getProfessorById(userEmail);
 					professorOp.requestCourseOffering(userId,courseIdList);
 				} catch (CourseNotFoundException e) {
 					log.info("Course with course id:"+e.getCourseId()+" Not Found");
@@ -130,9 +133,11 @@ public class CRSProfessorMenu {
 
        case 4:
     	   	   log.info("Enter the StudentId");
-	    	   long studentId=scan.nextLong();
+	    	   int studentId=scan.nextInt();
+	    	   
 	    	   log.info("Course Id");
-	    	   long courseId=scan.nextLong();
+	    	   int courseId=scan.nextInt();
+	    	   
 	    	   log.info("Enter grades");
 	    	   String grade=scan.next();
 		try {
@@ -168,19 +173,8 @@ public class CRSProfessorMenu {
 		user.setUserName(scan.next());
 		System.out.print("\nEnter Email: ");
 		user.setUserEmail(scan.next());
-		while(true) {
-			System.out.print("\nEnter Password: ");
-    		String passwordOne = scan.next();
-    		System.out.print("\nEnter Password Again: ");
-    		String passwordAgain = scan.next();
-    		if(passwordOne.equals(passwordAgain))
-    		{
-    			user.setUserPassword(passwordOne);
-    			break;
-    		}
-    		else
-    			log.info("Password does not match");
-		}
+		String password = clientValidator.passwordValidator();
+		user.setUserPassword(password);
 		
 		System.out.print("\nEnter Phone Number: ");
 		System.out.println();

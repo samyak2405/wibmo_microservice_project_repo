@@ -3,6 +3,8 @@
  */
 package com.wibmo.business;
 
+import java.util.Map;
+
 import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.exception.*;
@@ -33,7 +35,7 @@ public interface StudentOperation {
 	 * @throws CourseNotFoundException
 	 * @throws UserNotFoundException
 	 */
-	public int dropCourses(long studentId, int courseId) throws CourseNotFoundException,UserNotFoundException;
+	public int dropCourses(int studentId, int courseId) throws CourseNotFoundException,UserNotFoundException;
 	
 	
 	/**
@@ -68,6 +70,12 @@ public interface StudentOperation {
 	 * @return True if student is registered else returns False.
 	 */
 	public boolean isApproved(int userId) ;
+
+	public int getStudentByEmail(String userEmail);
+
+	public Map<Integer, String> getAddedCourses(int userId);
+	public int isStudentRegistered(int userId);
+	public void AddSingleCourse(int studentId,int courseId,int coursePref);
 	
 }
 		

@@ -35,14 +35,14 @@ public class CourseDAOImpl implements CourseDAO{
 	Connection conn = DButils.getConnection();
 
     @Override
-    public boolean searchCourse(long courseId) {
+    public boolean searchCourse(int courseId) {
 
         // TODO Auto-generated method stub
 
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement(SQLConstants.SEARCH_COURSE);
-            stmt.setLong(1,courseId);
+            stmt.setInt(1,courseId);
             ResultSet rs=stmt.executeQuery();
             if(rs.next()) {
                 if(rs.getInt("courseId")==courseId) {

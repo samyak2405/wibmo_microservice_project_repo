@@ -13,5 +13,5 @@ public interface CourseDAO {
 	 * @param courseId
 	 * @return True if course is found else returns False.
 	 */
-	public boolean searchCourse(long courseId);
+	public boolean searchCourse(int courseId);
 }

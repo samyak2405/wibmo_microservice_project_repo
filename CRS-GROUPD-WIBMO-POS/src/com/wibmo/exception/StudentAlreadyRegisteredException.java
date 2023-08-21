@@ -9,19 +9,19 @@ package com.wibmo.exception;
 public class StudentAlreadyRegisteredException extends Exception 
 {
 
-	long userId;
+	String userEmail;
 	
 	
 	public StudentAlreadyRegisteredException() {
 		
 	}
 	
-	public StudentAlreadyRegisteredException(long userId) {
-		this.userId = userId;
+	public StudentAlreadyRegisteredException(String userEmail) {
+		this.userEmail = userEmail;
 	}
 	
-	public long getStudentId() {
-		return userId;
+	public String getStudentEmail() {
+		return userEmail;
 	}
 	
 

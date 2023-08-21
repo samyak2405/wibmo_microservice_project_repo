@@ -48,7 +48,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 
 
 	@Override
-	public void setGrades(long studentId, long courseId, String grade) {
+	public void setGrades(long studentId, Integer courseId, String grade) {
 		// TODO Auto-generated method stub
 		int result=0;
 		PreparedStatement stmt=null;
@@ -56,7 +56,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 			stmt = conn.prepareStatement(SQLConstants.SET_GRADES);
 			stmt.setString(3,grade);
 			stmt.setLong(1, studentId);
-			stmt.setLong(2,courseId);
+			stmt.setInt(2,courseId);
 			result=stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -67,7 +67,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	}
 
 	@Override
-	public boolean requestCourseOffering(int professorid,List<Long> courseIdList) {
+	public boolean requestCourseOffering(int professorid,List<Integer> courseIdList) {
 
         // TODO Auto-generated method stub
 
@@ -77,7 +77,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 
             stmt = conn.prepareStatement(SQLConstants.REQUEST_COURSE);
 
-            for(Long courseId:courseIdList)
+            for(Integer courseId:courseIdList)
             {
                 stmt.setLong(1,professorid);
                 stmt.setLong(2,courseId);
@@ -100,7 +100,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
  
 
 	@Override
-	public List<Student> viewStudentList(long courseId) {
+	public List<Student> viewStudentList(Integer courseId) {
 
         // TODO Auto-generated method stub
 
@@ -189,7 +189,7 @@ PreparedStatement stmt = null;
 	}
 	
 	
-	public boolean searchProfessor(long userId)
+	public boolean searchProfessor(String userEmail)
 	{
 
         PreparedStatement stmt = null;
@@ -198,21 +198,41 @@ PreparedStatement stmt = null;
 
             stmt = conn.prepareStatement(SQLConstants.SEARCH_PROFESSOR);
 
-            stmt.setLong(1,userId);
+            stmt.setString(1,userEmail);
+            ResultSet rs=stmt.executeQuery();
+
+            if(rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+	}
+
+	@Override
+	public int getProfessorById(String userEmail) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		int professorId = 0;
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.SELECT_PROFESSOR_BY_EMAIL);
+
+            stmt.setString(1,userEmail);
 
             
 
             ResultSet rs=stmt.executeQuery();
 
             if(rs.next()) {
-                return true;
-
+            	professorId = rs.getInt("professorid");
             }
         } catch (SQLException e) {
 
             e.printStackTrace();
 
         }
-        return false;
+        return professorId;
 	}
 }
