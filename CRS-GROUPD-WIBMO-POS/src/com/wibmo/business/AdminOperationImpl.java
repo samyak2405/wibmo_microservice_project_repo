@@ -52,7 +52,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 			if(adminDAO.searchAdmin(user.getUserId()))
 			{
-				throw new UserAlreadyExistsException(user.getUserId());
+				throw new UserAlreadyExistsException();
 			}
 			adminOp.addAdmin(user);
 			
@@ -87,7 +87,7 @@ public class AdminOperationImpl implements AdminOperation{
 		
 
 		int studentId = scan.nextInt();
-		if(studentDAO.searchStudent(studentId)==false) {
+		if(studentDAO.searchStudentByID(studentId)==false) {
 			throw new UserNotFoundException(studentId);
 		}
 		adminDAO.setApprovedStudentById(studentId);

@@ -34,3 +34,7 @@ Invalid Credentials
 19:59:07,655 DEBUG AuthenticationDAOImpl,main:91 - 
 Invalid Credentials
 
+15:00:17,842  INFO AdminOperationImpl,main:403 - userId
+15:00:17,847  INFO AdminOperationImpl,main:403 - userId
+15:03:18,528  INFO AdminOperationImpl,main:403 - userId
+15:03:18,534  INFO AdminOperationImpl,main:403 - userId
