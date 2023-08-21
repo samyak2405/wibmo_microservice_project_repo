@@ -44,10 +44,15 @@ public class AuthenticationOperationTest {
 	 */
 	@Test
 	public void testLoggedin() {
-		String userEmail="sid";
-		String password="newPassword";
+		String userEmail="sid@gmail.com";
+		String password="sid";
 		int role=1;
 		boolean a=authentication.loggedin(userEmail, password, role);
+		assertTrue(a);
+		userEmail="samyak@gmail.com";
+		password="samyak";
+		role=1;
+		a=authentication.loggedin(userEmail, password, role);
 		assertTrue(a);
 	}
 
