@@ -1,0 +1,885 @@
+12:27:14,158 DEBUG AuthenticationDAOImpl,main:78 - Pending Approval from Admin
+12:28:28,968 ERROR AuthenticationDAOImpl,main:90 - SQL Exception: Unknown column 'isapproved' in 'field list'
+12:31:50,392 ERROR AuthenticationDAOImpl,main:95 - SQL Exception: Unknown column 'isapproved' in 'field list'
+13:06:08,297 DEBUG AuthenticationDAOImpl,main:89 - Invalid Credentials
+16:05:19,329 DEBUG AuthenticationDAOImpl,main:89 - Invalid Credentials
+17:53:41,803 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+17:58:25,089 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+18:00:13,681 ERROR AuthenticationDAOImpl,main:97 - SQL Exception: Unknown column 'isapproved' in 'field list'
+18:00:46,621 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+18:01:11,576 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+18:01:46,904 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+18:02:35,027 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+18:03:05,039 DEBUG AuthenticationDAOImpl,main:91 - 
+Invalid Credentials
+
+18:10:36,707 ERROR AuthenticationDAOImpl,main:97 - SQL Exception: Unknown column 'isapproved' in 'field list'
+18:11:50,334 DEBUG AuthenticationDAOImpl,main:91 - 
+Invalid Credentials
+
+18:48:01,482 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
+18:50:35,533 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
+18:57:07,884 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
+18:59:53,535 DEBUG AuthenticationDAOImpl,main:81 - 
+ Pending Approval from Admin
+19:09:08,298 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
+19:09:43,827 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+19:13:03,967 DEBUG AuthenticationDAOImpl,main:91 - 
+Invalid Credentials
+
+19:21:21,439 DEBUG AuthenticationDAOImpl,main:91 - 
+Invalid Credentials
+
+19:59:07,655 DEBUG AuthenticationDAOImpl,main:91 - 
+Invalid Credentials
+
+<<<<<<< HEAD
+11:44:01,154  INFO AdminOperationImpl,main:46 - ===================================================================================
+11:44:01,157  INFO AdminOperationImpl,main:52 - 
+11:44:01,169  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+11:44:01,169  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+11:44:09,050  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+11:44:25,541  INFO AdminOperationImpl,main:99 - 
+You are logged in successfully as a student
+11:44:29,814  INFO AdminOperationImpl,main:101 - List of Courses Approved
+11:44:29,815  INFO AdminOperationImpl,main:103 -                    1                  C++
+
+11:44:29,815  INFO AdminOperationImpl,main:103 -                    2                    C
+
+11:44:29,815  INFO AdminOperationImpl,main:103 -                    3               python
+
+11:44:29,816  INFO AdminOperationImpl,main:103 -                    4                Scala
+
+11:44:31,707  INFO AdminOperationImpl,main:148 - 4
+11:44:31,707  INFO AdminOperationImpl,main:149 - Your Grades
+11:44:31,708  INFO AdminOperationImpl,main:150 -             CourseId                Grade
+11:44:31,708  INFO AdminOperationImpl,main:151 -                    1                   NA
+
+11:44:31,710  INFO AdminOperationImpl,main:151 -                    2                   NA
+
+11:44:31,711  INFO AdminOperationImpl,main:151 -                    3                   NA
+
+11:44:31,712  INFO AdminOperationImpl,main:151 -                    4                   NA
+
+11:44:33,794  INFO AdminOperationImpl,main:111 - Course Catalog: 
+11:44:33,796  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+11:44:33,797  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+11:44:33,797  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+11:44:33,797  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+11:44:33,798  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+11:44:33,798  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+11:44:33,798  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+11:44:33,798  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+11:44:33,799  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+11:44:33,800  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+11:44:33,800  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+11:44:33,800  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+11:44:33,800  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+11:44:37,422  INFO AdminOperationImpl,main:27 - Registration Approved
+11:44:37,422  INFO AdminOperationImpl,main:27 - Pay the Registration Fee!!
+11:44:37,422  INFO AdminOperationImpl,main:27 - Payment Rejected!!
+11:44:57,796  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+11:44:57,797  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+11:45:14,234  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+11:45:21,983  INFO AdminOperationImpl,main:99 - 
+You are logged in successfully as a student
+11:45:31,706  INFO AdminOperationImpl,main:81 - 1.OFFLINE
+11:45:31,707  INFO AdminOperationImpl,main:82 - 2.ONLINE
+11:45:31,707  INFO AdminOperationImpl,main:83 - 3.EXIT
+11:45:31,707  INFO AdminOperationImpl,main:89 - Enter Your Choice
+11:49:56,214  INFO AdminOperationImpl,main:46 - ===================================================================================
+11:49:56,217  INFO AdminOperationImpl,main:52 - 
+11:49:56,224  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+11:49:56,224  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+11:50:02,912  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+11:50:13,345  INFO AdminOperationImpl,main:99 - 
+You are logged in successfully as a student
+11:50:16,096  INFO AdminOperationImpl,main:81 - 1.OFFLINE
+11:50:16,098  INFO AdminOperationImpl,main:82 - 2.ONLINE
+11:50:16,098  INFO AdminOperationImpl,main:83 - 3.EXIT
+11:50:16,098  INFO AdminOperationImpl,main:89 - Enter Your Choice
+11:52:42,571  INFO AdminOperationImpl,main:46 - ===================================================================================
+11:52:42,578  INFO AdminOperationImpl,main:52 - 
+11:52:42,589  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+11:52:42,590  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+11:52:45,417  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+11:52:58,202  INFO AdminOperationImpl,main:99 - 
+You are logged in successfully as a student
+11:53:01,326  INFO AdminOperationImpl,main:81 - 1.OFFLINE
+11:53:01,327  INFO AdminOperationImpl,main:82 - 2.ONLINE
+11:53:01,327  INFO AdminOperationImpl,main:83 - 3.EXIT
+11:53:01,327  INFO AdminOperationImpl,main:89 - Enter Your Choice
+11:53:06,425  INFO AdminOperationImpl,main:27 - Registration Approved
+11:53:06,425  INFO AdminOperationImpl,main:27 - Pay the Registration Fee!!
+11:53:06,425  INFO AdminOperationImpl,main:27 - Payment Successful!!
+11:53:36,027  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+11:53:36,027  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+11:53:44,299  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+11:53:56,049  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+11:53:56,115  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+11:53:56,115  INFO AdminOperationImpl,main:58 - 2.View Student List
+11:53:56,116  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+11:53:56,116  INFO AdminOperationImpl,main:62 - 4.Set Grades
+11:53:56,116  INFO AdminOperationImpl,main:64 - 5.Exit
+11:53:59,688  INFO AdminOperationImpl,main:120 - Enter courseid: 
+11:54:02,539  INFO AdminOperationImpl,main:71 - List of Students Registered For this particular course: 
+11:54:02,540  INFO AdminOperationImpl,main:72 -                    1               samyak     samyak@gmail.com              1234567
+
+11:54:02,540  INFO AdminOperationImpl,main:72 -                    2                Dixit      dixit@gmail.com             12345678
+
+11:54:02,540  INFO AdminOperationImpl,main:72 -                    3             sidharth        sid@gmail.com              1234567
+
+11:54:02,540  INFO AdminOperationImpl,main:72 -                    4              satwika    satwika@gmail.com              1234567
+
+11:54:02,540  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+11:54:02,540  INFO AdminOperationImpl,main:58 - 2.View Student List
+11:54:02,540  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+11:54:02,541  INFO AdminOperationImpl,main:62 - 4.Set Grades
+11:54:02,541  INFO AdminOperationImpl,main:64 - 5.Exit
+11:54:12,831  INFO AdminOperationImpl,main:88 - Course Catalog: 
+11:54:12,832  INFO AdminOperationImpl,main:90 -                    1                  C++                Brown                    C
+
+11:54:12,832  INFO AdminOperationImpl,main:90 -                    2                    C              Johnson                 None
+
+11:54:12,832  INFO AdminOperationImpl,main:90 -                    3               python                Smith                 None
+
+11:54:12,832  INFO AdminOperationImpl,main:90 -                    4                Scala                Davis                 None
+
+11:54:12,833  INFO AdminOperationImpl,main:90 -                    5             Solidity                White                 None
+
+11:54:12,833  INFO AdminOperationImpl,main:90 -                    6                 Java                Smith                 None
+
+11:54:12,834  INFO AdminOperationImpl,main:90 -                    7       Data Structure              Johnson                 Java
+
+11:54:12,834  INFO AdminOperationImpl,main:90 -                    8           Algorithms                Brown       Data Structure
+
+11:54:12,834  INFO AdminOperationImpl,main:90 -                    9      Web Development                Davis                 None
+
+11:54:12,834  INFO AdminOperationImpl,main:90 -                   10             Database                White                 None
+
+11:54:12,835  INFO AdminOperationImpl,main:90 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+11:54:12,835  INFO AdminOperationImpl,main:90 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+11:54:12,835  INFO AdminOperationImpl,main:90 -                   13    Computer Graphics             Anderson       Data Structure
+
+11:54:12,835  INFO AdminOperationImpl,main:90 -                   14 Software Engineering                 Hall       Java, Database
+
+11:54:12,835  INFO AdminOperationImpl,main:90 -                   15     Network Security                Lewis                 None
+
+11:54:12,836  INFO AdminOperationImpl,main:90 -                   16    Operating Systems               Turner      Data Structures
+
+11:54:12,836  INFO AdminOperationImpl,main:90 -                   17      App Development                Moore                 Java
+
+11:54:12,836  INFO AdminOperationImpl,main:90 -                   18             Robotics                Adams Algorithms, Electronics
+
+11:54:12,836  INFO AdminOperationImpl,main:90 -                   19  Ethics in Computing               Martin                 None
+
+11:54:12,836  INFO AdminOperationImpl,main:90 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+11:54:12,836  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+11:54:12,837  INFO AdminOperationImpl,main:58 - 2.View Student List
+11:54:12,837  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+11:54:12,837  INFO AdminOperationImpl,main:62 - 4.Set Grades
+11:54:12,837  INFO AdminOperationImpl,main:64 - 5.Exit
+11:54:22,145  INFO AdminOperationImpl,main:88 - Course Catalog: 
+11:54:22,146  INFO AdminOperationImpl,main:90 -                    1                  C++                Brown                    C
+
+11:54:22,146  INFO AdminOperationImpl,main:90 -                    2                    C              Johnson                 None
+
+11:54:22,146  INFO AdminOperationImpl,main:90 -                    3               python                Smith                 None
+
+11:54:22,146  INFO AdminOperationImpl,main:90 -                    4                Scala                Davis                 None
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                    5             Solidity                White                 None
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                    6                 Java                Smith                 None
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                    7       Data Structure              Johnson                 Java
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                    8           Algorithms                Brown       Data Structure
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                    9      Web Development                Davis                 None
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                   10             Database                White                 None
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+11:54:22,147  INFO AdminOperationImpl,main:90 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   13    Computer Graphics             Anderson       Data Structure
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   14 Software Engineering                 Hall       Java, Database
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   15     Network Security                Lewis                 None
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   16    Operating Systems               Turner      Data Structures
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   17      App Development                Moore                 Java
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   18             Robotics                Adams Algorithms, Electronics
+
+11:54:22,148  INFO AdminOperationImpl,main:90 -                   19  Ethics in Computing               Martin                 None
+
+11:54:22,149  INFO AdminOperationImpl,main:90 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+11:54:22,149  INFO AdminOperationImpl,main:86 - 1.Request Course
+11:54:22,149  INFO AdminOperationImpl,main:87 - 2.Freeze list
+11:54:29,869  INFO AdminOperationImpl,main:86 - 1.Request Course
+11:54:29,869  INFO AdminOperationImpl,main:87 - 2.Freeze list
+11:54:31,667  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+11:54:31,667  INFO AdminOperationImpl,main:58 - 2.View Student List
+11:54:31,667  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+11:54:31,667  INFO AdminOperationImpl,main:62 - 4.Set Grades
+11:54:31,667  INFO AdminOperationImpl,main:64 - 5.Exit
+12:17:00,810  INFO AdminOperationImpl,main:46 - ===================================================================================
+12:17:00,813  INFO AdminOperationImpl,main:52 - 
+12:17:00,818  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+12:17:00,819  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+12:17:16,178  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+12:17:24,351  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+12:17:24,395  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+12:17:24,395  INFO AdminOperationImpl,main:58 - 2.View Student List
+12:17:24,395  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+12:17:24,395  INFO AdminOperationImpl,main:62 - 4.Set Grades
+12:17:24,395  INFO AdminOperationImpl,main:64 - 5.Exit
+12:17:29,298  INFO AdminOperationImpl,main:88 - Course Catalog: 
+12:17:29,300  INFO AdminOperationImpl,main:90 -                    1                  C++                Brown                    C
+
+12:17:29,300  INFO AdminOperationImpl,main:90 -                    2                    C              Johnson                 None
+
+12:17:29,300  INFO AdminOperationImpl,main:90 -                    3               python                Smith                 None
+
+12:17:29,300  INFO AdminOperationImpl,main:90 -                    4                Scala                Davis                 None
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                    5             Solidity                White                 None
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                    6                 Java                Smith                 None
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                    7       Data Structure              Johnson                 Java
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                    8           Algorithms                Brown       Data Structure
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                    9      Web Development                Davis                 None
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                   10             Database                White                 None
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+12:17:29,302  INFO AdminOperationImpl,main:90 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   13    Computer Graphics             Anderson       Data Structure
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   14 Software Engineering                 Hall       Java, Database
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   15     Network Security                Lewis                 None
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   16    Operating Systems               Turner      Data Structures
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   17      App Development                Moore                 Java
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   18             Robotics                Adams Algorithms, Electronics
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   19  Ethics in Computing               Martin                 None
+
+12:17:29,303  INFO AdminOperationImpl,main:90 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+12:17:29,303  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:17:29,303  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:17:35,889  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:17:35,889  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:17:39,622  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:17:39,622  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:17:45,347  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:17:45,347  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:17:49,429  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+12:17:49,429  INFO AdminOperationImpl,main:58 - 2.View Student List
+12:17:49,429  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+12:17:49,429  INFO AdminOperationImpl,main:62 - 4.Set Grades
+12:17:49,429  INFO AdminOperationImpl,main:64 - 5.Exit
+12:18:32,266  INFO AdminOperationImpl,main:46 - ===================================================================================
+12:18:32,268  INFO AdminOperationImpl,main:52 - 
+12:18:32,275  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+12:18:32,275  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+12:18:34,648  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+12:18:45,409  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+12:18:45,415  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+12:18:45,415  INFO AdminOperationImpl,main:58 - 2.View Student List
+12:18:45,415  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+12:18:45,415  INFO AdminOperationImpl,main:62 - 4.Set Grades
+12:18:45,415  INFO AdminOperationImpl,main:64 - 5.Exit
+12:19:06,780  INFO AdminOperationImpl,main:88 - Course Catalog: 
+12:19:06,781  INFO AdminOperationImpl,main:90 -                    1                  C++                Brown                    C
+
+12:19:06,782  INFO AdminOperationImpl,main:90 -                    2                    C              Johnson                 None
+
+12:19:06,782  INFO AdminOperationImpl,main:90 -                    3               python                Smith                 None
+
+12:19:06,783  INFO AdminOperationImpl,main:90 -                    4                Scala                Davis                 None
+
+12:19:06,785  INFO AdminOperationImpl,main:90 -                    5             Solidity                White                 None
+
+12:19:06,785  INFO AdminOperationImpl,main:90 -                    6                 Java                Smith                 None
+
+12:19:06,785  INFO AdminOperationImpl,main:90 -                    7       Data Structure              Johnson                 Java
+
+12:19:06,785  INFO AdminOperationImpl,main:90 -                    8           Algorithms                Brown       Data Structure
+
+12:19:06,786  INFO AdminOperationImpl,main:90 -                    9      Web Development                Davis                 None
+
+12:19:06,786  INFO AdminOperationImpl,main:90 -                   10             Database                White                 None
+
+12:19:06,787  INFO AdminOperationImpl,main:90 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+12:19:06,787  INFO AdminOperationImpl,main:90 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+12:19:06,788  INFO AdminOperationImpl,main:90 -                   13    Computer Graphics             Anderson       Data Structure
+
+12:19:06,790  INFO AdminOperationImpl,main:90 -                   14 Software Engineering                 Hall       Java, Database
+
+12:19:06,791  INFO AdminOperationImpl,main:90 -                   15     Network Security                Lewis                 None
+
+12:19:06,792  INFO AdminOperationImpl,main:90 -                   16    Operating Systems               Turner      Data Structures
+
+12:19:06,792  INFO AdminOperationImpl,main:90 -                   17      App Development                Moore                 Java
+
+12:19:06,792  INFO AdminOperationImpl,main:90 -                   18             Robotics                Adams Algorithms, Electronics
+
+12:19:06,792  INFO AdminOperationImpl,main:90 -                   19  Ethics in Computing               Martin                 None
+
+12:19:06,792  INFO AdminOperationImpl,main:90 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+12:19:06,792  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:19:06,793  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:19:12,250  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:19:12,250  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:19:15,710  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:19:15,711  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:20:41,445  INFO AdminOperationImpl,main:86 - 1.Request Course
+12:20:41,446  INFO AdminOperationImpl,main:87 - 2.Freeze list
+12:20:43,845  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+12:20:43,845  INFO AdminOperationImpl,main:58 - 2.View Student List
+12:20:43,845  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+12:20:43,845  INFO AdminOperationImpl,main:62 - 4.Set Grades
+12:20:43,845  INFO AdminOperationImpl,main:64 - 5.Exit
+12:20:48,870  INFO AdminOperationImpl,main:120 - Enter courseid: 
+12:20:51,981  INFO AdminOperationImpl,main:71 - List of Students Registered For this particular course: 
+12:20:51,982  INFO AdminOperationImpl,main:72 -                    1               samyak     samyak@gmail.com              1234567
+
+12:20:51,982  INFO AdminOperationImpl,main:72 -                    2                Dixit      dixit@gmail.com             12345678
+
+12:20:51,982  INFO AdminOperationImpl,main:72 -                    3             sidharth        sid@gmail.com              1234567
+
+12:20:51,982  INFO AdminOperationImpl,main:72 -                    4              satwika    satwika@gmail.com              1234567
+
+12:20:51,982  INFO AdminOperationImpl,main:55 - 1.Request Course Offering
+12:20:51,982  INFO AdminOperationImpl,main:58 - 2.View Student List
+12:20:51,982  INFO AdminOperationImpl,main:60 - 3.View Course Catalog
+12:20:51,982  INFO AdminOperationImpl,main:62 - 4.Set Grades
+12:20:51,982  INFO AdminOperationImpl,main:64 - 5.Exit
+14:21:18,067  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:21:18,069  INFO AdminOperationImpl,main:52 - 
+14:21:18,075  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:21:18,075  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:21:23,922  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:21:31,202  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+14:21:31,221  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:21:31,221  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:21:31,223  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:21:31,223  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:21:31,223  INFO AdminOperationImpl,main:66 - 5.Exit
+14:21:38,714  INFO AdminOperationImpl,main:89 - Course Catalog: 
+14:21:38,715  INFO AdminOperationImpl,main:91 -                    1                  C++                Brown                    C
+
+14:21:38,715  INFO AdminOperationImpl,main:91 -                    2                    C              Johnson                 None
+
+14:21:38,715  INFO AdminOperationImpl,main:91 -                    3               python                Smith                 None
+
+14:21:38,715  INFO AdminOperationImpl,main:91 -                    4                Scala                Davis                 None
+
+14:21:38,718  INFO AdminOperationImpl,main:91 -                    5             Solidity                White                 None
+
+14:21:38,718  INFO AdminOperationImpl,main:91 -                    6                 Java                Smith                 None
+
+14:21:38,718  INFO AdminOperationImpl,main:91 -                    7       Data Structure              Johnson                 Java
+
+14:21:38,719  INFO AdminOperationImpl,main:91 -                    8           Algorithms                Brown       Data Structure
+
+14:21:38,719  INFO AdminOperationImpl,main:91 -                    9      Web Development                Davis                 None
+
+14:21:38,719  INFO AdminOperationImpl,main:91 -                   10             Database                White                 None
+
+14:21:38,719  INFO AdminOperationImpl,main:91 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+14:21:38,719  INFO AdminOperationImpl,main:91 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+14:21:38,720  INFO AdminOperationImpl,main:91 -                   13    Computer Graphics             Anderson       Data Structure
+
+14:21:38,720  INFO AdminOperationImpl,main:91 -                   14 Software Engineering                 Hall       Java, Database
+
+14:21:38,721  INFO AdminOperationImpl,main:91 -                   15     Network Security                Lewis                 None
+
+14:21:38,721  INFO AdminOperationImpl,main:91 -                   16    Operating Systems               Turner      Data Structures
+
+14:21:38,722  INFO AdminOperationImpl,main:91 -                   17      App Development                Moore                 Java
+
+14:21:38,722  INFO AdminOperationImpl,main:91 -                   18             Robotics                Adams Algorithms, Electronics
+
+14:21:38,723  INFO AdminOperationImpl,main:91 -                   19  Ethics in Computing               Martin                 None
+
+14:21:38,723  INFO AdminOperationImpl,main:91 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+14:21:38,723  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:21:38,723  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:21:41,812  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:21:41,812  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:21:48,058  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:21:48,058  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:22:00,492  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:22:00,493  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:22:04,030  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:22:04,030  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:22:06,383  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:22:06,383  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:22:06,384  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:22:06,384  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:22:06,384  INFO AdminOperationImpl,main:66 - 5.Exit
+14:43:43,239  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:43:43,242  INFO AdminOperationImpl,main:52 - 
+14:43:43,249  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:43:43,249  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:43:47,177  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:43:54,033  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+14:43:54,048  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:43:54,048  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:43:54,048  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:43:54,049  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:43:54,049  INFO AdminOperationImpl,main:66 - 5.Exit
+14:43:56,529  INFO AdminOperationImpl,main:89 - Course Catalog: 
+14:43:56,530  INFO AdminOperationImpl,main:91 -                    1                  C++                Brown                    C
+
+14:43:56,530  INFO AdminOperationImpl,main:91 -                    2                    C              Johnson                 None
+
+14:43:56,531  INFO AdminOperationImpl,main:91 -                    3               python                Smith                 None
+
+14:43:56,531  INFO AdminOperationImpl,main:91 -                    4                Scala                Davis                 None
+
+14:43:56,533  INFO AdminOperationImpl,main:91 -                    5             Solidity                White                 None
+
+14:43:56,533  INFO AdminOperationImpl,main:91 -                    6                 Java                Smith                 None
+
+14:43:56,533  INFO AdminOperationImpl,main:91 -                    7       Data Structure              Johnson                 Java
+
+14:43:56,534  INFO AdminOperationImpl,main:91 -                    8           Algorithms                Brown       Data Structure
+
+14:43:56,534  INFO AdminOperationImpl,main:91 -                    9      Web Development                Davis                 None
+
+14:43:56,534  INFO AdminOperationImpl,main:91 -                   10             Database                White                 None
+
+14:43:56,534  INFO AdminOperationImpl,main:91 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+14:43:56,534  INFO AdminOperationImpl,main:91 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+14:43:56,534  INFO AdminOperationImpl,main:91 -                   13    Computer Graphics             Anderson       Data Structure
+
+14:43:56,535  INFO AdminOperationImpl,main:91 -                   14 Software Engineering                 Hall       Java, Database
+
+14:43:56,535  INFO AdminOperationImpl,main:91 -                   15     Network Security                Lewis                 None
+
+14:43:56,535  INFO AdminOperationImpl,main:91 -                   16    Operating Systems               Turner      Data Structures
+
+14:43:56,535  INFO AdminOperationImpl,main:91 -                   17      App Development                Moore                 Java
+
+14:43:56,535  INFO AdminOperationImpl,main:91 -                   18             Robotics                Adams Algorithms, Electronics
+
+14:43:56,535  INFO AdminOperationImpl,main:91 -                   19  Ethics in Computing               Martin                 None
+
+14:43:56,537  INFO AdminOperationImpl,main:91 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+14:43:56,537  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:43:56,537  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:43:58,908  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:43:58,909  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:44:01,174  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:44:01,174  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:44:03,488  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:44:03,488  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:44:05,491  INFO AdminOperationImpl,main:88 - 1.Request Course
+14:44:05,491  INFO AdminOperationImpl,main:89 - 2.Freeze list
+14:44:07,911  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:44:07,912  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:44:07,912  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:44:07,912  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:44:07,912  INFO AdminOperationImpl,main:66 - 5.Exit
+14:44:23,102  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:44:23,103  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:44:25,632  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:44:33,604  INFO AdminOperationImpl,main:110 - You are logged in successfully as a Admin
+14:44:33,667  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:44:33,667  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:44:33,667  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:44:33,667  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:44:33,667  INFO AdminOperationImpl,main:77 - 5. Exit
+14:44:33,668  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:44:37,601  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:44:37,601  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:44:37,601  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:44:37,601  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:44:37,601  INFO AdminOperationImpl,main:77 - 5. Exit
+14:44:37,601  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:44:52,970  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:44:52,971  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:44:52,971  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:44:52,971  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:44:52,971  INFO AdminOperationImpl,main:77 - 5. Exit
+14:44:52,971  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:46:56,048  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:46:56,048  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:46:58,232  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:47:07,661  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:47:07,664  INFO AdminOperationImpl,main:52 - 
+14:47:07,671  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:47:07,672  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:48:31,319  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:48:45,338  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:48:45,343  INFO AdminOperationImpl,main:52 - 
+14:48:45,349  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:48:45,350  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:48:46,735  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:48:53,064  INFO AdminOperationImpl,main:110 - You are logged in successfully as a Admin
+14:48:53,075  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:48:53,075  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:48:53,076  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:48:53,076  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:48:53,076  INFO AdminOperationImpl,main:77 - 5. Exit
+14:48:53,076  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:48:58,347  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:48:58,347  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:48:58,348  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:48:58,348  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:48:58,349  INFO AdminOperationImpl,main:77 - 5. Exit
+14:48:58,349  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:51:00,238  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:51:00,240  INFO AdminOperationImpl,main:52 - 
+14:51:00,247  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:51:00,248  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:51:02,447  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:51:09,732  INFO AdminOperationImpl,main:110 - You are logged in successfully as a Admin
+14:51:09,742  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:51:09,742  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:51:09,742  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:51:09,743  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:51:09,743  INFO AdminOperationImpl,main:77 - 5. Exit
+14:51:09,743  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:51:11,787  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:51:11,787  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:51:11,787  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:51:11,787  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:51:11,788  INFO AdminOperationImpl,main:77 - 5. Exit
+14:51:11,788  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:52:15,987  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:52:15,989  INFO AdminOperationImpl,main:52 - 
+14:52:15,994  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:52:15,994  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:52:18,364  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:52:25,335  INFO AdminOperationImpl,main:110 - You are logged in successfully as a Admin
+14:52:25,346  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:52:25,346  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:52:25,346  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:52:25,346  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:52:25,346  INFO AdminOperationImpl,main:77 - 5. Exit
+14:52:25,346  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:52:27,161  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:52:27,161  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:52:27,161  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:52:27,161  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:52:27,162  INFO AdminOperationImpl,main:77 - 5. Exit
+14:52:27,162  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:53:07,175  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:53:07,177  INFO AdminOperationImpl,main:52 - 
+14:53:07,183  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:53:07,183  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:53:10,396  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:53:18,645  INFO AdminOperationImpl,main:110 - You are logged in successfully as a Admin
+14:53:18,658  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:53:18,658  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:53:18,658  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:53:18,658  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:53:18,658  INFO AdminOperationImpl,main:77 - 5. Exit
+14:53:18,658  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:53:21,844  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+14:53:21,844  INFO AdminOperationImpl,main:71 - 2. Approve Student's Course Registration
+14:53:21,844  INFO AdminOperationImpl,main:73 - 3. Register and Approve an Admin
+14:53:21,844  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+14:53:21,846  INFO AdminOperationImpl,main:77 - 5. Exit
+14:53:21,846  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+14:53:41,499  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:53:41,499  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:53:44,354  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:53:53,143  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+14:53:53,183  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:53:53,183  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:53:53,183  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:53:53,183  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:53:53,183  INFO AdminOperationImpl,main:66 - 5.Exit
+14:53:56,115  INFO AdminOperationImpl,main:122 - List of Courses assigned
+14:53:56,119  INFO AdminOperationImpl,main:124 - Enter courseid: 
+14:53:59,977  INFO AdminOperationImpl,main:72 - List of Students Registered For this particular course: 
+14:53:59,978  INFO AdminOperationImpl,main:73 -                    1               samyak     samyak@gmail.com              1234567
+
+14:53:59,978  INFO AdminOperationImpl,main:73 -                    2                Dixit      dixit@gmail.com             12345678
+
+14:53:59,978  INFO AdminOperationImpl,main:73 -                    3             sidharth        sid@gmail.com              1234567
+
+14:53:59,978  INFO AdminOperationImpl,main:73 -                    4              satwika    satwika@gmail.com              1234567
+
+14:53:59,978  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:53:59,978  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:53:59,978  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:53:59,978  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:53:59,978  INFO AdminOperationImpl,main:66 - 5.Exit
+14:55:06,895  INFO AdminOperationImpl,main:139 - Choose Course from below given list
+14:55:06,898  INFO AdminOperationImpl,main:141 - Course Id
+14:55:12,623  INFO AdminOperationImpl,main:143 - Following are the students registered for the course 1
+14:55:12,627  INFO AdminOperationImpl,main:72 - List of Students Registered For this particular course: 
+14:55:12,628  INFO AdminOperationImpl,main:73 -                    1               samyak     samyak@gmail.com              1234567
+
+14:55:12,628  INFO AdminOperationImpl,main:73 -                    2                Dixit      dixit@gmail.com             12345678
+
+14:55:12,629  INFO AdminOperationImpl,main:73 -                    3             sidharth        sid@gmail.com              1234567
+
+14:55:12,629  INFO AdminOperationImpl,main:73 -                    4              satwika    satwika@gmail.com              1234567
+
+14:55:12,629  INFO AdminOperationImpl,main:150 - Enter the StudentId
+14:55:15,317  INFO AdminOperationImpl,main:153 - Enter grades
+14:55:18,032  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:55:18,032  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:55:18,032  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:55:18,032  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:55:18,032  INFO AdminOperationImpl,main:66 - 5.Exit
+14:58:04,693  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:58:04,694  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:58:06,741  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:58:14,254  INFO AdminOperationImpl,main:46 - ===================================================================================
+14:58:14,257  INFO AdminOperationImpl,main:52 - 
+14:58:14,263  INFO AdminOperationImpl,main:64 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+14:58:14,263  INFO AdminOperationImpl,main:70 - 
+Enter your choice: 
+14:58:16,441  INFO AdminOperationImpl,main:74 - 
+1. Student
+2. Professor
+3. Admin
+14:58:28,709  INFO AdminOperationImpl,main:105 - You are logged in successfully as a Professor
+14:58:28,715  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:58:28,715  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:58:28,715  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:58:28,715  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:58:28,715  INFO AdminOperationImpl,main:66 - 5.Exit
+14:58:38,991  INFO AdminOperationImpl,main:139 - Choose Course from below given list
+14:58:38,996  INFO AdminOperationImpl,main:141 - Course Id
+14:58:40,797  INFO AdminOperationImpl,main:143 - Following are the students registered for the course 1
+14:58:40,808  INFO AdminOperationImpl,main:72 - List of Students Registered For this particular course: 
+14:58:40,809  INFO AdminOperationImpl,main:73 -                    1               samyak     samyak@gmail.com              1234567
+
+14:58:40,812  INFO AdminOperationImpl,main:73 -                    2                Dixit      dixit@gmail.com             12345678
+
+14:58:40,812  INFO AdminOperationImpl,main:73 -                    3             sidharth        sid@gmail.com              1234567
+
+14:58:40,812  INFO AdminOperationImpl,main:73 -                    4              satwika    satwika@gmail.com              1234567
+
+14:58:40,812  INFO AdminOperationImpl,main:150 - Enter the StudentId
+14:58:42,865  INFO AdminOperationImpl,main:153 - Enter grades
+14:58:44,975  INFO AdminOperationImpl,main:57 - 1.Request Course Offering
+14:58:44,975  INFO AdminOperationImpl,main:60 - 2.View Student List
+14:58:44,975  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
+14:58:44,975  INFO AdminOperationImpl,main:64 - 4.Set Grades
+14:58:44,975  INFO AdminOperationImpl,main:66 - 5.Exit
+=======
+<<<<<<< HEAD
+15:00:17,842  INFO AdminOperationImpl,main:403 - userId
+15:00:17,847  INFO AdminOperationImpl,main:403 - userId
+15:03:18,528  INFO AdminOperationImpl,main:403 - userId
+15:03:18,534  INFO AdminOperationImpl,main:403 - userId
+=======
+14:06:51,649 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:06:51,651  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:06:51,664  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:07:44,572 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:07:44,574  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:08:41,241 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:08:41,243  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:08:41,251  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:14:48,630 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+14:14:48,632  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:14:48,640  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:16:09,548  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:16:09,558  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+>>>>>>> 31ac9c37bd5a2ad479346868e659e857075508e0
+>>>>>>> 3e057ffc8ff18dfc63163cae74604e29083b3f52
