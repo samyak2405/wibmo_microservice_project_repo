@@ -53,11 +53,9 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 				throw new CourseNotFoundException(courseId);
 			}
 		}
+		
         professorDao.requestCourseOffering(professorid,courseIdList);
-        
-        
         return false;
-
     }
 
 	@Override
@@ -119,6 +117,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 
 	@Override
+	
 	public int getProfessorById(String userEmail) {
 		// TODO Auto-generated method stub
 		return professorDao.getProfessorById(userEmail);

@@ -5,7 +5,7 @@ import java.util.List;
 
 
 /**
- * For performing various professor opertations.
+ * For performing various professor operations.
  */
 import com.wibmo.bean.User;
 import com.wibmo.exception.*;

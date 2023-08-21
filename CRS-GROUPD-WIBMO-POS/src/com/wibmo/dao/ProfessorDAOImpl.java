@@ -94,7 +94,8 @@ public class ProfessorDAOImpl implements ProfessorDAO {
             e.printStackTrace();
 
         }
-
+        System.out.println();
+         System.out.println("'Requested Course List is sent for approval'");
          return false;
 
     }

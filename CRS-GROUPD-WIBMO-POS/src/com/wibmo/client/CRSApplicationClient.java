@@ -58,27 +58,28 @@ public class CRSApplicationClient {
         
         int role=-1;
         while(true) {
-        	System.out.println();
+        	log.info("");
 
-            System.out.println("===================================================================================");
+            log.info("===================================================================================");
+            log.info("");
         	log.info("1. Login"
         			+"\n2. Registration"
         			+"\n3. Update Password"
         			+"\n4. Exit");
-        	System.out.println();
-        	 System.out.println("===================================================================================");
+        	log.info("");
+        	 log.info("===================================================================================");
         	log.info("\nEnter your choice: ");
         	
         	int choice = scan.nextInt();
-        	 System.out.println("\n===================================================================================");
+        	 log.info("\n===================================================================================");
         	log.info(
     				"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
-        	System.out.println();
-        	 System.out.println("===================================================================================");
+        	log.info("");
+        	 log.info("===================================================================================");
         	 
-        	System.out.println("Enter your role");
+        	log.info("Enter your role");
     		role = scan.nextInt();
     		
         	boolean flag = false;
@@ -96,17 +97,20 @@ public class CRSApplicationClient {
         		if(loggedin.loggedin(userEmail, password,role)) {
         		switch(role) {
         		case 1:
+        			log.info("");
         			log.info("\nYou are logged in successfully as a student");
         			CRSStudentMenu studentMenu = new CRSStudentMenu(userEmail);
         			studentMenu.studentMenu();
         			break;
         		case 2:
         			//Professor
+        			log.info("");
         			log.info("You are logged in successfully as a Professor");
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userEmail);
         			professorMenu.professorMenu();
         			break;
         		case 3: 
+        			log.info("");
         			log.info("You are logged in successfully as a Admin");
 
         			CRSAdminMenu adminMenu = new CRSAdminMenu(userEmail);
@@ -146,14 +150,14 @@ public class CRSApplicationClient {
         		
         		AuthenticationOperation loggedin1=new AuthenticationOperationImpl();
         		if(loggedin1.loggedin(userEmail, password,role)) {
-        			System.out.println("\nChange Password");
+        			log.info("\nChange Password");
         			String passwordOne = clientValidator.passwordValidator();
         			loggedin1.updatePassword(userEmail, passwordOne, role);
         		}
         		else {
-        			log.info("Invalid credentials");
-        			System.out.println();
-               	    System.out.println("===================================================================================");
+        			log.info("invalid credentials");
+        			log.info("");
+               	    log.info("===================================================================================");
         			
         		}
         		

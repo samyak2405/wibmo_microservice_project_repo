@@ -34,6 +34,7 @@ Invalid Credentials
 19:59:07,655 DEBUG AuthenticationDAOImpl,main:91 - 
 Invalid Credentials
 
+<<<<<<< HEAD
 11:44:01,154  INFO AdminOperationImpl,main:46 - ===================================================================================
 11:44:01,157  INFO AdminOperationImpl,main:52 - 
 11:44:01,169  INFO AdminOperationImpl,main:64 - 1. Login
@@ -850,3 +851,35 @@ Enter your choice:
 14:58:44,975  INFO AdminOperationImpl,main:62 - 3.View Course Catalog
 14:58:44,975  INFO AdminOperationImpl,main:64 - 4.Set Grades
 14:58:44,975  INFO AdminOperationImpl,main:66 - 5.Exit
+=======
+<<<<<<< HEAD
+15:00:17,842  INFO AdminOperationImpl,main:403 - userId
+15:00:17,847  INFO AdminOperationImpl,main:403 - userId
+15:03:18,528  INFO AdminOperationImpl,main:403 - userId
+15:03:18,534  INFO AdminOperationImpl,main:403 - userId
+=======
+14:06:51,649 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:06:51,651  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:06:51,664  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:07:44,572 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:07:44,574  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:08:41,241 ERROR AuthenticationDAOImpl,main:98 - SQL Exception: Unknown column 'isapproved' in 'field list'
+14:08:41,243  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:08:41,251  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:14:48,630 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+14:14:48,632  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:14:48,640  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:16:09,548  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+14:16:09,558  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+>>>>>>> 31ac9c37bd5a2ad479346868e659e857075508e0
+>>>>>>> 3e057ffc8ff18dfc63163cae74604e29083b3f52
