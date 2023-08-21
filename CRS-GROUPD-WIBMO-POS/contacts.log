@@ -8,3 +8,4 @@
 10:25:27,960 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
 10:26:05,002 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
 10:30:29,472 DEBUG AuthenticationDAOImpl,main:91 - Invalid Credentials
+11:01:47,645 DEBUG AuthenticationDAOImpl,main:81 - Pending Approval from Admin
