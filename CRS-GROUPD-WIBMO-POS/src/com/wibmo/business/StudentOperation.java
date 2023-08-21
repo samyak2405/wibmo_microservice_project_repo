@@ -63,7 +63,7 @@ public interface StudentOperation {
 	public void viewReportCard(int studId) throws UserNotApprovedException;
 
 	/**
-	 * To check if a student is registered of not
+	 * To check if a student is registered of not.
 	 * @param userId
 	 * @return True if student is registered else returns False.
 	 */
