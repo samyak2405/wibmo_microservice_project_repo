@@ -5,6 +5,8 @@ package com.wibmo.business;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.wibmo.bean.CourseCatalog;
 import com.wibmo.bean.Professor;
 import com.wibmo.bean.Student;
@@ -18,6 +20,7 @@ import com.wibmo.exception.*;
  */
 public class ProfessorOperationImpl implements ProfessorOperation{
 
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	ProfessorDAO professorDao=ProfessorDAOImpl.getInstance();	
 	StudentDAO studentDao= StudentDAOImpl.getInstance();
 	CourseDAO courseDao=CourseDAOImpl.getInstance();
@@ -65,8 +68,8 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 
         List<Student>students=professorDao.viewStudentList(courseId);    
 		
-		System.out.println("List of Students Registered For this particular course: ");
-		       students.forEach(course->System.out.println(String.format("%20s %20s %20s %20s\n"
+		log.info("List of Students Registered For this particular course: ");
+		       students.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
 		
 		                , course.getUserId()
 		
@@ -82,9 +85,9 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	@Override
 	public void viewCourseCatalog() {
 		List<CourseCatalog>courses=professorDao.viewCourseCatalog();	
-		System.out.println("Course Catalog: ");
+		log.info("Course Catalog: ");
 		
-		courses.forEach(course->System.out.println(String.format("%20s %20s %20s %20s\n"
+		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
 				, course.getCourseId()
 				,course.getCourseName()
 				,course.getProfessorName()
