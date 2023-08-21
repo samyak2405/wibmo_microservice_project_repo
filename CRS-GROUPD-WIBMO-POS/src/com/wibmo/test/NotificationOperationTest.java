@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.wibmo.test;
 
 import static org.junit.Assert.*;
@@ -9,41 +6,37 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * 
- */
-public class NotificationOperationTest {
+import com.wibmo.bean.Notification;
+import com.wibmo.business.NotificationOperation;
+import com.wibmo.business.NotificationOperationImpl;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	
-	
+public class NotificationOperationTest {
+     Notification notification =null;
+     NotificationOperation notificationoperation=null;
 	@Before
 	public void setUp() throws Exception {
+		notificationoperation=new NotificationOperationImpl();
+		notification=new Notification();
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for {@link com.wibmo.business.NotificationOperation#getNotificationMessage(long)}.
-	 */
 	@Test
-	public void testGetNotificationMessage() {
+	public void test() {
 		fail("Not yet implemented");
 	}
-
-	/**
-	 * Test method for {@link com.wibmo.business.NotificationOperation#sendNotification(int, long)}.
-	 */
+	@Test
+	public void testGetNotificationMessage() {
+		notification.setId(1);
+		notification.setNotificationMessage("");
+		
+	}
 	@Test
 	public void testSendNotification() {
-		fail("Not yet implemented");
+		notification.setId(1);
+		notification.setNotificationMessage("");
 	}
 
 }

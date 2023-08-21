@@ -49,9 +49,10 @@ public class CRSProfessorMenu {
        boolean flag = false;
         
        while(true) {
-   		System.out.println();
+   		log.info("");
 
-        System.out.println("===================================================================================");
+   	 log.info("============================ Professor Menu =======================================");
+   	       log.info("");
 		   log.info("1.Request Course Offering");
 
 
@@ -62,12 +63,12 @@ public class CRSProfessorMenu {
         log.info("4.Set Grades");
 
         log.info("5.Exit");
-		System.out.println();
+		log.info("");
 
-        System.out.println("===================================================================================");
+        log.info("===================================================================================");
 
-    	System.out.println("Enter your Choice: ");
-    	System.out.println();
+    	log.info("Enter your Choice: ");
+    	log.info("");
     	int opt=scan.nextInt();
        switch(opt) {
 
@@ -80,14 +81,14 @@ public class CRSProfessorMenu {
 
             List<Integer> courseIdList =new ArrayList<>();
                while(true) {
-                   System.out.println();
+                   log.info("");
 
-        System.out.println("===================================================================================");
+        log.info("===================================================================================");
 				   log.info("1.Request Course");
                    log.info("2.Freeze list");
-				   System.out.println();
+				   log.info("");
 
-        System.out.println("===================================================================================");
+        log.info("===================================================================================");
                System.out.print("Enter your Choice: ");
                 int opt1=scan.nextInt();
                switch(opt1) {
@@ -177,8 +178,8 @@ public class CRSProfessorMenu {
 		user.setUserPassword(password);
 		
 		System.out.print("\nEnter Phone Number: ");
-		System.out.println();
-      	 System.out.println("===================================================================================");
+		log.info("");
+      	 log.info("===================================================================================");
 		user.setUserPhonenumber(scan.nextLong());
 		try {
 			professorOp.registerProfessor(user);

@@ -34,12 +34,11 @@ public class CRSAdminMenu {
    		user.setUserPassword(password);
    		System.out.print("\nEnter Phone Number: ");
    		user.setUserPhonenumber(scan.nextLong());
-    	   try {
-			adminOp.adminRegistration(user);
-		} catch (UserAlreadyExistsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+   		try {
+    	   adminOp.adminRegistration(user);}
+   		catch(UserAlreadyExistsException e){
+   			log.info("Admin with AdminId "+e.getUserId()+" alreadyExists");
+   		}
 	}
 	
 	
@@ -52,17 +51,24 @@ public class CRSAdminMenu {
        boolean flag = false;
         
        while(true) {
-    	
-    	System.out.println("1. Approve Student Registration");
+    	   log.info("");
+    	   log.info("============================ Admin Menu ===========================================");
+    	   log.info("");
+    	log.info("1. Approve Student Registration");
 		
 		System.out.println("2. Approve Student's Course Registration");
 
         System.out.println("3. Register and Approve an Admin");
 
-        System.out.println("4. Assign courses to Professor");
+        log.info("4. Assign courses to Professor");
         
-        System.out.println("5. Exit");
-        System.out.print("Enter your Choice: ");
+         log.info("5. Exit");
+        log.info("");
+      	 log.info("===================================================================================");
+       log.info("Enter your Choice: ");
+        log.info("");
+       
+        
     	int opt=scan.nextInt();
        switch(opt) {
 
@@ -77,11 +83,10 @@ public class CRSAdminMenu {
     		   break;
     	   case 'b':
     		   try {
-				adminOp.approveStudentById();
-			} catch (UserNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+    		   adminOp.approveStudentById();}
+    		   catch(UserNotFoundException e) {
+    			   log.info("'Student with id "+e.getUserId()+" does not exist'");
+    		   }
     		   break;
     	   }
         break;

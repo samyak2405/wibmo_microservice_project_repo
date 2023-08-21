@@ -156,6 +156,8 @@ public class StudentDAOImpl implements StudentDAO {
 			stmt = conn.prepareStatement(SQLConstants.UPDATE_REGISTER);
 			stmt.setInt(1, studentId);
 			stmt.executeUpdate();
+			System.out.println();
+			System.out.println("'Student has successfully applied for registration'");
 		}catch(SQLException se){
 		      //Handle errors for JDBC
 		      se.printStackTrace();
