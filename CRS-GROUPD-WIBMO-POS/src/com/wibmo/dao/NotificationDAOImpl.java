@@ -51,7 +51,11 @@ public class NotificationDAOImpl implements NotificationDAO {
 			stmt.setLong(1, studentId);
 			
 			ResultSet rs = stmt.executeQuery();
-			
+			if(!rs.isBeforeFirst())
+			{
+				notifs=null;
+			}
+			else {
 			
 				while(rs.next()) {
 					Notification notification =new Notification();
@@ -59,6 +63,7 @@ public class NotificationDAOImpl implements NotificationDAO {
 					notification.setNotificationMessage(rs.getString("notificationMessage"));
 					notifs.add(notification);
 					}
+			}
 			
 			
 				//notifs=null;

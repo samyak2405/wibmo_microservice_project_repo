@@ -4,7 +4,7 @@
 package com.wibmo.exception;
 
 /**
- * 
+ * Exception in case number of courses exceed the permissible number of courses
  */
 public class CourseLimitExceededException extends Exception {
 

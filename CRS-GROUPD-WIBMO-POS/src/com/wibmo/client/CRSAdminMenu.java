@@ -5,6 +5,7 @@ package com.wibmo.client;
 import com.wibmo.bean.Admin;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
+import com.wibmo.validator.ClientValidatorImpl;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
@@ -12,65 +13,51 @@ import java.util.*;
 
 import org.apache.log4j.Logger;
 /**
- * 
+ * Admin Menu Class
  */
 public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
+	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
 	Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * To display the admin registration menu.
+	 */
 	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public void adminRegistration() {
 		log.info("Enter the Details for Registration");
    		Admin user = new Admin();
-<<<<<<< HEAD
-   		System.out.print("\nEnter User ID: ");
-=======
    		log.info("Enter User ID: ");
->>>>>>> be5324df26462c8acfe2e05d1b2534baa92e2a3d
    		user.setUserId(scan.nextInt());
    		log.info("\nEnter Name: ");
    		user.setUserName(scan.next());
    		log.info("\nEnter Email: ");
    		user.setUserEmail(scan.next());
-   		while(true) {
-   			log.info("\nEnter Password: ");
-       		String passwordOne = scan.next();
-       		log.info("\nEnter Password Again: ");
-       		String passwordAgain = scan.next();
-       		if(passwordOne.equals(passwordAgain))
-       		{
-       			user.setUserPassword(passwordOne);
-       			break;
-       		}
-       		else
-       			log.info("Password does not match");
-   		}
-   		
-<<<<<<< HEAD
+   		String password = clientValidator.passwordValidator();
+   		user.setUserPassword(password);
    		System.out.print("\nEnter Phone Number: ");
-   		System.out.println();
-      	 System.out.println("===================================================================================");
-=======
-   		log.info("\nEnter Phone Number: ");
->>>>>>> be5324df26462c8acfe2e05d1b2534baa92e2a3d
    		user.setUserPhonenumber(scan.nextLong());
    		try {
     	   adminOp.adminRegistration(user);}
    		catch(UserAlreadyExistsException e){
-   			System.out.println("Admin with AdminId "+e.getUserId()+" alreadyExists");
+   			log.info("Admin with AdminId "+e.getUserId()+" alreadyExists");
    		}
 	}
 	
+	
+	/**
+	 * To display admin registration menu.
+	 */
 	public void adminMenu() {
 		
 
        boolean flag = false;
         
        while(true) {
-    	   System.out.println();
-         	 System.out.println("===================================================================================");
-    	
+    	   log.info("");
+    	   log.info("============================ Admin Menu ===========================================");
+    	   log.info("");
     	log.info("1. Approve Student Registration");
 		
 		log.info("2. Approve Student's Course Registration");
@@ -80,10 +67,10 @@ public class CRSAdminMenu {
         log.info("4. Assign courses to Professor");
         
          log.info("5. Exit");
-        System.out.println();
-      	 System.out.println("===================================================================================");
+        log.info("");
+      	 log.info("===================================================================================");
        log.info("Enter your Choice: ");
-        System.out.println();
+        log.info("");
        
         
     	int opt=scan.nextInt();
@@ -102,7 +89,7 @@ public class CRSAdminMenu {
     		   try {
     		   adminOp.approveStudentById();}
     		   catch(UserNotFoundException e) {
-    			   System.out.println("'Student with id "+e.getUserId()+" does not exist'");
+    			   log.info("'Student with id "+e.getUserId()+" does not exist'");
     		   }
     		   break;
     	   }

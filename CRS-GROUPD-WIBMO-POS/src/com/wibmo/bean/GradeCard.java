@@ -4,7 +4,7 @@
 package com.wibmo.bean;
 
 /**
- * 
+ * Class representing Grade Card
  */
 public class GradeCard {
 	private int studentId;

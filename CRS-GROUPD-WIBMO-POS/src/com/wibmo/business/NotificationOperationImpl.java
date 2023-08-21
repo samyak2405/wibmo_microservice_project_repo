@@ -29,7 +29,7 @@ public class NotificationOperationImpl implements NotificationOperation {
 			log.info("No Notifications");
 	}
 	
-	public void sendNotification(int notifid, int studentId)
+	public void sendNotification(int notifid, long studentId)
 	{
 		notification.sendNotificationMessage(notifid, studentId);
 	}

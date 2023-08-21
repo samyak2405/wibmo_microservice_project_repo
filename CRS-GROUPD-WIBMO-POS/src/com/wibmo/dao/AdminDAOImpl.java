@@ -233,7 +233,8 @@ public class AdminDAOImpl implements AdminDAO {
 			
 			stmt = conn.prepareStatement(SQLConstants.APPROVE_STUDENT);
 			stmt.executeUpdate();
-
+			System.out.println();
+            System.out.println("'All the students applied for registration are approved'");
 			
 		}catch(SQLException se){
 		      //Handle errors for JDBC
@@ -277,6 +278,8 @@ PreparedStatement stmt = null;
 			stmt = conn.prepareStatement(SQLConstants.APPROVE_STUDENT_BY_ID);
 			stmt.setInt(1, studentId);
 			stmt.executeUpdate();
+			System.out.println();
+			System.out.println("'Student with id "+studentId+" is approved'");
 
 			
 		}catch(SQLException se){

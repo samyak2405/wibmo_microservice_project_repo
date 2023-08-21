@@ -5,6 +5,7 @@ package com.wibmo.client;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,15 +17,16 @@ import com.wibmo.exception.DuplicateCourseEntryException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.validator.ClientValidatorImpl;
 import com.wibmo.bean.User;
 
 /**
- * 
+ * Main Class.
  */
 public class CRSApplicationClient {
 	
 	static final StudentOperation studentOp = new StudentOperationImpl();
-
+	public static ClientValidatorImpl clientValidator = new ClientValidatorImpl();
 	/**
 	 * @param args
 	 * @throws DuplicateCourseEntryException 
@@ -43,68 +45,72 @@ public class CRSApplicationClient {
         
         log.info("===================================================================================");
 
-        System.out.format("\t%15s%s","\t","Welcome to the CRS application\n");
+        System.out.format("\t%15s%s","\t","Welcome to the CRS Application\n");
 
         System.out.format("\t%15s\t%s %s %s","\t",localDate.getDayOfMonth(),localDate.getMonth(),localDate.getYear());
 
         log.info("");
 
-        System.out.format("\t%15s     %s","\t",localTime);
+        System.out.format("\t%20s     %s","\t",localTime.format(DateTimeFormatter.ofPattern("HH:mm")));
 
         
 
         
         int role=-1;
         while(true) {
-        	System.out.println();
+        	log.info("");
 
-            System.out.println("===================================================================================");
+            log.info("===================================================================================");
+            log.info("");
         	log.info("1. Login"
         			+"\n2. Registration"
         			+"\n3. Update Password"
         			+"\n4. Exit");
-        	System.out.println();
-        	 System.out.println("===================================================================================");
+        	log.info("");
+        	 log.info("===================================================================================");
         	log.info("\nEnter your choice: ");
         	
         	int choice = scan.nextInt();
-        	 System.out.println("\n===================================================================================");
+        	 log.info("\n===================================================================================");
         	log.info(
     				"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
-        	System.out.println();
-        	 System.out.println("===================================================================================");
+        	log.info("");
+        	 log.info("===================================================================================");
         	 
-        	System.out.println("Enter your role");
+        	log.info("Enter your role");
     		role = scan.nextInt();
     		
         	boolean flag = false;
         	switch(choice) {
         	case 1:
-        		log.info("\nEnter your UserId: ");
-        		int userId = scan.nextInt();
-        		log.info("\nEnter your Password: ");
+        		System.out.print("\nEnter your Email: ");
+        		String userEmail = scan.next();
+        		System.out.print("\nEnter your Password: ");
         		String password = scan.next();
         		
         		
         		//Authentication
         		AuthenticationOperation loggedin=new AuthenticationOperationImpl();
         		
-        		if(loggedin.loggedin(userId, password,role)) {
+        		if(loggedin.loggedin(userEmail, password,role)) {
         		switch(role) {
         		case 1:
+        			log.info("");
         			log.info("\nYou are logged in successfully as a student");
-        			CRSStudentMenu studentMenu = new CRSStudentMenu(userId);
+        			CRSStudentMenu studentMenu = new CRSStudentMenu(userEmail);
         			studentMenu.studentMenu();
         			break;
         		case 2:
         			//Professor
+        			log.info("");
         			log.info("You are logged in successfully as a Professor");
-        			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userId);
+        			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userEmail);
         			professorMenu.professorMenu();
         			break;
         		case 3: 
+        			log.info("");
         			log.info("You are logged in successfully as a Admin");
 
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
@@ -137,32 +143,21 @@ public class CRSApplicationClient {
         		}
         		break;
         	case 3:
-        		log.info("Enter UserId:");
-        		userId = scan.nextInt();
-        		log.info("\nEnter Current Password: ");
+        		System.out.print("Enter UserEmail:");
+        		userEmail = scan.next();
+        		System.out.print("\nEnter Current Password: ");
         		password = scan.next();
         		
         		AuthenticationOperation loggedin1=new AuthenticationOperationImpl();
-        		if(loggedin1.loggedin(userId, password,role)) {
+        		if(loggedin1.loggedin(userEmail, password,role)) {
         			log.info("\nChange Password");
-        			while(true) {
-            			log.info("\nEnter New Password: ");
-                		String passwordOne = scan.next();
-                		log.info("\nEnter Password Again: ");
-                		String passwordAgain = scan.next();
-                		
-                		if(passwordOne.equals(passwordAgain))
-                		   {loggedin1.updatePassword(userId, passwordOne, role);
-                			break;
-                		   }
-                		else
-                			log.info("Password does not match");
-            		}
+        			String passwordOne = clientValidator.passwordValidator();
+        			loggedin1.updatePassword(userEmail, passwordOne, role);
         		}
         		else {
         			log.info("invalid credentials");
-        			System.out.println();
-               	    System.out.println("===================================================================================");
+        			log.info("");
+               	    log.info("===================================================================================");
         			
         		}
         		
