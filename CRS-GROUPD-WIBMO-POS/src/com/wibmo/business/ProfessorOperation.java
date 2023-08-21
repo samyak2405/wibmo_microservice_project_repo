@@ -53,5 +53,7 @@ public interface ProfessorOperation {
   public void registerProfessor(User user)throws UserAlreadyExistsException;
 
 public int getProfessorById(String userEmail);
+
+public void listOfApprovedCourses(int userId);
   
 }

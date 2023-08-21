@@ -11,7 +11,7 @@ import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
 /**
- * For performing various admin operations
+ * For performing various Admin operations
  */
 public interface AdminOperation {
 	
@@ -39,7 +39,7 @@ public interface AdminOperation {
 	public void assignCoursesProf();
  
 	/**
-	 * To approve registration of a new admin
+	 * To approve registration of a new Admin
 	 */
 	public void adminRegistration(Admin user) throws UserAlreadyExistsException;
 
@@ -47,4 +47,7 @@ public interface AdminOperation {
 	 * To approve a specific student
 	 */
 	public void approveStudentById() throws UserNotFoundException;
+
+
+	public int getAdminById(String userEmail);
 }

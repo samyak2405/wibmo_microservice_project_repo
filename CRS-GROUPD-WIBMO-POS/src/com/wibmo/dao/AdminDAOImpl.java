@@ -288,4 +288,92 @@ PreparedStatement stmt = null;
 		   }
 		
 	}
+
+	@Override
+	public int getAdminById(String userEmail) {
+		// TODO Auto-generated method stub
+PreparedStatement stmt = null;
+		int adminId = 0;
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.SELECT_ADMIN_BY_EMAIL);
+			stmt.setString(1, userEmail);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next())
+				adminId = rs.getInt("adminId");
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		return adminId;
+	}
+
+	@Override
+	public List<Integer> getProfessorsIds() {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		List<Integer> professors = new ArrayList<>();
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.SELECT_PROFESSORS_BY_ID);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next())
+				professors.add(rs.getInt("professorid"));
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		return professors;
+	}
+
+	@Override
+	public List<Integer> getProfessorCourses(int professorId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		List<Integer> courses = new ArrayList<>();
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.SELECT_PROFESSOR_COURSES);
+			stmt.setInt(1, professorId);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next())
+				courses.add(rs.getInt("courseid"));
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		return courses;
+		
+	}
+
+	@Override
+	public void approveCourse(int professor, int course) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = conn.prepareStatement(SQLConstants.APPROVE_PROFESSOR_COURSE);
+			stmt.setInt(1, professor);
+			stmt.setInt(2,course);
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+	}
 }

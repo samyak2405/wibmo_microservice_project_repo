@@ -95,5 +95,13 @@ import com.wibmo.bean.Admin;
 	 * @param studentId
 	 */
 	public void setApprovedStudentById(int studentId);
+
+	public int getAdminById(String userEmail);
+
+	public List<Integer> getProfessorsIds();
+
+	public List<Integer> getProfessorCourses(int professorId);
+
+	public void approveCourse(int professor, int course);
 	
 }

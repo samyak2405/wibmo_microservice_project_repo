@@ -52,7 +52,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 			if(adminDAO.searchAdmin(user.getUserId()))
 			{
-				throw new UserAlreadyExistsException(user.getUserId());
+				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
 			adminOp.addAdmin(user);
 			
@@ -87,10 +87,16 @@ public class AdminOperationImpl implements AdminOperation{
 		
 
 		int studentId = scan.nextInt();
-		if(studentDAO.searchStudent(studentId)==false) {
+		if(studentDAO.searchStudentByID(studentId)==false) {
 			throw new UserNotFoundException(studentId);
 		}
 		adminDAO.setApprovedStudentById(studentId);
+	}
+
+	@Override
+	public int getAdminById(String userEmail) {
+		// TODO Auto-generated method stub
+		return adminDAO.getAdminById(userEmail);
 	}
 
 }

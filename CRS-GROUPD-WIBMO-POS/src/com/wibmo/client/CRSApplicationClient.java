@@ -109,7 +109,7 @@ public class CRSApplicationClient {
         		case 3: 
         			log.info("You are logged in successfully as a Admin");
 
-        			CRSAdminMenu adminMenu = new CRSAdminMenu();
+        			CRSAdminMenu adminMenu = new CRSAdminMenu(userEmail);
         			adminMenu.adminMenu();
         			break;
         		}
@@ -151,7 +151,7 @@ public class CRSApplicationClient {
         			loggedin1.updatePassword(userEmail, passwordOne, role);
         		}
         		else {
-        			log.info("invalid credentials");
+        			log.info("Invalid credentials");
         			System.out.println();
                	    System.out.println("===================================================================================");
         			

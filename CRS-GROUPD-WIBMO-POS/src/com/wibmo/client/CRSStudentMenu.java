@@ -131,7 +131,7 @@ public class CRSStudentMenu {
 		try {
 		studentOp.registerStudent(user);}
 		catch(StudentAlreadyRegisteredException e) {
-			log.info("student with id "+e.getStudentId()+"is already registered");
+			log.info("student with id "+userId+"is already registered");
 		}
 	}
 	
@@ -247,7 +247,8 @@ public class CRSStudentMenu {
     	   
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
     	   if(studentOp.isApproved(userId)) {
-    	   payment.payfee(userId);}
+    	   payment.payfee(userId);
+    	   }
     	   else {
     		   log.info("Student courses are not approved by admin");
     	   }

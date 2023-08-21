@@ -19,17 +19,25 @@ public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
 	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
 	Scanner scan = new Scanner(System.in);
-	
+	String userEmail;
+	int adminId;
 	/**
 	 * To display the admin registration menu.
 	 */
+	
+	public CRSAdminMenu() {
+		
+	}
+	public CRSAdminMenu(String userEmail) {
+		this.userEmail = userEmail;
+		adminId = adminOp.getAdminById(userEmail);
+	}
+	
 	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public void adminRegistration() {
 		log.info("Enter the Details for Registration");
    		Admin user = new Admin();
-   		log.info("Enter User ID: ");
-   		user.setUserId(scan.nextInt());
    		log.info("\nEnter Name: ");
    		user.setUserName(scan.next());
    		log.info("\nEnter Email: ");
