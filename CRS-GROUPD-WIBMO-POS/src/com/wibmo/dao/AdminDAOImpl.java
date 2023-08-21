@@ -198,16 +198,16 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public boolean searchAdmin(int userId) {
+	public boolean searchAdmin(long userId) {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt = null;
 
         try {
 
             stmt = conn.prepareStatement(SQLConstants.SEARCH_ADMIN);
-
-            ResultSet rs=stmt.executeQuery();
             stmt.setLong(1,userId);
+            ResultSet rs=stmt.executeQuery();
+            
             if(rs.next()) {
                 if(rs.getInt("adminId")==userId) {
 
@@ -224,6 +224,7 @@ public class AdminDAOImpl implements AdminDAO {
         }
 
 		return false;
+	}
 	public void setApprovedStudents() {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt = null;

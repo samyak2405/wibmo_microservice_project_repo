@@ -4,6 +4,7 @@
 package com.wibmo.dao;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.wibmo.bean.CourseCatalog;
@@ -37,7 +38,7 @@ public interface StudentDAO {
 	 * To return list of registered courses using SQL queries
 	 * @return
 	 */
-	public List<String> listCourse();
+	public Map<Integer,String> listCourse(int studentid);
 	
 	
 	/**
@@ -63,4 +64,8 @@ public interface StudentDAO {
 
 	public boolean isApproved(int userId);
 	public boolean searchStudent(long userId);
+	public int isStudentRegistered(int studentId);
+	public int getStudentCourseCount(int courseid);
+	public int getCourseCount(long studentId);
+	
 }

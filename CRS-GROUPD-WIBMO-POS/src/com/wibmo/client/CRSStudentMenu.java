@@ -15,6 +15,7 @@ import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
+import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
@@ -48,12 +49,14 @@ public class CRSStudentMenu {
 	public void addCourses() throws DuplicateCourseEntryException {
  	   
  	   studentOp.viewCourseCatalog();
+ 	  System.out.println();
+    	 System.out.println("===================================================================================");
  	   
- 	   System.out.print("Enter your Id: ");
+// 	   System.out.print("Enter your Id: ");
  	   StudentCourseMap studCoMap = new StudentCourseMap();
- 	   studCoMap.setStudentId(scan.nextInt());
+ 	   studCoMap.setStudentId(userId);
  	   Map<Integer,Integer> courses = new HashMap<>();
- 	   
+ 	
  	   while(cnt>0) {
  		   System.out.print("\nEnter the Course Id: ");
      	   int courseId = scan.nextInt();
@@ -84,8 +87,16 @@ public class CRSStudentMenu {
          	   cnt--;
  	   }
  	   studCoMap.setCourses(courses);
- 	   studentOp.addCourses(studCoMap);
- 	   System.out.println("Course Added Successfully.");
+ 	   try {
+		studentOp.addCourses(studCoMap);
+		System.out.println("Course Added Successfully.");
+	} catch (CourseNotFoundException e) {
+		System.out.println("Course with course id:"+e.getCourseId()+" Not Found!!");
+	}catch(CourseLimitExceededException e)
+ 	   {
+		System.out.println("Course Limit Exceeded");
+ 	   }
+ 	   
 	}
 	
 	
@@ -98,7 +109,7 @@ public class CRSStudentMenu {
 		
 		System.out.println("Enter the Details for Registration");
 		User user = new User();
-		System.out.print("Enter User ID: ");
+		System.out.print("\nEnter User ID: ");
 		user.setUserId(scan.nextInt());
 		System.out.print("\nEnter Name: ");
 		user.setUserName(scan.next());
@@ -120,6 +131,8 @@ public class CRSStudentMenu {
 		
 		System.out.print("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());
+//		System.out.println();
+//      	 System.out.println("===================================================================================");
 		try {
 		studentOp.registerStudent(user);}
 		catch(StudentAlreadyRegisteredException e) {
@@ -129,31 +142,36 @@ public class CRSStudentMenu {
 	
 	
 	public void studentMenu() throws DuplicateCourseEntryException, CourseNotFoundException, UserNotFoundException {
-		
-		System.out.print("\nChoose From below given list"
-				+"\n\n1.Register for course"
-				+"\n2.Add course"
-				+"\n3.Drop course"
-				+"\n4.view list of Registered Courses"
-				+"\n5.view ReportCard"
-				+"\n6.viewCourseCatalog"
-				+"\n7.Pay Fee"
-				+"\n8.View Notification"
-				+"\n9.Exit\n");
 
        boolean flag = false;
         
        while(true) {
-    	System.out.print("\nEnter your Choice: ");
+    	   System.out.println();
+         	 System.out.println("===================================================================================");
+   		System.out.print("\nChoose From below given list"
+   				+"\n\n1.Register for course"
+   				+"\n2.Add course"
+   				+"\n3.Drop course"
+   				+"\n4.view list of Registered Courses"
+   				+"\n5.view ReportCard"
+   				+"\n6.viewCourseCatalog"
+   				+"\n7.Pay Fee"
+   				+"\n8.View Notification"
+   				+"\n9.Exit\n");
+   		System.out.println();
+      	 System.out.println("===================================================================================");
+    	System.out.print("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {
        case 1:
     	   studentOp.registerCourses(userId);
     	   break;
        case 2:
-    	   System.out.println("Select Course Ids from below given Course Catalog");
-     	   System.out.print("You have to select "+compulsory+" complusory and "+alternative+" Alternative");
-     	   System.out.println("\nFor complusory enter 0 and for alternative enter 1");
+    	   System.out.println("\nSelect Course Ids from below given Course Catalog");
+     	   System.out.println("\nYou have to select "+compulsory+" complusory and "+alternative+" Alternative(For complusory enter 0 and for alternative enter 1)");
+     	  System.out.println();
+        	 System.out.println("===================================================================================");
+//     	   System.out.println("\nFor complusory enter 0 and for alternative enter 1\n");
      	   
     	   addCourses();
         break;
@@ -161,10 +179,8 @@ public class CRSStudentMenu {
        case 3:
     	   System.out.println("Enter course id");
     	   int courseId = scan.nextInt();
-    	   System.out.println("Enter your id");
-    	   int studentId = scan.nextInt();
     	   try {
-    	   int coursePref = studentOp.dropCourses(studentId,courseId);    	  
+    	   int coursePref = studentOp.dropCourses(userId,courseId);    	  
     	   if(coursePref==0)
     		   compulsory++;
     	   if(coursePref==1)
@@ -195,18 +211,20 @@ public class CRSStudentMenu {
     	   try {
     	   studentOp.viewReportCard(userId); }      
     	   catch(UserNotApprovedException e) {
-    		   System.out.println("Use with id "+e.getUserId()+" is not approved by admin");
+    		   System.out.println("Courses of student with id "+e.getUserId()+" is not approved by admin");
     	   }
         break;
 
        case 6:
     	   studentOp.viewCourseCatalog();      
 		break;
+		
        case 7:
+    	   
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
     	   
     	   if(studentOp.isApproved(userId)) {
-    	   payment.payfee();}
+    	   payment.payfee(userId);}
     	   else {
     		   System.out.println("Student courses are not approved by admin");
     	   }

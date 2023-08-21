@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -44,12 +45,15 @@ public class StudentDAOImpl implements StudentDAO {
 	
 	Connection conn = DButils.getConnection();
 	
-	public int getCourseCount(int courseid) {
+
+	
+	public int getStudentCourseCount(int courseid) {
 		PreparedStatement stmt = null;
 		int count = 0;
 		try {
 			
-			stmt = conn.prepareStatement(SQLConstants.SELECT_STUDENTID);
+			stmt = conn.prepareStatement(SQLConstants.COUNT_STUDENT_COURSES);
+			stmt.setInt(1,courseid);
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt("courseCount");
@@ -62,7 +66,32 @@ public class StudentDAOImpl implements StudentDAO {
 		      //Handle errors for Class.forName
 		      e.printStackTrace();
 		   }
-		
+		return count;
+	}
+	
+	
+	
+	
+	public int getCourseCount(long studentId) {
+		PreparedStatement stmt = null;
+		int count = 0;
+		try {
+			
+			stmt = conn.prepareStatement(SQLConstants.COUNT_COURSES);
+			stmt.setLong(1, studentId);
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("courseCount");
+			}
+			
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
 		return count;
 	}
 	
@@ -74,7 +103,7 @@ public class StudentDAOImpl implements StudentDAO {
 			stmt = conn.prepareStatement(SQLConstants.SELECT_STUDENTID);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				studentIds.add(rs.getInt("studentid"));
+				studentIds.add(rs.getInt("uniqueStudent"));
 			}
 			
 		}catch(SQLException se){
@@ -232,9 +261,23 @@ public class StudentDAOImpl implements StudentDAO {
 	}
 
 	@Override
-	public List<String> listCourse() {
-		// TODO Auto-generated method stub
-		return new ArrayList<>();
+	public Map<Integer,String> listCourse(int studentid) {
+		PreparedStatement stmt = null;
+		Map<Integer,String> courses = new HashMap<>();
+		
+		try {
+			stmt = conn.prepareStatement(SQLConstants.LIST_STUDENT_REG_COURSES);
+			stmt.setInt(1,studentid);
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				courses.put(rs.getInt("courseId"),rs.getString("courseName"));
+				}
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }
+		return courses;
 	}
 
 	@Override
@@ -276,7 +319,7 @@ public class StudentDAOImpl implements StudentDAO {
 			stmt.setString(3,student.getUserEmail());
 			stmt.setString(4,student.getUserPassword());
 			stmt.setLong(5,student.getUserPhonenumber());
-			
+			stmt.setInt(6, 0);
 			
 			stmt.executeUpdate();
 		}catch(SQLException se){
@@ -361,6 +404,47 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 		
 		return false;
+		
+	}
+	
+	public int isStudentRegistered(int studentId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		int isRegistered = 0;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SELECT_REGISTER);
+			stmt.setLong(1,studentId);
+			ResultSet rs=stmt.executeQuery();
+			if(rs.next()) {
+				isRegistered = rs.getInt("isRegister");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return isRegistered;
+	}
+
+	public int isRegistrationApproved(int studentId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		int isApproved = 0;
+		try {
+			stmt = conn.prepareStatement(SQLConstants.SELECT_STUDENT_APPROVED);
+			stmt.setLong(1,studentId);
+			ResultSet rs=stmt.executeQuery();
+			if(rs.next()) {
+				isApproved = rs.getInt("studentId");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return isApproved;
 		
 	}
 

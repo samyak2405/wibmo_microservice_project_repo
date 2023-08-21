@@ -5,6 +5,9 @@ package com.wibmo.client;
 import com.wibmo.bean.Admin;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
+import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.exception.UserNotFoundException;
+
 import java.util.*;
 /**
  * 
@@ -17,7 +20,7 @@ public class CRSAdminMenu {
 	public void adminRegistration() {
 		System.out.println("Enter the Details for Registration");
    		Admin user = new Admin();
-   		System.out.print("Enter User ID: ");
+   		System.out.print("\nEnter User ID: ");
    		user.setUserId(scan.nextInt());
    		System.out.print("\nEnter Name: ");
    		user.setUserName(scan.next());
@@ -38,12 +41,26 @@ public class CRSAdminMenu {
    		}
    		
    		System.out.print("\nEnter Phone Number: ");
+   		System.out.println();
+      	 System.out.println("===================================================================================");
    		user.setUserPhonenumber(scan.nextLong());
-    	   adminOp.adminRegistration(user);
+   		try {
+    	   adminOp.adminRegistration(user);}
+   		catch(UserAlreadyExistsException e){
+   			System.out.println("Admin with AdminId "+e.getUserId()+" alreadyExists");
+   		}
 	}
 	
 	public void adminMenu() {
-		System.out.println("1. Approve Student Registration");
+		
+
+       boolean flag = false;
+        
+       while(true) {
+    	   System.out.println();
+         	 System.out.println("===================================================================================");
+    	
+    	System.out.println("1. Approve Student Registration");
 		
 		System.out.println("2. Approve Student's Course Registration");
 
@@ -52,25 +69,28 @@ public class CRSAdminMenu {
         System.out.println("4. Assign courses to Professor");
         
         System.out.println("5. Exit");
-
-       boolean flag = false;
-        
-       while(true) {
-    	System.out.print("Enter your Choice: ");
+        System.out.println();
+      	 System.out.println("===================================================================================");
+        System.out.print("Enter your Choice: ");
+        System.out.println();
     	int opt=scan.nextInt();
        switch(opt) {
 
        case 1:
     	   System.out.println("a. Approve all students at once"
     			   +"\nb. Approve Student by Id");
-    	   System.out.print("\nEnter your Choice: ");
+    	   System.out.print("\nEnter your Choice: \n");
     	   char choice = scan.next().charAt(0);
     	   switch(choice) {
     	   case 'a':
     	    	  adminOp.approveStudent();
     		   break;
     	   case 'b':
-    		   adminOp.approveStudentById();
+    		   try {
+    		   adminOp.approveStudentById();}
+    		   catch(UserNotFoundException e) {
+    			   System.out.println("'Student with id "+e.getUserId()+" does not exist'");
+    		   }
     		   break;
     	   }
         break;

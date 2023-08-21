@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.wibmo.bean.Admin;
 import com.wibmo.bean.User;
+import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.exception.UserNotFoundException;
 
 /**
  * 
@@ -37,10 +39,10 @@ public interface AdminOperation {
 	/**
 	 * 
 	 */
-	public void adminRegistration(Admin user);
+	public void adminRegistration(Admin user) throws UserAlreadyExistsException;
 
 	/**
 	 * 
 	 */
-	public void approveStudentById();
+	public void approveStudentById() throws UserNotFoundException;
 }

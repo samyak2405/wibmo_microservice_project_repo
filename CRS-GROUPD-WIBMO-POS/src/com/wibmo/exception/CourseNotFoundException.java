@@ -7,18 +7,24 @@ package com.wibmo.exception;
  * 
  */
 public class CourseNotFoundException extends Exception{
-long userId;
 	
 	
-	public CourseNotFoundException () {
+	
+
+	long courseId;
+	
+	
+	public CourseNotFoundException() {
 		
 	}
 	
-	public CourseNotFoundException (long userId) {
-		this.userId = userId;
+	public CourseNotFoundException(long courseId) {
+		this.courseId = courseId;
 	}
 	
-	public long getCourseId()  {
-		return userId;
+	public long getCourseId() {
+		return courseId;
 	}
+	
+
 }

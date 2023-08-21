@@ -8,8 +8,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 import com.wibmo.bean.*;
-
+import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dao.*;
+import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
 
 public class AdminOperationImpl implements AdminOperation{
@@ -19,6 +21,9 @@ public class AdminOperationImpl implements AdminOperation{
 	AdminDAO adminDAO = AdminDAOImpl.getInstance();
 	StudentDAOImpl studentDAO = StudentDAOImpl.getInstance();
 	public ValidatorInterface validate = new AdminValidatorImpl();
+	public NotificationOperation notification=new NotificationOperationImpl();
+	
+	
 	
 	public List<List<Integer>> sortByCoursePref(List<List<Integer>> list)
 	{
@@ -63,28 +68,47 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void adminRegistration(Admin user) {
+	public void adminRegistration(Admin user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
+			{
+			if(adminDAO.searchAdmin(user.getUserId()))
+			{
+				throw new UserAlreadyExistsException(user.getUserId());
+			}
 			adminOp.addAdmin(user);
+			
+			}
 		else
 			System.out.println("Invalid Email Id");
 	}
 
 	@Override
 	public void approveCourseRegistration() {
-		
 		// TODO Auto-generated method stub
 				List<Integer> studentIds = studentDAO.getStudentIds();
 				Map<Integer,Integer> courseCount = new HashMap<>();
 				
 				for(int studentId: studentIds) {
+					int isRegistered = studentDAO.isStudentRegistered(studentId);
+					int isApproved = studentDAO.isRegistrationApproved(studentId);
+					if(isApproved==studentId)
+					{
+						continue;
+					}
+					if(isRegistered==0) {
+						System.out.println("Student has not Registered till now");
+						continue;
+					}
+					else
+						System.out.println("Student has Registered Successfully");
+					
 					List<List<Integer>> studentData = studentDAO.getStudentCourseData(studentId);
 					studentData = sortByCoursePref(studentData);
 					int count = 0;
 					
 					for(List<Integer> course: studentData) {
-						int studentPerCourseCount = studentDAO.getCourseCount(course.get(0));
+						int studentPerCourseCount = studentDAO.getStudentCourseCount(course.get(0));
 						if(count==4)
 							break;
 						if(studentPerCourseCount>=3 && studentPerCourseCount<=10)
@@ -106,24 +130,40 @@ public class AdminOperationImpl implements AdminOperation{
 							else
 								continue;
 						}
-
-					if(count!=4)
-						System.out.println("Student Course Registration Unsuccessful");
-					else
-						//notification
+					}
+					if(count==4)
+					{
 						System.out.println("Student Course Registration Successful");
+						notification.sendNotification(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION, studentId);
+						notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);						
+					}
+			
+					else {
+						
+						System.out.println("Student Course Registration UnSuccessful");
+						notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
+						
 					}
 				}
 	}
 
 	@Override
-	public void approveStudentById() {
+	public void approveStudentById() throws UserNotFoundException{
 		// TODO Auto-generated method stub
 		List<Integer> studentIds = adminDAO.pendingRegistration();
+		System.out.println();
+
+        System.out.println("===================================================================================");
 		System.out.println("Choose from below given student ids");
 		studentIds.forEach(studentId->System.out.println(String.format("%20s\n", studentId)));
+		System.out.println();
+
+        System.out.println("===================================================================================");
 		System.out.println("Enter the StudentId: ");
 		int studentId = scan.nextInt();
+		if(studentDAO.searchStudent(studentId)==false) {
+			throw new UserNotFoundException(studentId);
+		}
 		adminDAO.setApprovedStudentById(studentId);
 	}
 

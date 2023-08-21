@@ -9,6 +9,9 @@ import java.util.Scanner;
 import com.wibmo.bean.ProfessorCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
+import com.wibmo.exception.CourseNotFoundException;
+import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.exception.UserNotFoundException;
 /**
  * 
  */
@@ -16,6 +19,12 @@ public class CRSProfessorMenu {
 
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	int userId;
+
+	
+	public CRSProfessorMenu()
+	{
+		
+	}
 	
 	
 	public CRSProfessorMenu(int userId)
@@ -27,12 +36,16 @@ public class CRSProfessorMenu {
 	Scanner scan = new Scanner(System.in);
 	/**
 	 * To display professor choice menu
+	 * @throws CourseNotFoundException 
+	 * @throws UserNotFoundException 
 	 */
 	public void professorMenu() {
 
        boolean flag = false;
         
        while(true) {
+    	   System.out.println();
+         	 System.out.println("===================================================================================");
    		System.out.println("1.Request Course Offering");
 
 
@@ -43,8 +56,11 @@ public class CRSProfessorMenu {
         System.out.println("4.Set Grades");
 
         System.out.println("5.Exit");
+        System.out.println();
+      	 System.out.println("===================================================================================");
 
-    	System.out.print("Enter your Choice: ");
+    	System.out.println("Enter your Choice: ");
+    	System.out.println();
     	int opt=scan.nextInt();
        switch(opt) {
 
@@ -57,10 +73,16 @@ public class CRSProfessorMenu {
 
             List<Long> courseIdList =new ArrayList<>();
                while(true) {
+            	   System.out.println();
+
+                   System.out.println("===================================================================================");
                    System.out.println("1.Request Course");
                    System.out.println("2.Freeze list");
+                   System.out.println();
+
+                   System.out.println("===================================================================================");
                System.out.print("Enter your Choice: ");
-            int opt1=scan.nextInt();
+                int opt1=scan.nextInt();
                switch(opt1) {
 
                case 1:
@@ -71,7 +93,11 @@ public class CRSProfessorMenu {
 
                case 2:
                   flag1=true;
-                   professorOp.requestCourseOffering(userId,courseIdList);
+                   try {
+					professorOp.requestCourseOffering(userId,courseIdList);
+				} catch (CourseNotFoundException e) {
+					System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
+				}
                   break;
               }
 
@@ -85,7 +111,12 @@ public class CRSProfessorMenu {
        case 2:
     	   System.out.println("Enter courseid: ");
            int courseid=scan.nextInt();
-           professorOp.viewStudentList(courseid);
+           try {
+			professorOp.viewStudentList(courseid);
+		} catch (CourseNotFoundException e) {
+			System.out.println("Course with course id:"+e.getCourseId()+" Not Found");
+
+		}
         break;
 
        case 3:
@@ -99,7 +130,15 @@ public class CRSProfessorMenu {
 	    	   long courseId=scan.nextLong();
 	    	   System.out.println("Enter grades");
 	    	   String grade=scan.next();
-	    	   professorOp.setGrades(studentId,courseId,grade);
+		try {
+			professorOp.setGrades(studentId,courseId,grade);
+		} catch (UserNotFoundException e) {
+			System.out.println("Student with id:"+e.getUserId()+" Not Found");
+			
+		}catch(CourseNotFoundException e)
+		{
+			System.out.println("Course with id:"+e.getCourseId()+" Not Found");
+		}
         break;
         
        case 5: flag = true;
@@ -114,7 +153,7 @@ public class CRSProfessorMenu {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the Details for Registration");
 		User user = new User();
-		System.out.print("Enter User ID: ");
+		System.out.print("\nEnter User ID: ");
 		user.setUserId(scan.nextInt());
 		System.out.print("\nEnter Name: ");
 		user.setUserName(scan.next());
@@ -135,8 +174,15 @@ public class CRSProfessorMenu {
 		}
 		
 		System.out.print("\nEnter Phone Number: ");
+		System.out.println();
+      	 System.out.println("===================================================================================");
 		user.setUserPhonenumber(scan.nextLong());
-		professorOp.registerProfessor(user);
+		try {
+			professorOp.registerProfessor(user);
+		} catch (UserAlreadyExistsException e) {
+			System.out.println("User with user id:"+e.getUserId()+" Already Exists");
+
+		}
 		
 	}
 }

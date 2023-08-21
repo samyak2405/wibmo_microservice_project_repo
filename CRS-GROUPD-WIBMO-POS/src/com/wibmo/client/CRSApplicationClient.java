@@ -49,22 +49,32 @@ public class CRSApplicationClient {
 
         
 
-        System.out.println();
-
-        System.out.println("===================================================================================");
+        
         int role=-1;
         while(true) {
-        	System.out.println("1. Login"
+        	System.out.println();
+
+            System.out.println("===================================================================================");
+        	System.out.format("\n1. Login"
         			+"\n2. Registration"
         			+"\n3. Update Password"
         			+"\n4. Exit");
+        	System.out.println();
+        	 System.out.println("===================================================================================");
         	System.out.print("\nEnter your choice: ");
+        	
         	int choice = scan.nextInt();
-        	System.out.print("\nEnter your Role "
-    				+"\n1. Student"
+        	 System.out.println("\n===================================================================================");
+        	System.out.print(
+    				"1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
+        	System.out.println();
+        	 System.out.println("===================================================================================");
+        	 
+        	System.out.println("Enter your role");
     		role = scan.nextInt();
+    		
         	boolean flag = false;
         	switch(choice) {
         	case 1:
@@ -73,25 +83,25 @@ public class CRSApplicationClient {
         		System.out.print("\nEnter your Password: ");
         		String password = scan.next();
         		
+        		
         		//Authentication
         		AuthenticationOperation loggedin=new AuthenticationOperationImpl();
         		
         		if(loggedin.loggedin(userId, password,role)) {
-        			
         		switch(role) {
         		case 1:
-        			System.out.println("\nYou are logged in successfully as a student");
+        			System.out.println("\n'You are logged in successfully as a student'");
         			CRSStudentMenu studentMenu = new CRSStudentMenu(userId);
         			studentMenu.studentMenu();
         			break;
         		case 2:
         			//Professor
-        			System.out.println("You are logged in successfully as a Professor");
+        			System.out.println("\n'You are logged in successfully as a Professor'");
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userId);
         			professorMenu.professorMenu();
         			break;
         		case 3: 
-        			System.out.println("You are logged in successfully as a Admin");
+        			System.out.println("\n'You are logged in successfully as a Admin'");
 
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
@@ -99,7 +109,8 @@ public class CRSApplicationClient {
         		}
         		}
         		else {
-        			System.out.println("\ninvalid credentials");
+        			System.out.println("\n\u001B[31m"+"'Invalid credentials'"+"\u001B[0m");
+        			
         		}
         		break;
         	case 2:
@@ -111,7 +122,7 @@ public class CRSApplicationClient {
         		else if(role==2)
         		{
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu();
-//	    			professorMenu.professorRegistration();
+	    			professorMenu.professorRegistration();
         		}
         		else if(role==3)
         		{
@@ -135,7 +146,9 @@ public class CRSApplicationClient {
             			System.out.print("\nEnter New Password: ");
                 		String passwordOne = scan.next();
                 		System.out.print("\nEnter Password Again: ");
+                		
                 		String passwordAgain = scan.next();
+                		
                 		if(passwordOne.equals(passwordAgain))
                 		   {loggedin1.updatePassword(userId, passwordOne, role);
                 			break;
@@ -145,7 +158,9 @@ public class CRSApplicationClient {
             		}
         		}
         		else {
-        			System.out.println("invalid credentials");
+        			System.out.println("\n\u001B[31m"+"Invalid credentials"+"\u001B[0m");
+        			System.out.println();
+               	    System.out.println("===================================================================================");
         			
         		}
         		
