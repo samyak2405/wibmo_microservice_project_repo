@@ -42,6 +42,7 @@ public class CourseDAOImpl implements CourseDAO{
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement(SQLConstants.SEARCH_COURSE);
+            stmt.setLong(1,courseId);
             ResultSet rs=stmt.executeQuery();
             if(rs.next()) {
                 if(rs.getInt("courseId")==courseId) {

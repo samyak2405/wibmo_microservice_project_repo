@@ -3,6 +3,9 @@ package com.wibmo.client;
 import java.util.Scanner;
 
 import com.wibmo.bean.Payment;
+import org.apache.log4j.Logger;
+
+import com.wibmo.business.AdminOperationImpl;
 import com.wibmo.business.NotificationOperation;
 import com.wibmo.business.NotificationOperationImpl;
 import com.wibmo.business.PaymentOperation;
@@ -20,22 +23,30 @@ public class CRSPaymentMenu {
 	private PaymentOperation payment=new PaymentOperationImpl() ;
 	private NotificationOperation notification=new NotificationOperationImpl();
 	private Payment paymentBean=null;
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	
 
 	private boolean status=false;
 	
-	/**
+		/**
 	 * To display online Payment menu.
 	 * @param studentId
 	 * @return True if payment is successful else returns false.
 	 */
+	
 	public Payment online(long studentId) {		
-		System.out.println("1.UPI");
-    	  System.out.println("2.CARDS");
-    	  System.out.println("3.WALLET"); 
-    	  System.out.println("4.EXIT");
-        	  System.out.println("Enter Your Choice");
+		System.out.println();
+
+        System.out.println("===================================================================================");
+		log.info("1.UPI");
+    	  log.info("2.CARDS");
+    	  log.info("3.WALLET"); 
+    	  log.info("4.EXIT");
+		  System.out.println();
+
+        System.out.println("===================================================================================");
+        	  log.info("Enter Your Choice");
         	  int choice1=scan.nextInt();
         	  switch(choice1) {
         	  case 1:
@@ -63,13 +74,19 @@ public class CRSPaymentMenu {
 	public void payfee(long studentId) 
 	{
 		PaymentOperation payment=new PaymentOperationImpl() ;
-		  System.out.println("Amout to be paid is: "+payment.getAmount(studentId));
-	  	  System.out.println("1.OFFLINE");
-	  	  System.out.println("2.ONLINE");
-	  	  System.out.println("3.EXIT");
+	  	  System.out.println();
+
+        System.out.println("===================================================================================");
+			System.out.println("Amout to be paid is: "+payment.getAmount(studentId));
+			log.info("1.OFFLINE");
+	  	  log.info("2.ONLINE");
+	  	  log.info("3.EXIT");
+			System.out.println();
+
+        System.out.println("===================================================================================");
 	  	  boolean flag2=true;
 	  	  
-	  	  System.out.println("Enter Your Choice");
+	  	  log.info("Enter Your Choice");
 	  	  int choice=scan.nextInt();
 	  	  switch(choice) {
 	  	  case 1:

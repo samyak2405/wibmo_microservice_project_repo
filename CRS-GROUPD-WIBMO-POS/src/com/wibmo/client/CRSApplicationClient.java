@@ -8,6 +8,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
 import com.wibmo.exception.CourseNotFoundException;
@@ -36,44 +39,54 @@ public class CRSApplicationClient {
         LocalTime localTime = LocalTime.now();
 
         Scanner scan=new Scanner(System.in);
-
-        System.out.println("===================================================================================");
+        final Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+        
+        log.info("===================================================================================");
 
         System.out.format("\t%15s%s","\t","Welcome to the CRS application\n");
 
         System.out.format("\t%15s\t%s %s %s","\t",localDate.getDayOfMonth(),localDate.getMonth(),localDate.getYear());
 
-        System.out.println();
+        log.info("");
 
         System.out.format("\t%15s     %s","\t",localTime);
 
         
 
-        System.out.println();
-
-        System.out.println("===================================================================================");
+        
         int role=-1;
         while(true) {
-        	System.out.println("1. Login"
+        	System.out.println();
+
+            System.out.println("===================================================================================");
+        	log.info("1. Login"
         			+"\n2. Registration"
         			+"\n3. Update Password"
         			+"\n4. Exit");
-        	System.out.print("\nEnter your choice: ");
-        	int choice = scan.nextInt();
+        	System.out.println();
+        	 System.out.println("===================================================================================");
+        	log.info("\nEnter your choice: ");
         	
-        	System.out.print("\nEnter your Role "
-    				+"\n1. Student"
+        	int choice = scan.nextInt();
+        	 System.out.println("\n===================================================================================");
+        	log.info(
+    				"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
+        	System.out.println();
+        	 System.out.println("===================================================================================");
+        	 
+        	System.out.println("Enter your role");
     		role = scan.nextInt();
     		
         	boolean flag = false;
         	switch(choice) {
         	case 1:
-        		System.out.print("\nEnter your UserId: ");
+        		log.info("\nEnter your UserId: ");
         		int userId = scan.nextInt();
-        		System.out.print("\nEnter your Password: ");
+        		log.info("\nEnter your Password: ");
         		String password = scan.next();
+        		
         		
         		//Authentication
         		AuthenticationOperation loggedin=new AuthenticationOperationImpl();
@@ -81,18 +94,18 @@ public class CRSApplicationClient {
         		if(loggedin.loggedin(userId, password,role)) {
         		switch(role) {
         		case 1:
-        			System.out.println("\nYou are logged in successfully as a student");
+        			log.info("\nYou are logged in successfully as a student");
         			CRSStudentMenu studentMenu = new CRSStudentMenu(userId);
         			studentMenu.studentMenu();
         			break;
         		case 2:
         			//Professor
-        			System.out.println("You are logged in successfully as a Professor");
+        			log.info("You are logged in successfully as a Professor");
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userId);
         			professorMenu.professorMenu();
         			break;
         		case 3: 
-        			System.out.println("You are logged in successfully as a Admin");
+        			log.info("You are logged in successfully as a Admin");
 
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
@@ -100,7 +113,7 @@ public class CRSApplicationClient {
         		}
         		}
         		else {
-        			System.out.println("\ninvalid credentials");
+        			log.info("\ninvalid credentials");
         		}
         		break;
         	case 2:
@@ -120,33 +133,36 @@ public class CRSApplicationClient {
 	    			adminMenu.adminRegistration();
         		}
         		else {
-        			System.out.println("You have entered an incorrect choice!");
+        			log.info("You have entered an incorrect choice!");
         		}
         		break;
         	case 3:
-        		System.out.print("Enter UserId:");
+        		log.info("Enter UserId:");
         		userId = scan.nextInt();
-        		System.out.print("\nEnter Current Password: ");
+        		log.info("\nEnter Current Password: ");
         		password = scan.next();
         		
         		AuthenticationOperation loggedin1=new AuthenticationOperationImpl();
         		if(loggedin1.loggedin(userId, password,role)) {
-        			System.out.println("\nChange Password");
+        			log.info("\nChange Password");
         			while(true) {
-            			System.out.print("\nEnter New Password: ");
+            			log.info("\nEnter New Password: ");
                 		String passwordOne = scan.next();
-                		System.out.print("\nEnter Password Again: ");
+                		log.info("\nEnter Password Again: ");
                 		String passwordAgain = scan.next();
+                		
                 		if(passwordOne.equals(passwordAgain))
                 		   {loggedin1.updatePassword(userId, passwordOne, role);
                 			break;
                 		   }
                 		else
-                			System.out.println("Password does not match");
+                			log.info("Password does not match");
             		}
         		}
         		else {
-        			System.out.println("invalid credentials");
+        			log.info("invalid credentials");
+        			System.out.println();
+               	    System.out.println("===================================================================================");
         			
         		}
         		

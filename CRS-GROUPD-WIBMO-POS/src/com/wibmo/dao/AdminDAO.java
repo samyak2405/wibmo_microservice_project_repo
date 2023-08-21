@@ -77,7 +77,7 @@ import com.wibmo.bean.Admin;
 	 * @param userId
 	 * @return
 	 */
-	public boolean searchAdmin(int userId);
+	public boolean searchAdmin(long userId);
 	
 	/**
 	 * 

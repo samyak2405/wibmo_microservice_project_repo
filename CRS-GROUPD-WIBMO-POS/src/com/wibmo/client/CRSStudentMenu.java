@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
@@ -28,6 +30,7 @@ public class CRSStudentMenu {
 	
 	StudentOperation studentOp = new StudentOperationImpl();
 	NotificationOperation notificationOp=new NotificationOperationImpl();
+	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	Scanner scan = new Scanner(System.in);
 	int cnt;
 	int compulsory;
@@ -55,33 +58,35 @@ public class CRSStudentMenu {
 	public void addCourses() throws DuplicateCourseEntryException {
  	   
  	   studentOp.viewCourseCatalog();
+ 	  System.out.println();
+    	 System.out.println("===================================================================================");
  	   
- 	   System.out.print("Enter your Id: ");
+ 	   log.info("Enter your Id: ");
  	   StudentCourseMap studCoMap = new StudentCourseMap();
- 	   studCoMap.setStudentId(scan.nextInt());
+ 	   studCoMap.setStudentId(userId);
  	   Map<Integer,Integer> courses = new HashMap<>();
- 	   
+ 	
  	   while(cnt>0) {
- 		   System.out.print("\nEnter the Course Id: ");
+ 		   log.info("\nEnter the Course Id: ");
      	   int courseId = scan.nextInt();
      	   if(courses.containsKey(courseId))
      	   {
-     		   System.out.println("You entered duplicate choice. Please add another Course");
+     		   log.info("You entered duplicate choice. Please add another Course");
      		   continue;
      	   }
-     	   System.out.print("\nEnter the Course Preference: ");
+     	   log.info("\nEnter the Course Preference: ");
      	   int coursePref = scan.nextInt();
      	   if(coursePref==0 && compulsory==0)
      	   {
-     		   System.out.println("You have entered 4 complusory. Please add the alternatives");
+     		   log.info("You have entered 4 complusory. Please add the alternatives");
      		   continue;
      	   }
      	   if(coursePref==1 && alternative==0)
      	   {
-     		   System.out.println("You have entered 2 alternatives. Please add the compulsory");
+     		   log.info("You have entered 2 alternatives. Please add the compulsory");
      		   continue;
      	   }
-     	   System.out.println();
+     	   log.info("");
      	   
      		   if(coursePref==0)
      			   	compulsory--;
@@ -93,13 +98,14 @@ public class CRSStudentMenu {
  	   studCoMap.setCourses(courses);
  	   try {
 		studentOp.addCourses(studCoMap);
+		System.out.println("Course Added Successfully.");
 	} catch (CourseNotFoundException e) {
-		System.out.println("Course with course id: "+e.getCourseId()+" Not Found!!");
+		log.info("Course with course id: "+e.getCourseId()+" Not Found!!");
 	}catch(CourseLimitExceededException e)
  	   {
-		System.out.println("Course Limit Exceeded");
+		log.info("Course Limit Exceeded");
  	   }
- 	   System.out.println("Course Added Successfully.");
+ 	   log.info("Course Added Successfully.");
 	}
 	
 	
@@ -110,18 +116,18 @@ public class CRSStudentMenu {
 	 */
 	public void studentRegistration() throws StudentAlreadyRegisteredException  {
 		
-		System.out.println("Enter the Details for Registration");
+		log.info("Enter the Details for Registration");
 		User user = new User();
-		System.out.print("Enter User ID: ");
+		log.info("Enter User ID: ");
 		user.setUserId(scan.nextInt());
-		System.out.print("\nEnter Name: ");
+		log.info("\nEnter Name: ");
 		user.setUserName(scan.next());
-		System.out.print("\nEnter Email: ");
+		log.info("\nEnter Email: ");
 		user.setUserEmail(scan.next());
 		while(true) {
-			System.out.print("\nEnter Password: ");
+			log.info("\nEnter Password: ");
     		String passwordOne = scan.next();
-    		System.out.print("\nEnter Password Again: ");
+    		log.info("\nEnter Password Again: ");
     		String passwordAgain = scan.next();
     		if(passwordOne.equals(passwordAgain))
     		{
@@ -129,15 +135,17 @@ public class CRSStudentMenu {
     			break;
     		}
     		else
-    			System.out.println("Password does not match");
+    			log.info("Password does not match");
 		}
 		
-		System.out.print("\nEnter Phone Number: ");
+		log.info("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());
+//		System.out.println();
+//      	 System.out.println("===================================================================================");
 		try {
 		studentOp.registerStudent(user);}
 		catch(StudentAlreadyRegisteredException e) {
-			System.out.println("student with id "+e.getStudentId()+"is already registered");
+			log.info("student with id "+e.getStudentId()+"is already registered");
 		}
 	}
 	
@@ -154,7 +162,10 @@ public class CRSStudentMenu {
        boolean flag = false;
         
        while(true) {
-   		System.out.print("\nChoose From below given list"
+   		System.out.println();
+
+        System.out.println("===================================================================================");
+		   log.info("\nChoose From below given list"
    				+"\n\n1.Register for course"
    				+"\n2.Add course"
    				+"\n3.Drop course"
@@ -164,22 +175,27 @@ public class CRSStudentMenu {
    				+"\n7.Pay Fee"
    				+"\n8.View Notification"
    				+"\n9.Exit\n");
-    	System.out.print("Enter your Choice: ");
+    	System.out.println();
+
+        System.out.println("===================================================================================");
+		log.info("Enter your Choice: ");
     	int opt=scan.nextInt();
        switch(opt) {
        case 1:
     	   studentOp.registerCourses(userId);
     	   break;
        case 2:
-    	   System.out.println("Select Course Ids from below given Course Catalog");
-     	   System.out.print("You have to select "+compulsory+" complusory and "+alternative+" Alternative");
-     	   System.out.println("\nFor complusory enter 0 and for alternative enter 1");
+    	   System.out.println("\nSelect Course Ids from below given Course Catalog");
+     	   System.out.println("\nYou have to select "+compulsory+" complusory and "+alternative+" Alternative(For complusory enter 0 and for alternative enter 1)");
+     	  System.out.println();
+        	 System.out.println("===================================================================================");
+//     	   System.out.println("\nFor complusory enter 0 and for alternative enter 1\n");
      	   
     	   addCourses();
         break;
 
        case 3:
-    	   System.out.println("Enter course id");
+    	   log.info("Enter course id");
     	   int courseId = scan.nextInt();
     	   try {
     	   int coursePref = studentOp.dropCourses(userId,courseId);    	  
@@ -187,14 +203,14 @@ public class CRSStudentMenu {
     		   compulsory++;
     	   if(coursePref==1)
     		   alternative++;
-    	   System.out.println("Select Course Ids from below given Course Catalog");
-     	   System.out.print("You have to select "+compulsory+" complusory and "+alternative+" Alternative");
-     	   System.out.println("\nFor complusory enter 0 and for alternative enter 1");
+    	   log.info("Select Course Ids from below given Course Catalog");
+     	   log.info("You have to select "+compulsory+" complusory and "+alternative+" Alternative");
+     	   log.info("\nFor complusory enter 0 and for alternative enter 1");
     	   addCourses(); }
     	   catch(UserNotFoundException e) {
-    		   System.out.println("User with id "+e.getUserId()+" is not found");
+    		   log.info("User with id "+e.getUserId()+" is not found");
     	   } catch(CourseNotFoundException e) {
-    		   System.out.println("Course with id "+e.getCourseId()+" is not found");
+    		   log.info("Course with id "+e.getCourseId()+" is not found");
     	   }
 
         break;
@@ -203,17 +219,17 @@ public class CRSStudentMenu {
     	   try {
     	   studentOp.listCourse(userId);}
     	   catch(UserNotApprovedException e) {
-    		   System.out.println("User with id "+e.getUserId()+" is not approved by admin");
+    		   log.info("User with id "+e.getUserId()+" is not approved by admin");
     	   }
         break;
 
        case 5:
-//    	   System.out.print("Enter your Id: ");
+//    	   log.info("Enter your Id: ");
 //    	   int studId = scan.nextInt();
     	   try {
     	   studentOp.viewReportCard(userId); }      
     	   catch(UserNotApprovedException e) {
-    		   System.out.println("Courses of student with id "+e.getUserId()+" is not approved by admin");
+    		   log.info("Courses of student with id "+e.getUserId()+" is not approved by admin");
     	   }
         break;
 
@@ -228,7 +244,7 @@ public class CRSStudentMenu {
     	   if(studentOp.isApproved(userId)) {
     	   payment.payfee(userId);}
     	   else {
-    		   System.out.println("Student courses are not approved by admin");
+    		   log.info("Student courses are not approved by admin");
     	   }
 		break;
        case 8:
