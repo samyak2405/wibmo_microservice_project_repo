@@ -1,4 +1,5 @@
 package com.wibmo.business;
+import org.apache.log4j.Logger;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,10 +11,14 @@ import java.util.Scanner;
 import com.wibmo.bean.*;
 import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dao.*;
+import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
 
 public class AdminOperationImpl implements AdminOperation{
-
+	
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+	
 	Scanner scan = new Scanner(System.in);
 	static AdminOperationImpl adminOp = new AdminOperationImpl();
 	AdminDAO adminDAO = AdminDAOImpl.getInstance();
@@ -41,12 +46,20 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void adminRegistration(Admin user) {
+	public void adminRegistration(Admin user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
+			{
+			if(adminDAO.searchAdmin(user.getUserId()))
+			{
+				throw new UserAlreadyExistsException(user.getUserId());
+			}
 			adminOp.addAdmin(user);
+			
+			}
 		else
-			System.out.println("Invalid Email Id");
+			//System.out.println("Invalid Email Id");
+			log.info("Invalid Email Id");
 	}
 
 	@Override
@@ -56,13 +69,27 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void approveStudentById() {
+	public void approveStudentById() throws UserNotFoundException{
 		// TODO Auto-generated method stub
 		List<Integer> studentIds = adminDAO.pendingRegistration();
-		System.out.println("Choose from below given student ids");
-		studentIds.forEach(studentId->System.out.println(String.format("%20s\n", studentId)));
-		System.out.println("Enter the StudentId: ");
+
+		System.out.println();
+
+        System.out.println("===================================================================================");
+		log.info("Choose from below given student ids");
+		studentIds.forEach(studentId->log.info(String.format("%20s\n", studentId)));
+		System.out.println();
+
+        System.out.println("===================================================================================");
+		log.info("Enter the StudentId: ");
+
+		
+		
+
 		int studentId = scan.nextInt();
+		if(studentDAO.searchStudent(studentId)==false) {
+			throw new UserNotFoundException(studentId);
+		}
 		adminDAO.setApprovedStudentById(studentId);
 	}
 

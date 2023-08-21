@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import com.wibmo.bean.CourseCatalog;
 import com.wibmo.bean.GradeCard;
 import com.wibmo.bean.Student;
@@ -26,6 +28,7 @@ import com.wibmo.exception.UserNotFoundException;
  */
 public class StudentOperationImpl implements StudentOperation{
 	
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	StudentDAO studentDao = StudentDAOImpl.getInstance();
 	CourseDAO course=CourseDAOImpl.getInstance();
 	
@@ -92,12 +95,12 @@ public class StudentOperationImpl implements StudentOperation{
 		Map<Integer,String> courses = studentDao.listCourse(studentId);
 		if(courses.size()==0)
 		{
-			System.out.println("Course Registration pending");
+			log.info("Course Registration pending");
 			return;
 		}
-		System.out.println("List of Courses Approved");
+		log.info("List of Courses Approved");
 		for(Map.Entry<Integer, String> entry: courses.entrySet()) {
-			System.out.println(String.format("%20s %20s\n", entry.getKey(),entry.getValue()));
+			log.info(String.format("%20s %20s\n", entry.getKey(),entry.getValue()));
 		}
 	}
 
@@ -105,9 +108,9 @@ public class StudentOperationImpl implements StudentOperation{
 	public void viewCourseCatalog() {
 		// TODO Auto-generated method stub
 		List<CourseCatalog> courses = studentDao.viewCourseCatalog();
-		System.out.println("Course Catalog: ");
+		log.info("Course Catalog: ");
 		
-		courses.forEach(course->System.out.println(String.format("%10s %25s %25s %30s\n"
+		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
 				, course.getCourseId()
 				,course.getCourseName()
 				,course.getProfessorName()
@@ -130,7 +133,7 @@ public class StudentOperationImpl implements StudentOperation{
 		student.setUserPhonenumber(user.getUserPhonenumber());
 		student.setUserPassword(user.getUserPassword());
 		studentDao.registerStudent(student);
-//		System.out.println(user.getUserPassword()+" "+user.getUserPassword().getClass().getName());
+//		log.info(user.getUserPassword()+" "+user.getUserPassword().getClass().getName());
 	}
 
 
@@ -142,10 +145,10 @@ public class StudentOperationImpl implements StudentOperation{
 			throw new UserNotApprovedException(studentId);
 		}
 		List<GradeCard> grades = studentDao.viewReportCard(studentId);
-		System.out.println(grades.size());
-		System.out.println("Your Grades");
-		System.out.println(String.format("%20s %20s", "CourseId","Grade"));
-		grades.forEach(grade->System.out.println(String.format("%20s %20s\n"
+		log.info(grades.size());
+		log.info("Your Grades");
+		log.info(String.format("%20s %20s", "CourseId","Grade"));
+		grades.forEach(grade->log.info(String.format("%20s %20s\n"
 				, grade.getCourseId(),
 				grade.getGrade())));
 	}

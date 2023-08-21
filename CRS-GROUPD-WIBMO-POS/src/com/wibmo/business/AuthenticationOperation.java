@@ -4,7 +4,7 @@
 package com.wibmo.business;
 
 /**
- * 
+ * To authenticate different use cases
  */
 public interface AuthenticationOperation {
 	

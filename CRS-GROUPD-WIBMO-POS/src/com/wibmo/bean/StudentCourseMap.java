@@ -6,7 +6,7 @@ package com.wibmo.bean;
 import java.util.Map;
 
 /**
- * 
+ * Class representing mapping between Students and Courses.
  */
 public class StudentCourseMap {
 

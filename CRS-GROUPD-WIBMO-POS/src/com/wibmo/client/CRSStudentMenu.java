@@ -6,6 +6,10 @@ import com.wibmo.business.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+
+import org.apache.log4j.Logger;
+
 import com.wibmo.bean.StudentCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.exception.DuplicateCourseEntryException;
@@ -17,7 +21,7 @@ import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.ClientValidatorImpl;
 
 /**
- * 
+ * Student menu class.
  */
 public class CRSStudentMenu {
 	private String userEmail;
@@ -26,6 +30,7 @@ public class CRSStudentMenu {
 	public StudentOperation studentOp = new StudentOperationImpl();
 	public NotificationOperation notificationOp=new NotificationOperationImpl();
 	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
+	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	Scanner scan = new Scanner(System.in);
 	
 	
@@ -75,6 +80,11 @@ public class CRSStudentMenu {
 		return course;
 	}
 	
+	
+	/**
+	 * To display the menu for adding new courses.
+	 * @throws DuplicateCourseEntryException
+	 */
 	public void addCourses() throws DuplicateCourseEntryException {
  	   
  	   studentOp.viewCourseCatalog();
@@ -88,41 +98,51 @@ public class CRSStudentMenu {
  	   studCoMap.setCourses(courses);
  	   try {
 		studentOp.addCourses(studCoMap);
+		System.out.println("Course Added Successfully.");
 	} catch (CourseNotFoundException e) {
-		System.out.println("Course with course id: "+e.getCourseId()+" Not Found!!");
+		log.info("Course with course id: "+e.getCourseId()+" Not Found!!");
 	}catch(CourseLimitExceededException e)
  	   {
-		System.out.println("Course Limit Exceeded");
+		log.info("Course Limit Exceeded");
  	   }
- 	   System.out.println("Course Added Successfully.");
+ 	   log.info("Course Added Successfully.");
 	}
 	
 	
 	
 	/**
-	 * 
+	 * To display the student registration menu.
 	 * @throws StudentAlreadyRegisteredException
 	 */
 	public void studentRegistration() throws StudentAlreadyRegisteredException  {
 		
-		System.out.println("Enter the Details for Registration");
+		log.info("Enter the Details for Registration");
 		User user = new User();
 		System.out.print("\nEnter Name: ");
 		user.setUserName(scan.next());
-		System.out.print("\nEnter Email: ");
+		log.info("\nEnter Email: ");
 		user.setUserEmail(scan.next());
 		String password = clientValidator.passwordValidator();
 		user.setUserPassword(password);
 		System.out.print("\nEnter Phone Number: ");
 		user.setUserPhonenumber(scan.nextLong());
+//		System.out.println();
+//      	 System.out.println("===================================================================================");
 		try {
 		studentOp.registerStudent(user);}
 		catch(StudentAlreadyRegisteredException e) {
-			System.out.println("student with id "+e.getStudentEmail()+" is already registered");
+			log.info("student with id "+e.getStudentId()+"is already registered");
 		}
 	}
 	
 	
+	
+	/**
+	 * To display the student choice menu.
+	 * @throws DuplicateCourseEntryException
+	 * @throws CourseNotFoundException
+	 * @throws UserNotFoundException
+	 */
 	public void studentMenu() throws DuplicateCourseEntryException, CourseNotFoundException, UserNotFoundException {
 
        boolean flag = false;
@@ -205,15 +225,17 @@ public class CRSStudentMenu {
     	   try {
     	   studentOp.listCourse(userId);}
     	   catch(UserNotApprovedException e) {
-    		   System.out.println("User with id "+e.getUserId()+" is not approved by admin");
+    		   log.info("User with id "+e.getUserId()+" is not approved by admin");
     	   }
         break;
 
        case 5:
+//    	   log.info("Enter your Id: ");
+//    	   int studId = scan.nextInt();
     	   try {
     	   studentOp.viewReportCard(userId); }      
     	   catch(UserNotApprovedException e) {
-    		   System.out.println("Courses of student with id "+e.getUserId()+" is not approved by admin");
+    		   log.info("Courses of student with id "+e.getUserId()+" is not approved by admin");
     	   }
         break;
 
@@ -227,7 +249,7 @@ public class CRSStudentMenu {
     	   if(studentOp.isApproved(userId)) {
     	   payment.payfee(userId);}
     	   else {
-    		   System.out.println("Student courses are not approved by admin");
+    		   log.info("Student courses are not approved by admin");
     	   }
 		break;
        case 8:

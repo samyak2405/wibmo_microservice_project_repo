@@ -4,7 +4,7 @@
 package com.wibmo.bean;
 
 /**
- * 
+ * Class representing the CourseCatalog
  */
 public class CourseCatalog {
 	private int courseId;

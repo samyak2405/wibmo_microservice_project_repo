@@ -4,7 +4,7 @@
 package com.wibmo.constant;
 
 /**
- * 
+ * Constants for for storing notification ids of the notification messages in the database.
  */
 public class NotificationConstants {
 

@@ -4,7 +4,7 @@
 package com.wibmo.constant;
 
 /**
- * 
+ * Constants to store various SQL Queries.
  */
 public class SQLConstants {
 	
@@ -52,6 +52,7 @@ public class SQLConstants {
 		public static final String INSERT_PROFESSOR ="INSERT INTO crs.professor VALUES(?,?,?,?,?)" ;
 		public static final String SEARCH_PROFESSOR = "SELECT COUNT(*) FROM professor WHERE professoremail=? ";
 		public static final String SELECT_PROFESSOR_BY_EMAIL = "SELECT professorid FROM crs.professor WHERE professoremail=?";
+		public static final String RECORD_PAYMENT = "INSERT INTO crs.payment VALUES(?,?,?,?)";
 		
 		/*
 		 * Admin Queries

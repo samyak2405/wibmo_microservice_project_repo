@@ -10,7 +10,7 @@ import com.wibmo.bean.User;
 import com.wibmo.exception.*;
 
 /**
- * 
+ * For performing various student operations
  */
 public interface StudentOperation {
 	
@@ -64,6 +64,11 @@ public interface StudentOperation {
 	 */
 	public void viewReportCard(int studId) throws UserNotApprovedException;
 
+	/**
+	 * To check if a student is registered of not
+	 * @param userId
+	 * @return True if student is registered else returns False.
+	 */
 	public boolean isApproved(int userId) ;
 
 	public int getStudentByEmail(String userEmail);

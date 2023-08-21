@@ -15,7 +15,7 @@ import com.wibmo.dao.AdminDAO;
 import com.wibmo.dao.AdminDAOImpl;
 import com.wibmo.dao.StudentDAOImpl;
 /**
- * 
+ * To validate admin details
  */
 public class AdminValidatorImpl implements ValidatorInterface{
 
@@ -23,6 +23,9 @@ public class AdminValidatorImpl implements ValidatorInterface{
 	AdminDAO adminDAO = AdminDAOImpl.getInstance();
 	public NotificationOperation notification=new NotificationOperationImpl();
 	@Override
+	/**
+	 * To validate admin using email
+	 */
 	public boolean emailValidator(String email) {
 		// TODO Auto-generated method stub
 		String regex = "^[a-zA-Z0-9_!#$%&amp;'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";

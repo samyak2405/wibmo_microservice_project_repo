@@ -9,6 +9,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
 import com.wibmo.business.*;
 import com.wibmo.exception.DuplicateCourseEntryException;
 import com.wibmo.exception.CourseNotFoundException;
@@ -18,7 +21,7 @@ import com.wibmo.validator.ClientValidatorImpl;
 import com.wibmo.bean.User;
 
 /**
- * 
+ * Main Class.
  */
 public class CRSApplicationClient {
 	
@@ -38,35 +41,44 @@ public class CRSApplicationClient {
         LocalTime localTime = LocalTime.now();
 
         Scanner scan=new Scanner(System.in);
-
-        System.out.println("===================================================================================");
+        final Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+        
+        log.info("===================================================================================");
 
         System.out.format("\t%15s%s","\t","Welcome to the CRS Application\n");
 
         System.out.format("\t%15s\t%s %s %s","\t",localDate.getDayOfMonth(),localDate.getMonth(),localDate.getYear());
 
-        System.out.println();
+        log.info("");
 
         System.out.format("\t%20s     %s","\t",localTime.format(DateTimeFormatter.ofPattern("HH:mm")));
 
         
 
-        System.out.println();
-
-        System.out.println("===================================================================================");
+        
         int role=-1;
         while(true) {
-        	System.out.println("1. Login"
+        	System.out.println();
+
+            System.out.println("===================================================================================");
+        	log.info("1. Login"
         			+"\n2. Registration"
         			+"\n3. Update Password"
         			+"\n4. Exit");
-        	System.out.print("\nEnter your choice: ");
-        	int choice = scan.nextInt();
+        	System.out.println();
+        	 System.out.println("===================================================================================");
+        	log.info("\nEnter your choice: ");
         	
-        	System.out.print("\nEnter your Role "
-    				+"\n1. Student"
+        	int choice = scan.nextInt();
+        	 System.out.println("\n===================================================================================");
+        	log.info(
+    				"\n1. Student"
     				+"\n2. Professor"
     				+"\n3. Admin");
+        	System.out.println();
+        	 System.out.println("===================================================================================");
+        	 
+        	System.out.println("Enter your role");
     		role = scan.nextInt();
     		
         	boolean flag = false;
@@ -77,24 +89,25 @@ public class CRSApplicationClient {
         		System.out.print("\nEnter your Password: ");
         		String password = scan.next();
         		
+        		
         		//Authentication
         		AuthenticationOperation loggedin=new AuthenticationOperationImpl();
         		
         		if(loggedin.loggedin(userEmail, password,role)) {
         		switch(role) {
         		case 1:
-        			System.out.println("\nYou are logged in successfully as a student");
+        			log.info("\nYou are logged in successfully as a student");
         			CRSStudentMenu studentMenu = new CRSStudentMenu(userEmail);
         			studentMenu.studentMenu();
         			break;
         		case 2:
         			//Professor
-        			System.out.println("You are logged in successfully as a Professor");
+        			log.info("You are logged in successfully as a Professor");
         			CRSProfessorMenu professorMenu = new CRSProfessorMenu(userEmail);
         			professorMenu.professorMenu();
         			break;
         		case 3: 
-        			System.out.println("You are logged in successfully as a Admin");
+        			log.info("You are logged in successfully as a Admin");
 
         			CRSAdminMenu adminMenu = new CRSAdminMenu();
         			adminMenu.adminMenu();
@@ -102,7 +115,7 @@ public class CRSApplicationClient {
         		}
         		}
         		else {
-        			System.out.println("\nInvalid credentials");
+        			log.info("\ninvalid credentials");
         		}
         		break;
         	case 2:
@@ -122,7 +135,7 @@ public class CRSApplicationClient {
 	    			adminMenu.adminRegistration();
         		}
         		else {
-        			System.out.println("You have entered an incorrect choice!");
+        			log.info("You have entered an incorrect choice!");
         		}
         		break;
         	case 3:
@@ -138,7 +151,9 @@ public class CRSApplicationClient {
         			loggedin1.updatePassword(userEmail, passwordOne, role);
         		}
         		else {
-        			System.out.println("invalid credentials");
+        			log.info("invalid credentials");
+        			System.out.println();
+               	    System.out.println("===================================================================================");
         			
         		}
         		

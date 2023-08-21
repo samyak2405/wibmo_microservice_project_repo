@@ -78,7 +78,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 							return true;
 						}
 						else {
-							logger.debug("Pending Approval from Admin");
+							logger.debug("\n'Pending Approval from Admin'");
 							return false;
 						}
 							
@@ -87,8 +87,9 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 						return true;
 						
 				}
-				else
-					logger.debug("Invalid Credentials");
+				else 
+					logger.debug("\nInvalid Credentials\n");
+				
 				return false;
 			}
 	        

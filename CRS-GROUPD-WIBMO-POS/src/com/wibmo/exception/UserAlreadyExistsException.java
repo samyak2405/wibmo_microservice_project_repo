@@ -4,7 +4,7 @@
 package com.wibmo.exception;
 
 /**
- * 
+ * Exception in case user is already present/registered/approved.
  */
 public class UserAlreadyExistsException extends Exception {
 	
