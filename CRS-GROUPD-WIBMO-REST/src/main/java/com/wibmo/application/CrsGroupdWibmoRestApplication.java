@@ -9,5 +9,5 @@ public class CrsGroupdWibmoRestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrsGroupdWibmoRestApplication.class, args);
 	}
-
+	
 }

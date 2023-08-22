@@ -3,10 +3,12 @@
  */
 package com.wibmo.model;
 
+import java.io.Serializable;
+
 /**
  * Class representing the CourseCatalog
  */
-public class CourseCatalog {
+public class CourseCatalog implements Serializable{
 	private int courseId;
 	private String professorName;
 	private String courseName;

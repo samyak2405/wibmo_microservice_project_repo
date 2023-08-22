@@ -3,10 +3,12 @@
  */
 package com.wibmo.model;
 
+import java.io.Serializable;
+
 /**
  * Class to represent Notifications
  */
-public class Notification {
+public class Notification implements Serializable{
 	
 	private int id;
 	

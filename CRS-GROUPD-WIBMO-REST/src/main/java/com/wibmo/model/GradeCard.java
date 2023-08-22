@@ -3,10 +3,12 @@
  */
 package com.wibmo.model;
 
+import java.io.Serializable;
+
 /**
  * Class representing Grade Card
  */
-public class GradeCard {
+public class GradeCard implements Serializable {
 	private int studentId;
 	private int courseId;
 	private String grade;

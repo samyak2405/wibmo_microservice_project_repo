@@ -3,10 +3,12 @@
  */
 package com.wibmo.model;
 
+import java.io.Serializable;
+
 /**
  * Class representing the payment
  */
-public class Payment {
+public class Payment implements Serializable{
 	
 	private long userId;
 	private long transactionId;
