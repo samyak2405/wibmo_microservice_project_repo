@@ -97,11 +97,12 @@ public class AdminValidatorImpl implements ValidatorInterface{
 			{
 				System.out.println("Student Course Registration Successful");
 				notification.sendNotification(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION, studentId);
+				
 				notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);						
 			}
 	
 			else {
-				
+				adminDAO.setRejectionStatus(studentId);
 				System.out.println("Student Course Registration UnSuccessful");
 				notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
 				

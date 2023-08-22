@@ -85,9 +85,9 @@ public class CRSApplicationClient {
         	boolean flag = false;
         	switch(choice) {
         	case 1:
-        		System.out.print("\nEnter your Email: ");
+        		log.info("\nEnter your Email: ");
         		String userEmail = scan.next();
-        		System.out.print("\nEnter your Password: ");
+        		log.info("\nEnter your Password: ");
         		String password = scan.next();
         		
         		
@@ -143,9 +143,10 @@ public class CRSApplicationClient {
         		}
         		break;
         	case 3:
-        		System.out.print("Enter UserEmail:");
+        		log.info("Enter UserEmail:");
         		userEmail = scan.next();
-        		System.out.print("\nEnter Current Password: ");
+        		log.info("\nEnter Current Password: ");
+        		
         		password = scan.next();
         		
         		AuthenticationOperation loggedin1=new AuthenticationOperationImpl();

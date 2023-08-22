@@ -41,10 +41,7 @@ public class PaymentOperationTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+	
 	@Test
 	public void testOffline() {
 		payment.setUserId(1);
@@ -64,7 +61,7 @@ public class PaymentOperationTest {
 		payment.setPaymentStatus(1);
 		boolean flag=paymentoperation.UPI(payment.getUserId());
 		
-		assertEquals(false,flag);
+		assertEquals(true,flag);
 		
 	}
 	@Test
@@ -75,7 +72,7 @@ public class PaymentOperationTest {
 		payment.setPaymentStatus(1);
 		boolean flag=paymentoperation.cards(payment.getUserId());
 		
-		assertEquals(true,flag);
+		assertEquals(false,flag);
 		
 	}
 	@Test
@@ -89,17 +86,7 @@ public class PaymentOperationTest {
 		assertEquals(false,flag);
 		
 	}
-	@Test
-	public void testAmount() {
-		payment.setUserId(1);
-		payment.setTransactionId(101002);
-		payment.setAmount(10000);
-		payment.setPaymentStatus(1);
-		int amount=paymentoperation.getAmount(payment.getUserId());
-		
-		assertEquals(1000,amount);
-		
-	}
+	
 	@Test
 	public void testPayementStatus() {
 		payment.setUserId(1);

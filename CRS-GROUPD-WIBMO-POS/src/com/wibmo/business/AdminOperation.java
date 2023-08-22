@@ -50,4 +50,5 @@ public interface AdminOperation {
 
 
 	public int getAdminById(String userEmail);
+
 }

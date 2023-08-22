@@ -180,19 +180,18 @@ public class CRSProfessorMenu {
 		// TODO Auto-generated method stub
 		log.info("Enter the Details for Registration");
 		User user = new User();
-		System.out.print("\nEnter User ID: ");
-		user.setUserId(scan.nextInt());
-		System.out.print("\nEnter Name: ");
+		log.info("\nEnter Name: ");
 		user.setUserName(scan.next());
-		System.out.print("\nEnter Email: ");
+		log.info("\nEnter Email: ");
 		user.setUserEmail(scan.next());
 		String password = clientValidator.passwordValidator();
 		user.setUserPassword(password);
 		
-		System.out.print("\nEnter Phone Number: ");
+		log.info("\nEnter Phone Number: ");
 		log.info("");
-      	 log.info("===================================================================================");
 		user.setUserPhonenumber(scan.nextLong());
+      	 log.info("===================================================================================");
+		
 		try {
 			professorOp.registerProfessor(user);
 		} catch (UserAlreadyExistsException e) {

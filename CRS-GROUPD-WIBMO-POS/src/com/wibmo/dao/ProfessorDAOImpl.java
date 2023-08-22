@@ -204,7 +204,7 @@ PreparedStatement stmt = null;
             stmt.setString(1,userEmail);
             ResultSet rs=stmt.executeQuery();
 
-            if(rs.next()) {
+            if(!rs.isBeforeFirst()) {
                 return true;
             }
         } catch (SQLException e) {

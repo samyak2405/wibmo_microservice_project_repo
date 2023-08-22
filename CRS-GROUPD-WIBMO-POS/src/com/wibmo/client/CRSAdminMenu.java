@@ -36,15 +36,15 @@ public class CRSAdminMenu {
 	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public void adminRegistration() {
-		System.out.println("Enter the Details for Registration");
+		log.info("Enter the Details for Registration");
    		Admin user = new Admin();
    		log.info("\nEnter Name: ");
    		user.setUserName(scan.next());
-   		System.out.print("\nEnter Email: ");
+   		log.info("\nEnter Email: ");
    		user.setUserEmail(scan.next());
    		String password = clientValidator.passwordValidator();
    		user.setUserPassword(password);
-   		System.out.print("\nEnter Phone Number: ");
+   		log.info("\nEnter Phone Number: ");
    		user.setUserPhonenumber(scan.nextLong());
    		try {
     	   adminOp.adminRegistration(user);}
@@ -68,10 +68,10 @@ public class CRSAdminMenu {
     	   log.info("");
     	log.info("1. Approve Student Registration");
 		
-		System.out.println("2. Approve Student's Course Registration");
-
-        System.out.println("3. Register and Approve an Admin");
-
+    	log.info("2. Approve Student's Course Registration");
+		
+    	log.info("3. Register and Approve an Admin");
+       
         log.info("4. Assign courses to Professor");
         
          log.info("5. Exit");
@@ -85,9 +85,11 @@ public class CRSAdminMenu {
        switch(opt) {
 
        case 1:
-    	   System.out.println("a. Approve all students at once"
+    	   log.info("a. Approve all students at once"
     			   +"\nb. Approve Student by Id");
-    	   System.out.print("\nEnter your Choice: ");
+    	   
+    	   log.info("\nEnter your Choice: ");
+ 
     	   char choice = scan.next().charAt(0);
     	   switch(choice) {
     	   case 'a':

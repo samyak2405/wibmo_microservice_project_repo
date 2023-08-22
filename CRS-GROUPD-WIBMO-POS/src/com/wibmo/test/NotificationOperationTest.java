@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.wibmo.bean.Notification;
 import com.wibmo.business.NotificationOperation;
 import com.wibmo.business.NotificationOperationImpl;
+import com.wibmo.constant.NotificationConstants;
 
 public class NotificationOperationTest {
      Notification notification =null;
@@ -24,19 +25,18 @@ public class NotificationOperationTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	@Test
-	public void testGetNotificationMessage() {
-		notification.setId(1);
-		notification.setNotificationMessage("");
+	public void testSendNotification() {
+		int studentId=2;
+		int notificationId=NotificationConstants.REJECT_REGISTRATION_NOTIFICATION;
+		notificationoperation.sendNotification(notificationId, studentId);
 		
 	}
 	@Test
-	public void testSendNotification() {
-		notification.setId(1);
-		notification.setNotificationMessage("");
+	public void testGetNotificationMessage() {
+		
+		notificationoperation.getNotificationMessage(2);
+		
 	}
+	
 
 }
