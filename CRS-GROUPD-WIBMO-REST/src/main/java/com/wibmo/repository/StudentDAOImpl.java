@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.wibmo.dao;
+package com.wibmo.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,45 +14,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.wibmo.model.CourseCatalog;
+import com.wibmo.model.GradeCard;
+import com.wibmo.model.Student;
+import com.wibmo.model.StudentCourseMap;
 import com.wibmo.constant.SQLConstants;
-import com.wibmo.bean.CourseCatalog;
-import com.wibmo.bean.GradeCard;
-import com.wibmo.bean.Student;
-import com.wibmo.bean.StudentCourseMap;
-import com.wibmo.business.AdminOperationImpl;
 import com.wibmo.utils.DButils;
 
 /**
  * 
  */
-public class StudentDAOImpl implements StudentDAO {
-
-//	public static StudentDAOImpl studentDao = new StudentDAOImpl();
-	public static volatile StudentDAOImpl instance = null;
+public class StudentDAOImpl implements StudentDAO{
 	
-	
-	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
-	
-	private StudentDAOImpl() {
-		
-	}
-	
-	public static StudentDAOImpl getInstance() {
-		if(instance==null)
-		{
-			synchronized(StudentDAOImpl.class) {
-				instance = new StudentDAOImpl();
-			}
-		}
-		return instance;
-	}
+	@Autowired
+	public Logger log;
 	
 	Connection conn = DButils.getConnection();
-	
-
-	
+		
 	public int getStudentCourseCount(int courseid) {
 		PreparedStatement stmt = null;
 		int count = 0;
