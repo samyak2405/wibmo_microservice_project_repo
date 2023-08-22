@@ -44,8 +44,8 @@ public class AuthenticationOperationTest {
 	 */
 	@Test
 	public void testLoggedin() {
-		String userEmail="sid@gmail.com";
-		String password="sid";
+		String userEmail="samyak@gmail.com";
+		String password="samyak";
 		int role=1;
 		boolean a=authentication.loggedin(userEmail, password, role);
 		assertTrue(a);

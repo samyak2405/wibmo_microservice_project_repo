@@ -18,5 +18,6 @@ public interface NotificationOperation {
 	 * @param notifid
 	 * @param studentId
 	 */
+	
 	public void sendNotification(int notifid, long studentId);
 }

@@ -30,7 +30,7 @@ public class ProfessorOperationTestImpl {
 	@Test
 	public void testgetProfessorById()
 	{
-		int profid1 = profop.getProfessorById("sid");
+		int profid1 = profop.getProfessorById("brown@gmail.com");
 		
 		
 		assertEquals(1, profid1);
