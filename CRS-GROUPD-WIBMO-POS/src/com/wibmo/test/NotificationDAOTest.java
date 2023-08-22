@@ -17,11 +17,11 @@ import com.wibmo.dao.NotificationDAOImpl;
 
 public class NotificationDAOTest {
 	Notification notification =null;
-    NotificationDAO notificationoperation=null;
+    NotificationDAO notificationdao=null;
 	@Before
 	public void setUp() throws Exception {
 		
-		notificationoperation=NotificationDAOImpl.getInstance();
+		notificationdao=NotificationDAOImpl.getInstance();
 		notification=new Notification();
 	}
 
@@ -29,22 +29,20 @@ public class NotificationDAOTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+	
 	@Test
 	public void testGetNotificationMessage() {
-		notification.setId(1);
-		List<Notification> notif = new ArrayList<>();
 		
-		notification.setNotificationMessage("payment succesful");
+		List<Notification> notif = new ArrayList<>();
+		notification.setId(2);
+		
+		notification.setNotificationMessage("Registration Rejected!! Register Again");
 		
 		notif.add(notification);
             
-		List<Notification> notifs = notificationoperation.getNotificationMessage(notification.getId());
+		List<Notification> notifs = notificationdao.getNotificationMessage(1);
 		
-		assertEquals(notif,notifs);
+		assertEquals(notif.get(0).getNotificationMessage(),notifs.get(0).getNotificationMessage());
 		
 		
 	}

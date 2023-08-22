@@ -1,0 +1,70 @@
+11:12:15,042  INFO AdminOperationImpl,main:27 - Registration Rejected!! Register Again
+11:13:18,200  INFO AdminOperationImpl,main:29 - No Notifications
+11:26:06,056  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:06,075  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:06,098  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:06,100  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:26:06,101  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:26:34,799  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:34,869  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:34,873  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,165  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,201  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,215  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,218  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:30:28,219  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:30:36,349  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:36,394  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:36,396  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,675  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,694  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,711  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,715  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:40:23,715  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:40:54,994  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:55,007  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:55,036  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:55,038  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:40:55,039  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:40:59,636  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:59,660  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:59,675  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,006  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,021  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,051  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,057  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:41:47,058  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:41:50,943  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:50,950  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:50,977  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:42:09,220  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+11:42:09,228  INFO AuthenticationOperationTest,main:39 - 
+Test Completed

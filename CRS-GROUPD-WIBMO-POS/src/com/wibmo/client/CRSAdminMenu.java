@@ -10,6 +10,8 @@ import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
 import java.util.*;
+
+import org.apache.log4j.Logger;
 /**
  * Admin Menu Class.
  */
