@@ -258,7 +258,8 @@ public class CRSStudentMenu {
     	   
     	   CRSPaymentMenu payment=new CRSPaymentMenu();
     	   if(studentOp.isApproved(userId)) {
-    	   payment.payfee(userId);}
+    	   payment.payfee(userId);
+    	   }
     	   else {
     		   log.info("Student courses are not approved by admin");
     	   }

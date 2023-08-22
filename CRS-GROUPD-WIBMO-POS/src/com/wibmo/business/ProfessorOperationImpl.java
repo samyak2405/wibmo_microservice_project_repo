@@ -3,7 +3,9 @@
  */
 package com.wibmo.business;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -51,11 +53,9 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 				throw new CourseNotFoundException(courseId);
 			}
 		}
+		
         professorDao.requestCourseOffering(professorid,courseIdList);
-        
-        
         return false;
-
     }
 
 	@Override
@@ -65,7 +65,6 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		{
 			throw new CourseNotFoundException(courseId);
 		}
-
         List<Student>students=professorDao.viewStudentList(courseId);    
 		
 		log.info("List of Students Registered For this particular course: ");
@@ -118,10 +117,20 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 
 	@Override
+	
 	public int getProfessorById(String userEmail) {
 		// TODO Auto-generated method stub
-		int professorId = professorDao.getProfessorById(userEmail);
-		return 0;
+		return professorDao.getProfessorById(userEmail);
+		
+	}
+
+	@Override
+	public void listOfApprovedCourses(int userId) {
+		// TODO Auto-generated method stub
+		Map<Integer,String> courses = professorDao.listOfApprovedCourses(userId);
+		for(Map.Entry<Integer, String> entry:courses.entrySet()) {
+			System.out.println(String.format("%20s %20s",entry.getKey(),entry.getValue()));
+		}
 	}
 
 	

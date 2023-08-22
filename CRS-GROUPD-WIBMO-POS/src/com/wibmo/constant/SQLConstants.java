@@ -46,13 +46,17 @@ public class SQLConstants {
 		 * Professor Queries
 		 */
 		public static final String SET_GRADES = "UPDATE crs.gradecard SET grade=? WHERE studentId=? && courseId=?";
-		public static final String REQUEST_COURSE="INSERT INTO crs.professorcoursemapping VALUES(?,?)";
+		public static final String REQUEST_COURSE="INSERT INTO crs.professorcoursemapping VALUES(?,?,0)";
 		public static final String STUDENT_LIST = "SELECT studentid,studentname, studentemail,phonenumber FROM crs.student"
                 + " WHERE studentid IN (SELECT studentid FROM crs.studentcoursemapping WHERE courseid=?)";
 		public static final String INSERT_PROFESSOR ="INSERT INTO crs.professor VALUES(?,?,?,?,?)" ;
 		public static final String SEARCH_PROFESSOR = "SELECT COUNT(*) FROM professor WHERE professoremail=? ";
 		public static final String SELECT_PROFESSOR_BY_EMAIL = "SELECT professorid FROM crs.professor WHERE professoremail=?";
 		public static final String RECORD_PAYMENT = "INSERT INTO crs.payment VALUES(?,?,?,?)";
+		public static final String SELECT_PROFESSORS_BY_ID = "SELECT DISTINCT professorid FROM crs.professorcoursemapping";
+		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseid FROM crs.professorcoursemapping WHERE professorid=?";
+		public static final String APPROVE_PROFESSOR_COURSE = "UPDATE crs.professorcoursemapping SET isApproved=1 WHERE professorid=? && courseid=?";
+		public static final String LIST_APPROVED_COURSES = "SELECT pcm.courseid, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.professorid=? && pcm.isApproved=1";
 		
 		/*
 		 * Admin Queries
@@ -69,6 +73,7 @@ public class SQLConstants {
 		public static final String APPROVE_STUDENT_BY_ID = "UPDATE crs.student SET isapproved=1 WHERE studentid=?";
 		public static final String SEND_NOTIFICATION="INSERT INTO crs.notificationstudentmapping VALUES(?,?)";
 		public static final String SELECT_STUDENT_APPROVED = "SELECT studentId FROM crs.gradecard WHERE studentId=?";
+		public static final String SELECT_ADMIN_BY_EMAIL = "SELECT adminId FROM crs.admin WHERE adminEmail=?";
 		
 	/**
 	 * Common for student And Professor
@@ -77,6 +82,11 @@ public class SQLConstants {
                 + " WHERE notificationId IN (SELECT notifId FROM crs.notificationstudentmapping WHERE studentId=?)";
 
 	    public static final String SEARCH_COURSE = "SELECT * FROM coursecatalog WHERE courseId=?";
+		
+	
+		
+		
+		
 		
 		
 	

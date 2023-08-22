@@ -113,7 +113,7 @@ public class CRSApplicationClient {
         			log.info("");
         			log.info("You are logged in successfully as a Admin");
 
-        			CRSAdminMenu adminMenu = new CRSAdminMenu();
+        			CRSAdminMenu adminMenu = new CRSAdminMenu(userEmail);
         			adminMenu.adminMenu();
         			break;
         		}

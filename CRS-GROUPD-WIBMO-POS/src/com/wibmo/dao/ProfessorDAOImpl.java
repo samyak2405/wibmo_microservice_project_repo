@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.wibmo.bean.CourseCatalog;
 import com.wibmo.bean.Professor;
@@ -50,14 +52,14 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	@Override
 	public void setGrades(long studentId, Integer courseId, String grade) {
 		// TODO Auto-generated method stub
-		int result=0;
+		
 		PreparedStatement stmt=null;
 		try {
 			stmt = conn.prepareStatement(SQLConstants.SET_GRADES);
-			stmt.setString(3,grade);
-			stmt.setLong(1, studentId);
-			stmt.setInt(2,courseId);
-			result=stmt.executeUpdate();
+			stmt.setString(1,grade);
+			stmt.setLong(2, studentId);
+			stmt.setInt(3,courseId);
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -235,5 +237,30 @@ PreparedStatement stmt = null;
 
         }
         return professorId;
+	}
+
+	@Override
+	public Map<Integer, String> listOfApprovedCourses(int userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		Map<Integer,String> map = new HashMap<>();
+		
+        try {
+
+            stmt = conn.prepareStatement(SQLConstants.LIST_APPROVED_COURSES);
+
+            stmt.setInt(1,userId);
+
+            ResultSet rs=stmt.executeQuery();
+
+            while(rs.next()) {
+            	map.put(rs.getInt("courseid"), rs.getString("courseName"));
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+		return map;
 	}
 }

@@ -10,6 +10,8 @@ import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
 import java.util.*;
+
+import org.apache.log4j.Logger;
 /**
  * Admin Menu Class.
  */
@@ -17,16 +19,26 @@ public class CRSAdminMenu {
 	AdminOperation adminOp = new AdminOperationImpl();
 	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
 	Scanner scan = new Scanner(System.in);
-	
+	String userEmail;
+	int adminId;
 	/**
 	 * To display the admin registration menu.
 	 */
+	
+	public CRSAdminMenu() {
+		
+	}
+	public CRSAdminMenu(String userEmail) {
+		this.userEmail = userEmail;
+		adminId = adminOp.getAdminById(userEmail);
+	}
+	
+	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+	
 	public void adminRegistration() {
 		System.out.println("Enter the Details for Registration");
    		Admin user = new Admin();
-   		System.out.print("Enter User ID: ");
-   		user.setUserId(scan.nextInt());
-   		System.out.print("\nEnter Name: ");
+   		log.info("\nEnter Name: ");
    		user.setUserName(scan.next());
    		System.out.print("\nEnter Email: ");
    		user.setUserEmail(scan.next());
