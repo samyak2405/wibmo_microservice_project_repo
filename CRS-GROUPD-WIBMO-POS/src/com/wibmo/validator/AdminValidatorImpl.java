@@ -3,8 +3,10 @@ package com.wibmo.validator;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -110,20 +112,24 @@ public class AdminValidatorImpl implements ValidatorInterface{
 	
 	public void assignCourseValidator() {
 		
-		List<Integer> listOfCourses = adminDAO.getListOfCourses();
+		List<Integer> professors = adminDAO.getProfessorsIds();
+		Set<Integer> set = new HashSet<>();
+		for(int professor:professors) {
+			List<Integer> courses = adminDAO.getProfessorCourses(professor);
 		
-		for(int course:listOfCourses)
-		{
-			List<Integer> profCourseData = adminDAO.getProfCourseData(course);
-			if(profCourseData.size()!=0) {
-			adminDAO.setProfCourse(profCourseData.get(0), course);
-			}
-			else
+			for(int course:courses) 
 			{
-				System.out.println("No professor is assigned for the course id: " +course);
+//				System.out.println(course);
+				if(!set.contains(course))
+				{
+					set.add(course);
+					adminDAO.approveCourse(professor,course);
+				}
+				else
+					System.out.println("Course already assigned to another professor");
 			}
+			
 		}
-		
 	}
 	
 }

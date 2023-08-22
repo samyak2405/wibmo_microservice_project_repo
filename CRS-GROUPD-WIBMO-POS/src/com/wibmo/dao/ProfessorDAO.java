@@ -4,6 +4,7 @@
 package com.wibmo.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.wibmo.bean.CourseCatalog;
 import com.wibmo.bean.Professor;
@@ -56,6 +57,8 @@ public interface ProfessorDAO {
 	 */
 	public boolean searchProfessor(String userEmail);
 	public int getProfessorById(String userEmail);
+
+	public Map<Integer, String> listOfApprovedCourses(int userId);
 
 	
 }

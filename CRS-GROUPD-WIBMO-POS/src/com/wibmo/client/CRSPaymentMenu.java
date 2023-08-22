@@ -103,7 +103,7 @@ public class CRSPaymentMenu {
 	  	  {
 	  		  notification.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, studentId);
 	  		  System.out.println("Payment Successful");
-	  		  System.out.println("Your TransactionId"+paymentBean.getTransactionId());
+//	  		  System.out.println("Your TransactionId"+paymentBean.getTransactionId());
 	  	  }
 	  	  	
 	  	  else

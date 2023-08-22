@@ -24,6 +24,7 @@ public class CRSProfessorMenu {
 	private ProfessorOperation professorOp = new ProfessorOperationImpl();
 	public ClientValidatorImpl clientValidator = new ClientValidatorImpl();
 	String userEmail;
+	int userId;
 	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
 	
 	public CRSProfessorMenu()
@@ -35,6 +36,7 @@ public class CRSProfessorMenu {
 	public CRSProfessorMenu(String userEmail)
 	{
 		this.userEmail=userEmail;
+		userId = professorOp.getProfessorById(userEmail);
 	}
 	
 	
@@ -73,7 +75,7 @@ public class CRSProfessorMenu {
        switch(opt) {
 
        case 1:
-    	   ProfessorCourseMap profcomap=new ProfessorCourseMap();
+//    	   ProfessorCourseMap profcomap=new ProfessorCourseMap();
            professorOp.viewCourseCatalog();
 //           log.info("1.Request Course");
 //           log.info("2.Exit");
@@ -102,7 +104,7 @@ public class CRSProfessorMenu {
                case 2:
                   flag1=true;
                    try {
-                	int userId = professorOp.getProfessorById(userEmail);
+                	
 					professorOp.requestCourseOffering(userId,courseIdList);
 				} catch (CourseNotFoundException e) {
 					log.info("Course with course id:"+e.getCourseId()+" Not Found");
@@ -118,10 +120,12 @@ public class CRSProfessorMenu {
         break;
 
        case 2:
+    	   log.info("List of Courses assigned");
+    	   professorOp.listOfApprovedCourses(userId);
     	   log.info("Enter courseid: ");
            int courseid=scan.nextInt();
            try {
-			professorOp.viewStudentList(courseid);
+        	   professorOp.viewStudentList(courseid);
 		} catch (CourseNotFoundException e) {
 			log.info("Course with course id:"+e.getCourseId()+" Not Found");
 
@@ -133,12 +137,20 @@ public class CRSProfessorMenu {
         break;
 
        case 4:
+    	   	   log.info("Choose Course from below given list");
+    	   	   professorOp.listOfApprovedCourses(userId);
+    	   	   log.info("Course Id");
+	    	   int courseId=scan.nextInt();
+	    	   log.info("Following are the students registered for the course "+courseId);
+	    	   try {
+	        	   professorOp.viewStudentList(courseId);
+			} catch (CourseNotFoundException e) {
+				log.info("Course with course id:"+e.getCourseId()+" Not Found");
+
+			}
     	   	   log.info("Enter the StudentId");
 	    	   int studentId=scan.nextInt();
-	    	   
-	    	   log.info("Course Id");
-	    	   int courseId=scan.nextInt();
-	    	   
+	  
 	    	   log.info("Enter grades");
 	    	   String grade=scan.next();
 		try {

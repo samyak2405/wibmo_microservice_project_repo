@@ -93,4 +93,10 @@ public class AdminOperationImpl implements AdminOperation{
 		adminDAO.setApprovedStudentById(studentId);
 	}
 
+	@Override
+	public int getAdminById(String userEmail) {
+		// TODO Auto-generated method stub
+		return adminDAO.getAdminById(userEmail);
+	}
+
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 
 /**
- * For performing various professor opertations.
+ * For performing various professor operations.
  */
 import com.wibmo.bean.User;
 import com.wibmo.exception.*;
@@ -53,5 +53,7 @@ public interface ProfessorOperation {
   public void registerProfessor(User user)throws UserAlreadyExistsException;
 
 public int getProfessorById(String userEmail);
+
+public void listOfApprovedCourses(int userId);
   
 }
