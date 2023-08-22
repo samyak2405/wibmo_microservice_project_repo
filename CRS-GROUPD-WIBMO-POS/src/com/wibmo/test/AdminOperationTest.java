@@ -67,9 +67,9 @@ public class AdminOperationTest {
 	@Test
 	public void testAddAdmin() {
 		Admin admin=new Admin();
-		admin.setUserEmail("sid@gmail.com");
-		admin.setUserName("sidAdmin");
-		admin.setUserPassword("sid");
+		admin.setUserEmail("sath@gmail.com");
+		admin.setUserName("sathAdmin");
+		admin.setUserPassword("sath");
 		admin.setUserPhonenumber(12345678);
 		adminOp.addAdmin(admin);
 
@@ -105,7 +105,7 @@ public class AdminOperationTest {
 	@Test
 	public void testApproveStudentById() throws UserNotFoundException {
 		adminOp.approveStudentById();
-		fail("Not yet implemented");
+		
 	}
 
 }

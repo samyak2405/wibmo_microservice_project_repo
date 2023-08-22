@@ -13,11 +13,11 @@ import com.wibmo.dao.paymentDAO;
 import com.wibmo.dao.paymentDAOImpl;
 
 public class paymentDAOTest {
-	 paymentDAO paymentoperation=null;
+	 paymentDAO paymentdao=null;
      Payment payment=null;
 	@Before
 	public void setUp() throws Exception {
-		paymentoperation= paymentDAOImpl.getInstance();
+		paymentdao= paymentDAOImpl.getInstance();
 		payment=new Payment();
 	}
 
@@ -25,10 +25,8 @@ public class paymentDAOTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+	
+	
 	@Test
 	public void testSetPaymentRecord() {
 		payment.setUserId(1);
@@ -36,6 +34,7 @@ public class paymentDAOTest {
 		payment.setAmount(10000);
 		payment.setPaymentStatus(1);
 		
+		paymentdao.setPaymentRecord(payment);
 		
 	}
 
