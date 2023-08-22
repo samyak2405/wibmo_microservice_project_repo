@@ -1,4 +1,4 @@
-package com.wibmo.client;
+package com.wibmo.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,5 @@ public class CrsGroupdWibmoRestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrsGroupdWibmoRestApplication.class, args);
 	}
-
+	
 }
