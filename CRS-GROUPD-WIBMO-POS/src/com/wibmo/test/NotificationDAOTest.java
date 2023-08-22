@@ -35,7 +35,8 @@ public class NotificationDAOTest {
 	}
 	@Test
 	public void testGetNotificationMessage() {
-		notification.setId(1);
+		notification.setId(2);
+		notification.setNotificationMessage("Registration Rejected!! Register Again");
 		List<Notification> notif = new ArrayList<>();
 		
 		notification.setNotificationMessage("payment succesful");
@@ -43,6 +44,7 @@ public class NotificationDAOTest {
 		notif.add(notification);
             
 		List<Notification> notifs = notificationoperation.getNotificationMessage(notification.getId());
+		
 		
 		assertEquals(notif,notifs);
 		
