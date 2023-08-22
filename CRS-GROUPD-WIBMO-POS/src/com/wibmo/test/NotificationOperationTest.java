@@ -26,7 +26,7 @@ public class NotificationOperationTest {
 
 	@Test
 	public void testSendNotification() {
-		int studentId=2;
+		int studentId=1;
 		int notificationId=NotificationConstants.REJECT_REGISTRATION_NOTIFICATION;
 		notificationoperation.sendNotification(notificationId, studentId);
 		
@@ -34,7 +34,7 @@ public class NotificationOperationTest {
 	@Test
 	public void testGetNotificationMessage() {
 		
-		notificationoperation.getNotificationMessage(2);
+		notificationoperation.getNotificationMessage(1);
 		
 	}
 	

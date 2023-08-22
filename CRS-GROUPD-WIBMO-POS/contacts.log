@@ -1890,3 +1890,50 @@ Test Completed
 Test Completed
 =======
 >>>>>>> c18ac3d6daeff85a461ebc00d9b18e5fd1d065c6
+12:44:04,919  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:04,932  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:04,938  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:04,940  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+12:44:04,940  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+12:44:17,838  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:17,853  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:17,858  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,391  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,401  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,408  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,411  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+12:45:22,411  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+12:45:24,645  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:24,647  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:24,653  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:35,829  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:45:35,834  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:46:16,923  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:46:16,929  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:47:14,275  INFO AdminOperationImpl,main:29 - No Notifications
+12:50:15,757  INFO AdminOperationImpl,main:405 - userId
+12:50:15,759  INFO AdminOperationImpl,main:405 - userId
+12:50:41,685  INFO AdminOperationImpl,main:405 - userId
+12:50:41,687  INFO AdminOperationImpl,main:405 - userId
+12:51:07,473  INFO AdminOperationImpl,main:405 - userId
+12:51:07,475  INFO AdminOperationImpl,main:405 - userId
+12:53:47,918  INFO AdminOperationImpl,main:405 - userId
+12:53:47,920  INFO AdminOperationImpl,main:405 - userId
+12:54:20,022  INFO AdminOperationImpl,main:405 - userId
+12:54:20,027  INFO AdminOperationImpl,main:405 - userId
