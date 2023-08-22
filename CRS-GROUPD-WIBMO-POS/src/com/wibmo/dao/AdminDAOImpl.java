@@ -379,4 +379,23 @@ PreparedStatement stmt = null;
 		      e.printStackTrace();
 		   }
 	}
+
+	@Override
+	public void setRejectionStatus(int studentId) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = conn.prepareStatement(SQLConstants.STUDENT_REGISTRATION_REJECTION);
+			stmt.setInt(1, studentId);
+			stmt.executeUpdate();
+		}catch(SQLException se){
+		      //Handle errors for JDBC
+		      se.printStackTrace();
+		   }catch(Exception e){
+		      //Handle errors for Class.forName
+		      e.printStackTrace();
+		   }
+		
+	}
 }

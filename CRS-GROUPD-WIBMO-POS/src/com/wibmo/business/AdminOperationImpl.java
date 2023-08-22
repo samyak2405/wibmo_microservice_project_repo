@@ -99,4 +99,6 @@ public class AdminOperationImpl implements AdminOperation{
 		return adminDAO.getAdminById(userEmail);
 	}
 
+	
+
 }

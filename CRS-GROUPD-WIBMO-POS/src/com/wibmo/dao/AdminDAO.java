@@ -103,5 +103,7 @@ import com.wibmo.bean.Admin;
 	public List<Integer> getProfessorCourses(int professorId);
 
 	public void approveCourse(int professor, int course);
+
+	public void setRejectionStatus(int studentId);
 	
 }
