@@ -17,9 +17,6 @@ import com.wibmo.repository.StudentDAOImpl;
 import com.wibmo.utils.DButils;
 
 public class NotificationDAOImpl implements NotificationDAO {
-
-	public static volatile NotificationDAOImpl instance = null;
-	
 	
 	
 	Connection conn = DButils.getConnection();

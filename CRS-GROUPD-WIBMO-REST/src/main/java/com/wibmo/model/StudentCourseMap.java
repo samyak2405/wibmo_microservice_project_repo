@@ -3,12 +3,13 @@
  */
 package com.wibmo.model;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Class representing mapping between Students and Courses.
  */
-public class StudentCourseMap 
+public class StudentCourseMap implements Serializable
 {
 	private int studentId;
 	private Map<Integer,Integer> courses;
