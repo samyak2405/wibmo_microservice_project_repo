@@ -66,7 +66,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
     }
 
 	@Override
-	public void viewStudentList(Integer courseId) throws CourseNotFoundException{
+	public List<Student> viewStudentList(Integer courseId) throws CourseNotFoundException{
 		
 		if(courseDao.searchCourse(courseId)==false)
 		{
@@ -74,19 +74,19 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		}
         List<Student>students=professorDao.viewStudentList(courseId);    
 		
-		log.info("List of Students Registered For this particular course: ");
-		       students.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
-		
-		                , course.getUserId()
-		
-		                ,course.getUserName()
-		
-		                ,course.getUserEmail()
-		
-		                ,course.getUserPhonenumber()
-		
-		                )));
-		       
+//		log.info("List of Students Registered For this particular course: ");
+//		       students.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
+//		
+//		                , course.getUserId()
+//		
+//		                ,course.getUserName()
+//		
+//		                ,course.getUserEmail()
+//		
+//		                ,course.getUserPhonenumber()
+//		
+//		                )));
+		      return students; 
     }
 	@Override
 	public List<CourseCatalog> viewCourseCatalog() {
@@ -133,12 +133,13 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 
 	@Override
-	public void listOfApprovedCourses(int userId) {
+	public Map<Integer,String> listOfApprovedCourses(int userId) {
 		// TODO Auto-generated method stub
 		Map<Integer,String> courses = professorDao.listOfApprovedCourses(userId);
-		for(Map.Entry<Integer, String> entry:courses.entrySet()) {
-			System.out.println(String.format("%20s %20s",entry.getKey(),entry.getValue()));
-		}
+//		for(Map.Entry<Integer, String> entry:courses.entrySet()) {
+//			System.out.println(String.format("%20s %20s",entry.getKey(),entry.getValue()));
+//		}
+		return courses;
 	}
 
 	

@@ -8,6 +8,9 @@ import javax.ws.rs.core.MediaType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,44 +44,46 @@ public class CRSAdminController {
 	int adminId;
 	
 
-	
-	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
-			method = RequestMethod.POST, 
-			value="/register")
-	public void adminRegistration(@RequestBody Admin admin) throws UserAlreadyExistsException
-	{
-		adminOp.adminRegistration(admin);
-	}
-	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approveallstudents")
-	public void approveAllStudents()
+	public ResponseEntity approveAllStudents()
 	{
-		adminOp.approveStudent();
+		
+			adminOp.approveStudent();
+			
+		return new ResponseEntity("Approved All Students", HttpStatus.OK);
 	}
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approvestudentbyid/{id}")
-	public void approveStudentById(@RequestParam int id) throws UserNotFoundException
+	public ResponseEntity approveStudentById(@PathVariable int id) 
 	{
-		adminOp.approveStudentById(id);
+		try {
+			adminOp.approveStudentById(id);
+		} catch (UserNotFoundException e) {
+			return new ResponseEntity(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approvecourseregistration")
-	public void approveCourseRegistration()
+	public ResponseEntity approveCourseRegistration()
 	{
 		adminOp.approveCourseRegistration();
+		return new ResponseEntity("Approved Course Registration", HttpStatus.OK);
 	}
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/assigncourseprof")
-	public void assignCourseProf() {
+	public ResponseEntity assignCourseProf() {
 		adminOp.assignCoursesProf();
+		return new ResponseEntity("Course is assigned to professor", HttpStatus.OK);
+		
 	}
 	
 	
