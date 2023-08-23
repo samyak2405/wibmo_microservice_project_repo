@@ -34,6 +34,7 @@ public class CRSApplicationClient {
 	 * @throws UserNotFoundException 
 	 * @throws StudentAlreadyRegisteredException 
 	 */
+	
 	public static void main(String[] args) throws UserNotFoundException, CourseNotFoundException, DuplicateCourseEntryException, StudentAlreadyRegisteredException {
 		// TODO Auto-generated method stub
 		LocalDate localDate = LocalDate.now();

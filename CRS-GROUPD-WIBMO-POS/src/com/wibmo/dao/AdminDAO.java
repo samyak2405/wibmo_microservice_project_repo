@@ -6,6 +6,7 @@ package com.wibmo.dao;
 import java.util.List;
 
 import com.wibmo.bean.Admin;
+import com.wibmo.bean.User;
 
 /**
  * To perform read and write operations in Database for admin operations.
@@ -36,7 +37,7 @@ import com.wibmo.bean.Admin;
 	 * 
 	 * @param admin
 	 */
-	public void addAdmin(Admin admin);
+	public void addAdmin(User admin);
 	
 	/**
 	 * 

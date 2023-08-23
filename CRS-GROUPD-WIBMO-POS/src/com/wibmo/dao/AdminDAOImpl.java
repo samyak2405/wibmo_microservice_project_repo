@@ -91,7 +91,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public void addAdmin(Admin admin) {
+	public void addAdmin(User admin) {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt = null;
 		

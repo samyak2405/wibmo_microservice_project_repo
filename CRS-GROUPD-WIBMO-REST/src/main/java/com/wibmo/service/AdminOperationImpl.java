@@ -35,7 +35,7 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void addAdmin(Admin user) {
+	public void addAdmin(User user) {
 		// TODO Auto-generated method stub
 		adminDAO.addAdmin(user);
 	}
@@ -47,7 +47,7 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void adminRegistration(Admin user) throws UserAlreadyExistsException{
+	public void adminRegistration(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
@@ -70,28 +70,28 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void approveStudentById() throws UserNotFoundException{
+	public void approveStudentById(int id) throws UserNotFoundException{
 		// TODO Auto-generated method stub
-		List<Integer> studentIds = adminDAO.pendingRegistration();
-
-		System.out.println();
-
-        System.out.println("===================================================================================");
-		log.info("Choose from below given student ids");
-		studentIds.forEach(studentId->log.info(String.format("%20s\n", studentId)));
-		System.out.println();
-
-        System.out.println("===================================================================================");
-		log.info("Enter the StudentId: ");
-
-		
-		
-
-		int studentId = scan.nextInt();
-		if(studentDAO.searchStudentByID(studentId)==false) {
-			throw new UserNotFoundException(studentId);
+//		List<Integer> studentIds = adminDAO.pendingRegistration();
+//
+//		System.out.println();
+//
+//        System.out.println("===================================================================================");
+//		log.info("Choose from below given student ids");
+//		studentIds.forEach(studentId->log.info(String.format("%20s\n", studentId)));
+//		System.out.println();
+//
+//        System.out.println("===================================================================================");
+//		log.info("Enter the StudentId: ");
+//
+//		
+//		
+//
+//		int studentId = scan.nextInt();
+		if(studentDAO.searchStudentByID(id)==false) {
+			throw new UserNotFoundException(id);
 		}
-		adminDAO.setApprovedStudentById(studentId);
+		adminDAO.setApprovedStudentById(id);
 	}
 
 	@Override
