@@ -7,13 +7,19 @@ package com.wibmo.utils;
  * Class containing database connection Info.
  */
 
+
+
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 import java.util.Properties;
+
+import org.springframework.context.annotation.ComponentScan;
 public class DButils {
 private static Connection connection = null;
 	
@@ -24,7 +30,7 @@ private static Connection connection = null;
         else {
             try {
             	Properties prop = new Properties();
-                InputStream inputStream = DButils.class.getClassLoader().getResourceAsStream("./config.properties");
+                InputStream inputStream = DButils.class.getClassLoader().getResourceAsStream("D:\\wibmo_microservice_project_repo\\CRS-GROUPD-WIBMO-REST\\src\\main\\resources");
                 prop.load(inputStream);
                 String driver = prop.getProperty("driver");
                 String url = prop.getProperty("url");
