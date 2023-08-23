@@ -198,7 +198,7 @@ public class StudentRESTController {
 		studentOp.registerCourses(userId);
 	}
 	
-	@RequestMapping(value="/student/{id}/listCourse",method = RequestMethod.POST)
+	@RequestMapping(value="/student/{id}/listCourse",method = RequestMethod.GET)
 	public void listCourse(@PathVariable int userId)
 	{
  	   try {
@@ -208,7 +208,7 @@ public class StudentRESTController {
  	   }
 	}
 	
-	@RequestMapping(value="/student/{id}/viewReportCard",method = RequestMethod.POST)
+	@RequestMapping(value="/student/{id}/viewReportCard",method = RequestMethod.GET)
 	public void viewReportCard(@PathVariable int userId)
 	{
  	   try {
@@ -218,7 +218,7 @@ public class StudentRESTController {
  	   }
 	}
 	
-	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.POST)
+	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.GET)
 	public void viewCourseCatalog(@PathVariable int userId)
 	{
 		studentOp.viewCourseCatalog(); 
