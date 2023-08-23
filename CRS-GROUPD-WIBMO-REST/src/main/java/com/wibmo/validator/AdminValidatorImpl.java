@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
@@ -21,6 +22,7 @@ import com.wibmo.repository.StudentDAOImpl;
 /**
  * To validate admin details
  */
+@Component
 public class AdminValidatorImpl implements ValidatorInterface{
 
 	@Autowired
