@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.wibmo.model.Notification;
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.repository.NotificationDAO;
@@ -16,6 +18,7 @@ import com.wibmo.repository.NotificationDAOImpl;
 import com.wibmo.repository.StudentDAOImpl;
 import com.wibmo.utils.DButils;
 
+@Repository
 public class NotificationDAOImpl implements NotificationDAO {
 	
 	

@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Repository;
+
 import com.wibmo.model.Payment;
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.repository.StudentDAOImpl;
@@ -14,7 +16,7 @@ import com.wibmo.utils.DButils;
 import com.wibmo.repository.PaymentDAO;
 import com.wibmo.repository.PaymentDAOImpl;
 //import com.wibmo.utils.DButils;
-
+@Repository
 public class PaymentDAOImpl implements PaymentDAO{
 
 	public static volatile PaymentDAOImpl instance = null;

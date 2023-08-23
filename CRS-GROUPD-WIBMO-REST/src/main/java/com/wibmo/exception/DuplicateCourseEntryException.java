@@ -3,9 +3,12 @@
  */
 package com.wibmo.exception;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Exception in case a course is already registered.
  */
+@Component
 public class DuplicateCourseEntryException extends Exception {
 	private int courseId;
 	

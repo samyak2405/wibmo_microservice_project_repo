@@ -8,8 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.repository.AuthenticationDAOImpl;
@@ -19,11 +21,12 @@ import com.wibmo.utils.DButils;
 /**
  * 
  */
+
+@Repository
 public class AuthenticationDAOImpl implements AuthenticationDAO {
 	//plug logger in AuthenticationDAOImpl 
 	
-		@Autowired
-		private Logger logger;
+		private Logger logger=LogManager.getLogger();
 		//Plug logger in AuthenticationDAOImpl
 		
 		Connection conn = DButils.getConnection();

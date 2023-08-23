@@ -4,6 +4,7 @@
 package com.wibmo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wibmo.model.Payment;
 import com.wibmo.repository.*;
@@ -11,6 +12,8 @@ import com.wibmo.repository.*;
 /**
  * 
  */
+
+@Service
 public class PaymentOperationImpl implements PaymentOperation{
 
 	@Autowired

@@ -5,8 +5,10 @@ package com.wibmo.service;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wibmo.model.Notification;
 import com.wibmo.repository.NotificationDAO;
@@ -14,10 +16,11 @@ import com.wibmo.repository.NotificationDAO;
 /**
  * 
  */
+
+@Service
 public class NotificationOperationImpl implements NotificationOperation {
 
-	@Autowired
-	public Logger log;
+	private Logger log=LogManager.getLogger();
 	@Autowired
 	public NotificationDAO notification;
 	
