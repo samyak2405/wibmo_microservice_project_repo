@@ -5,6 +5,7 @@ package com.wibmo.rest;
 
 import javax.ws.rs.core.MediaType;
 
+
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +29,7 @@ import com.wibmo.validator.ClientValidatorImpl;
 public class CRSAdminController {
 	
 	@Autowired
-	public AdminOperation adminOp;
+	private AdminOperation adminOp;
 	
 	@Autowired
 	public ClientValidatorImpl clientValidator;

@@ -21,7 +21,7 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.model.CourseCatalog;
-import com.wibmo.service.AdminOperationImpl;
+import com.wibmo.service.*;
 
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.service.ProfessorOperationImpl;
@@ -33,9 +33,10 @@ public class ProfessorRESTController {
 	private ProfessorOperation professorOp;
      @Autowired
 	public ClientValidatorImpl clientValidator ;
-     @Autowired
+    @Autowired
      Scanner scan;
-    final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+    @Autowired
+    private static Logger log ;
     String userEmail;
 	int userId;
 	

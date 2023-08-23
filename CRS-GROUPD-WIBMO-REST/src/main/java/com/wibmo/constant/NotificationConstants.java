@@ -3,9 +3,12 @@
  */
 package com.wibmo.constant;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Constants for for storing notification ids of the notification messages in the database.
  */
+@Component
 public class NotificationConstants {
 
 	public static final int APPROVE_REGISTRATION_NOTIFICATION=1;
