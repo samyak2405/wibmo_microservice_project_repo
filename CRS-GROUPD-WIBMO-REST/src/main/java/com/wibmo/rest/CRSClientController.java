@@ -22,6 +22,7 @@ import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AuthenticationOperation;
 import com.wibmo.service.AuthenticationOperationImpl;
 import com.wibmo.service.ProfessorOperation;
+import com.wibmo.dto.UpdatePasswordDto;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserAlreadyExistsException;
 //import com.wibmo.client.CRSAdminMenu;
@@ -61,13 +62,13 @@ public class CRSClientController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/login/{role}")
-	public String loginRequest(@RequestParam int role, 
+	public String loginRequest(@PathVariable int role, 
 			@RequestBody LoginRequest loginrequest)
 	{
 		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role)) {
     		switch(role) {
     		case 1:
-    			return "\nYou are logged in successfully as a student";
+    			return "You are logged in successfully as a student";
 			case 2:
     			//Professor
     			return "You are logged in successfully as a Professor";
@@ -82,7 +83,7 @@ public class CRSClientController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/register/{role}")
-	public String registerRequest(@RequestParam int role, 
+	public String registerRequest(@PathVariable int role, 
 			@RequestBody User user) throws StudentAlreadyRegisteredException, UserAlreadyExistsException
 	{
 		if(role==1)
@@ -103,20 +104,16 @@ public class CRSClientController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/updatepassword/{role}")
-	public String updatePasswordRequest(@RequestParam int role, 
-			@RequestBody LoginRequest loginrequest) throws StudentAlreadyRegisteredException, UserAlreadyExistsException
+	public String updatePasswordRequest(@PathVariable int role, 
+			@RequestBody UpdatePasswordDto passwordDto) throws StudentAlreadyRegisteredException, UserAlreadyExistsException
 	{
 		
-		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role)) {
-			log.info("\nChange Password");
-			String passwordOne = clientValidator.passwordValidator();
-			loggedin.updatePassword(loginrequest.getUserEmail(), passwordOne, role);
+		if(loggedin.loggedin(passwordDto.getUserEmail(), passwordDto.getUserPassword(),role)) {
+			
+			loggedin.updatePassword(passwordDto.getUserEmail(), passwordDto.getUserPasswordNew(), role);
 			return null;
 		}
 		else {
-			log.info("invalid credentials");
-			log.info("");
-       	    log.info("===================================================================================");
 			return null;
 		}
 	}

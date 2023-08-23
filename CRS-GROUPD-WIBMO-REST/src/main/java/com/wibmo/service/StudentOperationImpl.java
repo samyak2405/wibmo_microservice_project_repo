@@ -32,7 +32,9 @@ import com.wibmo.exception.UserNotFoundException;
 public class StudentOperationImpl implements StudentOperation{
 	
 	
-	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());;
+	
+	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());
+	
 	@Autowired
 	public StudentDAO studentDao;
 	@Autowired
@@ -139,7 +141,6 @@ public class StudentOperationImpl implements StudentOperation{
 		student.setUserPhonenumber(user.getUserPhonenumber());
 		student.setUserPassword(user.getUserPassword());
 		studentDao.registerStudent(student);
-//		log.info(user.getUserPassword()+" "+user.getUserPassword().getClass().getName());
 	}
 
 
