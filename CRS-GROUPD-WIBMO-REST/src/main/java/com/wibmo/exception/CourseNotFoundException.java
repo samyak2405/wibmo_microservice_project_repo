@@ -3,9 +3,12 @@
  */
 package com.wibmo.exception;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Exception in case specific course is not found
  */
+@Component
 public class CourseNotFoundException extends Exception{
 	
 	

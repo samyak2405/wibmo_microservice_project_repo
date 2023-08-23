@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,8 +30,8 @@ import com.wibmo.exception.UserNotFoundException;
 
 public class StudentOperationImpl implements StudentOperation{
 	
-	@Autowired
-	public Logger log;
+	
+	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());;
 	@Autowired
 	public StudentDAO studentDao;
 	@Autowired

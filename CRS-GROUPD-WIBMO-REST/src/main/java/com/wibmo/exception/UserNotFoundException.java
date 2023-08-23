@@ -3,9 +3,12 @@
  */
 package com.wibmo.exception;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Exception in case user does not exist.
  */
+@Component
 public class UserNotFoundException extends Exception {
 
 	long userId;

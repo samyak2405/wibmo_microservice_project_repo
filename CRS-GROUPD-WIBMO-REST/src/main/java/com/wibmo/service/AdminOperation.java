@@ -15,6 +15,7 @@ import com.wibmo.exception.UserNotFoundException;
 /**
  * For performing various Admin operations
  */
+
 @Service
 public interface AdminOperation {
 	

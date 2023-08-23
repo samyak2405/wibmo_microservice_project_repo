@@ -4,7 +4,6 @@ import com.wibmo.model.Payment;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
 public interface PaymentDAO {
 	
 	/**

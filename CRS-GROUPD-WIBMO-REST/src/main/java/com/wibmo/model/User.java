@@ -8,6 +8,7 @@ import java.io.Serializable;
 /**
  * Bean class for User entity
  */
+
 public class User implements Serializable {
 	private int userId;
 	private String userName;

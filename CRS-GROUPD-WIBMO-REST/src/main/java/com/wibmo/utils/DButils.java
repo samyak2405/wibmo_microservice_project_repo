@@ -11,6 +11,7 @@ package com.wibmo.utils;
 
 
 import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -20,6 +21,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+@Component
 public class DButils {
 private static Connection connection = null;
 	

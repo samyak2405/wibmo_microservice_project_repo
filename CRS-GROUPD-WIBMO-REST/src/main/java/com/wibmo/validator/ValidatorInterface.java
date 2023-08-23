@@ -5,9 +5,12 @@ package com.wibmo.validator;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Interface to validate a user
  */
+@Component
 public interface ValidatorInterface {
 	
 	/**
