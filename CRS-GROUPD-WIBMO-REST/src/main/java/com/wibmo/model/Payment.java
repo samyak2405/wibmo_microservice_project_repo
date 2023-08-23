@@ -5,9 +5,13 @@ package com.wibmo.model;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Class representing the payment
  */
+
+@Component
 public class Payment implements Serializable{
 	
 	private long userId;

@@ -6,8 +6,10 @@ package com.wibmo.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.Professor;
@@ -20,10 +22,11 @@ import com.wibmo.exception.*;
 /**
  * 
  */
+
+@Service
 public class ProfessorOperationImpl implements ProfessorOperation{
 
-	@Autowired
-	public Logger log;
+	private Logger log=LogManager.getLogger();
 	@Autowired
 	ProfessorDAO professorDao;	
 	@Autowired

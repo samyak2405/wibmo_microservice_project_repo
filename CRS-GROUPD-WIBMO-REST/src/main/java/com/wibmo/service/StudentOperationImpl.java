@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.GradeCard;
@@ -28,6 +28,7 @@ import com.wibmo.exception.UserNotFoundException;
  * 
  */
 
+@Service
 public class StudentOperationImpl implements StudentOperation{
 	
 	

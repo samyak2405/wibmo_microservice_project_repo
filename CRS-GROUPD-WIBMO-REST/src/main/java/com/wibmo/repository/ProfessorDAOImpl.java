@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.Professor;
 import com.wibmo.model.Student;
@@ -20,6 +22,7 @@ import com.wibmo.repository.ProfessorDAOImpl;
 import com.wibmo.repository.StudentDAOImpl;
 import com.wibmo.utils.DButils;
 
+@Repository
 public class ProfessorDAOImpl implements ProfessorDAO {
 	
 	

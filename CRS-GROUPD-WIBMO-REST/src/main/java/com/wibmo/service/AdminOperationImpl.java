@@ -1,4 +1,5 @@
 package com.wibmo.service;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ import com.wibmo.validator.*;
 @Service
 public class AdminOperationImpl implements AdminOperation{
 	
-	@Autowired
-	public Logger log;
+	private Logger log=LogManager.getLogger();
+	
 	Scanner scan = new Scanner(System.in);
 	@Autowired
 	public AdminOperationImpl adminOp;

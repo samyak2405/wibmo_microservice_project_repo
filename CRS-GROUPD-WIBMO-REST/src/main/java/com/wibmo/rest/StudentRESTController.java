@@ -6,16 +6,18 @@ package com.wibmo.rest;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.model.StudentCourseMap;
@@ -34,7 +36,6 @@ import com.wibmo.validator.ClientValidatorImpl;
  * 
  */
 @RestController
-@RequestMapping("/auth")
 public class StudentRESTController {
 	
 	@Autowired
@@ -45,9 +46,7 @@ public class StudentRESTController {
 	
 	@Autowired
 	public ClientValidatorImpl clientValidator;
-	
-	@Autowired
-	Scanner scan;
+	Scanner scan=new Scanner(System.in);
 	
 	Map<Integer,Integer> courses;
 	

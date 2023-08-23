@@ -16,6 +16,7 @@ import java.util.Set;
 
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.GradeCard;
@@ -27,10 +28,12 @@ import com.wibmo.utils.DButils;
 /**
  * 
  */
+
+@Repository
 public class StudentDAOImpl implements StudentDAO{
 	
-	@Autowired
-	public Logger log;
+//	@Autowired
+//	public Logger log;
 	
 	Connection conn = DButils.getConnection();
 		
@@ -385,7 +388,7 @@ public class StudentDAOImpl implements StudentDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		log.info("userId");
+		//log.info("userId");
 		return false;
 	}
 
