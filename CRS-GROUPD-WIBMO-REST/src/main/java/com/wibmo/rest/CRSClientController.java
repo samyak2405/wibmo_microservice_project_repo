@@ -5,6 +5,7 @@ package com.wibmo.rest;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Loggers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +55,8 @@ public class CRSClientController
 	@Autowired
 	AuthenticationOperation loggedin;
 	
-	@Autowired
-	public Logger log;
+	
+	public Logger log=LogManager.getLogger();
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,

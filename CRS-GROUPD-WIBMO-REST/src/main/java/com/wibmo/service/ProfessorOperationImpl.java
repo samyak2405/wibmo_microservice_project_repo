@@ -89,18 +89,18 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		       
     }
 	@Override
-	public void viewCourseCatalog() {
+	public List<CourseCatalog> viewCourseCatalog() {
 		List<CourseCatalog>courses=professorDao.viewCourseCatalog();
-		
-		log.info("Course Catalog: ");
-		
-		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
-				, course.getCourseId()
-				,course.getCourseName()
-				,course.getProfessorName()
-				,course.getPrerequisites()
-				)));
-		
+		return courses;
+//		log.info("Course Catalog: ");
+//		
+//		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
+//				, course.getCourseId()
+//				,course.getCourseName()
+//				,course.getProfessorName()
+//				,course.getPrerequisites()
+//				)));
+//		
 	}
 
 

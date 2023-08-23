@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Loggers;
+//import org.apache.log4j.LogManager;
+import org.apache.logging.log4j.core.config.Loggers;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +25,12 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.model.CourseCatalog;
-import com.wibmo.service.AdminOperationImpl;
+import com.wibmo.service.*;
 
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.service.ProfessorOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
+import org.apache.logging.log4j.core.config.Loggers;
 
 @RestController
 public class ProfessorRESTController {
@@ -33,9 +38,12 @@ public class ProfessorRESTController {
 	private ProfessorOperation professorOp;
      @Autowired
 	public ClientValidatorImpl clientValidator ;
-     @Autowired
-     Scanner scan;
-    final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
+    
+     Scanner scan=new Scanner(System.in);
+  
+    public Logger log =LogManager.getLogger();
+    
+    
     String userEmail;
 	int userId;
 
@@ -84,9 +92,9 @@ public class ProfessorRESTController {
 	
 	
 	@RequestMapping(value="/professor/coursecatalog",method = RequestMethod.GET)
-	public void courseCatalog() {
+	public List<CourseCatalog> courseCatalog() {
 		
-		professorOp.viewCourseCatalog();
+		return professorOp.viewCourseCatalog();
 		
 	}
 	

@@ -4,13 +4,17 @@
 package com.wibmo.rest;
 
 import java.util.Map;
+
 import java.util.Scanner;
 
 import javax.print.attribute.standard.Media;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Loggers;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.*;
@@ -25,6 +29,7 @@ import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AdminOperationImpl;
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
@@ -42,6 +47,9 @@ public class StudentRESTController {
 	public StudentOperation studentOp;
 	
 	@Autowired
+	public AdminOperation adminOp;
+	
+	@Autowired
 	public NotificationOperation notificationOp;
 	
 	@Autowired
@@ -50,8 +58,15 @@ public class StudentRESTController {
 	
 	Map<Integer,Integer> courses;
 	
-	final static Logger log = Logger.getLogger(StudentRESTController.class.getName());
-
+	public Logger log=LogManager.getLogger();
+	
+	@GetMapping("/student")
+	public String check()
+	{
+		return "hello";
+	}
+	
+	
 	
 	
 	public int addCompulsoryCourse(int compulsory) {
