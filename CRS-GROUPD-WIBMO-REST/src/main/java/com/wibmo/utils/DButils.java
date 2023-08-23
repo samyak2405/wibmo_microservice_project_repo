@@ -32,24 +32,29 @@ private static Connection connection = null;
             return connection;
         else {
             try {
-            	Properties prop = new Properties();
-                InputStream inputStream = DButils.class.getClassLoader().getResourceAsStream("D:\\wibmo_microservice_project_repo\\CRS-GROUPD-WIBMO-REST\\src\\main\\resources");
-                prop.load(inputStream);
-                String driver = prop.getProperty("driver");
-                String url = prop.getProperty("url");
-                String user = prop.getProperty("user");
-                String password = prop.getProperty("password");
+//            	Properties prop = new Properties();
+//                InputStream inputStream = DButils.class.getClassLoader().getResourceAsStream("D:\\wibmo_microservice_project_repo\\CRS-GROUPD-WIBMO-REST\\src\\main\\resources");
+//                prop.load(inputStream);
+                String driver="com.mysql.cj.jdbc.Driver";
+                String url="jdbc:mysql://localhost:3306/crs";
+                String user="root";
+                String password="samyak@24";
+//                String driver = prop.getProperty("driver");
+//                String url = prop.getProperty("url");
+//                String user = prop.getProperty("user");
+//                String password = prop.getProperty("password");
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            } 
+//            catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
         return connection;
     }

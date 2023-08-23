@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"com.wibmo.rest","com.wibmo.service"})
+@ComponentScan("D:\\wibmo_microservice_project_repo\\CRS-GROUPD-WIBMO-REST\\src\\main")
 @EnableWebMvc
 @Configuration
 @SpringBootApplication

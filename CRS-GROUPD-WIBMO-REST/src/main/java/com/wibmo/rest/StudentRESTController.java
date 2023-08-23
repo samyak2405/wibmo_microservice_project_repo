@@ -34,6 +34,7 @@ import com.wibmo.validator.ClientValidatorImpl;
  * 
  */
 @RestController
+@RequestMapping("/auth")
 public class StudentRESTController {
 	
 	@Autowired

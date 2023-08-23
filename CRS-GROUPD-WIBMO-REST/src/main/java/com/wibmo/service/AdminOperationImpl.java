@@ -1,7 +1,6 @@
 package com.wibmo.service;
 import org.apache.logging.log4j.Logger;
-
-
+import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
 
 
-
+@Service
 public class AdminOperationImpl implements AdminOperation{
 	
 	@Autowired
