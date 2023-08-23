@@ -1,7 +1,7 @@
 package com.wibmo.service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jvnet.hk2.annotations.Service;
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -20,12 +20,13 @@ public class AdminOperationImpl implements AdminOperation{
 	private Logger log=LogManager.getLogger();
 	
 	Scanner scan = new Scanner(System.in);
-	@Autowired
-	public AdminOperationImpl adminOp;
+	
+
 	@Autowired
 	AdminDAO adminDAO;
 	@Autowired
 	StudentDAOImpl studentDAO;
+	
 	@Autowired
 	public ValidatorInterface validate;
 	@Autowired
@@ -59,7 +60,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			adminOp.addAdmin(user);
+			this.addAdmin(user);
 			
 			}
 		else

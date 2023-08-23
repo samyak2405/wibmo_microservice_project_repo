@@ -5,6 +5,7 @@ package com.wibmo.rest;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,20 +34,13 @@ public class CRSAdminController {
 	@Autowired
 	public ClientValidatorImpl clientValidator;
 	
-	@Autowired
-	public Logger log;
+	
+	public Logger log=LogManager.getLogger();
 	
 	String userEmail;
 	int adminId;
 	
-	public CRSAdminController() {
-		
-	}
-	
-	public CRSAdminController(String userEmail) {
-		this.userEmail = userEmail;
-		adminId = adminOp.getAdminById(userEmail);
-	}
+
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.POST, 

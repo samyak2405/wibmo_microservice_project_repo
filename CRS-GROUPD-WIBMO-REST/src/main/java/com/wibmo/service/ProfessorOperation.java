@@ -43,7 +43,7 @@ public interface ProfessorOperation {
   /**
    * To view the list of all the courses
    */
-  public  void viewCourseCatalog();
+  public  List<CourseCatalog> viewCourseCatalog();
   
   
   /**
