@@ -99,9 +99,27 @@ public class CRSClientController
 		return "Registration Successful";
 	}
 	
-//	@RequestMapping(produces = MediaType.APPLICATION_JSON,
-//			method = RequestMethod.POST,
-//			value = "/register/{role}")
+	@RequestMapping(produces = MediaType.APPLICATION_JSON,
+			method = RequestMethod.POST,
+			value = "/updatepassword/{role}")
+	public String updatePasswordRequest(@RequestParam int role, 
+			@RequestBody LoginRequest loginrequest) throws StudentAlreadyRegisteredException, UserAlreadyExistsException
+	{
+		
+		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role)) {
+			log.info("\nChange Password");
+			String passwordOne = clientValidator.passwordValidator();
+			loggedin.updatePassword(loginrequest.getUserEmail(), passwordOne, role);
+			return null;
+		}
+		else {
+			log.info("invalid credentials");
+			log.info("");
+       	    log.info("===================================================================================");
+			return null;
+		}
+	}
+	
 	
 	
 	
