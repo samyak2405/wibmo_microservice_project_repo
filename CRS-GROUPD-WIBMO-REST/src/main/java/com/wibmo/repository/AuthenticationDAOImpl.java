@@ -24,10 +24,9 @@ import com.wibmo.utils.DButils;
 
 @Repository
 public class AuthenticationDAOImpl implements AuthenticationDAO {
-	//plug logger in AuthenticationDAOImpl 
 	
-		private Logger logger=LogManager.getLogger();
-		//Plug logger in AuthenticationDAOImpl
+	
+		
 		
 		Connection conn = DButils.getConnection();
 
@@ -68,7 +67,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 								return true;
 							}
 							else {
-								logger.debug("\n'Pending Approval from Admin'");
+								
 								return false;
 							}
 								
@@ -78,17 +77,17 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 							
 					}
 					else 
-						logger.debug("\nInvalid Credentials\n");
+						
 					
 					return false;
 				}
 		        
 			}catch(SQLException se){
 			      //Handle errors for JDBC
-			      logger.error("SQL Exception: "+se.getMessage());
+			      
 			   }catch(Exception e){
 			      //Handle errors for Class.forName
-				   logger.error("Unknown Exception");
+				   
 			   }
 			
 			return false;

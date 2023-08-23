@@ -28,5 +28,5 @@ public interface AuthenticationOperation {
 	 * @param User Role
 	 */
 	public void updatePassword(String userEmail,String password,int role);
-
+	
 }
