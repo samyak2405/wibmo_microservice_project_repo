@@ -33,8 +33,8 @@ public class CRSAdminController {
 	@Autowired
 	public ClientValidatorImpl clientValidator;
 	
-	@Autowired
-	public Logger log;
+
+	final static Logger log=null;
 	
 	String userEmail;
 	int adminId;

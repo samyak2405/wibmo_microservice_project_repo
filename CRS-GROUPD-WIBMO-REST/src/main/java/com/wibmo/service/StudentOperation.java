@@ -3,10 +3,12 @@
  */
 package com.wibmo.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.StudentCourseMap;
 import com.wibmo.model.User;
 import com.wibmo.exception.*;
@@ -49,7 +51,7 @@ public interface StudentOperation {
 	/**
 	 * To view the list of offered courses
 	 */
-	public void viewCourseCatalog();
+	public List<CourseCatalog> viewCourseCatalog();
 	
 	
 	/**

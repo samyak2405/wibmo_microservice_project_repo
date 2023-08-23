@@ -38,20 +38,10 @@ public class ProfessorRESTController {
     final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
     String userEmail;
 	int userId;
+
 	
 	
 	
-	public ProfessorRESTController()
-	{
-		
-	}
-	
-	
-	public ProfessorRESTController(String userEmail)
-	{
-		this.userEmail=userEmail;
-		userId = professorOp.getProfessorById(userEmail);
-	}
 	List<Integer> courseIdList =new ArrayList<>();
 	@RequestMapping(value="/professor/requestcourse",method = RequestMethod.POST)
 	public void requestCourse(@RequestBody int courseId) {

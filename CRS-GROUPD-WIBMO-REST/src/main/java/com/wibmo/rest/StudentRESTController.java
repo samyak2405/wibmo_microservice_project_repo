@@ -50,16 +50,8 @@ public class StudentRESTController {
 	
 	Map<Integer,Integer> courses;
 	
-	final static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
-	
-	
-	@GetMapping("/student")
-	public String check()
-	{
-		return "hello";
-	}
-	
-	
+	final static Logger log = Logger.getLogger(StudentRESTController.class.getName());
+
 	
 	
 	public int addCompulsoryCourse(int compulsory) {
@@ -212,7 +204,7 @@ public class StudentRESTController {
 	}
 	
 	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.POST)
-	public void viewCourseCatalog(@PathVariable int userId)
+	public void viewCourseCatalog()
 	{
 		studentOp.viewCourseCatalog(); 
 	}

@@ -111,17 +111,18 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	public void viewCourseCatalog() {
+	public List<CourseCatalog> viewCourseCatalog() {
 		// TODO Auto-generated method stub
-		List<CourseCatalog> courses = studentDao.viewCourseCatalog();
-		log.info("Course Catalog: ");
-		
-		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
-				, course.getCourseId()
-				,course.getCourseName()
-				,course.getProfessorName()
-				,course.getPrerequisites()
-				)));
+		//List<CourseCatalog> courses = studentDao.viewCourseCatalog();
+		return studentDao.viewCourseCatalog();
+//		log.info("Course Catalog: ");
+//		
+//		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
+//				, course.getCourseId()
+//				,course.getCourseName()
+//				,course.getProfessorName()
+//				,course.getPrerequisites()
+//				)));
 		
 	}
 
