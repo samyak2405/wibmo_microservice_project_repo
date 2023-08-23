@@ -13,6 +13,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wibmo.model.Admin;
+import com.wibmo.model.User;
 import com.wibmo.utils.DButils;
 import com.wibmo.constant.SQLConstants;
 
@@ -78,7 +79,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public void addAdmin(Admin admin) {
+	public void addAdmin(User admin) {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt = null;
 		

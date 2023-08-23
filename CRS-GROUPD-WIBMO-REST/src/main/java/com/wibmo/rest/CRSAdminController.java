@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -65,10 +66,10 @@ public class CRSAdminController {
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
-			value="/approvestudentbyid")
-	public void approveStudentById() throws UserNotFoundException
+			value="/approvestudentbyid/{id}")
+	public void approveStudentById(@RequestParam int id) throws UserNotFoundException
 	{
-		adminOp.approveStudentById();
+		adminOp.approveStudentById(id);
 	}
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 

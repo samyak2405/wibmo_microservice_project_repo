@@ -37,7 +37,7 @@ public class CRSAdminMenu {
 	
 	public void adminRegistration() {
 		log.info("Enter the Details for Registration");
-   		Admin user = new Admin();
+   		User user = new User();
    		log.info("\nEnter Name: ");
    		user.setUserName(scan.next());
    		log.info("\nEnter Email: ");
