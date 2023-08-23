@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Loggers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,59 +64,75 @@ public class CRSClientController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/login/{role}")
-	public String loginRequest(@PathVariable int role, 
+	public ResponseEntity loginRequest(@PathVariable int role, 
 			@RequestBody LoginRequest loginrequest)
 	{
 		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role)) {
     		switch(role) {
     		case 1:
-    			return "You are logged in successfully as a student";
+    			return new ResponseEntity("You are logged in successfully as a student", HttpStatus.OK);
 			case 2:
     			//Professor
-    			return "You are logged in successfully as a Professor";
+				return new ResponseEntity("You are logged in successfully as a Professor", HttpStatus.OK);
 			case 3: 
     			
-    			return "You are logged in successfully as a Admin";
+				return new ResponseEntity("You are logged in successfully as a Admin", HttpStatus.OK);
     		}
     		}
-		return "Invalid Credentials";
+		return new ResponseEntity("Invalid Credentials", HttpStatus.NOT_FOUND);
+		
 	}
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/register/{role}")
-	public String registerRequest(@PathVariable int role, 
-			@RequestBody User user) throws StudentAlreadyRegisteredException, UserAlreadyExistsException
+	public ResponseEntity registerRequest(@PathVariable int role, 
+			@RequestBody User user)
 	{
 		if(role==1)
 		{
-			studentOp.registerStudent(user);
+			try {
+				studentOp.registerStudent(user);
+			} catch (StudentAlreadyRegisteredException e) {
+				return new ResponseEntity("Student Already Registerd", HttpStatus.CONFLICT);
+			}
 		}
 		else if(role==2)
 		{
-			professorOp.registerProfessor(user);
+			try {
+				professorOp.registerProfessor(user);
+			} catch (UserAlreadyExistsException e) {
+				return new ResponseEntity("Professor Already Registerd", HttpStatus.CONFLICT);
+			}
 		}
 		else if(role==3)
 		{
-			adminOp.adminRegistration(user);
+			try {
+				adminOp.adminRegistration(user);
+			} catch (UserAlreadyExistsException e) {
+				// TODO Auto-generated catch block
+				return new ResponseEntity("Admin Already Registerd", HttpStatus.CONFLICT);
+			}
 		}
-		return "Registration Successful";
+		return new ResponseEntity("Registration Successful", HttpStatus.OK);
 	}
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/updatepassword/{role}")
-	public String updatePasswordRequest(@PathVariable int role, 
-			@RequestBody UpdatePasswordDto passwordDto) throws StudentAlreadyRegisteredException, UserAlreadyExistsException
+	public ResponseEntity updatePasswordRequest(@PathVariable int role, 
+			@RequestBody UpdatePasswordDto passwordDto)
 	{
 		
-		if(loggedin.loggedin(passwordDto.getUserEmail(), passwordDto.getUserPassword(),role)) {
+		if(loggedin.loggedin(passwordDto.getUserEmail(), passwordDto.getUserPassword(),role)) 
+		{
 			
 			loggedin.updatePassword(passwordDto.getUserEmail(), passwordDto.getUserPasswordNew(), role);
-			return null;
+			return new ResponseEntity("Password Updated Successfully", HttpStatus.OK);
+			
 		}
 		else {
-			return null;
+			return new ResponseEntity("User does not exists", HttpStatus.NOT_FOUND);
 		}
 	}
 	
