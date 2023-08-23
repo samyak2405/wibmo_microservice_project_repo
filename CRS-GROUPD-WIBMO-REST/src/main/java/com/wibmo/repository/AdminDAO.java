@@ -1,4 +1,5 @@
 /**
+
  * 
  */
 package com.wibmo.repository;
@@ -8,6 +9,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.model.Admin;
+import com.wibmo.model.User;
 
 /**
  * 
@@ -43,7 +45,7 @@ public interface AdminDAO {
 		 * 
 		 * @param admin
 		 */
-		public void addAdmin(Admin admin);
+		public void addAdmin(User admin);
 		
 		/**
 		 * 

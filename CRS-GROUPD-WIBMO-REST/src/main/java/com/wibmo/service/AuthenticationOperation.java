@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * To authenticate different use cases
  */
+
 @Service
 public interface AuthenticationOperation {
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.wibmo.model.CourseCatalog;
 /**
  * For performing various professor operations.
  */

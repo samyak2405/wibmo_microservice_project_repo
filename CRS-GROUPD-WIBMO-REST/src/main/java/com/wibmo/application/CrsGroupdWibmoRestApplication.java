@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @Configuration
 @SpringBootApplication
+
 public class CrsGroupdWibmoRestApplication {
 
 	public static void main(String[] args) {

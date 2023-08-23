@@ -3,12 +3,14 @@
  */
 package com.wibmo.client;
 
+
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.Logger;
 import com.wibmo.bean.ProfessorCourseMap;
 import com.wibmo.bean.User;
 import com.wibmo.business.*;
@@ -96,7 +98,7 @@ public class CRSProfessorMenu {
                switch(opt1) {
 
                case 1:
-                System.out.print("Enter courseid: ");
+                log.info("Enter courseid: ");
                 int courseid1=scan.nextInt();
                 courseIdList.add(courseid1);
                 break;

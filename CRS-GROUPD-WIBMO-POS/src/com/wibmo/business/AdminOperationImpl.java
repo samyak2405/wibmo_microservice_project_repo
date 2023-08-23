@@ -34,7 +34,7 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void addAdmin(Admin user) {
+	public void addAdmin(User user) {
 		// TODO Auto-generated method stub
 		adminDAO.addAdmin(user);
 	}
@@ -46,7 +46,7 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void adminRegistration(Admin user) throws UserAlreadyExistsException{
+	public void adminRegistration(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{

@@ -87,7 +87,8 @@ public class ProfessorOperationImpl implements ProfessorOperation{
     }
 	@Override
 	public void viewCourseCatalog() {
-		List<CourseCatalog>courses=professorDao.viewCourseCatalog();	
+		List<CourseCatalog>courses=professorDao.viewCourseCatalog();
+		
 		log.info("Course Catalog: ");
 		
 		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"

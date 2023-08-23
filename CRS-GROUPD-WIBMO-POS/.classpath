@@ -8,7 +8,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"/>
 	<classpathentry kind="lib" path="D:/log4j-1.2.17/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/karra.reddy/Downloads/log4j-1.2.17/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/karra.reddy/Downloads/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"/>
+>>>>>>> 06addf430b3fe35ad0ff073578733d339e723743
 	<classpathentry kind="output" path="bin"/>
 </classpath>
