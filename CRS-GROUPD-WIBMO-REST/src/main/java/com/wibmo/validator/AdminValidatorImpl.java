@@ -1,0 +1,145 @@
+package com.wibmo.validator;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.wibmo.service.NotificationOperation;
+import com.wibmo.service.NotificationOperationImpl;
+import com.wibmo.constant.NotificationConstants;
+import com.wibmo.repository.AdminDAO;
+import com.wibmo.repository.AdminDAOImpl;
+import com.wibmo.repository.StudentDAOImpl;
+/**
+ * To validate admin details
+ */
+@Component
+public class AdminValidatorImpl implements ValidatorInterface{
+
+	@Autowired
+	StudentDAOImpl studentDAO;
+	
+	@Autowired
+	AdminDAO adminDAO;
+	
+	@Autowired
+	public NotificationOperation notification;
+	@Override
+	/**
+	 * To validate admin using email
+	 */
+	public boolean emailValidator(String email) {
+		// TODO Auto-generated method stub
+		String regex = "^[a-zA-Z0-9_!#$%&amp;'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		return matcher.matches();
+	}
+	
+	public List<List<Integer>> sortByCoursePref(List<List<Integer>> list)
+	{
+		Collections.sort(list, new Comparator<List<Integer>>() {
+			public int compare(List<Integer> a, List<Integer> b)
+			{
+				return a.get(1)-b.get(1);
+			}
+		});
+		return list;
+	}
+	
+	public void courseRegistrationValidator() {
+		List<Integer> studentIds = studentDAO.getStudentIds();
+		Map<Integer,Integer> courseCount = new HashMap<>();
+		
+		for(int studentId: studentIds) {
+			int isRegistered = studentDAO.isStudentRegistered(studentId);
+			int isApproved = studentDAO.isRegistrationApproved(studentId);
+			if(isApproved==studentId)
+			{
+				continue;
+			}
+			if(isRegistered==0) {
+				System.out.println("Student has not Registered till now");
+				continue;
+			}
+			else
+				System.out.println("Student has Registered Successfully");
+			
+			List<List<Integer>> studentData = studentDAO.getStudentCourseData(studentId);
+			studentData = sortByCoursePref(studentData);
+			int count = 0;
+			
+			for(List<Integer> course: studentData) {
+				int studentPerCourseCount = studentDAO.getStudentCourseCount(course.get(0));
+				if(count==4)
+					break;
+				if(studentPerCourseCount>=3 && studentPerCourseCount<=10)
+				{
+					count++;
+					courseCount.getOrDefault(course.get(0),courseCount.getOrDefault(course.get(0),0)+1);
+					adminDAO.setGradeCard(studentId,(int)course.get(0));
+				}
+				else if(studentPerCourseCount<3) {
+					continue;
+				}
+				else if(studentPerCourseCount>10) {
+					if(courseCount.getOrDefault(course.get(0),0)<10)
+					{
+						count++;
+						courseCount.getOrDefault(course.get(0),courseCount.getOrDefault(course.get(0),0)+1);
+						adminDAO.setGradeCard(studentId,(int)course.get(0));
+					}
+					else
+						continue;
+				}
+			}
+			if(count==4)
+			{
+				System.out.println("Student Course Registration Successful");
+				notification.sendNotification(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION, studentId);
+				
+				notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);						
+			}
+	
+			else {
+				adminDAO.setRejectionStatus(studentId);
+				System.out.println("Student Course Registration UnSuccessful");
+				notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
+				
+			}
+		}
+	}
+	
+	
+	public void assignCourseValidator() {
+		
+		List<Integer> professors = adminDAO.getProfessorsIds();
+		Set<Integer> set = new HashSet<>();
+		for(int professor:professors) {
+			List<Integer> courses = adminDAO.getProfessorCourses(professor);
+		
+			for(int course:courses) 
+			{
+//				System.out.println(course);
+				if(!set.contains(course))
+				{
+					set.add(course);
+					adminDAO.approveCourse(professor,course);
+				}
+				else
+					System.out.println("Course already assigned to another professor");
+			}
+			
+		}
+	}
+	
+}

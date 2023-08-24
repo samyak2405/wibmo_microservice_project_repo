@@ -1,0 +1,1939 @@
+11:12:15,042  INFO AdminOperationImpl,main:27 - Registration Rejected!! Register Again
+11:13:18,200  INFO AdminOperationImpl,main:29 - No Notifications
+11:26:06,056  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:06,075  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:06,098  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:06,100  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:26:06,101  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:26:34,799  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:34,869  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:26:34,873  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,165  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,201  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,215  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:28,218  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:30:28,219  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:30:36,349  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:36,394  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:30:36,396  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,675  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,694  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,711  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:23,715  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:40:23,715  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:40:54,994  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:55,007  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:55,036  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:55,038  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:40:55,039  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:40:59,636  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:59,660  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:40:59,675  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,006  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,021  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,051  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:47,057  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+11:41:47,058  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+11:41:50,943  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:50,950  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:41:50,977  INFO AdminOperationTest,main:45 - 
+Test Completed
+11:42:09,220  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+11:42:09,228  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+<<<<<<< HEAD
+>>>>>>> 31ac9c37bd5a2ad479346868e659e857075508e0
+>>>>>>> 3e057ffc8ff18dfc63163cae74604e29083b3f52
+16:27:39,669  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:27:39,672  INFO AdminOperationImpl,main:52 - 
+16:27:39,678  INFO AdminOperationImpl,main:61 - 
+16:27:39,678  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:27:39,678  INFO AdminOperationImpl,main:64 - 
+16:27:39,678  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:27:39,678  INFO AdminOperationImpl,main:69 - 
+16:27:39,678  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:27:39,678  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:27:46,615  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:27:46,615  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:27:46,616  INFO AdminOperationImpl,main:79 - 
+16:27:46,616  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:27:46,616  INFO AdminOperationImpl,main:82 - Enter your role
+16:27:50,866  INFO AdminOperationImpl,main:124 - Enter the Details for Registration
+16:27:57,741  INFO AdminOperationImpl,main:128 - 
+Enter Email: 
+16:28:07,976  INFO AdminOperationImpl,main:61 - 
+16:28:07,976  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:28:07,976  INFO AdminOperationImpl,main:64 - 
+16:28:07,976  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:28:07,976  INFO AdminOperationImpl,main:69 - 
+16:28:07,976  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:28:07,976  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:28:10,130  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:28:10,131  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:28:10,131  INFO AdminOperationImpl,main:79 - 
+16:28:10,131  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:28:10,131  INFO AdminOperationImpl,main:82 - Enter your role
+16:28:14,819  INFO AdminOperationImpl,main:124 - Enter the Details for Registration
+16:28:18,729  INFO AdminOperationImpl,main:128 - 
+Enter Email: 
+16:28:29,331  INFO AdminOperationImpl,main:61 - 
+16:28:29,332  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:28:29,332  INFO AdminOperationImpl,main:64 - 
+16:28:29,332  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:28:29,332  INFO AdminOperationImpl,main:69 - 
+16:28:29,332  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:28:29,333  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:28:31,138  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:28:31,138  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:28:31,139  INFO AdminOperationImpl,main:79 - 
+16:28:31,139  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:28:31,139  INFO AdminOperationImpl,main:82 - Enter your role
+16:28:32,699  INFO AdminOperationImpl,main:124 - Enter the Details for Registration
+16:28:37,488  INFO AdminOperationImpl,main:128 - 
+Enter Email: 
+16:28:51,584  INFO AdminOperationImpl,main:61 - 
+16:28:51,584  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:28:51,584  INFO AdminOperationImpl,main:64 - 
+16:28:51,584  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:28:51,584  INFO AdminOperationImpl,main:69 - 
+16:28:51,585  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:28:51,585  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:28:53,719  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:28:53,719  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:28:53,720  INFO AdminOperationImpl,main:79 - 
+16:28:53,720  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:28:53,720  INFO AdminOperationImpl,main:82 - Enter your role
+16:28:55,050  INFO AdminOperationImpl,main:124 - Enter the Details for Registration
+16:29:04,681  INFO AdminOperationImpl,main:128 - 
+Enter Email: 
+16:29:18,530  INFO AdminOperationImpl,main:61 - 
+16:29:18,530  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:29:18,530  INFO AdminOperationImpl,main:64 - 
+16:29:18,530  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:29:18,530  INFO AdminOperationImpl,main:69 - 
+16:29:18,530  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:29:18,531  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:29:20,377  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:29:20,377  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:29:20,377  INFO AdminOperationImpl,main:79 - 
+16:29:20,377  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:29:20,377  INFO AdminOperationImpl,main:82 - Enter your role
+16:29:35,364 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+16:29:35,364  INFO AdminOperationImpl,main:122 - 
+invalid credentials
+16:29:35,364  INFO AdminOperationImpl,main:61 - 
+16:29:35,364  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:29:35,364  INFO AdminOperationImpl,main:64 - 
+16:29:35,364  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:29:35,364  INFO AdminOperationImpl,main:69 - 
+16:29:35,364  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:29:35,364  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:29:46,756  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:29:46,756  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:29:46,756  INFO AdminOperationImpl,main:79 - 
+16:29:46,756  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:29:46,756  INFO AdminOperationImpl,main:82 - Enter your role
+16:29:54,574  INFO AdminOperationImpl,main:113 - 
+16:29:54,574  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:29:54,620  INFO AdminOperationImpl,main:66 - 
+16:29:54,620  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:29:54,620  INFO AdminOperationImpl,main:68 - 
+16:29:54,620  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:29:54,620  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:29:54,620  INFO AdminOperationImpl,main:77 - 5. Exit
+16:29:54,621  INFO AdminOperationImpl,main:78 - 
+16:29:54,622  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:29:54,622  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:29:54,622  INFO AdminOperationImpl,main:81 - 
+16:30:01,656  INFO AdminOperationImpl,main:66 - 
+16:30:01,656  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:30:01,656  INFO AdminOperationImpl,main:68 - 
+16:30:01,656  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:30:01,656  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:30:01,656  INFO AdminOperationImpl,main:77 - 5. Exit
+16:30:01,656  INFO AdminOperationImpl,main:78 - 
+16:30:01,656  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:30:01,656  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:30:01,656  INFO AdminOperationImpl,main:81 - 
+16:30:08,960  INFO AdminOperationImpl,main:61 - 
+16:30:08,960  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:30:08,960  INFO AdminOperationImpl,main:64 - 
+16:30:08,961  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:30:08,961  INFO AdminOperationImpl,main:69 - 
+16:30:08,961  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:30:08,961  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:30:10,933  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:30:10,933  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:30:10,933  INFO AdminOperationImpl,main:79 - 
+16:30:10,933  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:30:10,933  INFO AdminOperationImpl,main:82 - Enter your role
+16:30:18,875  INFO AdminOperationImpl,main:100 - 
+16:30:18,876  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:30:18,879  INFO AdminOperationImpl,main:156 - 
+16:30:18,879  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:30:18,880  INFO AdminOperationImpl,main:158 - 
+16:30:18,880  INFO AdminOperationImpl,main:169 - 
+16:30:18,880  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:30:25,871  INFO AdminOperationImpl,main:178 - Student Registration Status: 0
+16:30:25,872  INFO AdminOperationImpl,main:184 - 
+Select Course Ids from below given Course Catalog
+16:30:25,872  INFO AdminOperationImpl,main:186 - 
+For complusory enter 0 and for alternative enter 1
+16:30:25,872  INFO AdminOperationImpl,main:89 - 
+16:30:25,872  INFO AdminOperationImpl,main:91 - ===================================================================================
+16:30:25,882  INFO AdminOperationImpl,main:111 - Course Catalog: 
+16:30:25,882  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+16:30:25,883  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+16:30:25,883  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+16:30:25,883  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+16:30:25,883  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+16:30:25,883  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+16:30:25,883  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+16:30:25,884  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:30:25,885  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+16:30:25,885  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:30:25,885  INFO AdminOperationImpl,main:93 - 
+16:30:25,885  INFO AdminOperationImpl,main:95 - ===================================================================================
+16:30:25,893  INFO AdminOperationImpl,main:98 - Add Compulsory Courses
+16:30:31,011  INFO AdminOperationImpl,main:100 - Add Alternative Courses
+16:30:32,901  INFO AdminOperationImpl,main:106 - Course Added Successfully.
+16:30:32,901  INFO AdminOperationImpl,main:113 - Course Added Successfully.
+16:30:32,901  INFO AdminOperationImpl,main:156 - 
+16:30:32,901  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:30:32,901  INFO AdminOperationImpl,main:158 - 
+16:30:32,901  INFO AdminOperationImpl,main:169 - 
+16:30:32,901  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:30:48,944  INFO AdminOperationImpl,main:156 - 
+16:30:48,945  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:30:48,945  INFO AdminOperationImpl,main:158 - 
+16:30:48,945  INFO AdminOperationImpl,main:169 - 
+16:30:48,945  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:31:21,130  INFO AdminOperationImpl,main:405 - userId
+16:31:21,130  INFO AdminOperationImpl,main:239 - User with id 1 is not approved by admin
+16:31:21,131  INFO AdminOperationImpl,main:156 - 
+16:31:21,131  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:31:21,131  INFO AdminOperationImpl,main:158 - 
+16:31:21,131  INFO AdminOperationImpl,main:169 - 
+16:31:21,131  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:31:29,456  INFO AdminOperationImpl,main:405 - userId
+16:31:29,456  INFO AdminOperationImpl,main:249 - Courses of student with id 1 is not approved by admin
+16:31:29,456  INFO AdminOperationImpl,main:156 - 
+16:31:29,456  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:31:29,456  INFO AdminOperationImpl,main:158 - 
+16:31:29,456  INFO AdminOperationImpl,main:169 - 
+16:31:29,456  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:31:34,643  INFO AdminOperationImpl,main:61 - 
+16:31:34,643  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:31:34,644  INFO AdminOperationImpl,main:64 - 
+16:31:34,644  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:31:34,644  INFO AdminOperationImpl,main:69 - 
+16:31:34,644  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:31:34,644  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:31:37,508  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:31:37,509  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:31:37,509  INFO AdminOperationImpl,main:79 - 
+16:31:37,509  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:31:37,509  INFO AdminOperationImpl,main:82 - Enter your role
+16:31:47,384  INFO AdminOperationImpl,main:100 - 
+16:31:47,384  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:31:47,386  INFO AdminOperationImpl,main:156 - 
+16:31:47,386  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:31:47,386  INFO AdminOperationImpl,main:158 - 
+16:31:47,387  INFO AdminOperationImpl,main:169 - 
+16:31:47,387  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:31:51,801  INFO AdminOperationImpl,main:178 - Student Registration Status: 0
+16:31:51,801  INFO AdminOperationImpl,main:184 - 
+Select Course Ids from below given Course Catalog
+16:31:51,801  INFO AdminOperationImpl,main:186 - 
+For complusory enter 0 and for alternative enter 1
+16:31:51,801  INFO AdminOperationImpl,main:89 - 
+16:31:51,801  INFO AdminOperationImpl,main:91 - ===================================================================================
+16:31:51,803  INFO AdminOperationImpl,main:111 - Course Catalog: 
+16:31:51,803  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+16:31:51,803  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+16:31:51,803  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+16:31:51,803  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+16:31:51,804  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+16:31:51,804  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+16:31:51,804  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+16:31:51,804  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+16:31:51,804  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+16:31:51,804  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+16:31:51,805  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:31:51,805  INFO AdminOperationImpl,main:93 - 
+16:31:51,805  INFO AdminOperationImpl,main:95 - ===================================================================================
+16:31:51,805  INFO AdminOperationImpl,main:98 - Add Compulsory Courses
+16:31:54,656  INFO AdminOperationImpl,main:100 - Add Alternative Courses
+16:31:56,229  INFO AdminOperationImpl,main:106 - Course Added Successfully.
+16:31:56,229  INFO AdminOperationImpl,main:113 - Course Added Successfully.
+16:31:56,229  INFO AdminOperationImpl,main:156 - 
+16:31:56,229  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:31:56,229  INFO AdminOperationImpl,main:158 - 
+16:31:56,229  INFO AdminOperationImpl,main:169 - 
+16:31:56,229  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:31:59,300  INFO AdminOperationImpl,main:156 - 
+16:31:59,300  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:31:59,300  INFO AdminOperationImpl,main:158 - 
+16:31:59,300  INFO AdminOperationImpl,main:169 - 
+16:31:59,300  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:32:06,786  INFO AdminOperationImpl,main:61 - 
+16:32:06,787  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:32:06,787  INFO AdminOperationImpl,main:64 - 
+16:32:06,787  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:32:06,787  INFO AdminOperationImpl,main:69 - 
+16:32:06,787  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:32:06,787  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:32:08,571  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:32:08,571  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:32:08,571  INFO AdminOperationImpl,main:79 - 
+16:32:08,571  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:32:08,572  INFO AdminOperationImpl,main:82 - Enter your role
+16:32:21,670  INFO AdminOperationImpl,main:100 - 
+16:32:21,670  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:32:21,672  INFO AdminOperationImpl,main:156 - 
+16:32:21,672  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:32:21,672  INFO AdminOperationImpl,main:158 - 
+16:32:21,672  INFO AdminOperationImpl,main:169 - 
+16:32:21,672  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:32:22,942  INFO AdminOperationImpl,main:178 - Student Registration Status: 0
+16:32:22,943  INFO AdminOperationImpl,main:184 - 
+Select Course Ids from below given Course Catalog
+16:32:22,943  INFO AdminOperationImpl,main:186 - 
+For complusory enter 0 and for alternative enter 1
+16:32:22,943  INFO AdminOperationImpl,main:89 - 
+16:32:22,943  INFO AdminOperationImpl,main:91 - ===================================================================================
+16:32:22,946  INFO AdminOperationImpl,main:111 - Course Catalog: 
+16:32:22,946  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+16:32:22,946  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+16:32:22,946  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+16:32:22,947  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+16:32:22,947  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+16:32:22,947  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+16:32:22,947  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+16:32:22,947  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+16:32:22,947  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+16:32:22,948  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+16:32:22,948  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:32:22,948  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:32:22,948  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:32:22,949  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+16:32:22,949  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+16:32:22,949  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+16:32:22,949  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+16:32:22,950  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:32:22,950  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+16:32:22,950  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:32:22,950  INFO AdminOperationImpl,main:93 - 
+16:32:22,950  INFO AdminOperationImpl,main:95 - ===================================================================================
+16:32:22,952  INFO AdminOperationImpl,main:98 - Add Compulsory Courses
+16:32:25,087  INFO AdminOperationImpl,main:100 - Add Alternative Courses
+16:32:26,830  INFO AdminOperationImpl,main:106 - Course Added Successfully.
+16:32:26,830  INFO AdminOperationImpl,main:113 - Course Added Successfully.
+16:32:26,830  INFO AdminOperationImpl,main:156 - 
+16:32:26,830  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:32:26,830  INFO AdminOperationImpl,main:158 - 
+16:32:26,830  INFO AdminOperationImpl,main:169 - 
+16:32:26,830  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:32:32,045  INFO AdminOperationImpl,main:156 - 
+16:32:32,046  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:32:32,046  INFO AdminOperationImpl,main:158 - 
+16:32:32,047  INFO AdminOperationImpl,main:169 - 
+16:32:32,047  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:32:36,081  INFO AdminOperationImpl,main:61 - 
+16:32:36,081  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:32:36,081  INFO AdminOperationImpl,main:64 - 
+16:32:36,081  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:32:36,081  INFO AdminOperationImpl,main:69 - 
+16:32:36,081  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:32:36,081  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:32:37,400  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:32:37,400  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:32:37,400  INFO AdminOperationImpl,main:79 - 
+16:32:37,400  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:32:37,400  INFO AdminOperationImpl,main:82 - Enter your role
+16:32:46,293  INFO AdminOperationImpl,main:100 - 
+16:32:46,294  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:32:46,296  INFO AdminOperationImpl,main:156 - 
+16:32:46,296  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:32:46,296  INFO AdminOperationImpl,main:158 - 
+16:32:46,296  INFO AdminOperationImpl,main:169 - 
+16:32:46,296  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:32:47,749  INFO AdminOperationImpl,main:178 - Student Registration Status: 0
+16:32:47,750  INFO AdminOperationImpl,main:184 - 
+Select Course Ids from below given Course Catalog
+16:32:47,750  INFO AdminOperationImpl,main:186 - 
+For complusory enter 0 and for alternative enter 1
+16:32:47,750  INFO AdminOperationImpl,main:89 - 
+16:32:47,750  INFO AdminOperationImpl,main:91 - ===================================================================================
+16:32:47,752  INFO AdminOperationImpl,main:111 - Course Catalog: 
+16:32:47,752  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+16:32:47,753  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:32:47,753  INFO AdminOperationImpl,main:93 - 
+16:32:47,753  INFO AdminOperationImpl,main:95 - ===================================================================================
+16:32:47,753  INFO AdminOperationImpl,main:98 - Add Compulsory Courses
+16:32:49,904  INFO AdminOperationImpl,main:100 - Add Alternative Courses
+16:32:51,757  INFO AdminOperationImpl,main:106 - Course Added Successfully.
+16:32:51,758  INFO AdminOperationImpl,main:113 - Course Added Successfully.
+16:32:51,758  INFO AdminOperationImpl,main:156 - 
+16:32:51,758  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:32:51,758  INFO AdminOperationImpl,main:158 - 
+16:32:51,758  INFO AdminOperationImpl,main:169 - 
+16:32:51,758  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:32:53,871  INFO AdminOperationImpl,main:156 - 
+16:32:53,871  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:32:53,871  INFO AdminOperationImpl,main:158 - 
+16:32:53,871  INFO AdminOperationImpl,main:169 - 
+16:32:53,871  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:33:04,085  INFO AdminOperationImpl,main:61 - 
+16:33:04,085  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:33:04,085  INFO AdminOperationImpl,main:64 - 
+16:33:04,085  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:33:04,085  INFO AdminOperationImpl,main:69 - 
+16:33:04,085  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:33:04,086  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:33:06,213  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:33:06,213  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:33:06,213  INFO AdminOperationImpl,main:79 - 
+16:33:06,213  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:33:06,213  INFO AdminOperationImpl,main:82 - Enter your role
+16:33:15,191  INFO AdminOperationImpl,main:113 - 
+16:33:15,191  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:33:15,193  INFO AdminOperationImpl,main:66 - 
+16:33:15,193  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:33:15,193  INFO AdminOperationImpl,main:68 - 
+16:33:15,193  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:33:15,193  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:33:15,193  INFO AdminOperationImpl,main:77 - 5. Exit
+16:33:15,193  INFO AdminOperationImpl,main:78 - 
+16:33:15,193  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:33:15,193  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:33:15,193  INFO AdminOperationImpl,main:81 - 
+16:33:17,992  INFO AdminOperationImpl,main:66 - 
+16:33:17,992  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:33:17,992  INFO AdminOperationImpl,main:68 - 
+16:33:17,992  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:33:17,992  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:33:17,992  INFO AdminOperationImpl,main:77 - 5. Exit
+16:33:17,992  INFO AdminOperationImpl,main:78 - 
+16:33:17,992  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:33:17,992  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:33:17,992  INFO AdminOperationImpl,main:81 - 
+16:33:52,290  INFO AdminOperationImpl,main:61 - 
+16:33:52,290  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:33:52,290  INFO AdminOperationImpl,main:64 - 
+16:33:52,290  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:33:52,290  INFO AdminOperationImpl,main:69 - 
+16:33:52,290  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:33:52,291  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:33:54,212  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:33:54,213  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:33:54,213  INFO AdminOperationImpl,main:79 - 
+16:33:54,213  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:33:54,213  INFO AdminOperationImpl,main:82 - Enter your role
+16:34:48,190  INFO AdminOperationImpl,main:100 - 
+16:34:48,191  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:34:48,197  INFO AdminOperationImpl,main:156 - 
+16:34:48,197  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:34:48,197  INFO AdminOperationImpl,main:158 - 
+16:34:48,197  INFO AdminOperationImpl,main:169 - 
+16:34:48,197  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:34:49,736  INFO AdminOperationImpl,main:61 - 
+16:34:49,737  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:34:49,737  INFO AdminOperationImpl,main:64 - 
+16:34:49,737  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:34:49,737  INFO AdminOperationImpl,main:69 - 
+16:34:49,737  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:34:49,737  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:34:51,620  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:34:51,620  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:34:51,620  INFO AdminOperationImpl,main:79 - 
+16:34:51,620  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:34:51,620  INFO AdminOperationImpl,main:82 - Enter your role
+16:34:54,566  INFO AdminOperationImpl,main:181 - Enter the Details for Registration
+16:36:12,969  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:36:12,971  INFO AdminOperationImpl,main:52 - 
+16:36:12,976  INFO AdminOperationImpl,main:61 - 
+16:36:12,977  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:36:12,977  INFO AdminOperationImpl,main:64 - 
+16:36:12,977  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:36:12,977  INFO AdminOperationImpl,main:69 - 
+16:36:12,977  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:36:12,977  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:36:14,403  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:36:14,404  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:36:14,404  INFO AdminOperationImpl,main:79 - 
+16:36:14,404  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:36:14,404  INFO AdminOperationImpl,main:82 - Enter your role
+16:36:16,085  INFO AdminOperationImpl,main:181 - Enter the Details for Registration
+16:36:34,967  INFO AdminOperationImpl,main:191 - 
+16:36:34,968  INFO AdminOperationImpl,main:192 - ===================================================================================
+16:36:39,112  INFO AdminOperationImpl,main:197 - User with user id:brown@gmail Already Exists
+16:36:39,112  INFO AdminOperationImpl,main:61 - 
+16:36:39,112  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:36:39,112  INFO AdminOperationImpl,main:64 - 
+16:36:39,112  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:36:39,112  INFO AdminOperationImpl,main:69 - 
+16:36:39,112  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:36:39,112  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:37:51,241  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:37:51,244  INFO AdminOperationImpl,main:52 - 
+16:37:51,253  INFO AdminOperationImpl,main:61 - 
+16:37:51,253  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:37:51,253  INFO AdminOperationImpl,main:64 - 
+16:37:51,253  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:37:51,253  INFO AdminOperationImpl,main:69 - 
+16:37:51,253  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:37:51,253  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:37:52,781  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:37:52,781  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:37:52,781  INFO AdminOperationImpl,main:79 - 
+16:37:52,781  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:37:52,782  INFO AdminOperationImpl,main:82 - Enter your role
+16:37:53,977  INFO AdminOperationImpl,main:181 - Enter the Details for Registration
+16:38:11,177  INFO AdminOperationImpl,main:191 - 
+16:38:13,502  INFO AdminOperationImpl,main:193 - ===================================================================================
+16:38:13,517  INFO AdminOperationImpl,main:198 - User with user id:brown@gmail.co Already Exists
+16:38:13,518  INFO AdminOperationImpl,main:61 - 
+16:38:13,518  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:38:13,518  INFO AdminOperationImpl,main:64 - 
+16:38:13,518  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:38:13,518  INFO AdminOperationImpl,main:69 - 
+16:38:13,518  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:38:13,518  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:40:19,905  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:40:19,907  INFO AdminOperationImpl,main:52 - 
+16:40:19,915  INFO AdminOperationImpl,main:61 - 
+16:40:19,916  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:40:19,916  INFO AdminOperationImpl,main:64 - 
+16:40:19,916  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:40:19,916  INFO AdminOperationImpl,main:69 - 
+16:40:19,916  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:40:19,916  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:40:21,468  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:40:21,468  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:40:21,468  INFO AdminOperationImpl,main:79 - 
+16:40:21,468  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:40:21,468  INFO AdminOperationImpl,main:82 - Enter your role
+16:40:25,428  INFO AdminOperationImpl,main:181 - Enter the Details for Registration
+16:40:35,983  INFO AdminOperationImpl,main:191 - 
+16:40:38,173  INFO AdminOperationImpl,main:193 - ===================================================================================
+16:40:38,188  INFO AdminOperationImpl,main:198 - User with user id:brown@gmail.com Already Exists
+16:40:38,188  INFO AdminOperationImpl,main:61 - 
+16:40:38,188  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:40:38,188  INFO AdminOperationImpl,main:64 - 
+16:40:38,188  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:40:38,188  INFO AdminOperationImpl,main:69 - 
+16:40:38,188  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:40:38,189  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:41:19,520  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:41:19,522  INFO AdminOperationImpl,main:52 - 
+16:41:19,528  INFO AdminOperationImpl,main:61 - 
+16:41:19,528  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:41:19,528  INFO AdminOperationImpl,main:64 - 
+16:41:19,528  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:41:19,528  INFO AdminOperationImpl,main:69 - 
+16:41:19,528  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:41:19,529  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:41:22,149  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:41:22,150  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:41:22,150  INFO AdminOperationImpl,main:79 - 
+16:41:22,150  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:41:22,150  INFO AdminOperationImpl,main:82 - Enter your role
+16:41:23,236  INFO AdminOperationImpl,main:181 - Enter the Details for Registration
+16:41:39,508  INFO AdminOperationImpl,main:191 - 
+16:41:41,682  INFO AdminOperationImpl,main:193 - ===================================================================================
+16:41:41,706  INFO AdminOperationImpl,main:61 - 
+16:41:41,706  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:41:41,706  INFO AdminOperationImpl,main:64 - 
+16:41:41,706  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:41:41,706  INFO AdminOperationImpl,main:69 - 
+16:41:41,706  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:41:41,706  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:41:54,559  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:41:54,560  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:41:54,560  INFO AdminOperationImpl,main:79 - 
+16:41:54,560  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:41:54,560  INFO AdminOperationImpl,main:82 - Enter your role
+16:42:03,808  INFO AdminOperationImpl,main:107 - 
+16:42:03,809  INFO AdminOperationImpl,main:108 - You are logged in successfully as a Professor
+16:42:03,810  INFO AdminOperationImpl,main:54 - 
+16:42:03,810  INFO AdminOperationImpl,main:56 - ============================ Professor Menu =======================================
+16:42:03,810  INFO AdminOperationImpl,main:57 - 
+16:42:03,810  INFO AdminOperationImpl,main:58 - 1.Request Course Offering
+16:42:03,810  INFO AdminOperationImpl,main:61 - 2.View Student List
+16:42:03,810  INFO AdminOperationImpl,main:63 - 3.View Course Catalog
+16:42:03,811  INFO AdminOperationImpl,main:65 - 4.Set Grades
+16:42:03,811  INFO AdminOperationImpl,main:67 - 5.Exit
+16:42:03,811  INFO AdminOperationImpl,main:68 - 
+16:42:03,811  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:42:03,811  INFO AdminOperationImpl,main:72 - Enter your Choice: 
+16:42:03,811  INFO AdminOperationImpl,main:73 - 
+16:42:13,137  INFO AdminOperationImpl,main:87 - Course Catalog: 
+16:42:13,139  INFO AdminOperationImpl,main:89 -                    1                  C++                Brown                    C
+
+16:42:13,140  INFO AdminOperationImpl,main:89 -                    2                    C              Johnson                 None
+
+16:42:13,140  INFO AdminOperationImpl,main:89 -                    3               python                Smith                 None
+
+16:42:13,140  INFO AdminOperationImpl,main:89 -                    4                Scala                Davis                 None
+
+16:42:13,140  INFO AdminOperationImpl,main:89 -                    5             Solidity                White                 None
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                    6                 Java                Smith                 None
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                    7       Data Structure              Johnson                 Java
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                    8           Algorithms                Brown       Data Structure
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                    9      Web Development                Davis                 None
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   10             Database                White                 None
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   14 Software Engineering                 Hall       Java, Database
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   15     Network Security                Lewis                 None
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   16    Operating Systems               Turner      Data Structures
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   17      App Development                Moore                 Java
+
+16:42:13,141  INFO AdminOperationImpl,main:89 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:42:13,142  INFO AdminOperationImpl,main:89 -                   19  Ethics in Computing               Martin                 None
+
+16:42:13,142  INFO AdminOperationImpl,main:89 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:42:13,142  INFO AdminOperationImpl,main:86 - 
+16:42:13,142  INFO AdminOperationImpl,main:88 - ===================================================================================
+16:42:13,142  INFO AdminOperationImpl,main:89 - 1.Request Course
+16:42:13,142  INFO AdminOperationImpl,main:90 - 2.Freeze list
+16:42:13,142  INFO AdminOperationImpl,main:91 - 
+16:42:13,142  INFO AdminOperationImpl,main:93 - ===================================================================================
+16:42:17,160  INFO AdminOperationImpl,main:86 - 
+16:42:17,161  INFO AdminOperationImpl,main:88 - ===================================================================================
+16:42:17,161  INFO AdminOperationImpl,main:89 - 1.Request Course
+16:42:17,161  INFO AdminOperationImpl,main:90 - 2.Freeze list
+16:42:17,161  INFO AdminOperationImpl,main:91 - 
+16:42:17,161  INFO AdminOperationImpl,main:93 - ===================================================================================
+16:42:20,666  INFO AdminOperationImpl,main:86 - 
+16:42:20,666  INFO AdminOperationImpl,main:88 - ===================================================================================
+16:42:20,666  INFO AdminOperationImpl,main:89 - 1.Request Course
+16:42:20,666  INFO AdminOperationImpl,main:90 - 2.Freeze list
+16:42:20,666  INFO AdminOperationImpl,main:91 - 
+16:42:20,666  INFO AdminOperationImpl,main:93 - ===================================================================================
+16:42:23,763  INFO AdminOperationImpl,main:86 - 
+16:42:23,763  INFO AdminOperationImpl,main:88 - ===================================================================================
+16:42:23,764  INFO AdminOperationImpl,main:89 - 1.Request Course
+16:42:23,764  INFO AdminOperationImpl,main:90 - 2.Freeze list
+16:42:23,764  INFO AdminOperationImpl,main:91 - 
+16:42:23,764  INFO AdminOperationImpl,main:93 - ===================================================================================
+16:42:26,945  INFO AdminOperationImpl,main:86 - 
+16:42:26,945  INFO AdminOperationImpl,main:88 - ===================================================================================
+16:42:26,945  INFO AdminOperationImpl,main:89 - 1.Request Course
+16:42:26,945  INFO AdminOperationImpl,main:90 - 2.Freeze list
+16:42:26,945  INFO AdminOperationImpl,main:91 - 
+16:42:26,945  INFO AdminOperationImpl,main:93 - ===================================================================================
+16:42:29,554  INFO AdminOperationImpl,main:54 - 
+16:42:29,554  INFO AdminOperationImpl,main:56 - ============================ Professor Menu =======================================
+16:42:29,554  INFO AdminOperationImpl,main:57 - 
+16:42:29,554  INFO AdminOperationImpl,main:58 - 1.Request Course Offering
+16:42:29,554  INFO AdminOperationImpl,main:61 - 2.View Student List
+16:42:29,554  INFO AdminOperationImpl,main:63 - 3.View Course Catalog
+16:42:29,554  INFO AdminOperationImpl,main:65 - 4.Set Grades
+16:42:29,555  INFO AdminOperationImpl,main:67 - 5.Exit
+16:42:29,555  INFO AdminOperationImpl,main:68 - 
+16:42:29,555  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:42:29,555  INFO AdminOperationImpl,main:72 - Enter your Choice: 
+16:42:29,555  INFO AdminOperationImpl,main:73 - 
+16:42:34,560  INFO AdminOperationImpl,main:61 - 
+16:42:34,560  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:42:34,560  INFO AdminOperationImpl,main:64 - 
+16:42:34,561  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:42:34,561  INFO AdminOperationImpl,main:69 - 
+16:42:34,561  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:42:34,561  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:42:36,222  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:42:36,223  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:42:36,223  INFO AdminOperationImpl,main:79 - 
+16:42:36,223  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:42:36,223  INFO AdminOperationImpl,main:82 - Enter your role
+16:42:43,796  INFO AdminOperationImpl,main:113 - 
+16:42:43,798  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:42:43,832  INFO AdminOperationImpl,main:66 - 
+16:42:43,832  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:42:43,832  INFO AdminOperationImpl,main:68 - 
+16:42:43,832  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:42:43,833  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:42:43,833  INFO AdminOperationImpl,main:77 - 5. Exit
+16:42:43,834  INFO AdminOperationImpl,main:78 - 
+16:42:43,834  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:42:43,834  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:42:43,835  INFO AdminOperationImpl,main:81 - 
+16:42:47,124  INFO AdminOperationImpl,main:66 - 
+16:42:47,124  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:42:47,124  INFO AdminOperationImpl,main:68 - 
+16:42:47,124  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:42:47,124  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:42:47,124  INFO AdminOperationImpl,main:77 - 5. Exit
+16:42:47,124  INFO AdminOperationImpl,main:78 - 
+16:42:47,124  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:42:47,124  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:42:47,124  INFO AdminOperationImpl,main:81 - 
+16:43:00,833  INFO AdminOperationImpl,main:61 - 
+16:43:00,833  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:43:00,833  INFO AdminOperationImpl,main:64 - 
+16:43:00,833  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:43:00,833  INFO AdminOperationImpl,main:69 - 
+16:43:00,834  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:43:00,834  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:43:02,386  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:43:02,386  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:43:02,387  INFO AdminOperationImpl,main:79 - 
+16:43:02,387  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:43:02,387  INFO AdminOperationImpl,main:82 - Enter your role
+16:43:09,530  INFO AdminOperationImpl,main:107 - 
+16:43:09,530  INFO AdminOperationImpl,main:108 - You are logged in successfully as a Professor
+16:43:09,533  INFO AdminOperationImpl,main:54 - 
+16:43:09,534  INFO AdminOperationImpl,main:56 - ============================ Professor Menu =======================================
+16:43:09,534  INFO AdminOperationImpl,main:57 - 
+16:43:09,534  INFO AdminOperationImpl,main:58 - 1.Request Course Offering
+16:43:09,534  INFO AdminOperationImpl,main:61 - 2.View Student List
+16:43:09,534  INFO AdminOperationImpl,main:63 - 3.View Course Catalog
+16:43:09,534  INFO AdminOperationImpl,main:65 - 4.Set Grades
+16:43:09,534  INFO AdminOperationImpl,main:67 - 5.Exit
+16:43:09,534  INFO AdminOperationImpl,main:68 - 
+16:43:09,534  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:43:09,534  INFO AdminOperationImpl,main:72 - Enter your Choice: 
+16:43:09,534  INFO AdminOperationImpl,main:73 - 
+16:43:13,051  INFO AdminOperationImpl,main:123 - List of Courses assigned
+16:43:13,053  INFO AdminOperationImpl,main:125 - Enter courseid: 
+16:43:22,744  INFO AdminOperationImpl,main:70 - List of Students Registered For this particular course: 
+16:43:22,744  INFO AdminOperationImpl,main:71 -                    1               Samyak     samyak@gmail.com              1234567
+
+16:43:22,744  INFO AdminOperationImpl,main:71 -                    2                Dixit      dixit@gmail.com             12345678
+
+16:43:22,744  INFO AdminOperationImpl,main:71 -                    3              satwika    satwika@gmail.com             12345678
+
+16:43:22,745  INFO AdminOperationImpl,main:71 -                    4             sidharth        sid@gmail.com             12345678
+
+16:43:22,745  INFO AdminOperationImpl,main:54 - 
+16:43:22,745  INFO AdminOperationImpl,main:56 - ============================ Professor Menu =======================================
+16:43:22,745  INFO AdminOperationImpl,main:57 - 
+16:43:22,745  INFO AdminOperationImpl,main:58 - 1.Request Course Offering
+16:43:22,745  INFO AdminOperationImpl,main:61 - 2.View Student List
+16:43:22,745  INFO AdminOperationImpl,main:63 - 3.View Course Catalog
+16:43:22,745  INFO AdminOperationImpl,main:65 - 4.Set Grades
+16:43:22,746  INFO AdminOperationImpl,main:67 - 5.Exit
+16:43:22,746  INFO AdminOperationImpl,main:68 - 
+16:43:22,746  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:43:22,754  INFO AdminOperationImpl,main:72 - Enter your Choice: 
+16:43:22,754  INFO AdminOperationImpl,main:73 - 
+16:44:03,662  INFO AdminOperationImpl,main:140 - Choose Course from below given list
+16:44:03,665  INFO AdminOperationImpl,main:142 - Course Id
+16:44:07,407  INFO AdminOperationImpl,main:144 - Following are the students registered for the course 1
+16:44:07,411  INFO AdminOperationImpl,main:70 - List of Students Registered For this particular course: 
+16:44:07,412  INFO AdminOperationImpl,main:71 -                    1               Samyak     samyak@gmail.com              1234567
+
+16:44:07,412  INFO AdminOperationImpl,main:71 -                    2                Dixit      dixit@gmail.com             12345678
+
+16:44:07,412  INFO AdminOperationImpl,main:71 -                    3              satwika    satwika@gmail.com             12345678
+
+16:44:07,413  INFO AdminOperationImpl,main:71 -                    4             sidharth        sid@gmail.com             12345678
+
+16:44:07,414  INFO AdminOperationImpl,main:151 - Enter the StudentId
+16:44:11,821  INFO AdminOperationImpl,main:154 - Enter grades
+16:44:13,848  INFO AdminOperationImpl,main:54 - 
+16:44:13,848  INFO AdminOperationImpl,main:56 - ============================ Professor Menu =======================================
+16:44:13,848  INFO AdminOperationImpl,main:57 - 
+16:44:13,848  INFO AdminOperationImpl,main:58 - 1.Request Course Offering
+16:44:13,848  INFO AdminOperationImpl,main:61 - 2.View Student List
+16:44:13,848  INFO AdminOperationImpl,main:63 - 3.View Course Catalog
+16:44:13,848  INFO AdminOperationImpl,main:65 - 4.Set Grades
+16:44:13,848  INFO AdminOperationImpl,main:67 - 5.Exit
+16:44:13,848  INFO AdminOperationImpl,main:68 - 
+16:44:13,848  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:44:13,848  INFO AdminOperationImpl,main:72 - Enter your Choice: 
+16:44:13,848  INFO AdminOperationImpl,main:73 - 
+16:44:34,779  INFO AdminOperationImpl,main:61 - 
+16:44:34,780  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:44:34,780  INFO AdminOperationImpl,main:64 - 
+16:44:34,780  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:44:34,780  INFO AdminOperationImpl,main:69 - 
+16:44:34,780  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:44:34,780  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:44:37,406  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:44:37,406  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:44:37,406  INFO AdminOperationImpl,main:79 - 
+16:44:37,406  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:44:37,406  INFO AdminOperationImpl,main:82 - Enter your role
+16:44:44,824  INFO AdminOperationImpl,main:100 - 
+16:44:44,824  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:44:44,837  INFO AdminOperationImpl,main:156 - 
+16:44:44,837  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:44:44,838  INFO AdminOperationImpl,main:158 - 
+16:44:44,838  INFO AdminOperationImpl,main:169 - 
+16:44:44,838  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:44:48,344  INFO AdminOperationImpl,main:148 - 4
+16:44:48,344  INFO AdminOperationImpl,main:149 - Your Grades
+16:44:48,344  INFO AdminOperationImpl,main:150 -             CourseId                Grade
+16:44:48,345  INFO AdminOperationImpl,main:151 -                    1                    A
+
+16:44:48,345  INFO AdminOperationImpl,main:151 -                    2                   NA
+
+16:44:48,345  INFO AdminOperationImpl,main:151 -                    3                   NA
+
+16:44:48,345  INFO AdminOperationImpl,main:151 -                    4                   NA
+
+16:44:48,345  INFO AdminOperationImpl,main:156 - 
+16:44:48,345  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:44:48,345  INFO AdminOperationImpl,main:158 - 
+16:44:48,345  INFO AdminOperationImpl,main:169 - 
+16:44:48,345  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:45:10,262  INFO AdminOperationImpl,main:101 - List of Courses Approved
+16:45:10,264  INFO AdminOperationImpl,main:103 -                    1                  C++
+
+16:45:10,264  INFO AdminOperationImpl,main:103 -                    2                    C
+
+16:45:10,264  INFO AdminOperationImpl,main:103 -                    3               python
+
+16:45:10,264  INFO AdminOperationImpl,main:103 -                    4                Scala
+
+16:45:10,264  INFO AdminOperationImpl,main:156 - 
+16:45:10,264  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:45:10,264  INFO AdminOperationImpl,main:158 - 
+16:45:10,265  INFO AdminOperationImpl,main:169 - 
+16:45:10,265  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:45:15,132  INFO AdminOperationImpl,main:27 - Registration Approved
+16:45:15,132  INFO AdminOperationImpl,main:27 - Pay the Registration Fee!!
+16:45:15,132  INFO AdminOperationImpl,main:156 - 
+16:45:15,132  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:45:15,132  INFO AdminOperationImpl,main:158 - 
+16:45:15,132  INFO AdminOperationImpl,main:169 - 
+16:45:15,132  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:45:20,429  INFO AdminOperationImpl,main:81 - 1.OFFLINE
+16:45:20,429  INFO AdminOperationImpl,main:82 - 2.ONLINE
+16:45:20,429  INFO AdminOperationImpl,main:83 - 3.EXIT
+16:45:20,429  INFO AdminOperationImpl,main:89 - Enter Your Choice
+16:45:22,031  INFO AdminOperationImpl,main:156 - 
+16:45:22,031  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:45:22,031  INFO AdminOperationImpl,main:158 - 
+16:45:22,031  INFO AdminOperationImpl,main:169 - 
+16:45:22,031  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:45:26,158  INFO AdminOperationImpl,main:27 - Registration Approved
+16:45:26,158  INFO AdminOperationImpl,main:27 - Pay the Registration Fee!!
+16:45:26,158  INFO AdminOperationImpl,main:27 - Payment Successful!!
+16:45:26,158  INFO AdminOperationImpl,main:156 - 
+16:45:26,158  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:45:26,158  INFO AdminOperationImpl,main:158 - 
+16:45:26,158  INFO AdminOperationImpl,main:169 - 
+16:45:26,158  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:45:38,670  INFO AdminOperationImpl,main:61 - 
+16:45:38,670  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:45:38,670  INFO AdminOperationImpl,main:64 - 
+16:45:38,670  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:45:38,670  INFO AdminOperationImpl,main:69 - 
+16:45:38,670  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:45:38,670  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:45:40,802  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:45:40,803  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:45:40,803  INFO AdminOperationImpl,main:79 - 
+16:45:40,803  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:45:40,803  INFO AdminOperationImpl,main:82 - Enter your role
+16:45:48,978  INFO AdminOperationImpl,main:113 - 
+16:45:48,979  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:45:48,980  INFO AdminOperationImpl,main:66 - 
+16:45:48,981  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:45:48,981  INFO AdminOperationImpl,main:68 - 
+16:45:48,981  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:45:48,981  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:45:48,981  INFO AdminOperationImpl,main:77 - 5. Exit
+16:45:48,981  INFO AdminOperationImpl,main:78 - 
+16:45:48,981  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:45:48,981  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:45:48,981  INFO AdminOperationImpl,main:81 - 
+16:46:15,595  INFO AdminOperationImpl,main:61 - 
+16:46:15,595  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:46:15,595  INFO AdminOperationImpl,main:64 - 
+16:46:15,595  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:46:15,595  INFO AdminOperationImpl,main:69 - 
+16:46:15,595  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:46:15,595  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:46:17,486  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:46:17,486  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:46:17,486  INFO AdminOperationImpl,main:79 - 
+16:46:17,486  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:46:17,486  INFO AdminOperationImpl,main:82 - Enter your role
+16:46:29,095  INFO AdminOperationImpl,main:100 - 
+16:46:29,095  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:46:29,097  INFO AdminOperationImpl,main:156 - 
+16:46:29,097  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:46:29,097  INFO AdminOperationImpl,main:158 - 
+16:46:29,097  INFO AdminOperationImpl,main:169 - 
+16:46:29,097  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:46:32,270  INFO AdminOperationImpl,main:61 - 
+16:46:32,270  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:46:32,270  INFO AdminOperationImpl,main:64 - 
+16:46:32,270  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:46:32,270  INFO AdminOperationImpl,main:69 - 
+16:46:32,271  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:46:32,271  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:46:34,064  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:46:34,064  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:46:34,064  INFO AdminOperationImpl,main:79 - 
+16:46:34,064  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:46:34,064  INFO AdminOperationImpl,main:82 - Enter your role
+16:46:38,158  INFO AdminOperationImpl,main:124 - Enter the Details for Registration
+16:46:40,748  INFO AdminOperationImpl,main:128 - 
+Enter Email: 
+16:46:50,328  INFO AdminOperationImpl,main:61 - 
+16:46:50,329  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:46:50,329  INFO AdminOperationImpl,main:64 - 
+16:46:50,329  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:46:50,329  INFO AdminOperationImpl,main:69 - 
+16:46:50,329  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:46:50,329  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:46:52,485  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:46:52,485  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:46:52,485  INFO AdminOperationImpl,main:79 - 
+16:46:52,485  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:46:52,485  INFO AdminOperationImpl,main:82 - Enter your role
+16:47:00,566 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+16:47:00,566  INFO AdminOperationImpl,main:122 - 
+invalid credentials
+16:47:00,566  INFO AdminOperationImpl,main:61 - 
+16:47:00,566  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:47:00,566  INFO AdminOperationImpl,main:64 - 
+16:47:00,566  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:47:00,567  INFO AdminOperationImpl,main:69 - 
+16:47:00,567  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:47:00,567  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:47:08,610  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:47:08,611  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:47:08,611  INFO AdminOperationImpl,main:79 - 
+16:47:08,611  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:47:08,611  INFO AdminOperationImpl,main:82 - Enter your role
+16:47:17,197  INFO AdminOperationImpl,main:113 - 
+16:47:17,197  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:47:17,199  INFO AdminOperationImpl,main:66 - 
+16:47:17,199  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:47:17,199  INFO AdminOperationImpl,main:68 - 
+16:47:17,199  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:47:17,199  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:47:17,199  INFO AdminOperationImpl,main:77 - 5. Exit
+16:47:17,199  INFO AdminOperationImpl,main:78 - 
+16:47:17,199  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:47:17,199  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:47:17,199  INFO AdminOperationImpl,main:81 - 
+16:47:23,393  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+16:47:23,394  INFO AdminOperationImpl,main:80 -                    5
+
+16:47:23,394  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+16:47:25,643  INFO AdminOperationImpl,main:66 - 
+16:47:25,643  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:47:25,643  INFO AdminOperationImpl,main:68 - 
+16:47:25,643  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:47:25,643  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:47:25,643  INFO AdminOperationImpl,main:77 - 5. Exit
+16:47:25,643  INFO AdminOperationImpl,main:78 - 
+16:47:25,643  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:47:25,643  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:47:25,643  INFO AdminOperationImpl,main:81 - 
+16:47:29,525  INFO AdminOperationImpl,main:61 - 
+16:47:29,525  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:47:29,525  INFO AdminOperationImpl,main:64 - 
+16:47:29,525  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:47:29,526  INFO AdminOperationImpl,main:69 - 
+16:47:29,526  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:47:29,526  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:47:30,985  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:47:30,986  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:47:30,986  INFO AdminOperationImpl,main:79 - 
+16:47:30,986  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:47:30,986  INFO AdminOperationImpl,main:82 - Enter your role
+16:47:43,175  INFO AdminOperationImpl,main:100 - 
+16:47:43,176  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:47:43,179  INFO AdminOperationImpl,main:156 - 
+16:47:43,179  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:47:43,179  INFO AdminOperationImpl,main:158 - 
+16:47:43,179  INFO AdminOperationImpl,main:169 - 
+16:47:43,180  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:47:54,377  INFO AdminOperationImpl,main:29 - No Notifications
+16:47:54,377  INFO AdminOperationImpl,main:156 - 
+16:47:54,377  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:47:54,377  INFO AdminOperationImpl,main:158 - 
+16:47:54,377  INFO AdminOperationImpl,main:169 - 
+16:47:54,378  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:48:08,945  INFO AdminOperationImpl,main:178 - Student Registration Status: 0
+16:48:08,945  INFO AdminOperationImpl,main:184 - 
+Select Course Ids from below given Course Catalog
+16:48:08,945  INFO AdminOperationImpl,main:186 - 
+For complusory enter 0 and for alternative enter 1
+16:48:08,945  INFO AdminOperationImpl,main:89 - 
+16:48:08,946  INFO AdminOperationImpl,main:91 - ===================================================================================
+16:48:08,948  INFO AdminOperationImpl,main:111 - Course Catalog: 
+16:48:08,948  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+16:48:08,948  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+16:48:08,949  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:48:08,949  INFO AdminOperationImpl,main:93 - 
+16:48:08,951  INFO AdminOperationImpl,main:95 - ===================================================================================
+16:48:08,958  INFO AdminOperationImpl,main:98 - Add Compulsory Courses
+16:48:13,825  INFO AdminOperationImpl,main:100 - Add Alternative Courses
+16:48:16,093  INFO AdminOperationImpl,main:106 - Course Added Successfully.
+16:48:16,093  INFO AdminOperationImpl,main:113 - Course Added Successfully.
+16:48:16,093  INFO AdminOperationImpl,main:156 - 
+16:48:16,093  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:48:16,093  INFO AdminOperationImpl,main:158 - 
+16:48:16,093  INFO AdminOperationImpl,main:169 - 
+16:48:16,093  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:48:18,894  INFO AdminOperationImpl,main:156 - 
+16:48:18,894  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:48:18,894  INFO AdminOperationImpl,main:158 - 
+16:48:18,894  INFO AdminOperationImpl,main:169 - 
+16:48:18,895  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:48:21,053  INFO AdminOperationImpl,main:61 - 
+16:48:21,053  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:48:21,053  INFO AdminOperationImpl,main:64 - 
+16:48:21,053  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:48:21,053  INFO AdminOperationImpl,main:69 - 
+16:48:21,053  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:48:21,053  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:48:23,136  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:48:23,136  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:48:23,136  INFO AdminOperationImpl,main:79 - 
+16:48:23,136  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:48:23,136  INFO AdminOperationImpl,main:82 - Enter your role
+16:48:34,034  INFO AdminOperationImpl,main:113 - 
+16:48:34,034  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:48:34,036  INFO AdminOperationImpl,main:66 - 
+16:48:34,036  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:48:34,036  INFO AdminOperationImpl,main:68 - 
+16:48:34,036  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:48:34,036  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:48:34,036  INFO AdminOperationImpl,main:77 - 5. Exit
+16:48:34,036  INFO AdminOperationImpl,main:78 - 
+16:48:34,036  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:48:34,036  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:48:34,036  INFO AdminOperationImpl,main:81 - 
+16:48:36,308  INFO AdminOperationImpl,main:66 - 
+16:48:36,308  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:48:36,308  INFO AdminOperationImpl,main:68 - 
+16:48:36,308  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:48:36,308  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:48:36,308  INFO AdminOperationImpl,main:77 - 5. Exit
+16:48:36,308  INFO AdminOperationImpl,main:78 - 
+16:48:36,308  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:48:36,308  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:48:36,308  INFO AdminOperationImpl,main:81 - 
+16:49:21,912  INFO AdminOperationImpl,main:61 - 
+16:49:21,912  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:49:21,912  INFO AdminOperationImpl,main:64 - 
+16:49:21,912  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:49:21,912  INFO AdminOperationImpl,main:69 - 
+16:49:21,912  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:49:21,913  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:49:26,930  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:49:26,930  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:49:26,930  INFO AdminOperationImpl,main:79 - 
+16:49:26,930  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:49:26,930  INFO AdminOperationImpl,main:82 - Enter your role
+16:49:34,710  INFO AdminOperationImpl,main:100 - 
+16:49:34,711  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:49:34,713  INFO AdminOperationImpl,main:156 - 
+16:49:34,713  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:49:34,714  INFO AdminOperationImpl,main:158 - 
+16:49:34,714  INFO AdminOperationImpl,main:169 - 
+16:49:34,714  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:49:36,993  INFO AdminOperationImpl,main:27 - Registration Rejected!! Register Again
+16:49:36,994  INFO AdminOperationImpl,main:156 - 
+16:49:36,994  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:49:36,994  INFO AdminOperationImpl,main:158 - 
+16:49:36,994  INFO AdminOperationImpl,main:169 - 
+16:49:36,994  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:56:17,378  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:56:17,381  INFO AdminOperationImpl,main:52 - 
+16:56:17,388  INFO AdminOperationImpl,main:61 - 
+16:56:17,388  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:56:17,388  INFO AdminOperationImpl,main:64 - 
+16:56:17,388  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:56:17,388  INFO AdminOperationImpl,main:69 - 
+16:56:17,388  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:56:17,388  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:56:20,689  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:56:20,689  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:56:20,690  INFO AdminOperationImpl,main:79 - 
+16:56:20,690  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:56:20,690  INFO AdminOperationImpl,main:82 - Enter your role
+16:56:21,731  INFO AdminOperationImpl,main:124 - Enter the Details for Registration
+16:56:24,303  INFO AdminOperationImpl,main:128 - 
+Enter Email: 
+16:56:34,243  INFO AdminOperationImpl,main:61 - 
+16:56:34,244  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:56:34,244  INFO AdminOperationImpl,main:64 - 
+16:56:34,244  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:56:34,244  INFO AdminOperationImpl,main:69 - 
+16:56:34,244  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:56:34,244  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:56:35,531  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:56:35,531  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:56:35,531  INFO AdminOperationImpl,main:79 - 
+16:56:35,531  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:56:35,531  INFO AdminOperationImpl,main:82 - Enter your role
+16:56:45,022  INFO AdminOperationImpl,main:113 - 
+16:56:45,022  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:56:45,036  INFO AdminOperationImpl,main:66 - 
+16:56:45,036  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:56:45,036  INFO AdminOperationImpl,main:68 - 
+16:56:45,036  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:56:45,036  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:56:45,036  INFO AdminOperationImpl,main:77 - 5. Exit
+16:56:45,036  INFO AdminOperationImpl,main:78 - 
+16:56:45,036  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:56:45,036  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:56:45,036  INFO AdminOperationImpl,main:81 - 
+16:56:48,158  INFO AdminOperationImpl,main:66 - 
+16:56:48,158  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:56:48,158  INFO AdminOperationImpl,main:68 - 
+16:56:48,158  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:56:48,158  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:56:48,158  INFO AdminOperationImpl,main:77 - 5. Exit
+16:56:48,158  INFO AdminOperationImpl,main:78 - 
+16:56:48,158  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:56:48,158  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:56:48,158  INFO AdminOperationImpl,main:81 - 
+16:56:49,826  INFO AdminOperationImpl,main:61 - 
+16:56:49,827  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:56:49,828  INFO AdminOperationImpl,main:64 - 
+16:56:49,828  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:56:49,828  INFO AdminOperationImpl,main:69 - 
+16:56:49,828  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:56:49,829  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:56:50,536  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:56:50,536  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:56:50,537  INFO AdminOperationImpl,main:79 - 
+16:56:50,537  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:56:50,537  INFO AdminOperationImpl,main:82 - Enter your role
+16:56:57,591 DEBUG AuthenticationDAOImpl,main:81 - 
+'Pending Approval from Admin'
+16:56:57,591  INFO AdminOperationImpl,main:122 - 
+invalid credentials
+16:56:57,591  INFO AdminOperationImpl,main:61 - 
+16:56:57,591  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:56:57,592  INFO AdminOperationImpl,main:64 - 
+16:56:57,592  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:56:57,592  INFO AdminOperationImpl,main:69 - 
+16:56:57,593  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:56:57,593  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:57:05,516  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:57:05,516  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:57:05,516  INFO AdminOperationImpl,main:79 - 
+16:57:05,516  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:57:05,516  INFO AdminOperationImpl,main:82 - Enter your role
+16:57:13,478  INFO AdminOperationImpl,main:113 - 
+16:57:13,478  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:57:13,480  INFO AdminOperationImpl,main:66 - 
+16:57:13,480  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:57:13,480  INFO AdminOperationImpl,main:68 - 
+16:57:13,480  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:57:13,481  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:57:13,482  INFO AdminOperationImpl,main:77 - 5. Exit
+16:57:13,482  INFO AdminOperationImpl,main:78 - 
+16:57:13,482  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:57:13,482  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:57:13,482  INFO AdminOperationImpl,main:81 - 
+16:57:17,345  INFO AdminOperationImpl,main:66 - 
+16:57:17,345  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:57:17,345  INFO AdminOperationImpl,main:68 - 
+16:57:17,345  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:57:17,345  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:57:17,345  INFO AdminOperationImpl,main:77 - 5. Exit
+16:57:17,345  INFO AdminOperationImpl,main:78 - 
+16:57:17,345  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:57:17,345  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:57:17,345  INFO AdminOperationImpl,main:81 - 
+16:57:20,319  INFO AdminOperationImpl,main:61 - 
+16:57:20,319  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:57:20,319  INFO AdminOperationImpl,main:64 - 
+16:57:20,319  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:57:20,319  INFO AdminOperationImpl,main:69 - 
+16:57:20,319  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:57:20,319  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:57:21,689  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:57:21,689  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:57:21,689  INFO AdminOperationImpl,main:79 - 
+16:57:21,689  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:57:21,689  INFO AdminOperationImpl,main:82 - Enter your role
+16:57:29,635  INFO AdminOperationImpl,main:100 - 
+16:57:29,635  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+16:57:29,638  INFO AdminOperationImpl,main:156 - 
+16:57:29,639  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:57:29,639  INFO AdminOperationImpl,main:158 - 
+16:57:29,640  INFO AdminOperationImpl,main:169 - 
+16:57:29,640  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:57:30,984  INFO AdminOperationImpl,main:178 - Student Registration Status: 0
+16:57:30,984  INFO AdminOperationImpl,main:184 - 
+Select Course Ids from below given Course Catalog
+16:57:30,984  INFO AdminOperationImpl,main:186 - 
+For complusory enter 0 and for alternative enter 1
+16:57:30,985  INFO AdminOperationImpl,main:89 - 
+16:57:30,985  INFO AdminOperationImpl,main:91 - ===================================================================================
+16:57:30,989  INFO AdminOperationImpl,main:111 - Course Catalog: 
+16:57:30,990  INFO AdminOperationImpl,main:113 -                    1                  C++                Brown                    C
+
+16:57:30,990  INFO AdminOperationImpl,main:113 -                    2                    C              Johnson                 None
+
+16:57:30,990  INFO AdminOperationImpl,main:113 -                    3               python                Smith                 None
+
+16:57:30,990  INFO AdminOperationImpl,main:113 -                    4                Scala                Davis                 None
+
+16:57:30,990  INFO AdminOperationImpl,main:113 -                    5             Solidity                White                 None
+
+16:57:30,991  INFO AdminOperationImpl,main:113 -                    6                 Java                Smith                 None
+
+16:57:30,991  INFO AdminOperationImpl,main:113 -                    7       Data Structure              Johnson                 Java
+
+16:57:30,991  INFO AdminOperationImpl,main:113 -                    8           Algorithms                Brown       Data Structure
+
+16:57:30,991  INFO AdminOperationImpl,main:113 -                    9      Web Development                Davis                 None
+
+16:57:30,992  INFO AdminOperationImpl,main:113 -                   10             Database                White                 None
+
+16:57:30,992  INFO AdminOperationImpl,main:113 -                   11     Machine Learning                  Lee Data Structure and Algorithms
+
+16:57:30,992  INFO AdminOperationImpl,main:113 -                   12 Artificial Intelligence                Clark     Machine Learning
+
+16:57:30,992  INFO AdminOperationImpl,main:113 -                   13    Computer Graphics             Anderson       Data Structure
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   14 Software Engineering                 Hall       Java, Database
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   15     Network Security                Lewis                 None
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   16    Operating Systems               Turner      Data Structures
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   17      App Development                Moore                 Java
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   18             Robotics                Adams Algorithms, Electronics
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   19  Ethics in Computing               Martin                 None
+
+16:57:30,993  INFO AdminOperationImpl,main:113 -                   20      Cloud Computing               Wilson Database, Operating Systems
+
+16:57:30,993  INFO AdminOperationImpl,main:93 - 
+16:57:30,993  INFO AdminOperationImpl,main:95 - ===================================================================================
+16:57:30,995  INFO AdminOperationImpl,main:98 - Add Compulsory Courses
+16:57:33,373  INFO AdminOperationImpl,main:100 - Add Alternative Courses
+16:57:34,931  INFO AdminOperationImpl,main:106 - Course Added Successfully.
+16:57:34,932  INFO AdminOperationImpl,main:113 - Course Added Successfully.
+16:57:34,932  INFO AdminOperationImpl,main:156 - 
+16:57:34,932  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:57:34,932  INFO AdminOperationImpl,main:158 - 
+16:57:34,932  INFO AdminOperationImpl,main:169 - 
+16:57:34,932  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:57:38,267  INFO AdminOperationImpl,main:156 - 
+16:57:38,267  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+16:57:38,267  INFO AdminOperationImpl,main:158 - 
+16:57:38,267  INFO AdminOperationImpl,main:169 - 
+16:57:38,267  INFO AdminOperationImpl,main:170 - ===================================================================================
+16:57:42,675  INFO AdminOperationImpl,main:61 - 
+16:57:42,676  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:57:42,676  INFO AdminOperationImpl,main:64 - 
+16:57:42,676  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:57:42,676  INFO AdminOperationImpl,main:69 - 
+16:57:42,676  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:57:42,676  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+16:57:45,109  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+16:57:45,109  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+16:57:45,109  INFO AdminOperationImpl,main:79 - 
+16:57:45,109  INFO AdminOperationImpl,main:80 - ===================================================================================
+16:57:45,109  INFO AdminOperationImpl,main:82 - Enter your role
+16:57:51,342  INFO AdminOperationImpl,main:113 - 
+16:57:51,342  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+16:57:51,350  INFO AdminOperationImpl,main:66 - 
+16:57:51,350  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:57:51,351  INFO AdminOperationImpl,main:68 - 
+16:57:51,351  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:57:51,351  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:57:51,351  INFO AdminOperationImpl,main:77 - 5. Exit
+16:57:51,351  INFO AdminOperationImpl,main:78 - 
+16:57:51,351  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:57:51,351  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:57:51,351  INFO AdminOperationImpl,main:81 - 
+16:57:53,903  INFO AdminOperationImpl,main:66 - 
+16:57:53,903  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:57:53,903  INFO AdminOperationImpl,main:68 - 
+16:57:53,903  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:57:53,903  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:57:53,903  INFO AdminOperationImpl,main:77 - 5. Exit
+16:57:53,903  INFO AdminOperationImpl,main:78 - 
+16:57:53,903  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:57:53,903  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:57:53,903  INFO AdminOperationImpl,main:81 - 
+16:58:47,591  INFO AdminOperationImpl,main:66 - 
+16:58:47,592  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:58:47,592  INFO AdminOperationImpl,main:68 - 
+16:58:47,592  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:58:47,592  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:58:47,592  INFO AdminOperationImpl,main:77 - 5. Exit
+16:58:47,592  INFO AdminOperationImpl,main:78 - 
+16:58:47,592  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:58:47,592  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:58:47,592  INFO AdminOperationImpl,main:81 - 
+16:59:14,342  INFO AdminOperationImpl,main:66 - 
+16:59:14,342  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+16:59:14,342  INFO AdminOperationImpl,main:68 - 
+16:59:14,342  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+16:59:14,342  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+16:59:14,342  INFO AdminOperationImpl,main:77 - 5. Exit
+16:59:14,342  INFO AdminOperationImpl,main:78 - 
+16:59:14,342  INFO AdminOperationImpl,main:79 - ===================================================================================
+16:59:14,342  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+16:59:14,342  INFO AdminOperationImpl,main:81 - 
+16:59:58,067  INFO AdminOperationImpl,main:46 - ===================================================================================
+16:59:58,070  INFO AdminOperationImpl,main:52 - 
+16:59:58,076  INFO AdminOperationImpl,main:61 - 
+16:59:58,077  INFO AdminOperationImpl,main:63 - ===================================================================================
+16:59:58,077  INFO AdminOperationImpl,main:64 - 
+16:59:58,077  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+16:59:58,077  INFO AdminOperationImpl,main:69 - 
+16:59:58,077  INFO AdminOperationImpl,main:70 - ===================================================================================
+16:59:58,077  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+17:00:07,953  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+17:00:07,954  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+17:00:07,954  INFO AdminOperationImpl,main:79 - 
+17:00:07,954  INFO AdminOperationImpl,main:80 - ===================================================================================
+17:00:07,954  INFO AdminOperationImpl,main:82 - Enter your role
+17:00:15,625  INFO AdminOperationImpl,main:113 - 
+17:00:15,625  INFO AdminOperationImpl,main:114 - You are logged in successfully as a Admin
+17:00:15,703  INFO AdminOperationImpl,main:66 - 
+17:00:15,703  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+17:00:15,704  INFO AdminOperationImpl,main:68 - 
+17:00:15,704  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+17:00:15,704  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+17:00:15,704  INFO AdminOperationImpl,main:77 - 5. Exit
+17:00:15,704  INFO AdminOperationImpl,main:78 - 
+17:00:15,704  INFO AdminOperationImpl,main:79 - ===================================================================================
+17:00:15,704  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+17:00:15,704  INFO AdminOperationImpl,main:81 - 
+17:00:18,825  INFO AdminOperationImpl,main:66 - 
+17:00:18,825  INFO AdminOperationImpl,main:67 - ============================ Admin Menu ===========================================
+17:00:18,825  INFO AdminOperationImpl,main:68 - 
+17:00:18,825  INFO AdminOperationImpl,main:69 - 1. Approve Student Registration
+17:00:18,825  INFO AdminOperationImpl,main:75 - 4. Assign courses to Professor
+17:00:18,825  INFO AdminOperationImpl,main:77 - 5. Exit
+17:00:18,825  INFO AdminOperationImpl,main:78 - 
+17:00:18,826  INFO AdminOperationImpl,main:79 - ===================================================================================
+17:00:18,826  INFO AdminOperationImpl,main:80 - Enter your Choice: 
+17:00:18,826  INFO AdminOperationImpl,main:81 - 
+17:00:28,509  INFO AdminOperationImpl,main:61 - 
+17:00:28,509  INFO AdminOperationImpl,main:63 - ===================================================================================
+17:00:28,509  INFO AdminOperationImpl,main:64 - 
+17:00:28,510  INFO AdminOperationImpl,main:65 - 1. Login
+2. Registration
+3. Update Password
+4. Exit
+17:00:28,510  INFO AdminOperationImpl,main:69 - 
+17:00:28,510  INFO AdminOperationImpl,main:70 - ===================================================================================
+17:00:28,510  INFO AdminOperationImpl,main:71 - 
+Enter your choice: 
+17:00:31,274  INFO AdminOperationImpl,main:74 - 
+===================================================================================
+17:00:31,274  INFO AdminOperationImpl,main:75 - 
+1. Student
+2. Professor
+3. Admin
+17:00:31,274  INFO AdminOperationImpl,main:79 - 
+17:00:31,274  INFO AdminOperationImpl,main:80 - ===================================================================================
+17:00:31,275  INFO AdminOperationImpl,main:82 - Enter your role
+17:00:38,502  INFO AdminOperationImpl,main:100 - 
+17:00:38,502  INFO AdminOperationImpl,main:101 - 
+You are logged in successfully as a student
+17:00:38,513  INFO AdminOperationImpl,main:156 - 
+17:00:38,515  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+17:00:38,515  INFO AdminOperationImpl,main:158 - 
+17:00:38,515  INFO AdminOperationImpl,main:169 - 
+17:00:38,515  INFO AdminOperationImpl,main:170 - ===================================================================================
+17:00:41,336  INFO AdminOperationImpl,main:27 - Registration Rejected!! Register Again
+17:00:41,336  INFO AdminOperationImpl,main:156 - 
+17:00:41,336  INFO AdminOperationImpl,main:157 - ============================ Student Menu =========================================
+17:00:41,336  INFO AdminOperationImpl,main:158 - 
+17:00:41,336  INFO AdminOperationImpl,main:169 - 
+17:00:41,336  INFO AdminOperationImpl,main:170 - ===================================================================================
+17:11:04,391  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:11:04,399  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:11:04,409  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:11:04,411  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+17:11:04,411  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+17:11:50,531  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:11:50,554  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:11:50,560  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:12:26,801  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+17:12:26,809  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+17:15:35,595  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:15:35,603  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:15:35,622  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:15:35,623  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+17:15:35,624  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+17:15:43,469  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:15:43,484  INFO AdminOperationTest,main:45 - 
+Test Completed
+17:15:43,490  INFO AdminOperationTest,main:45 - 
+Test Completed
+=======
+>>>>>>> c18ac3d6daeff85a461ebc00d9b18e5fd1d065c6
+12:44:04,919  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:04,932  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:04,938  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:04,940  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+12:44:04,940  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+12:44:17,838  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:17,853  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:44:17,858  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,391  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,401  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,408  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:22,411  INFO AdminOperationImpl,main:79 - Choose from below given student ids
+12:45:22,411  INFO AdminOperationImpl,main:84 - Enter the StudentId: 
+12:45:24,645  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:24,647  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:24,653  INFO AdminOperationTest,main:45 - 
+Test Completed
+12:45:35,829  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:45:35,834  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:46:16,923  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:46:16,929  INFO AuthenticationOperationTest,main:39 - 
+Test Completed
+12:47:14,275  INFO AdminOperationImpl,main:29 - No Notifications
+12:50:15,757  INFO AdminOperationImpl,main:405 - userId
+12:50:15,759  INFO AdminOperationImpl,main:405 - userId
+12:50:41,685  INFO AdminOperationImpl,main:405 - userId
+12:50:41,687  INFO AdminOperationImpl,main:405 - userId
+12:51:07,473  INFO AdminOperationImpl,main:405 - userId
+12:51:07,475  INFO AdminOperationImpl,main:405 - userId
+12:53:47,918  INFO AdminOperationImpl,main:405 - userId
+12:53:47,920  INFO AdminOperationImpl,main:405 - userId
+12:54:20,022  INFO AdminOperationImpl,main:405 - userId
+12:54:20,027  INFO AdminOperationImpl,main:405 - userId
