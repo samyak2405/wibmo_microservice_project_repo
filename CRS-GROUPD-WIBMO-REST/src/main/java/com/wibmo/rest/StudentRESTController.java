@@ -27,12 +27,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.GradeCard;
 import com.wibmo.model.StudentCourseMap;
+import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
 import com.wibmo.exception.CourseLimitExceededException;
@@ -43,6 +45,7 @@ import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AdminOperationImpl;
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
+import com.wibmo.service.PaymentOperation;
 import com.wibmo.service.StudentOperation;
 import com.wibmo.service.StudentOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
@@ -64,6 +67,9 @@ public class StudentRESTController {
 	
 	@Autowired
 	public ClientValidatorImpl clientValidator;
+	 
+	@Autowired
+	public PaymentOperation payment;
 	Scanner scan=new Scanner(System.in);
 	
 	
@@ -220,10 +226,68 @@ public class StudentRESTController {
  	   }
 	}
 	
+	
+	
 	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.GET)
 	public ResponseEntity<List<CourseCatalog>> viewCourseCatalog()
 	{
 		return ResponseEntity.ok(studentOp.viewCourseCatalog()); 
+	}
+	
+	
+	/**
+	 * payFee
+	 * @param userId
+	 * @param paymentMethod
+	 * @param onlineMethod
+	 * @return message if payment is successful or not
+	 */
+	
+	@RequestMapping(value="/student/{id}/payfee/{paymentMethod}",method = RequestMethod.POST)
+	public ResponseEntity payFee(@PathVariable(value="id") int userId,@PathVariable(value="paymentMethod") String paymentMethod ,@RequestParam(required = false) String onlineMethod) {
+		  boolean status=false;
+		 if(studentOp.isApproved(userId)) {
+			 
+	    	   if(paymentMethod.equals("offline"))
+	    	   {
+	    		   status=payment.offline(userId);
+	    		   System.out.println(status);
+	 	  		  payment.recordPayment(userId, status);
+	 	  		  
+	    	   }
+	    	   if(paymentMethod.equals("online")) {
+	    		  if(onlineMethod=="UPI") {
+	    			  status=payment.UPI(userId);
+	        		  payment.recordPayment(userId, status);
+	    		  }
+	    		  else if(onlineMethod.equals("Cards")) {
+	    			  status=payment.cards(userId);
+	        		  payment.recordPayment(userId, status);
+	    		  }
+	    		  else if(onlineMethod.equals("Wallet")) {
+	    			  status=payment.wallet(userId);
+	        		  payment.recordPayment(userId, status);  
+	    		  }
+	    		   
+	    		   
+	    	   }
+	    	   if(status==true)
+	 	  	  {
+	 	  		  notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
+	 	  		  return new ResponseEntity("Payment Successful",HttpStatus.OK);
+
+	 	  	  }
+	 	  	  	
+	 	  	  else
+	 	  	  {
+	 				  notificationOp.sendNotification(NotificationConstants.PAYMENT_REJECTED_NOTIFICATION, userId);
+	 				 return new ResponseEntity("Payment Failed",HttpStatus.NOT_ACCEPTABLE);
+	 	  	  }
+	    	   }
+	     else {
+	    	 return new ResponseEntity("Student courses are not approved by admin",HttpStatus.NOT_ACCEPTABLE);
+	    	   }
+		 
 	}
 	
 
