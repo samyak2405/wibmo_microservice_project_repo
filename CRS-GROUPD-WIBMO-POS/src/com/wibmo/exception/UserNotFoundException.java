@@ -15,6 +15,11 @@ public class UserNotFoundException extends Exception {
 		
 	}
 	
+	
+	/**
+	 * UserNotFoundException
+	 * @param userId
+	 */
 	public UserNotFoundException (long userId) {
 		this.userId = userId;
 	}

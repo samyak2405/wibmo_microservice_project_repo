@@ -71,10 +71,34 @@ public interface StudentOperation {
 	 */
 	public boolean isApproved(int userId) ;
 
+	
+	/**
+	 * To get id of student
+	 * @param userEmail
+	 * @return id
+	 */
 	public int getStudentByEmail(String userEmail);
-
+     
+	/**
+	 * To get list of  courseId,CoursePreference registered by specific student
+	 * @param userId
+	 * @return map of courseId,course Preference
+	 */
 	public Map<Integer, String> getAddedCourses(int userId);
+	
+	/**
+	 * To know if student is registered or not
+	 * @param userId
+	 * @return 1 if student is registered and 0 if student is not registered
+	 */
 	public int isStudentRegistered(int userId);
+	
+	/**
+	 
+	 * @param studentId
+	 * @param courseId
+	 * @param coursePref
+	 */
 	public void AddSingleCourse(int studentId,int courseId,int coursePref);
 	
 }

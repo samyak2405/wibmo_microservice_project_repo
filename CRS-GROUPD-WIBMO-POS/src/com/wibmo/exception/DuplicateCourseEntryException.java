@@ -13,6 +13,12 @@ public class DuplicateCourseEntryException extends Exception {
 		
 	}
 	
+	
+	/**
+	 * DuplicateCourseEntryException
+	 * @param courseId
+	 */
+	
 	public DuplicateCourseEntryException(int courseId) {
 		this.courseId = courseId;
 	}
