@@ -68,7 +68,7 @@ public interface StudentDAO {
 	public boolean isApproved(int userId);
 	/**
 	 * To search a student by ID in database using SQL queries.
-	 * @param userId
+	 * @param studentId
 	 * @return
 	 */
 	public boolean searchStudentByID(int studentId);

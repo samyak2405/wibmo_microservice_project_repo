@@ -10,7 +10,9 @@ import java.util.List;
 import com.wibmo.bean.User;
 import com.wibmo.exception.*;
 import com.wibmo.dao.*;
-
+/**
+ * For performing various professor operations
+ */
 public interface ProfessorOperation {
 	
 	/**

@@ -9,7 +9,7 @@ package com.wibmo.dao;
 public interface AuthenticationDAO {
 	/**
 	 * To if if credentials used for logging in are correct using SQL queries.
-	 * @param userid
+	 * @param userEmail
 	 * @param password
 	 * @param role
 	 * @return True if credentials are correct else returns false.
@@ -18,7 +18,7 @@ public interface AuthenticationDAO {
 
 	/**
 	 * To if if credentials used for changing password are correct using SQL queries.
-	 * @param userId
+	 * @param userEmail
 	 * @param password
 	 * @param role
 	 */

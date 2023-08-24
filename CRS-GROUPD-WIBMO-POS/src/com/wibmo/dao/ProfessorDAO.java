@@ -52,7 +52,7 @@ public interface ProfessorDAO {
 	public void registerProfessor(Professor professor);
 	/**
 	 * To search a new professor in the database using SQL queries.
-	 * @param userId
+	 * @param userEmail
 	 * @return True if professor of given userId present else returns false.
 	 */
 	public boolean searchProfessor(String userEmail);

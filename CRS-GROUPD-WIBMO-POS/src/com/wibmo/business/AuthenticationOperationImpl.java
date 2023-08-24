@@ -4,7 +4,7 @@
 package com.wibmo.business;
 import com.wibmo.dao.*;
 /**
- * 
+ * Implementation of Authentication operations
  */
 public class AuthenticationOperationImpl implements AuthenticationOperation{
 	

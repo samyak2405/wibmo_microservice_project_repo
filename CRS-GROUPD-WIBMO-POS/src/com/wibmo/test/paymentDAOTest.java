@@ -11,7 +11,9 @@ import com.wibmo.business.PaymentOperation;
 import com.wibmo.business.PaymentOperationImpl;
 import com.wibmo.dao.paymentDAO;
 import com.wibmo.dao.paymentDAOImpl;
-
+/**
+ *  Testing of paymentDAO
+ */
 public class paymentDAOTest {
 	 paymentDAO paymentdao=null;
      Payment payment=null;

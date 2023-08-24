@@ -23,7 +23,8 @@ public interface StudentOperation {
 	/**
 	 * To add new course for registration
 	 * @param studCoMap
-	 * @throws DuplicateCourseEntryException
+	 * @throws CourseNotFoundException
+	 * @throws CourseLimitExceededException
 	 */
 	public void addCourses(StudentCourseMap studCoMap) throws CourseNotFoundException,CourseLimitExceededException ;
 	
@@ -60,7 +61,7 @@ public interface StudentOperation {
 	/**
 	 * To view the Grade card of all the courses of a student.
 	 * @param studId
-	 * @throws UserNotFoundException
+	 * @throws UserNotApprovedException
 	 */
 	public void viewReportCard(int studId) throws UserNotApprovedException;
 

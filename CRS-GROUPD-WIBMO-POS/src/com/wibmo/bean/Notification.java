@@ -20,7 +20,8 @@ public class Notification {
 	}
 	
 	/**
-	 * @param Set the Notification ID
+	 * 
+	 * @param id
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -34,7 +35,8 @@ public class Notification {
 	}
 	
 	/**
-	 * @param Set Notification Message
+	 * 
+	 * @param notificationMessage
 	 */
 	public void setNotificationMessage(String notificationMessage) {
 		this.notificationMessage = notificationMessage;
