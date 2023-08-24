@@ -68,7 +68,11 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 								return true;
 							}
 							else {
+<<<<<<< HEAD
 								logger.debug("\n'Pending Approval from Admin'");
+=======
+								
+>>>>>>> 18360a529b57e3067975408aeee6b642ceed7c20
 								return false;
 							}
 								
@@ -78,17 +82,28 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 							
 					}
 					else 
+<<<<<<< HEAD
 						logger.debug("\nInvalid Credentials\n");
+=======
+						
+>>>>>>> 18360a529b57e3067975408aeee6b642ceed7c20
 					
 					return false;
 				}
 		        
 			}catch(SQLException se){
 			      //Handle errors for JDBC
+<<<<<<< HEAD
 			      logger.error("SQL Exception: "+se.getMessage());
 			   }catch(Exception e){
 			      //Handle errors for Class.forName
 				   logger.error("Unknown Exception");
+=======
+			      
+			   }catch(Exception e){
+			      //Handle errors for Class.forName
+				   
+>>>>>>> 18360a529b57e3067975408aeee6b642ceed7c20
 			   }
 			
 			return false;
