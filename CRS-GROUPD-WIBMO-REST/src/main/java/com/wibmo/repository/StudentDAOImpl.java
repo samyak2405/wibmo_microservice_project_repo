@@ -383,7 +383,6 @@ public class StudentDAOImpl implements StudentDAO{
 					return true;
 				}
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

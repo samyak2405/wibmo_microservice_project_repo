@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.model.CourseCatalog;
 import com.wibmo.model.GradeCard;
+import com.wibmo.model.Notification;
 import com.wibmo.model.StudentCourseMap;
 import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dto.AddCourseDto;
@@ -67,7 +68,7 @@ public class StudentRESTController {
 	
 	@Autowired
 	public ClientValidatorImpl clientValidator;
-	 
+	
 	@Autowired
 	public PaymentOperation payment;
 	Scanner scan=new Scanner(System.in);
@@ -83,84 +84,65 @@ public class StudentRESTController {
 	}
 	
 	
-	
-	
-//	public int addCompulsoryCourse(AddCourseDto addCourseDto,int compulsory) {
-//		int compulsoryCourses = compulsory;
-//		int course = 0;
-//		while(compulsoryCourses > 0) {
-//	 		   System.out.print("\nEnter the Course Id: ");
-//	     	   int courseId = scan.nextInt();
-//	     	   course = courseId;
-//	     	   if(addCourseDto.getCourses().containsKey(courseId))
-//	     	   {
-//	     		   log.info("You entered duplicate choice. Please add another Course");
-//	     		   continue;
-//	     	   }
-//	     	   addCourseDto.getCourses().put(courseId, 0);
-//	     	  compulsoryCourses--;
-//		}
-//		return course;
-//	}
-	
-//	public int addAlternativeCourse(AddCourseDto addCourseDto,int alternative) {
-//		int alternativeCourses = alternative;
-//		int course = 0;
-//		while(alternativeCourses > 0) {
-//	 		   System.out.print("\nEnter the Course Id: ");
-//	     	   int courseId = scan.nextInt();
-//	     	   course = courseId;
-//	     	   if(addCourseDto.getCourses().containsKey(courseId))
-//	     	   {
-//	     		   log.info("You entered duplicate choice. Please add another Course");
-//	     		   continue;
-//	     	   }
-//	     	  addCourseDto.getCourses().put(courseId, 1);
-//	     	  alternativeCourses--;
-//		}
-//		return course;
-//	}
-	
-	
-	
-	
+	/**
+	 * To add course preferences for the registration.
+	 * @param userId
+	 * @param addCourseDto
+	 * @return A message if the courses are added successfully or not.
+	 */
 	@RequestMapping(value="/student/{id}/addCourse",method = RequestMethod.POST)
-	public String addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
+	public ResponseEntity addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
 	{
-		
    		int isRegistered = studentOp.isStudentRegistered(userId);
 		//log.info("Student Registration Status: "+isRegistered);
 		if(isRegistered==1)
 		{
-			return "Your Registration is completed. You can't add courses";
+			return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
 			
 		}
-// 	   return "\nSelect Course Ids from below given Course Catalog";
-//  	   System.out.print("\nYou have to select 4 complusory and 2 Alternative");
-//  	   log.info("\nFor complusory enter 0 and for alternative enter 1");
-//  	   
-//		log.info("");
-//
-//        log.info("===================================================================================");
-// 	   studentOp.viewCourseCatalog();
-// 	  log.info("");
-//
-//      log.info("===================================================================================");
+		
+		int primaryCount=0;
+		int alternativeCount=0;
+        for (Map.Entry<Integer,Integer> entry : addCourseDto.getCourses().entrySet()) 
+        {
+            if(entry.getValue()==0)
+            	primaryCount++;
+            else if(entry.getValue()==1)
+            	alternativeCount++;
+            else
+            	return new ResponseEntity("Wrong Entry",HttpStatus.BAD_REQUEST);
+        }
+        
+        if(primaryCount<4)
+        {
+        	return new ResponseEntity("Insufficient primary courses",HttpStatus.BAD_REQUEST);
+        }
+        else if(primaryCount>4)
+        {
+        	return new ResponseEntity("Primary course exceed the limit",HttpStatus.BAD_REQUEST);
+        }
+        
+        if(alternativeCount<2)
+        {
+        	return new ResponseEntity("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
+        }
+        else if(alternativeCount>2)
+        {
+        	return new ResponseEntity("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
+        }
+        
+		
 		StudentCourseMap studCoMap = new StudentCourseMap();
-// 	   studCoMap.setStudentId(userId);
-// 	   log.info("Add Compulsory Courses");
-// 	   this.addCompulsoryCourse(addCourseDto,4);
-// 	   log.info("Add Alternative Courses");
-// 	   this.addAlternativeCourse(addCourseDto,2);
  	   studCoMap.setCourses(addCourseDto.getCourses());
  	   try {
 		studentOp.addCourses(studCoMap);
-		return "Course Added Successfully.";
-	} catch (CourseNotFoundException e) {
-		return "Course with course id: "+e.getCourseId()+" Not Found!!";
-	}catch(CourseLimitExceededException e)
+		return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.OK); 
+		
+ 	   } catch (CourseNotFoundException e) {
+		return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.NOT_FOUND); 
+ 	   }catch(CourseLimitExceededException e)
  	   {
-		return "Course Limit Exceeded";
+		return new ResponseEntity("Course Limit Exceeded",HttpStatus.CONFLICT); 
  	   }
  	   
 		
@@ -168,53 +150,84 @@ public class StudentRESTController {
 	
 	
 	
+	/**
+	 * To drop an already added course
+	 * @param dropCourseDto
+	 * @return A message if the courses are added successfully or not.
+	 */
 	@RequestMapping(value="/student/{id}/dropCourse",method = RequestMethod.POST)
-	public String dropCourse(@RequestBody DropCourseDTO dropCourseDto)
+	public ResponseEntity dropCourse(@RequestBody DropCourseDTO dropCourseDto)
 	{
 		int isRegistered = studentOp.isStudentRegistered(dropCourseDto.getStudentId());
     	if(isRegistered==1)
 		{
-			return "Your Registration is completed. You can't drop courses";
+    		return new ResponseEntity("\"Your Registration is completed. You can't drop courses\";",HttpStatus.CONFLICT); 
 		}
        try {
  	   int coursePref = studentOp.dropCourses(dropCourseDto.getStudentId(),dropCourseDto.getCourseId()); 
- 	   //courses.remove(dropCourseDto.getCourseId());
  	   
  	   if(coursePref==0) {
- 		   return "You have to add Complusory course";
+   		return new ResponseEntity("You have to add Complusory course",HttpStatus.CONFLICT); 
+
  	   }
  	   if(coursePref==1) {
- 		   return "You have to add Alternative course";
+ 		  return new ResponseEntity("You have to add Alternative course",HttpStatus.CONFLICT); 
  	   }
  	   }
  	   catch(UserNotFoundException e) {
- 		   return "User with id "+e.getUserId()+" is not found";
+ 		   
+ 		  return new ResponseEntity("User with id "+e.getUserId()+" is not found",HttpStatus.NOT_FOUND); 
+ 		   
  	   } catch(CourseNotFoundException e) {
- 		   return "Course with id "+e.getCourseId()+" is not found";
+ 		  return new ResponseEntity("Course with id "+e.getCourseId()+" is not found",HttpStatus.NOT_FOUND); 
  	   }
-       return "Drop Successfull";
+       return new ResponseEntity("Drop is Successful!! ",HttpStatus.OK); 
 	}
 	
+	
+	/**
+	 * To apply for the course registration after the addition of courses has been completed.
+	 * @param userId
+	 * @return
+	 */
 	@RequestMapping(value="/student/{id}/registerCourse",method = RequestMethod.POST)	
-	public void registerCourses(@PathVariable int userId)
+	public ResponseEntity<String> registerCourses(@PathVariable int userId)
 	{
 		studentOp.registerCourses(userId);
+		return ResponseEntity.ok("Applied For Course Registration Successfully");
 	}
 	
-	
-	
+	/**
+	 * To return list of registered courses
+	 * @param userId
+	 * @return a map of registered courses and their course names.
+	 */
 	@RequestMapping(value="/student/{id}/listCourse",method = RequestMethod.POST)
-	public void listCourse(@PathVariable int userId)
+	public ResponseEntity<Map<Integer,String>> listCourse(@PathVariable int userId)
 	{
  	   try {
- 	   studentOp.listCourse(userId);}
+ 		  Map<Integer,String> courses=studentOp.listCourse(userId);
+ 			if(courses.size()==0)
+ 			{
+ 				
+ 		       return new ResponseEntity("Course Registration pending",HttpStatus.TOO_EARLY); 
+ 				
+ 			}
+ 			else 
+ 				return ResponseEntity.ok(courses);
+ 	   }
  	   catch(UserNotApprovedException e) {
- 		   log.info("User with id "+e.getUserId()+" is not approved by admin");
+ 		  return new ResponseEntity("User with id "+e.getUserId()+" is not approved by admin",HttpStatus.NOT_FOUND); 
  	   }
 	}
 	
 	
 	
+	/**
+	 * To view the grade card
+	 * @param userId
+	 * @return a list of grades.
+	 */
 	@RequestMapping(value="/student/{id}/viewReportCard",method = RequestMethod.GET)
 	public ResponseEntity<List<GradeCard>> viewReportCard(@PathVariable(value="id") int userId)
 	{
@@ -226,12 +239,35 @@ public class StudentRESTController {
  	   }
 	}
 	
-	
-	
+	/**
+	 * To view list of courses in the course catalog.
+	 * @return the list of available courses.
+	 */
 	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.GET)
 	public ResponseEntity<List<CourseCatalog>> viewCourseCatalog()
 	{
 		return ResponseEntity.ok(studentOp.viewCourseCatalog()); 
+	}
+	
+	/**
+	 * To view the notifications
+	 * @param studentId
+	 * @return
+	 */
+	@RequestMapping(value="/student/{id}/viewNotifications",method = RequestMethod.GET)
+	public ResponseEntity<List<Notification>> viewNotifications(@PathVariable(name = "id") int studentId)
+	{
+		List<Notification>notifications=notificationOp.getNotificationMessage(studentId);
+		if(notifications!=null)
+		{
+			return ResponseEntity.ok(notifications);
+			
+		}
+		else
+		{
+	 		 return new ResponseEntity("No Notifications",HttpStatus.NOT_FOUND);
+		}
+		
 	}
 	
 	
@@ -289,6 +325,11 @@ public class StudentRESTController {
 	    	   }
 		 
 	}
+	
+	
+	
+	
+
 	
 
 }

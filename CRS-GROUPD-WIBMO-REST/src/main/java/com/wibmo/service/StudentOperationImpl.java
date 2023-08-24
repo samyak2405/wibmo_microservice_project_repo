@@ -94,23 +94,22 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	public void listCourse(int studentId) throws UserNotApprovedException {
+	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if(studentDao.isApproved(studentId)==false)
 		{
 			throw new UserNotApprovedException(studentId);
 		}
-		Map<Integer,String> courses = studentDao.listCourse(studentId);
-		if(courses.size()==0)
-		{
-			log.info("Course Registration pending");
-			return;
-		}
-		log.info("List of Courses Approved");
 		
-		for(Map.Entry<Integer, String> entry: courses.entrySet()) {
-			log.info(String.format("%20s %20s\n", entry.getKey(),entry.getValue()));
-		}
+		Map<Integer,String> courses = studentDao.listCourse(studentId);
+//		if(courses.size()==0)
+//		{
+//			log.info("Course Registration pending");
+//			
+//		}
+//		log.info("List of Courses Approved");
+		return courses;
+		
 	}
 
 	@Override

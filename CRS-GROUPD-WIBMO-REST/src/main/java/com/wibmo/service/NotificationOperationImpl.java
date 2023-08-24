@@ -25,13 +25,14 @@ public class NotificationOperationImpl implements NotificationOperation {
 	public NotificationDAO notification;
 	
 	@Override
-	public void getNotificationMessage(long studentId) 
+	public List<Notification> getNotificationMessage(long studentId) 
 	{
 		List<Notification>notifications=notification.getNotificationMessage(studentId);
-		if(notifications!=null)
-			notifications.forEach(notif->log.info(notif.getNotificationMessage()));
-		else
-			log.info("No Notifications");
+		return notifications;
+//		if(notifications!=null)
+//			notifications.forEach(notif->log.info(notif.getNotificationMessage()));
+//		else
+//			log.info("No Notifications");
 	}
 	
 	public void sendNotification(int notifid, long studentId)
