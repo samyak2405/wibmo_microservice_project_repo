@@ -46,7 +46,10 @@ public class CRSAdminController {
 	String userEmail;
 	int adminId;
 	
-
+	/**
+	 * To approve all the registered students at once
+	 * @return
+	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approveallstudents")
@@ -58,6 +61,12 @@ public class CRSAdminController {
 		return new ResponseEntity("Approved All Students", HttpStatus.OK);
 	}
 	
+	
+	/**
+	 * To approve a student by id
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approvestudentbyid/{id}")
@@ -66,11 +75,15 @@ public class CRSAdminController {
 		try {
 			adminOp.approveStudentById(id);
 		} catch (UserNotFoundException e) {
-			return new ResponseEntity("Student Not Found with ID: "+id,HttpStatus.NOT_FOUND);
+			return new ResponseEntity("Student with id "+e.getUserId()+" is not found. ",HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity("Approved Registration of student with ID: "+id,HttpStatus.OK);
 	}
 	
+	/**
+	 * To approve the course Registration of all the students.
+	 * @return
+	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approvecourseregistration")
@@ -88,6 +101,10 @@ public class CRSAdminController {
 		return new ResponseEntity(responseMessage,HttpStatus.OK);
 	}
 	
+	/**
+	 * To assign a specific course to a professor
+	 * @return
+	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/assigncourseprof")

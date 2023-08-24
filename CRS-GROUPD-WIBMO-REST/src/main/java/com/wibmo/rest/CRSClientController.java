@@ -61,6 +61,15 @@ public class CRSClientController
 	
 	public Logger log=LogManager.getLogger();
 	
+	
+	
+	
+	/**
+	 * User login 
+	 * @param role
+	 * @param loginrequest
+	 * @return message if user is successfully logged in or not.
+	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/login/{role}")
@@ -84,6 +93,19 @@ public class CRSClientController
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	/**
+	 * User Registration
+	 * @param role
+	 * @param user
+	 * @return message if user is successfully registered or not.
+	 */
+	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/register/{role}")
@@ -94,6 +116,7 @@ public class CRSClientController
 		{
 			try {
 				studentOp.registerStudent(user);
+				
 			} catch (StudentAlreadyRegisteredException e) {
 				return new ResponseEntity("Student Already Registerd", HttpStatus.CONFLICT);
 			}
@@ -102,6 +125,7 @@ public class CRSClientController
 		{
 			try {
 				professorOp.registerProfessor(user);
+				
 			} catch (UserAlreadyExistsException e) {
 				return new ResponseEntity("Professor Already Registerd", HttpStatus.CONFLICT);
 			}
@@ -110,6 +134,7 @@ public class CRSClientController
 		{
 			try {
 				adminOp.adminRegistration(user);
+				
 			} catch (UserAlreadyExistsException e) {
 				// TODO Auto-generated catch block
 				return new ResponseEntity("Admin Already Registerd", HttpStatus.CONFLICT);
@@ -118,6 +143,19 @@ public class CRSClientController
 		return new ResponseEntity("Registration Successful", HttpStatus.OK);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Update Password
+	 * @param role
+	 * @param passwordDto
+	 * @return message if password is updated successfully or not.
+	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/updatepassword/{role}")

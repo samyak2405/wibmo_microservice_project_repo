@@ -101,15 +101,16 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			throw new UserNotApprovedException(studentId);
 		}
-		Map<Integer,String> courses = studentDao.listCourse(studentId);
-		if(courses.size()==0)
-		{
-			log.info("Course Registration pending");
-			return new HashMap<>();
-		}
-		log.info("List of Courses Approved");
 		
+		Map<Integer,String> courses = studentDao.listCourse(studentId);
+//		if(courses.size()==0)
+//		{
+//			log.info("Course Registration pending");
+//			
+//		}
+//		log.info("List of Courses Approved");
 		return courses;
+		
 	}
 
 	@Override
