@@ -70,9 +70,10 @@ public class AdminOperationImpl implements AdminOperation{
 	}
 
 	@Override
-	public void approveCourseRegistration() {
+	public List<Boolean> approveCourseRegistration() {
 		// TODO Auto-generated method stub
-		validate.courseRegistrationValidator();
+		List<Boolean> isSuccess = validate.courseRegistrationValidator();
+		return isSuccess;
 	}
 
 	@Override

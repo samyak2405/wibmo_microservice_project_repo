@@ -32,7 +32,7 @@ public interface AdminOperation {
 	/**
 	 * To Approve Student Course Registration
 	 */
-	public void approveCourseRegistration();
+	public List<Boolean> approveCourseRegistration();
  
 	/**
 	 * To Add a new Admin

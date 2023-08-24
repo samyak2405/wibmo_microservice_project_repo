@@ -18,7 +18,7 @@ import com.wibmo.exception.*;
 
 
 /**
- * 
+ * Implementation of various Professor operations
  */
 public class ProfessorOperationImpl implements ProfessorOperation{
 

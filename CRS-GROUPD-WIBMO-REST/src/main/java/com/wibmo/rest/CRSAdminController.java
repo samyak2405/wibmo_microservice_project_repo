@@ -3,6 +3,9 @@
  */
 package com.wibmo.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.core.MediaType;
 
 import org.apache.logging.log4j.LogManager;
@@ -74,7 +77,7 @@ public class CRSAdminController {
 		} catch (UserNotFoundException e) {
 			return new ResponseEntity("Student with id "+e.getUserId()+" is not found. ",HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity(HttpStatus.OK);
+		return new ResponseEntity("Approved Registration of student with ID: "+id,HttpStatus.OK);
 	}
 	
 	/**
@@ -84,10 +87,18 @@ public class CRSAdminController {
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approvecourseregistration")
-	public ResponseEntity approveCourseRegistration()
+	public ResponseEntity<List<String>> approveCourseRegistration()
 	{
-		adminOp.approveCourseRegistration();
-		return new ResponseEntity("Approved Course Registration", HttpStatus.OK);
+		List<Boolean> registrationStatus = adminOp.approveCourseRegistration();
+		List<String> responseMessage = new ArrayList<>();
+		
+		for(Boolean status:registrationStatus) {
+			if(status)
+				responseMessage.add("Student Registration Successful");
+			else
+				responseMessage.add("Student Registration Unsuccessful");
+		}
+		return new ResponseEntity(responseMessage,HttpStatus.OK);
 	}
 	
 	/**

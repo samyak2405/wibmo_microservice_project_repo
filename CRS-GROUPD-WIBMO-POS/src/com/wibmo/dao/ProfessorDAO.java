@@ -52,11 +52,23 @@ public interface ProfessorDAO {
 	public void registerProfessor(Professor professor);
 	/**
 	 * To search a new professor in the database using SQL queries.
-	 * @param userId
+	 * @param userEmail
 	 * @return True if professor of given userId present else returns false.
 	 */
 	public boolean searchProfessor(String userEmail);
+	
+	/**
+	 * 
+	 * @param userEmail
+	 * @return id of professor
+	 */
 	public int getProfessorById(String userEmail);
+	
+	/**
+	 * To get list of courses approved by admin.
+	 * @param userId
+	 * @return list of approved courses
+	 */
 
 	public Map<Integer, String> listOfApprovedCourses(int userId);
 

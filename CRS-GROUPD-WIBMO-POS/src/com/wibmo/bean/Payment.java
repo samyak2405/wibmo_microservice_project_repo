@@ -22,7 +22,8 @@ public class Payment {
 	}
 	
 	/**
-	 * @param Get User Id
+	 * 
+	 * @param userId
 	 */
 	public void setUserId(long userId) {
 		this.userId = userId;
@@ -36,7 +37,8 @@ public class Payment {
 	}
 	
 	/**
-	 * @param Get Transaction Id
+	 * 
+	 * @param transactionId
 	 */
 	public void setTransactionId(long transactionId) {
 		this.transactionId = transactionId;
@@ -50,7 +52,8 @@ public class Payment {
 	}
 	
 	/**
-	 * @param set amount
+	 * 
+	 * @param amount
 	 */
 	public void setAmount(int amount) {
 		this.amount = amount;

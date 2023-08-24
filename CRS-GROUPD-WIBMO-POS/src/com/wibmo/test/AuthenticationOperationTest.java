@@ -15,7 +15,7 @@ import com.wibmo.business.AuthenticationOperation;
 import com.wibmo.business.AuthenticationOperationImpl;
 
 /**
- * 
+ *  Testing of Authentication operations
  */
 public class AuthenticationOperationTest {
 

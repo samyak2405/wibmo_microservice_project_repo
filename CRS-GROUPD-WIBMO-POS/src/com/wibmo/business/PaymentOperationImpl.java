@@ -8,7 +8,7 @@ import com.wibmo.dao.paymentDAO;
 import com.wibmo.dao.paymentDAOImpl;
 
 /**
- * 
+ * Implementation of various Payment operations
  */
 public class PaymentOperationImpl implements PaymentOperation{
 

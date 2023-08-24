@@ -5,6 +5,7 @@ package com.wibmo.test;
 
 import static org.junit.Assert.*;
 
+
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +20,7 @@ import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
 /**
- * 
+ * Testing of Admin operations
  */
 public class AdminOperationTest {
 
@@ -62,7 +63,7 @@ public class AdminOperationTest {
 	}
 
 	/**
-	 * Test method for {@link com.wibmo.business.AdminOperation#addAdmin(com.wibmo.bean.Admin)}.
+	 * Test method for Adding admin.
 	 */
 	@Test
 	public void testAddAdmin() {
@@ -84,7 +85,7 @@ public class AdminOperationTest {
 	}
 
 	/**
-	 * Test method for {@link com.wibmo.business.AdminOperation#adminRegistration(com.wibmo.bean.Admin)}.
+	 * Test method for admin registration.
 	 * @throws UserAlreadyExistsException 
 	 */
 	@Test

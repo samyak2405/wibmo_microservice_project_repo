@@ -10,7 +10,9 @@ import java.util.List;
 import com.wibmo.bean.User;
 import com.wibmo.exception.*;
 import com.wibmo.dao.*;
-
+/**
+ * For performing various professor operations
+ */
 public interface ProfessorOperation {
 	
 	/**
@@ -27,7 +29,7 @@ public interface ProfessorOperation {
    * To request to teach a specific course
    * @param professorid
    * @param courseIdList
-   * @return
+   * @return boolean 
    * @throws CourseNotFoundException
    */
   public boolean requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException;
@@ -51,9 +53,19 @@ public interface ProfessorOperation {
    * @throws UserAlreadyExistsException
    */
   public void registerProfessor(User user)throws UserAlreadyExistsException;
+  
+  /**
+   * To get id of professor
+   * @param userEmail
+   * @return id
+   */
 
 public int getProfessorById(String userEmail);
 
+/**
+ * To view the list of approved courses
+ * @param userId
+ */
 public void listOfApprovedCourses(int userId);
   
 }

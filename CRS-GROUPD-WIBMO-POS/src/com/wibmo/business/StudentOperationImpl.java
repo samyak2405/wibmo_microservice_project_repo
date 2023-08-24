@@ -24,7 +24,7 @@ import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 
 /**
- * 
+ * Implementation of various Student operations
  */
 public class StudentOperationImpl implements StudentOperation{
 	

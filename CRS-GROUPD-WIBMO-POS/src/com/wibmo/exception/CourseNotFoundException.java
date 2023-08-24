@@ -17,7 +17,10 @@ public class CourseNotFoundException extends Exception{
 	public CourseNotFoundException() {
 		
 	}
-	
+	/**
+	 * CourseNotFoundException
+	 * @param courseId
+	 */
 	public CourseNotFoundException(long courseId) {
 		this.courseId = courseId;
 	}

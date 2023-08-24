@@ -12,7 +12,7 @@ import com.wibmo.dao.NotificationDAO;
 import com.wibmo.dao.NotificationDAOImpl;
 
 /**
- * 
+ * Implementation of  Notification operations
  */
 public class NotificationOperationImpl implements NotificationOperation {
 
