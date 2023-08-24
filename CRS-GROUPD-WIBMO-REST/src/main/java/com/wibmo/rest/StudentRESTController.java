@@ -279,58 +279,65 @@ public class StudentRESTController {
 	}
 	
 	
+	/**
+	 * payFee
+	 * @param userId
+	 * @param paymentMethod
+	 * @param onlineMethod
+	 * @return message if payment is successful or not
+	 */
+	
 	@RequestMapping(value="/student/{id}/payfee/{paymentMethod}",method = RequestMethod.POST)
-    public ResponseEntity payFee(@PathVariable(value="id") int userId,@PathVariable(value="paymentMethod") String paymentMethod ,@RequestParam(required = false) String onlineMethod) 
-	{
-         boolean status=true;
-         if(studentOp.isApproved(userId)) {
-               if(paymentMethod=="offline")
-               {
-                   status=payment.offline(userId);
-                     payment.recordPayment(userId, status);
-                }
-               if(paymentMethod=="online") {
-                  if(onlineMethod=="UPI") {
-                      status=payment.UPI(userId);
-                      payment.recordPayment(userId, status);
-                  }
-                  else if(onlineMethod=="Cards") {
-                      status=payment.cards(userId);
-                      payment.recordPayment(userId, status);
-                  }
-                  else if(onlineMethod=="Wallet") {
-                      status=payment.wallet(userId);
-                      payment.recordPayment(userId, status);  
-                  }
-               }
-               if(status==true)
-                 {
-                    notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
-                     return new ResponseEntity("Payment Successful",HttpStatus.OK);
-//                     System.out.println("Your TransactionId"+paymentBean.getTransactionId());
-                 }
-                 else
-                 {
-                       notificationOp.sendNotification(NotificationConstants.PAYMENT_REJECTED_NOTIFICATION, userId);
-                      return new ResponseEntity("Payment Failed",HttpStatus.NOT_ACCEPTABLE);
+	public ResponseEntity payFee(@PathVariable(value="id") int userId,@PathVariable(value="paymentMethod") String paymentMethod ,@RequestParam(required = false) String onlineMethod) {
+		  boolean status=false;
+		 if(studentOp.isApproved(userId)) {
+			 
+	    	   if(paymentMethod.equals("offline"))
+	    	   {
+	    		   status=payment.offline(userId);
+	    		   System.out.println(status);
+	 	  		  payment.recordPayment(userId, status);
+	 	  		  
+	    	   }
+	    	   if(paymentMethod.equals("online")) {
+	    		  if(onlineMethod=="UPI") {
+	    			  status=payment.UPI(userId);
+	        		  payment.recordPayment(userId, status);
+	    		  }
+	    		  else if(onlineMethod.equals("Cards")) {
+	    			  status=payment.cards(userId);
+	        		  payment.recordPayment(userId, status);
+	    		  }
+	    		  else if(onlineMethod.equals("Wallet")) {
+	    			  status=payment.wallet(userId);
+	        		  payment.recordPayment(userId, status);  
+	    		  }
+	    		   
+	    		   
+	    	   }
+	    	   if(status==true)
+	 	  	  {
+	 	  		  notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
+	 	  		  return new ResponseEntity("Payment Successful",HttpStatus.OK);
 
-                 }
-
-               }
-
-         else {
-             return new ResponseEntity("Student courses are not approved by admin",HttpStatus.NOT_ACCEPTABLE);
-
-               }
-
-         
-
-    }
-
-    
+	 	  	  }
+	 	  	  	
+	 	  	  else
+	 	  	  {
+	 				  notificationOp.sendNotification(NotificationConstants.PAYMENT_REJECTED_NOTIFICATION, userId);
+	 				 return new ResponseEntity("Payment Failed",HttpStatus.NOT_ACCEPTABLE);
+	 	  	  }
+	    	   }
+	     else {
+	    	 return new ResponseEntity("Student courses are not approved by admin",HttpStatus.NOT_ACCEPTABLE);
+	    	   }
+		 
+	}
 	
 	
 	
+	
+
 	
 
 }

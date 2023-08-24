@@ -42,7 +42,7 @@ public class ProfessorRESTController {
      @Autowired
 	public ClientValidatorImpl clientValidator ;
     
-     Scanner scan=new Scanner(System.in);
+    Scanner scan=new Scanner(System.in);
   
     public Logger log =LogManager.getLogger();
     
@@ -67,16 +67,12 @@ public class ProfessorRESTController {
 	
 	
 	
-//	List<Integer> courseIdList =new ArrayList<>();
-//	@RequestMapping(value="/professor/{userId}/requestcourse",method = RequestMethod.POST)
-//	public  void requestCourse(@PathVariable(value="userId") int userId,@RequestBody int courseId) {
-//		
-////		professorOp.viewCourseCatalog();
-//
-//        courseIdList.add(courseId);
-//	}
-//	
-	
+	/**
+	 * To request the courses.  
+	 * @param userId
+	 * @param courseIdList
+	 * @return message if the courses requested by professor  are successfully sent to admin for Approval or not
+	 */
 	
 	@RequestMapping(value="/professor/{userId}/requestcourse",method = RequestMethod.POST)
 	public ResponseEntity freezeList(@PathVariable(value="userId") int userId,@RequestBody List<Integer> courseIdList) {
@@ -92,6 +88,14 @@ public class ProfessorRESTController {
 	
 	
 	
+	
+	
+	
+	/**
+	 * To view the list of approved courses
+	 * @param userId
+	 * @return list of approved courses
+	 */
 	@RequestMapping(value="/professor/{userId}/approvedcourses",method = RequestMethod.GET)
 	public ResponseEntity<Map<Integer,String>> approvedCourses(@PathVariable(value="userId") int userId)
 	{
@@ -101,6 +105,13 @@ public class ProfessorRESTController {
 	
 	
 	
+	
+	/**
+	 * To view list of students registered for particular course.
+	 * @param userId
+	 * @param courseId
+	 * @return list of students registered for particular courseId.
+	 */
 	@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
     public ResponseEntity<List<Student>> studentList(@PathVariable(value="userId") int userId,@PathVariable(value="courseId") int courseId) {
 		
@@ -118,6 +129,11 @@ public class ProfessorRESTController {
 	
 	
 	
+	
+	/**
+	 * To view course catalog
+	 * @return list of courses in course catalog
+	 */
 	@RequestMapping(value="/professor/coursecatalog",method = RequestMethod.GET)
 	public ResponseEntity<List<CourseCatalog>> courseCatalog() {
 		
@@ -126,6 +142,14 @@ public class ProfessorRESTController {
 	}
 	
 	
+	
+	
+	
+	/**
+	 * To set the grades of students.
+	 * @param gradecard
+	 * @return message if professor has set the grades successfully or not .
+	 */
 	
 	@RequestMapping(value="/professor/setgrades",method = RequestMethod.POST)
 	public ResponseEntity  setGrades(@RequestBody GradeCard gradecard ) {
@@ -162,6 +186,12 @@ public class ProfessorRESTController {
 	
 	
 	
+	
+	/**
+	 * Professor Registration
+	 * @param user
+	 * @return message if professor is successfully registered or not
+	 */
 	
 	@RequestMapping(value="/professor/registration",method = RequestMethod.POST)
 	public ResponseEntity professorRegistration(@RequestBody User user) {
