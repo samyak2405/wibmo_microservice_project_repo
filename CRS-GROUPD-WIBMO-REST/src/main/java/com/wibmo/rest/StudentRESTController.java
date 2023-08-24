@@ -84,46 +84,6 @@ public class StudentRESTController {
 	}
 	
 	
-	
-	
-//	public int addCompulsoryCourse(AddCourseDto addCourseDto,int compulsory) {
-//		int compulsoryCourses = compulsory;
-//		int course = 0;
-//		while(compulsoryCourses > 0) {
-//	 		   System.out.print("\nEnter the Course Id: ");
-//	     	   int courseId = scan.nextInt();
-//	     	   course = courseId;
-//	     	   if(addCourseDto.getCourses().containsKey(courseId))
-//	     	   {
-//	     		   log.info("You entered duplicate choice. Please add another Course");
-//	     		   continue;
-//	     	   }
-//	     	   addCourseDto.getCourses().put(courseId, 0);
-//	     	  compulsoryCourses--;
-//		}
-//		return course;
-//	}
-	
-//	public int addAlternativeCourse(AddCourseDto addCourseDto,int alternative) {
-//		int alternativeCourses = alternative;
-//		int course = 0;
-//		while(alternativeCourses > 0) {
-//	 		   System.out.print("\nEnter the Course Id: ");
-//	     	   int courseId = scan.nextInt();
-//	     	   course = courseId;
-//	     	   if(addCourseDto.getCourses().containsKey(courseId))
-//	     	   {
-//	     		   log.info("You entered duplicate choice. Please add another Course");
-//	     		   continue;
-//	     	   }
-//	     	  addCourseDto.getCourses().put(courseId, 1);
-//	     	  alternativeCourses--;
-//		}
-//		return course;
-//	}
-	
-	
-	
 	/**
 	 * To add course preferences for the registration.
 	 * @param userId
@@ -140,6 +100,38 @@ public class StudentRESTController {
 			return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
 			
 		}
+		
+		int primaryCount=0;
+		int alternativeCount=0;
+        for (Map.Entry<Integer,Integer> entry : addCourseDto.getCourses().entrySet()) 
+        {
+            if(entry.getValue()==0)
+            	primaryCount++;
+            else if(entry.getValue()==1)
+            	alternativeCount++;
+            else
+            	return new ResponseEntity("Wrong Entry",HttpStatus.BAD_REQUEST);
+        }
+        
+        if(primaryCount<4)
+        {
+        	return new ResponseEntity("Insufficient primary courses",HttpStatus.BAD_REQUEST);
+        }
+        else if(primaryCount>4)
+        {
+        	return new ResponseEntity("Primary course exceed the limit",HttpStatus.BAD_REQUEST);
+        }
+        
+        if(alternativeCount<2)
+        {
+        	return new ResponseEntity("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
+        }
+        else if(alternativeCount>4)
+        {
+        	return new ResponseEntity("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
+        }
+        
+		
 		StudentCourseMap studCoMap = new StudentCourseMap();
  	   studCoMap.setCourses(addCourseDto.getCourses());
  	   try {
