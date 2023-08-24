@@ -44,6 +44,12 @@ public class CRSStudentMenu {
 		courses = new HashMap<>();
 	}
 	
+	/**
+	 * To add compulsory courses
+	 * @param compulsory
+	 * @return courseId
+	 */
+	
 	public int addCompulsoryCourse(int compulsory) {
 		int compulsoryCourses = compulsory;
 		int course = 0;
@@ -61,6 +67,12 @@ public class CRSStudentMenu {
 		}
 		return course;
 	}
+	
+	/**
+	 * To add Alternative courses
+	 * @param alternative
+	 * @return courseId
+	 */
 	
 	public int addAlternativeCourse(int alternative) {
 		int alternativeCourses = alternative;

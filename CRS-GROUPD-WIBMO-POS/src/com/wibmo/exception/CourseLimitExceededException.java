@@ -12,7 +12,10 @@ public class CourseLimitExceededException extends Exception {
 	public CourseLimitExceededException  () {
 		
 	}
-	
+	/**
+	 *CourseLimitExceededException 
+	 * @param courseId
+	 */
 	public CourseLimitExceededException  (long courseId) {
 		this.courseId = courseId;
 	}

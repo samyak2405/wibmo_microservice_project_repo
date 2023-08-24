@@ -20,7 +20,7 @@ import com.wibmo.business.PaymentOperation;
 import com.wibmo.business.PaymentOperationImpl;
 
 /**
- * 
+ * Testing of PaymentOperation
  */
 public class PaymentOperationTest {
      PaymentOperation paymentoperation=null;

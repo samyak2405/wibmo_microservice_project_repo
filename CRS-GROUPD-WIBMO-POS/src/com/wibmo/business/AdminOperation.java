@@ -28,8 +28,10 @@ public interface AdminOperation {
 	 */
 	public void approveCourseRegistration();
  
+	
 	/**
 	 * To Add a new Admin
+	 * @param admin
 	 */
 	public void addAdmin(User admin);
  
@@ -40,15 +42,22 @@ public interface AdminOperation {
  
 	/**
 	 * To approve registration of a new Admin
+	 * @param user
+	 * @throws UserAlreadyExistsException
 	 */
 	public void adminRegistration(User user) throws UserAlreadyExistsException;
 
 	/**
 	 * To approve a specific student
+	 * @throws UserNotFoundException
 	 */
 	public void approveStudentById() throws UserNotFoundException;
 
-
+    /**
+     * To get id of admin
+     * @param userEmail
+     * @return
+     */
 	public int getAdminById(String userEmail);
 
 }

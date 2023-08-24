@@ -15,6 +15,10 @@ public class UserAlreadyExistsException extends Exception {
 		
 	}
 	
+	/**
+	 * UserAlreadyExistsException
+	 * @param userEmail
+	 */
 	public UserAlreadyExistsException(String userEmail) {
 		this.userEmail= userEmail;
 	}

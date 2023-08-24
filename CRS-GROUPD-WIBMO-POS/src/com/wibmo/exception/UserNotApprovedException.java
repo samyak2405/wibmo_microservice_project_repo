@@ -14,6 +14,10 @@ int userId;
 		
 	}
 	
+	/**
+	 * UserNotApprovedException
+	 * @param userId
+	 */
 	public UserNotApprovedException (int userId) {
 		this.userId = userId;
 	}

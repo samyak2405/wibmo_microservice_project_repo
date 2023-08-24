@@ -23,7 +23,8 @@ public interface StudentOperation {
 	/**
 	 * To add new course for registration
 	 * @param studCoMap
-	 * @throws DuplicateCourseEntryException
+	 * @throws CourseNotFoundException
+	 * @throws CourseLimitExceededException
 	 */
 	public void addCourses(StudentCourseMap studCoMap) throws CourseNotFoundException,CourseLimitExceededException ;
 	
@@ -60,7 +61,7 @@ public interface StudentOperation {
 	/**
 	 * To view the Grade card of all the courses of a student.
 	 * @param studId
-	 * @throws UserNotFoundException
+	 * @throws UserNotApprovedException
 	 */
 	public void viewReportCard(int studId) throws UserNotApprovedException;
 
@@ -71,10 +72,34 @@ public interface StudentOperation {
 	 */
 	public boolean isApproved(int userId) ;
 
+	
+	/**
+	 * To get id of student
+	 * @param userEmail
+	 * @return id
+	 */
 	public int getStudentByEmail(String userEmail);
-
+     
+	/**
+	 * To get list of  courseId,CoursePreference registered by specific student
+	 * @param userId
+	 * @return map of courseId,course Preference
+	 */
 	public Map<Integer, String> getAddedCourses(int userId);
+	
+	/**
+	 * To know if student is registered or not
+	 * @param userId
+	 * @return 1 if student is registered and 0 if student is not registered
+	 */
 	public int isStudentRegistered(int userId);
+	
+	/**
+	 
+	 * @param studentId
+	 * @param courseId
+	 * @param coursePref
+	 */
 	public void AddSingleCourse(int studentId,int courseId,int coursePref);
 	
 }

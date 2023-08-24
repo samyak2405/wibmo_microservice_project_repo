@@ -45,8 +45,6 @@ public class CRSProfessorMenu {
 	Scanner scan = new Scanner(System.in);
 	/**
 	 * To display professor choice menu
-	 * @throws CourseNotFoundException 
-	 * @throws UserNotFoundException 
 	 */
 	public void professorMenu() {
 

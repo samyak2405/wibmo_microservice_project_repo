@@ -7,7 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.wibmo.business.ProfessorOperationImpl;
-
+/**
+ * Testing of ProfessorOperation
+ */
 public class ProfessorOperationTestImpl {
 
 	ProfessorOperationImpl profop = null;

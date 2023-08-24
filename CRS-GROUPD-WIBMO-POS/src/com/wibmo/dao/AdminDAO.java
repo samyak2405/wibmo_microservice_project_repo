@@ -14,22 +14,22 @@ import com.wibmo.bean.User;
 	public interface AdminDAO {
 	
 	/**
-	 * 
+	 * For the admin to add the course if students in particular course are greater than 3
 	 * @param courseId
 	 */
 	public void addCourse(long courseId);
 	
 	/**
-	 * 
+	 * For the admin to drop the course if students in particular course are less than 3
 	 * @param courseId
 	 */
 	public void dropCourse(long courseId);
 	
 	/**
-	 * 	
+	 * 	To approve student
 	 * @param studentId
 	 * @param courses
-	 * @return
+	 * @return boolean
 	 */
 	public boolean approveStudent(long studentId,List<Long> courses);
 	
@@ -40,14 +40,14 @@ import com.wibmo.bean.User;
 	public void addAdmin(User admin);
 	
 	/**
-	 * 
+	 * Assigning course to professor
 	 * @param professorId
 	 * @param courseId
 	 */
 	public void assignCoursesProf(int professorId,int courseId);
 	
 	/**
-	 * 
+	 * To set grades
 	 * @param studentId
 	 * @param courseId
 	 */
@@ -56,13 +56,13 @@ import com.wibmo.bean.User;
 	/**
 	 * 
 	 * @param courseId
-	 * @return
+	 * @return List 
 	 */
 	public List<Integer> getProfCourseData(int courseId);
 	
 	/**
 	 * 
-	 * @return
+	 * @return List
 	 */
 	public List<Integer> getListOfCourses();
 	
@@ -76,18 +76,16 @@ import com.wibmo.bean.User;
 	/**
 	 * 
 	 * @param userId
-	 * @return
+	 * @return boolean
 	 */
 	public boolean searchAdmin(long userId);
 	
-	/**
-	 * 
-	 */
+	
 	public void setApprovedStudents();
 	
 	/**
 	 * 
-	 * @return
+	 * @return List
 	 */
 	public List<Integer> pendingRegistration();
 	
@@ -96,14 +94,42 @@ import com.wibmo.bean.User;
 	 * @param studentId
 	 */
 	public void setApprovedStudentById(int studentId);
+	
+	/**
+	 * 
+	 * @param userEmail
+	 * @return id
+	 */
 
 	public int getAdminById(String userEmail);
+	
+	/**
+	 * 
+	 * @return List of professorIds
+	 */
 
 	public List<Integer> getProfessorsIds();
+	
+	/**
+	 * 
+	 * @param professorId
+	 * @return List
+	 */
 
 	public List<Integer> getProfessorCourses(int professorId);
+	
+	/**
+	 * To approve course requested by professor
+	 * @param professor
+	 * @param course
+	 */
 
 	public void approveCourse(int professor, int course);
+	
+	/**
+	 * 
+	 * @param studentId
+	 */
 
 	public void setRejectionStatus(int studentId);
 	

@@ -14,7 +14,9 @@ import com.wibmo.dao.*;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
-
+/**
+ * Implementation of various Admin operations
+ */
 public class AdminOperationImpl implements AdminOperation{
 	
 	static Logger log = Logger.getLogger(AdminOperationImpl.class.getName());
@@ -26,13 +28,15 @@ public class AdminOperationImpl implements AdminOperation{
 	public ValidatorInterface validate = new AdminValidatorImpl();
 	public NotificationOperation notification=new NotificationOperationImpl();
 	
-
+    
 	@Override
 	public void approveStudent() {
 		// TODO Auto-generated method stub
 		adminDAO.setApprovedStudents();
 	}
 
+	
+	
 	@Override
 	public void addAdmin(User user) {
 		// TODO Auto-generated method stub

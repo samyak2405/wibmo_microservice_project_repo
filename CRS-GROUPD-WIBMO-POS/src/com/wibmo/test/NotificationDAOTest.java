@@ -14,7 +14,9 @@ import com.wibmo.business.NotificationOperation;
 import com.wibmo.business.NotificationOperationImpl;
 import com.wibmo.dao.NotificationDAO;
 import com.wibmo.dao.NotificationDAOImpl;
-
+/**
+ *  Testing of NotificationDAO
+ */
 public class NotificationDAOTest {
 	Notification notification =null;
     NotificationDAO notificationdao=null;

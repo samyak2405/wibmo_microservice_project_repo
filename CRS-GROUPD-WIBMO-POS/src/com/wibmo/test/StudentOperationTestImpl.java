@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import com.wibmo.business.StudentOperationImpl;
 /**
- * @author gavaniya.ketanbhai
+ * Testing of StudentOperation
  *
  */
 public class StudentOperationTestImpl 

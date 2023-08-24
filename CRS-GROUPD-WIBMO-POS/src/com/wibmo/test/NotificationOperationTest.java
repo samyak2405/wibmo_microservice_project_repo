@@ -10,7 +10,9 @@ import com.wibmo.bean.Notification;
 import com.wibmo.business.NotificationOperation;
 import com.wibmo.business.NotificationOperationImpl;
 import com.wibmo.constant.NotificationConstants;
-
+/**
+ *  Testing of Notification operations
+ */
 public class NotificationOperationTest {
      Notification notification =null;
      NotificationOperation notificationoperation=null;

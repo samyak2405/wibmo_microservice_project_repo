@@ -16,9 +16,14 @@ public class StudentAlreadyRegisteredException extends Exception
 		
 	}
 	
+	/**
+	 * StudentAlreadyRegisteredException
+	 * @param userEmail
+	 */
 	public StudentAlreadyRegisteredException(String userEmail) {
 		this.userEmail = userEmail;
 	}
+	
 	
 	public String getStudentEmail() {
 		return userEmail;
