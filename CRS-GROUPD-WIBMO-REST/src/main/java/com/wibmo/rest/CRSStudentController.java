@@ -55,7 +55,7 @@ import com.wibmo.validator.ClientValidatorImpl;
  * 
  */
 @RestController
-public class StudentRESTController {
+public class CRSStudentController {
 	
 	@Autowired
 	public StudentOperation studentOp;
@@ -94,7 +94,7 @@ public class StudentRESTController {
 	public ResponseEntity addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
 	{
    		int isRegistered = studentOp.isStudentRegistered(userId);
-		//log.info("Student Registration Status: "+isRegistered);
+		log.info("Student Registration Status: "+isRegistered);
 		if(isRegistered==1)
 		{
 			return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
@@ -142,10 +142,10 @@ public class StudentRESTController {
  	   studCoMap.setCourses(addCourseDto.getCourses());
  	   try {
 		studentOp.addCourses(studCoMap);
-		return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.OK); 
+		return new ResponseEntity("Course Added Successfully",HttpStatus.OK); 
 		
  	   } catch (CourseNotFoundException e) {
-		return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.NOT_FOUND); 
+		return new ResponseEntity("No Course added",HttpStatus.NOT_FOUND); 
  	   }catch(CourseLimitExceededException e)
  	   {
 		return new ResponseEntity("Course Limit Exceeded",HttpStatus.CONFLICT); 
@@ -197,7 +197,7 @@ public class StudentRESTController {
 	 * @return
 	 */
 	@RequestMapping(value="/student/{id}/registerCourse",method = RequestMethod.POST)	
-	public void registerCourses(@PathVariable(value="id") int userId)
+	public ResponseEntity registerCourses(@PathVariable(value="id") int userId)
 	{
 		studentOp.registerCourses(userId);
 		return ResponseEntity.ok("Applied For Course Registration Successfully");
@@ -225,7 +225,6 @@ public class StudentRESTController {
  	   catch(UserNotApprovedException e) {
  		  return new ResponseEntity("User with id "+e.getUserId()+" is not approved by admin",HttpStatus.NOT_FOUND); 
  	   }
- 	   return ResponseEntity.ok(new HashMap<>());
 	}
 	
 	
@@ -299,7 +298,7 @@ public class StudentRESTController {
 	    			  status=payment.UPI(userId);
 	        		  payment.recordPayment(userId, status);
 	    		  }
-	    		  else if(onlineMethod.equals("Cards")) {
+	    		  else if(onlineMethod.equals("cards")) {
 	    			  status=payment.cards(userId);
 	        		  payment.recordPayment(userId, status);
 	    		  }

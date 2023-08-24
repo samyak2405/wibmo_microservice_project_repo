@@ -36,7 +36,7 @@ import com.wibmo.validator.ClientValidatorImpl;
 import org.apache.logging.log4j.core.config.Loggers;
 
 @RestController
-public class ProfessorRESTController {
+public class CRSProfessorController {
      @Autowired
 	private ProfessorOperation professorOp;
      @Autowired
@@ -53,13 +53,13 @@ public class ProfessorRESTController {
 	
 	
 	
-	public ProfessorRESTController()
+	public CRSProfessorController()
 	{
 		
 	}
 	
 	
-	public ProfessorRESTController(String userEmail)
+	public CRSProfessorController(String userEmail)
 	{
 		this.userEmail=userEmail;
 		userId = professorOp.getProfessorById(userEmail);
@@ -79,7 +79,7 @@ public class ProfessorRESTController {
 		 try {
          	
 				professorOp.requestCourseOffering(userId,courseIdList);
-				return new ResponseEntity(HttpStatus.OK);
+				return new ResponseEntity("Courses request sent for approval to Admin",HttpStatus.OK);
 			} catch (CourseNotFoundException e) {
 				return new ResponseEntity("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 			}
@@ -152,26 +152,14 @@ public class ProfessorRESTController {
 	 */
 	
 	@RequestMapping(value="/professor/setgrades",method = RequestMethod.POST)
-	public ResponseEntity  setGrades(@RequestBody GradeCard gradecard ) {
-		   log.info("Choose Course from below given list");
-	   	   professorOp.listOfApprovedCourses(userId);
-//	   	   log.info("Course Id");
-//    	   int courseId=scan.nextInt();
-//    	   log.info("Following are the students registered for the course "+courseId);
-//    	   try {
-//        	   professorOp.viewStudentList(gradecard.getCourseId());
-//		} catch (CourseNotFoundException e) {
-//			log.info("Course with course id:"+e.getCourseId()+" Not Found");
-//
-//		}
-//	   	   log.info("Enter the StudentId");
-//    	   int studentId=scan.nextInt();
-  
-//    	   log.info("Enter grades");
-//    	   String grade=scan.next();
+	public ResponseEntity  setGrades(@RequestBody List<GradeCard> gradecard ) {
+		   
+
 	try {
-		professorOp.setGrades(gradecard.getStudentId(),gradecard.getCourseId(),gradecard.getGrade());
-		return new ResponseEntity(HttpStatus.OK);
+		for(GradeCard gradeCard: gradecard) {
+			professorOp.setGrades(gradeCard.getStudentId(),gradeCard.getCourseId(),gradeCard.getGrade());
+		}
+		return new ResponseEntity("Added grades",HttpStatus.OK);
 	} catch (UserNotFoundException e) {
 		return new ResponseEntity("Student with id:"+e.getUserId()+" Not Found",HttpStatus.NOT_FOUND);
 		
@@ -193,19 +181,20 @@ public class ProfessorRESTController {
 	 * @return message if professor is successfully registered or not
 	 */
 	
-	@RequestMapping(value="/professor/registration",method = RequestMethod.POST)
-	public ResponseEntity professorRegistration(@RequestBody User user) {
-		// TODO Auto-generated method stub
-////				log.info("Enter the Details for Registration");
-//				User user = new User();
-////				log.info("\nEnter Name: ");
-//				user.setUserName(name);
-////				log.info("\nEnter Email: ");
-//				user.setUserEmail(email);
-			//	String password = clientValidator.passwordValidator();
-//				user.setUserPassword(password);
-//				
-//			
+//	@RequestMapping(value="/professor/registration",method = RequestMethod.POST)
+//	public ResponseEntity professorRegistration(@RequestBody User user) {
+//		// TODO Auto-generated method stub
+//////				log.info("Enter the Details for Registration");
+////				User user = new User();
+//////				log.info("\nEnter Name: ");
+////				user.setUserName(name);
+//////				log.info("\nEnter Email: ");
+////				user.setUserEmail(email);
+//			//	String password = clientValidator.passwordValidator();
+////				user.setUserPassword(password);
+////				
+////			
+////	}
+//	
 //	}
-	
 }

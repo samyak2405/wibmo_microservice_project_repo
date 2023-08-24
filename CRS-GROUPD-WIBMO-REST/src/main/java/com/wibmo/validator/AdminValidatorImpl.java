@@ -112,11 +112,12 @@ public class AdminValidatorImpl implements ValidatorInterface{
 				notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);
 				isSuccess.add(true);
 			}
-	
-				adminDAO.setRejectionStatus(studentId);
-				
+			else {
+				adminDAO.setRejectionStatus(studentId);		
 				notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
 				isSuccess.add(false);
+			}
+				
 		}
 		return isSuccess;
 	}
