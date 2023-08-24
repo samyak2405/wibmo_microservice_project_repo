@@ -107,23 +107,25 @@ public class StudentOperationImpl implements StudentOperation{
 			return;
 		}
 		log.info("List of Courses Approved");
+		
 		for(Map.Entry<Integer, String> entry: courses.entrySet()) {
 			log.info(String.format("%20s %20s\n", entry.getKey(),entry.getValue()));
 		}
 	}
 
 	@Override
-	public void viewCourseCatalog() {
+	public List<CourseCatalog> viewCourseCatalog() {
 		// TODO Auto-generated method stub
-		List<CourseCatalog> courses = studentDao.viewCourseCatalog();
-		log.info("Course Catalog: ");
-		
-		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
-				, course.getCourseId()
-				,course.getCourseName()
-				,course.getProfessorName()
-				,course.getPrerequisites()
-				)));
+		//List<CourseCatalog> courses = studentDao.viewCourseCatalog();
+		return studentDao.viewCourseCatalog();
+//		log.info("Course Catalog: ");
+//		
+//		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
+//				, course.getCourseId()
+//				,course.getCourseName()
+//				,course.getProfessorName()
+//				,course.getPrerequisites()
+//				)));
 		
 	}
 
@@ -145,19 +147,20 @@ public class StudentOperationImpl implements StudentOperation{
 
 
 	@Override
-	public void viewReportCard(int studentId) throws UserNotApprovedException {
+	public List<GradeCard> viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if(studentDao.isApproved(studentId)==false)
 		{
 			throw new UserNotApprovedException(studentId);
 		}
 		List<GradeCard> grades = studentDao.viewReportCard(studentId);
-		log.info(grades.size());
-		log.info("Your Grades");
-		log.info(String.format("%20s %20s", "CourseId","Grade"));
-		grades.forEach(grade->log.info(String.format("%20s %20s\n"
-				, grade.getCourseId(),
-				grade.getGrade())));
+		return grades;
+//		log.info(grades.size());
+//		log.info("Your Grades");
+//		log.info(String.format("%20s %20s", "CourseId","Grade"));
+//		grades.forEach(grade->log.info(String.format("%20s %20s\n"
+//				, grade.getCourseId(),
+//				grade.getGrade())));
 	}
 
 	@Override
