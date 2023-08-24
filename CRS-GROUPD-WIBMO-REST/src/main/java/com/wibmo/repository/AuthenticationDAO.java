@@ -18,7 +18,7 @@ public interface AuthenticationDAO {
 	 * @param role
 	 * @return True if credentials are correct else returns false.
 	 */
-	public boolean loggedin(String userEmail,String password,int role );
+	public boolean loggedin(String userEmail,String password,int role,StringBuilder msg );
 
 	/**
 	 * To if if credentials used for changing password are correct using SQL queries.

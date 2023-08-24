@@ -19,7 +19,7 @@ public interface AuthenticationOperation {
 	 * @param User Role
 	 * @return true if user details matched otherwise return false
 	 * */
-	public boolean loggedin(String userEmail ,String password ,int role);
+	public boolean loggedin(String userEmail ,String password ,int role,StringBuilder msg);
 	
 	/*
 	 * Update User Password

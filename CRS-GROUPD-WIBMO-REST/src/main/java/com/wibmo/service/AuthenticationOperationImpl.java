@@ -15,9 +15,9 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 	AuthenticationDAO authenticate;
 	
 	@Override
-	public boolean loggedin(String userEmail, String password,int role) {
+	public boolean loggedin(String userEmail, String password,int role,StringBuilder msg) {
 		// TODO Auto-generated method stub
-		boolean verified=authenticate.loggedin(userEmail, password, role);
+		boolean verified=authenticate.loggedin(userEmail, password, role,msg);
 		return verified;
 	}
 

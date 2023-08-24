@@ -67,19 +67,20 @@ public class CRSClientController
 	public ResponseEntity loginRequest(@PathVariable int role, 
 			@RequestBody LoginRequest loginrequest)
 	{
-		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role)) {
+		StringBuilder msg = new StringBuilder();
+		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role,msg)) {
     		switch(role) {
     		case 1:
-    			return new ResponseEntity("You are logged in successfully as a student", HttpStatus.OK);
+    			return new ResponseEntity(msg, HttpStatus.OK);
 			case 2:
     			//Professor
-				return new ResponseEntity("You are logged in successfully as a Professor", HttpStatus.OK);
+				return new ResponseEntity(msg, HttpStatus.OK);
 			case 3: 
     			
-				return new ResponseEntity("You are logged in successfully as a Admin", HttpStatus.OK);
+				return new ResponseEntity(msg, HttpStatus.OK);
     		}
     		}
-		return new ResponseEntity("Invalid Credentials", HttpStatus.NOT_FOUND);
+		return new ResponseEntity(msg, HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -123,8 +124,8 @@ public class CRSClientController
 	public ResponseEntity updatePasswordRequest(@PathVariable int role, 
 			@RequestBody UpdatePasswordDto passwordDto)
 	{
-		
-		if(loggedin.loggedin(passwordDto.getUserEmail(), passwordDto.getUserPassword(),role)) 
+		StringBuilder msg= new StringBuilder();
+		if(loggedin.loggedin(passwordDto.getUserEmail(), passwordDto.getUserPassword(),role,msg)) 
 		{
 			
 			loggedin.updatePassword(passwordDto.getUserEmail(), passwordDto.getUserPasswordNew(), role);

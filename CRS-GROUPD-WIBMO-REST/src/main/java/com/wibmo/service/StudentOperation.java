@@ -48,7 +48,7 @@ public interface StudentOperation {
 	/**
 	 * To view list of already registered courses
 	 */
-	public void listCourse(int studentId) throws UserNotApprovedException;
+	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException;
 	
 	/**
 	 * To view the list of offered courses

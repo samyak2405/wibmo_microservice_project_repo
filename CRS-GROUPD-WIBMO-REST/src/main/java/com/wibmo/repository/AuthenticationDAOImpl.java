@@ -31,7 +31,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		Connection conn = DButils.getConnection();
 
 		@Override
-		public boolean loggedin(String userEmail, String password,int role) {
+		public boolean loggedin(String userEmail, String password,int role,StringBuilder msg) {
 			
 			
 			PreparedStatement stmt = null;
@@ -64,22 +64,27 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 						
 						if(role==1) {
 							if(rs.getInt("isapproved")==1) {
+								msg.append("Login Successful");
 								return true;
 							}
 							else {
-								
+								msg.append("Registration Not Approved");
 								return false;
 							}
 								
 						}
 						else
+						{
+							msg.append("Login Successful");
 							return true;
+						}
 							
 					}
 					else 
-						
-					
+					{
+					msg.append("Invalid Credentials");
 					return false;
+					}
 				}
 		        
 			}catch(SQLException se){

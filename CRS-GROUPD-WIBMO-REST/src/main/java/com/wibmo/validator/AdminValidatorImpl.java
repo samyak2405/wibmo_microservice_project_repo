@@ -1,5 +1,6 @@
 package com.wibmo.validator;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -56,9 +57,10 @@ public class AdminValidatorImpl implements ValidatorInterface{
 		return list;
 	}
 	
-	public void courseRegistrationValidator() {
+	public List<Boolean> courseRegistrationValidator() {
 		List<Integer> studentIds = studentDAO.getStudentIds();
 		Map<Integer,Integer> courseCount = new HashMap<>();
+		List<Boolean> isSuccess = new ArrayList<>();
 		
 		for(int studentId: studentIds) {
 			int isRegistered = studentDAO.isStudentRegistered(studentId);
@@ -104,19 +106,19 @@ public class AdminValidatorImpl implements ValidatorInterface{
 			}
 			if(count==4)
 			{
-				System.out.println("Student Course Registration Successful");
+				
 				notification.sendNotification(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION, studentId);
 				
-				notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);						
+				notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);
+				isSuccess.add(true);
 			}
 	
-			else {
 				adminDAO.setRejectionStatus(studentId);
-				System.out.println("Student Course Registration UnSuccessful");
-				notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
 				
-			}
+				notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
+				isSuccess.add(false);
 		}
+		return isSuccess;
 	}
 	
 	

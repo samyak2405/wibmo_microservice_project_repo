@@ -3,6 +3,7 @@
  */
 package com.wibmo.service;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -94,7 +95,7 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	public void listCourse(int studentId) throws UserNotApprovedException {
+	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if(studentDao.isApproved(studentId)==false)
 		{
@@ -104,13 +105,11 @@ public class StudentOperationImpl implements StudentOperation{
 		if(courses.size()==0)
 		{
 			log.info("Course Registration pending");
-			return;
+			return new HashMap<>();
 		}
 		log.info("List of Courses Approved");
 		
-		for(Map.Entry<Integer, String> entry: courses.entrySet()) {
-			log.info(String.format("%20s %20s\n", entry.getKey(),entry.getValue()));
-		}
+		return courses;
 	}
 
 	@Override

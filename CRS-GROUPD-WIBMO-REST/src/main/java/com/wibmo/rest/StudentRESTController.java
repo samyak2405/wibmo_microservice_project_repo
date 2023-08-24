@@ -141,6 +141,7 @@ public class StudentRESTController {
 //
 //      log.info("===================================================================================");
 		StudentCourseMap studCoMap = new StudentCourseMap();
+		studCoMap.setStudentId(userId);
 // 	   studCoMap.setStudentId(userId);
 // 	   log.info("Add Compulsory Courses");
 // 	   this.addCompulsoryCourse(addCourseDto,4);
@@ -190,7 +191,7 @@ public class StudentRESTController {
 	}
 	
 	@RequestMapping(value="/student/{id}/registerCourse",method = RequestMethod.POST)	
-	public void registerCourses(@PathVariable int userId)
+	public void registerCourses(@PathVariable(value="id") int userId)
 	{
 		studentOp.registerCourses(userId);
 	}
@@ -198,13 +199,17 @@ public class StudentRESTController {
 	
 	
 	@RequestMapping(value="/student/{id}/listCourse",method = RequestMethod.POST)
-	public void listCourse(@PathVariable int userId)
+	public ResponseEntity<Map<Integer,String>> listCourse(@PathVariable(value="id") int userId)
 	{
  	   try {
- 	   studentOp.listCourse(userId);}
+ 		   Map<Integer,String> courses = studentOp.listCourse(userId);
+ 		   System.out.println(courses.size());
+ 		   return ResponseEntity.ok(courses);
+ 	   }
  	   catch(UserNotApprovedException e) {
  		   log.info("User with id "+e.getUserId()+" is not approved by admin");
  	   }
+ 	   return ResponseEntity.ok(new HashMap<>());
 	}
 	
 	
@@ -220,7 +225,7 @@ public class StudentRESTController {
  	   }
 	}
 	
-	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.GET)
+	@RequestMapping(value="/student/viewCourseCatalog",method = RequestMethod.GET)
 	public ResponseEntity<List<CourseCatalog>> viewCourseCatalog()
 	{
 		return ResponseEntity.ok(studentOp.viewCourseCatalog()); 

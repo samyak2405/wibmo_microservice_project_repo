@@ -162,33 +162,33 @@ public class ProfessorRESTController {
 	
 	
 	
-	
-	@RequestMapping(value="/professor/registration",method = RequestMethod.POST)
-	public ResponseEntity professorRegistration(@RequestBody User user) {
-		// TODO Auto-generated method stub
-////				log.info("Enter the Details for Registration");
-//				User user = new User();
-////				log.info("\nEnter Name: ");
-//				user.setUserName(name);
-////				log.info("\nEnter Email: ");
-//				user.setUserEmail(email);
-			//	String password = clientValidator.passwordValidator();
-//				user.setUserPassword(password);
+//	
+//	@RequestMapping(value="/professor/registration",method = RequestMethod.POST)
+//	public ResponseEntity professorRegistration(@RequestBody User user) {
+//		// TODO Auto-generated method stub
+//////				log.info("Enter the Details for Registration");
+////				User user = new User();
+//////				log.info("\nEnter Name: ");
+////				user.setUserName(name);
+//////				log.info("\nEnter Email: ");
+////				user.setUserEmail(email);
+//			//	String password = clientValidator.passwordValidator();
+////				user.setUserPassword(password);
+////				
+//////				log.info("\nEnter Phone Number: ");
+//////				log.info("");
+////				user.setUserPhonenumber(phonenumber);
+////		      	 log.info("===================================================================================");
+////				
+//				try {
+//					professorOp.registerProfessor(user);
+//					return new ResponseEntity(HttpStatus.OK);
+//				} catch (UserAlreadyExistsException e) {
+//					return new ResponseEntity("User with user id:"+e.getUserId()+" Already Exists",HttpStatus.FOUND);
+//
+//				}
 //				
-////				log.info("\nEnter Phone Number: ");
-////				log.info("");
-//				user.setUserPhonenumber(phonenumber);
-//		      	 log.info("===================================================================================");
-//				
-				try {
-					professorOp.registerProfessor(user);
-					return new ResponseEntity(HttpStatus.OK);
-				} catch (UserAlreadyExistsException e) {
-					return new ResponseEntity("User with user id:"+e.getUserId()+" Already Exists",HttpStatus.FOUND);
-
-				}
-				
-			
-	}
+//			
+//	}
 	
 }
