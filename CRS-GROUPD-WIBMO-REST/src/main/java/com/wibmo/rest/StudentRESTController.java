@@ -126,7 +126,7 @@ public class StudentRESTController {
         {
         	return new ResponseEntity("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
         }
-        else if(alternativeCount>4)
+        else if(alternativeCount>2)
         {
         	return new ResponseEntity("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
         }
