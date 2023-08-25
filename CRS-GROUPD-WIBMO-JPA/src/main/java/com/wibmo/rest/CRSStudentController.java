@@ -55,7 +55,7 @@ import com.wibmo.validator.ClientValidatorImpl;
  * 
  */
 @RestController
-public class StudentRESTController {
+public class CRSStudentController {
 	
 	@Autowired
 	public StudentOperation studentOp;
@@ -94,7 +94,7 @@ public class StudentRESTController {
 	public ResponseEntity addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
 	{
    		int isRegistered = studentOp.isStudentRegistered(userId);
-		//log.info("Student Registration Status: "+isRegistered);
+		log.info("Student Registration Status: "+isRegistered);
 		if(isRegistered==1)
 		{
 			return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
@@ -133,13 +133,19 @@ public class StudentRESTController {
         
 		
 		StudentCourseMap studCoMap = new StudentCourseMap();
+		studCoMap.setStudentId(userId);
+// 	   studCoMap.setStudentId(userId);
+// 	   log.info("Add Compulsory Courses");
+// 	   this.addCompulsoryCourse(addCourseDto,4);
+// 	   log.info("Add Alternative Courses");
+// 	   this.addAlternativeCourse(addCourseDto,2);
  	   studCoMap.setCourses(addCourseDto.getCourses());
  	   try {
 		studentOp.addCourses(studCoMap);
-		return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.OK); 
+		return new ResponseEntity("Course Added Successfully",HttpStatus.OK); 
 		
  	   } catch (CourseNotFoundException e) {
-		return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.NOT_FOUND); 
+		return new ResponseEntity("No Course added",HttpStatus.NOT_FOUND); 
  	   }catch(CourseLimitExceededException e)
  	   {
 		return new ResponseEntity("Course Limit Exceeded",HttpStatus.CONFLICT); 
@@ -191,7 +197,7 @@ public class StudentRESTController {
 	 * @return
 	 */
 	@RequestMapping(value="/student/{id}/registerCourse",method = RequestMethod.POST)	
-	public ResponseEntity<String> registerCourses(@PathVariable int userId)
+	public ResponseEntity registerCourses(@PathVariable(value="id") int userId)
 	{
 		studentOp.registerCourses(userId);
 		return ResponseEntity.ok("Applied For Course Registration Successfully");
@@ -203,7 +209,7 @@ public class StudentRESTController {
 	 * @return a map of registered courses and their course names.
 	 */
 	@RequestMapping(value="/student/{id}/listCourse",method = RequestMethod.POST)
-	public ResponseEntity<Map<Integer,String>> listCourse(@PathVariable int userId)
+	public ResponseEntity<Map<Integer,String>> listCourse(@PathVariable(value="id") int userId)
 	{
  	   try {
  		  Map<Integer,String> courses=studentOp.listCourse(userId);
@@ -239,11 +245,7 @@ public class StudentRESTController {
  	   }
 	}
 	
-	/**
-	 * To view list of courses in the course catalog.
-	 * @return the list of available courses.
-	 */
-	@RequestMapping(value="/student/{id}/viewCourseCatalog",method = RequestMethod.GET)
+	@RequestMapping(value="/student/viewCourseCatalog",method = RequestMethod.GET)
 	public ResponseEntity<List<CourseCatalog>> viewCourseCatalog()
 	{
 		return ResponseEntity.ok(studentOp.viewCourseCatalog()); 
@@ -296,7 +298,7 @@ public class StudentRESTController {
 	    			  status=payment.UPI(userId);
 	        		  payment.recordPayment(userId, status);
 	    		  }
-	    		  else if(onlineMethod.equals("Cards")) {
+	    		  else if(onlineMethod.equals("cards")) {
 	    			  status=payment.cards(userId);
 	        		  payment.recordPayment(userId, status);
 	    		  }
