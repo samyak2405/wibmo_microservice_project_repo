@@ -292,7 +292,7 @@ public class StudentRESTController {
 	 	  		  
 	    	   }
 	    	   if(paymentMethod.equals("online")) {
-	    		  if(onlineMethod=="UPI") {
+	    		  if(onlineMethod.equals("UPI")) {
 	    			  status=payment.UPI(userId);
 	        		  payment.recordPayment(userId, status);
 	    		  }
