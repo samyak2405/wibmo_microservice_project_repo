@@ -15,7 +15,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.core.config.Loggers;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,6 @@ import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Notification;
 import com.wibmo.entity.StudentCourseMap;
-
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
 import com.wibmo.exception.CourseLimitExceededException;

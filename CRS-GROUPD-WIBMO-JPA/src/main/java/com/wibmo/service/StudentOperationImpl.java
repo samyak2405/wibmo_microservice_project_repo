@@ -3,6 +3,7 @@
  */
 package com.wibmo.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,26 +37,29 @@ public class StudentOperationImpl implements StudentOperation{
 	
 	
 	
-	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());
+//	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());
 	
 	@Autowired
-	public StudentRepository studentDao;
+	private StudentRepository studentDao;
 	@Autowired
-	public CourseRepository course;
+	private CourseRepository courseDao;
 	
-	
-	public static StudentOperationImpl studentOp = new StudentOperationImpl();
+	@Autowired
+	private StudentOperation studentOp;
 	
 	@Override
 	public void registerCourses(int studentId) {
 		// TODO Auto-generated method stub
 		//Logic will be implemented in ADMIN Panel
+		
 		studentDao.registerCourses(studentId);
 	}
-
+	
+	@Override
 	public void AddSingleCourse(int studentId,int courseId,int coursePref) {
 		studentDao.AddSingleCourse(studentId, courseId, coursePref);
 	}
+	
 	@Override
 	public void addCourses(StudentCourseMap studentCoMap) throws CourseNotFoundException,CourseLimitExceededException {
 		
@@ -68,38 +72,38 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			int courseId=entry.getKey();
 			int pref=entry.getValue();
-			if(course.searchCourse(courseId)==false)
+			if(courseDao.findById(courseId)==null)
 			{
 				throw new CourseNotFoundException(courseId);
 			}
 		}
-		studentDao.addCourses(studentCoMap);
+		int studentId = studentCoMap.getStudentId();
+		for(Map.Entry<Integer, Integer> entry:studentCoMap.getCourses().entrySet())
+			studentDao.AddSingleCourse(studentId, entry.getKey(), entry.getValue());
 	}
-
-
 	
 	@Override
 	public int dropCourses(int studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
 		Set<Integer> courses = new HashSet<>();
-		if(studentDao.searchStudentByID(studentId)==false)
+		if(studentDao.findById(studentId)==null)
 		{
 			throw new UserNotFoundException(studentId);
 		}
-		if(course.searchCourse(courseId)==false)
+		if(courseDao.findById(courseId)==null)
 		{
 			throw new CourseNotFoundException(studentId);
 		}
-		
-		int coursePref = studentDao.dropCourses(studentId,courseId,courses);
-		
+		int coursePref = studentDao.findCoursePreference(studentId,courseId);
+		studentDao.dropCourses(studentId,courseId);
 		return coursePref;
 	}
 
 	@Override
 	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
-		if(studentDao.isApproved(studentId)==false)
+		int isPresent = studentDao.isApproved(studentId);
+		if(isPresent>0)
 		{
 			throw new UserNotApprovedException(studentId);
 		}
@@ -117,18 +121,10 @@ public class StudentOperationImpl implements StudentOperation{
 
 	@Override
 	public List<CourseCatalog> viewCourseCatalog() {
-		// TODO Auto-generated method stub
-		//List<CourseCatalog> courses = studentDao.viewCourseCatalog();
-		return studentDao.viewCourseCatalog();
-//		log.info("Course Catalog: ");
-//		
-//		courses.forEach(course->log.info(String.format("%20s %20s %20s %20s\n"
-//				, course.getCourseId()
-//				,course.getCourseName()
-//				,course.getProfessorName()
-//				,course.getPrerequisites()
-//				)));
-		
+		Iterable<CourseCatalog>courses= courseDao.findAll();
+		List<CourseCatalog> list = new ArrayList<>();
+		courses.forEach(course->list.add(course));
+		return list;
 	}
 
 	@Override
@@ -136,7 +132,7 @@ public class StudentOperationImpl implements StudentOperation{
 		// TODO Auto-generated method stub
 		Student student = new Student();
 
-		if(studentDao.doesEmailExist(user.getUserEmail())>0)
+		if(studentDao.findByEmail(user.getUserEmail())==null)
 		{
 			throw new StudentAlreadyRegisteredException(user.getUserEmail());
 		}
@@ -168,7 +164,7 @@ public class StudentOperationImpl implements StudentOperation{
 	@Override
 	public boolean isApproved(int userId) {
 		// TODO Auto-generated method stub
-		boolean flag=studentDao.isApproved(userId);
+		boolean flag= studentDao.isApproved(userId);
 		return flag;
 	}
 
