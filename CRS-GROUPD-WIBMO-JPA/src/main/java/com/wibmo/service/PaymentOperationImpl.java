@@ -4,9 +4,10 @@
 package com.wibmo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.Payment;
+import com.wibmo.entity.Payment;
 import com.wibmo.repository.*;
 
 /**
@@ -19,7 +20,7 @@ public class PaymentOperationImpl implements PaymentOperation{
 	@Autowired
 	Payment paymentBean;
 	@Autowired
-	PaymentDAO paymentDao;
+	PaymentRepository paymentDao;
 	@Override
 	public int getAmount(long studentId) {
 		// TODO Auto-generated method stub

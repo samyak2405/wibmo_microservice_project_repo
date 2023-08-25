@@ -5,7 +5,8 @@ package com.wibmo.service;
 
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.Payment;
+
+import com.wibmo.entity.Payment;
 
 /**
  * For making and recording a payment

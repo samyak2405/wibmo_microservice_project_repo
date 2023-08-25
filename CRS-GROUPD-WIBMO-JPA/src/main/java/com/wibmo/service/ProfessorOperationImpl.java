@@ -4,6 +4,7 @@
 package com.wibmo.service;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
@@ -11,10 +12,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.Professor;
-import com.wibmo.model.Student;
-import com.wibmo.model.User;
+import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.Professor;
+import com.wibmo.entity.Student;
+import com.wibmo.entity.User;
 import com.wibmo.repository.*;
 import com.wibmo.exception.*;
 
@@ -28,11 +29,11 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 
 	private Logger log=LogManager.getLogger();
 	@Autowired
-	ProfessorDAO professorDao;	
+	ProfessorRepository professorDao;	
 	@Autowired
-	StudentDAO studentDao;
+	StudentRepository studentDao;
 	@Autowired
-	CourseDAO courseDao;
+	CourseRepository courseDao;
 	
 	@Override
 	public void setGrades(int studentId, int courseId,String grade)throws UserNotFoundException,CourseNotFoundException
@@ -110,7 +111,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	public void registerProfessor(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		
-		if(professorDao.searchProfessor(user.getUserEmail())==true)
+		if(professorDao.searchProfessor(user.getUserEmail())>0)
 		{
 			throw new UserAlreadyExistsException(user.getUserEmail());
 		}
@@ -120,7 +121,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		professor.setUserEmail(user.getUserEmail());
 		professor.setUserPhonenumber(user.getUserPhonenumber());
 		professor.setUserPassword(user.getUserPassword());
-		professorDao.registerProfessor(professor);
+		professorDao.save(professor);
 		
 	}
 

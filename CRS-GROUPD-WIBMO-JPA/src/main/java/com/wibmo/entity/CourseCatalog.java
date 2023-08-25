@@ -25,6 +25,8 @@ public class CourseCatalog implements Serializable{
 	private String professorName;
 	@Column
 	private String prerequisites;
+	
+	
 	/**
 	 * @return the courseId
 	 */

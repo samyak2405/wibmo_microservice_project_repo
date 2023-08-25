@@ -4,6 +4,8 @@
 package com.wibmo.service;
 
 import java.util.HashMap;
+
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -13,11 +15,11 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.GradeCard;
-import com.wibmo.model.Student;
-import com.wibmo.model.StudentCourseMap;
-import com.wibmo.model.User;
+import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.Student;
+import com.wibmo.entity.StudentCourseMap;
+import com.wibmo.entity.User;
 import com.wibmo.repository.*;
 import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
@@ -37,9 +39,9 @@ public class StudentOperationImpl implements StudentOperation{
 	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());
 	
 	@Autowired
-	public StudentDAO studentDao;
+	public StudentRepository studentDao;
 	@Autowired
-	public CourseDAO course;
+	public CourseRepository course;
 	
 	
 	public static StudentOperationImpl studentOp = new StudentOperationImpl();
@@ -134,7 +136,7 @@ public class StudentOperationImpl implements StudentOperation{
 		// TODO Auto-generated method stub
 		Student student = new Student();
 
-		if(studentDao.doesEmailExist(user.getUserEmail()))
+		if(studentDao.doesEmailExist(user.getUserEmail())>0)
 		{
 			throw new StudentAlreadyRegisteredException(user.getUserEmail());
 		}
@@ -142,7 +144,7 @@ public class StudentOperationImpl implements StudentOperation{
 		student.setUserEmail(user.getUserEmail());
 		student.setUserPhonenumber(user.getUserPhonenumber());
 		student.setUserPassword(user.getUserPassword());
-		studentDao.registerStudent(student);
+		studentDao.save(student);
 	}
 
 
