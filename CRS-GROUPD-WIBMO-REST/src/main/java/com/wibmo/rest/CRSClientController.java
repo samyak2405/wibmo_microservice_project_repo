@@ -3,6 +3,8 @@
  */
 package com.wibmo.rest;
 
+import java.util.List;
+
 import javax.ws.rs.core.MediaType;
 
 import org.apache.logging.log4j.LogManager;
@@ -110,12 +112,15 @@ public class CRSClientController
 			method = RequestMethod.POST,
 			value = "/register/{role}")
 	public ResponseEntity registerRequest(@PathVariable int role, 
-			@RequestBody User user)
+			@RequestBody List<User> users)
 	{
 		if(role==1)
 		{
 			try {
-				studentOp.registerStudent(user);
+				for(User user: users) {
+					studentOp.registerStudent(user);
+				}
+				
 				
 			} catch (StudentAlreadyRegisteredException e) {
 				return new ResponseEntity("Student Already Registerd", HttpStatus.CONFLICT);
@@ -124,8 +129,9 @@ public class CRSClientController
 		else if(role==2)
 		{
 			try {
-				professorOp.registerProfessor(user);
-				
+				for(User user: users) {
+					professorOp.registerProfessor(user);
+				}
 			} catch (UserAlreadyExistsException e) {
 				return new ResponseEntity("Professor Already Registerd", HttpStatus.CONFLICT);
 			}
@@ -133,7 +139,10 @@ public class CRSClientController
 		else if(role==3)
 		{
 			try {
-				adminOp.adminRegistration(user);
+				for(User user: users) {
+					adminOp.adminRegistration(user);
+				}
+				
 				
 			} catch (UserAlreadyExistsException e) {
 				// TODO Auto-generated catch block
