@@ -4,6 +4,7 @@
 package com.wibmo.rest;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
-import com.wibmo.model.Admin;
+import com.wibmo.entity.Admin;
 import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AdminOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;

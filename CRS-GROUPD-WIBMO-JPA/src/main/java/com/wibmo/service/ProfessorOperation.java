@@ -1,16 +1,18 @@
 package com.wibmo.service;
 
 import java.util.List;
+
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.Student;
+import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.Student;
 /**
  * For performing various professor operations.
  */
-import com.wibmo.model.User;
+import com.wibmo.entity.User;
 import com.wibmo.exception.*;
 
 @Service
@@ -40,7 +42,7 @@ public interface ProfessorOperation {
    * @param courseId
    * @throws CourseNotFoundException
    */
-  public List<Student> viewStudentList(Integer courseId) throws CourseNotFoundException;
+  public Optional<List<Student>> viewStudentList(Integer courseId) throws CourseNotFoundException;
   
   /**
    * To view the list of all the courses

@@ -5,9 +5,10 @@ package com.wibmo.service;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.Notification;
+import com.wibmo.entity.Notification;
 
 /**
  * For sending and receiving notifications

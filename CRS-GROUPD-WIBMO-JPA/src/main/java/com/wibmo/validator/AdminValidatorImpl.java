@@ -1,6 +1,7 @@
 package com.wibmo.validator;
 
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -16,10 +17,9 @@ import org.springframework.stereotype.Component;
 
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
-import com.wibmo.constant.NotificationConstants;
-import com.wibmo.repository.AdminDAO;
-import com.wibmo.repository.AdminDAOImpl;
-import com.wibmo.repository.StudentDAOImpl;
+//import com.wibmo.constant.NotificationConstants;
+import com.wibmo.repository.*;
+
 /**
  * To validate admin details
  */
@@ -27,10 +27,10 @@ import com.wibmo.repository.StudentDAOImpl;
 public class AdminValidatorImpl implements ValidatorInterface{
 
 	@Autowired
-	StudentDAOImpl studentDAO;
+	StudentRepository studentDAO;
 	
 	@Autowired
-	AdminDAO adminDAO;
+	AdminRepository adminDAO;
 	
 	@Autowired
 	public NotificationOperation notification;
