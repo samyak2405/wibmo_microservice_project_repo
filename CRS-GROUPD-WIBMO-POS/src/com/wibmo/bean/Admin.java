@@ -1,5 +1,6 @@
-<<<<<<< HEAD
+
 /**
+
  * 
  */
 package com.wibmo.bean;

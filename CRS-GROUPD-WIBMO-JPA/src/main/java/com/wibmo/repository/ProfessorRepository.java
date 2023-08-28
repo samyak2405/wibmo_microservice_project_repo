@@ -24,27 +24,27 @@ import com.wibmo.entity.User;
 public interface ProfessorRepository extends CrudRepository<User,Integer>{
 	
   	@Modifying
-	@Query(value=SQLConstants.SET_GRADES)
+	@Query(value=SQLConstants.SET_GRADES,nativeQuery=true)
 	public void setGrades(@Param("grade")String grade,@Param("studentId") int studentId,@Param("courseId") int courseId);
 	
   	@Modifying
-	@Query(value=SQLConstants.REQUEST_COURSE)
+	@Query(value=SQLConstants.REQUEST_COURSE,nativeQuery=true)
 	public void requestCourseOffering(@Param("professorId")int professorid,@Param("courseId")int courseId);
 	
   	@Modifying
-	@Query(value=SQLConstants.STUDENT_LIST)
+	@Query(value=SQLConstants.STUDENT_LIST,nativeQuery=true)
 	public Optional<List<Student>> findStudentByCourseId(@Param("courseId")int courseId);
 	
   	@Modifying
-	@Query(value=SQLConstants.SEARCH_PROFESSOR)
+	@Query(value=SQLConstants.SEARCH_PROFESSOR,nativeQuery=true)
 	public int findProfessorByEmail(@Param("userEmail")String userEmail);
 	
   	@Modifying
-	@Query(value=SQLConstants.SELECT_PROFESSOR_BY_EMAIL)
+	@Query(value=SQLConstants.SELECT_PROFESSOR_BY_EMAIL,nativeQuery=true)
 	public int getProfessorById(@Param("userEmail")String userEmail);
 
   	@Modifying
-  	@Query(value=SQLConstants.LIST_APPROVED_COURSES)
+  	@Query(value=SQLConstants.LIST_APPROVED_COURSES,nativeQuery=true)
 	public List<Object[]> listOfApprovedCourses(int userId);
 	
 }

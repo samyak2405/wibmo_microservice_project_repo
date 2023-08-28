@@ -19,23 +19,23 @@ import com.wibmo.entity.*;
 @Repository
 public interface AuthenticationRepository extends CrudRepository<User,Integer> {
 	@Modifying
-    @Query(value=SQLConstants.VERIFY_STUDENT)
+    @Query(value=SQLConstants.VERIFY_STUDENT,nativeQuery=true)
 	public Student studentLoggedin(@Param("userEmail") String userEmail);
 	@Modifying
-    @Query(value=SQLConstants.VERIFY_PROFESSOR)
+    @Query(value=SQLConstants.VERIFY_PROFESSOR,nativeQuery=true)
 	public Professor professorLoggedin(@Param("userEmail") String userEmail);
 	@Modifying
-    @Query(value=SQLConstants.VERIFY_ADMIN)
+    @Query(value=SQLConstants.VERIFY_ADMIN,nativeQuery=true)
 	public Admin adminLoggedin(@Param("userEmail") String userEmail);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_STUDENT)
-	public Admin updateStudentPassword(@Param("userEmail") String userEmail,String userPassword);
+    @Query(value=SQLConstants.UPDATE_PASSWORD_STUDENT,nativeQuery=true)
+	public void updateStudentPassword(@Param("userEmail") String userEmail,String userPassword);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_PROFESSOR)
-	public Admin updateProfessorPassword(@Param("userEmail") String userEmail,String userPassword);
+    @Query(value=SQLConstants.UPDATE_PASSWORD_PROFESSOR,nativeQuery=true)
+	public void updateProfessorPassword(@Param("userEmail") String userEmail,String userPassword);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_ADMIN)
-	public Admin updateAdminPassword(@Param("userEmail") String userEmail,String userPassword);
+    @Query(value=SQLConstants.UPDATE_PASSWORD_ADMIN,nativeQuery=true)
+	public void updateAdminPassword(@Param("userEmail") String userEmail,String userPassword);
 	
 
 }

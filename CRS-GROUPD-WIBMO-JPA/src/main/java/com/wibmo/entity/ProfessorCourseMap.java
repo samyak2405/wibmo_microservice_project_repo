@@ -19,7 +19,10 @@ import javax.persistence.Table;
 public class ProfessorCourseMap implements Serializable {
 	@Id
 	@Column
-	private int studentId;
+	private int professorId;
+	
+
+
 	@Id
 	@Column
 	private int courseId;
@@ -62,29 +65,20 @@ public class ProfessorCourseMap implements Serializable {
 	}
 
 	/**
+	 * @return the professorId
+	 */
+	public int getProfessorId() {
+		return professorId;
+	}
 
-     * @return the studentId
+	/**
+	 * @param professorId the professorId to set
+	 */
+	public void setProfessorId(int professorId) {
+		this.professorId = professorId;
+	}
 
-     */
-
-    public int getStudentId() {
-
-        return studentId;
-
-    }
-
-    /**
-
-     * @param studentId the studentId to set
-
-     */
-
-    public void setStudentId(int studentId) {
-
-        this.studentId = studentId;
-
-    }
-
+	
     /**
 
      * @return the courseId
