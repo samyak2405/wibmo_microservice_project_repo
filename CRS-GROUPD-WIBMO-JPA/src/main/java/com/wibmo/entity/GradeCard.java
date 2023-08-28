@@ -26,8 +26,9 @@ public class GradeCard implements Serializable {
 	private int studentId;
 	
 	@Id
-	@ManyToOne
-	@JoinColumn(name="courseId")
+	@Column
+//	@ManyToOne
+//	@JoinColumn(name="courseId")
 	private int courseId;
 	
 	@Column

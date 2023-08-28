@@ -113,7 +113,7 @@ public class AdminOperationImpl implements AdminOperation{
 		if(studentRepository.findById(id)==null) {
 			throw new UserNotFoundException(id);
 		}
-		adminRepository.setApprovedStudentById(id);
+//		adminRepository.setApprovedStudentById(id);
 	}
 
 	@Override

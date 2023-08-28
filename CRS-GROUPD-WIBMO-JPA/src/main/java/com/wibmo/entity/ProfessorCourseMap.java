@@ -27,13 +27,13 @@ public class ProfessorCourseMap implements Serializable {
 	@Id
 	private long id;
 	
-	@OneToMany
-	@JoinColumn(name="userId")
-	private List<Professor> professor;
-	
-	@ManyToOne
-	@JoinColumn(name="courseId")
-	private List<CourseCatalog> courseCatalog=new ArrayList<>();;
+//	@OneToMany
+//	@JoinColumn(name="userId")
+//	private List<Professor> professor;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="courseId")
+//	private List<CourseCatalog> courseCatalog;
 	
 	@Column
 	int isApproved;
@@ -49,21 +49,21 @@ public class ProfessorCourseMap implements Serializable {
 
 
 
-	public List<Professor> getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(List<Professor> professor) {
-		this.professor = professor;
-	}
-
-	public List<CourseCatalog> getCourseCatalog() {
-		return courseCatalog;
-	}
-
-	public void setCourseCatalog(List<CourseCatalog> courseCatalog) {
-		this.courseCatalog = courseCatalog;
-	}
+//	public List<Professor> getProfessor() {
+//		return professor;
+//	}
+//
+//	public void setProfessor(List<Professor> professor) {
+//		this.professor = professor;
+//	}
+//
+//	public List<CourseCatalog> getCourseCatalog() {
+//		return courseCatalog;
+//	}
+//
+//	public void setCourseCatalog(List<CourseCatalog> courseCatalog) {
+//		this.courseCatalog = courseCatalog;
+//	}
 
 	public int getIsApproved() {
 		return isApproved;

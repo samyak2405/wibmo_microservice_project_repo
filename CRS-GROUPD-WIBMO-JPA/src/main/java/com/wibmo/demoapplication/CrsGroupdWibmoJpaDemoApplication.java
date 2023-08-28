@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @EnableJpaRepositories("com.wibmo.repository")
-@EntityScan("com.wibmo.entity")
+@EntityScan(basePackages = "com.wibmo.entity")
 @ComponentScan("com.wibmo.*")
 @EnableWebMvc
 @EnableAutoConfiguration
@@ -20,6 +20,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class CrsGroupdWibmoJpaDemoApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(CrsGroupdWibmoJpaDemoApplication.class, args);
+	
 	}
 }
