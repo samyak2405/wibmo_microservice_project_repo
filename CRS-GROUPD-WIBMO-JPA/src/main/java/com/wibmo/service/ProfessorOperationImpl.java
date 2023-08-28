@@ -61,9 +61,9 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		{
 			if(courseDao.findById(courseId)==null)
 				throw new CourseNotFoundException(courseId);
-			professorDao.requestCourseOffering(professorid,courseId);
 		}
-			
+		
+		courseIdList.forEach((courseId)->professorDao.requestCourseOffering(professorid,courseId));	
 		return;
     }
 

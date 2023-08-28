@@ -19,7 +19,9 @@ import javax.persistence.Table;
 public class ProfessorCourseMap implements Serializable {
 	@Id
 	@Column
-	private int studentId;
+	private int professorId;
+	
+
 	@Id
 	@Column
 	private int courseId;
@@ -61,30 +63,6 @@ public class ProfessorCourseMap implements Serializable {
 		this.isApproved = isApproved;
 	}
 
-	/**
-
-     * @return the studentId
-
-     */
-
-    public int getStudentId() {
-
-        return studentId;
-
-    }
-
-    /**
-
-     * @param studentId the studentId to set
-
-     */
-
-    public void setStudentId(int studentId) {
-
-        this.studentId = studentId;
-
-    }
-
     /**
 
      * @return the courseId
@@ -96,6 +74,24 @@ public class ProfessorCourseMap implements Serializable {
         return courseId;
 
     }
+    
+    /**
+
+     * @return the professorId
+
+     */
+    public int getProfessorId() {
+		return professorId;
+	}
+
+    /**
+
+     * @param sets the professorId
+
+     */
+	public void setProfessorId(int professorId) {
+		this.professorId = professorId;
+	}
 
     /**
 

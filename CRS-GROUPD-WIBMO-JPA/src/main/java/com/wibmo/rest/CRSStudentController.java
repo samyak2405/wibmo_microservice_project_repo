@@ -253,7 +253,6 @@ public class CRSStudentController {
 	    	   if(paymentMethod.equals("offline"))
 	    	   {
 	    		   status=payment.offline(userId);
-	    		   System.out.println(status);
 	 	  		  payment.recordPayment(userId, status);
 	 	  		  
 	    	   }
