@@ -100,7 +100,7 @@ public class StudentOperationImpl implements StudentOperation{
 	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		int isPresent = studentDao.isApproved(studentId);
-		if(isPresent>0)
+		if(isPresent<1)
 			throw new UserNotApprovedException(studentId);
 		
 		List<Object[]> list = studentDao.listCourse(studentId);

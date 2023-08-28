@@ -26,31 +26,31 @@ public interface AdminRepository extends CrudRepository<User,Integer> {
 	public void approveStudentRegistration();
 
 	@Modifying
-	@Query(value=SQLConstants.APPROVE_STUDENT_BY_ID)
+	@Query(value=SQLConstants.APPROVE_STUDENT_BY_ID,nativeQuery=true)
 	public void approveStudentRegistrationById(@Param("userId")int userId);
 
 	@Modifying
-	@Query(value=SQLConstants.SELECT_PROFESSORS_BY_ID)
+	@Query(value=SQLConstants.SELECT_PROFESSORS_BY_ID,nativeQuery=true)
 	public List<Integer> getProfessorsIds();
 
 	@Modifying
-	@Query(value=SQLConstants.SELECT_PROFESSOR_COURSES)
+	@Query(value=SQLConstants.SELECT_PROFESSOR_COURSES,nativeQuery=true)
 	public List<Integer> getProfessorCourses(@Param("professorId")int professorId);
 
 	@Modifying
-	@Query(value=SQLConstants.APPROVE_PROFESSOR_COURSE)
+	@Query(value=SQLConstants.APPROVE_PROFESSOR_COURSE,nativeQuery=true)
 	public void approveCourse(@Param("professorId")int professor,@Param("courseId")int courseId);
 
 	@Modifying
-	@Query(value=SQLConstants.SEARCH_ADMIN)
+	@Query(value=SQLConstants.SEARCH_ADMIN,nativeQuery=true)
 	public int getAdminById(@Param("userEmail")String userEmail);
 
 	@Modifying
-	@Query(value=SQLConstants.INSERT_GRADECARD)
+	@Query(value=SQLConstants.INSERT_GRADECARD,nativeQuery=true)
 	public void setGradeCard(@Param("studentId")int studentId,@Param("courseId") int courseId);
 
 	@Modifying
-	@Query(value=SQLConstants.STUDENT_REGISTRATION_REJECTION)
+	@Query(value=SQLConstants.STUDENT_REGISTRATION_REJECTION,nativeQuery=true)
 	public void setRejectionStatus(@Param("studentId")int studentId);
 
 	@Modifying

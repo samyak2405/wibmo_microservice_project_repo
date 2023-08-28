@@ -34,6 +34,10 @@ public class ProfessorCourseMap implements Serializable {
 	@JoinColumn(name="courseId")
 	private List<CourseCatalog> courseCatalog;
 	
+
+	@Column
+	private int isApproved;
+	
 	public long getId() {
 		return id;
 	}
@@ -66,8 +70,9 @@ public class ProfessorCourseMap implements Serializable {
 		this.isApproved = isApproved;
 	}
 
-	@Column
-	private int isApproved;
+
 	
 	
+
+
 }

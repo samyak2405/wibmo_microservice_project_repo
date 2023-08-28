@@ -61,9 +61,9 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		{
 			if(courseDao.findById(courseId)==null)
 				throw new CourseNotFoundException(courseId);
-			professorDao.requestCourseOffering(professorid,courseId);
 		}
-			
+		
+		courseIdList.forEach((courseId)->professorDao.requestCourseOffering(professorid,courseId));	
 		return;
     }
 
@@ -96,7 +96,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	public void registerProfessor(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		
-		if(professorDao.findProfessorByEmail(user.getUserEmail())<1)
+		if(professorDao.findProfessorByEmail(user.getUserEmail())>0)
 		{
 			throw new UserAlreadyExistsException(user.getUserEmail());
 		}

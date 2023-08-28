@@ -22,5 +22,4 @@ public class CrsGroupdWibmoJpaDemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrsGroupdWibmoJpaDemoApplication.class, args);
 	}
-
 }
