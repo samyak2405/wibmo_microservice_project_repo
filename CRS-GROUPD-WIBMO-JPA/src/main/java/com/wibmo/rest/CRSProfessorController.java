@@ -1,11 +1,13 @@
 package com.wibmo.rest;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+//import org.apache.log4j.LogManager;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.wibmo.entity.*;
+
+import com.wibmo.entity.User;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
-
+import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.Student;
 import com.wibmo.service.*;
 
 import com.wibmo.service.ProfessorOperation;

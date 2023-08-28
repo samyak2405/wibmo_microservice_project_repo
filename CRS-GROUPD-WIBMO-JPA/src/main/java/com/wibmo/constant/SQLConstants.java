@@ -27,15 +27,21 @@ public class SQLConstants {
 		/*
 		 * Student Queries
 		 * */
-		public static final String COUNT_STUDENT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.studentcoursemapping WHERE courseid=?";
+		public static final String UPDATE_REGISTER=" UPDATE studentcoursemapping SET isRegister=1 WHERE studentid=?";
+		public static final String ADD_COURSES = "INSERT INTO studentcoursemapping VALUES(?,?,?,?)";
 		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.studentcoursemapping WHERE studentId=?";
+		public static final String DELETE_COURSE =  "DELETE FROM studentcoursemapping WHERE studentid=? && courseid=?";
+		public static final String COURSE_PREFERENCE = "SELECT coursecategory FROM studentcoursemapping WHERE studentid=? && courseid=?";
+		public static final String IS_APPROVED = "SELECT COUNT(*) FROM gradecard where studentId=?";
+		
+		
+		
+		
+		public static final String COUNT_STUDENT_COURSES = "SELECT COUNT(courseid) as courseCount FROM crs.studentcoursemapping WHERE courseid=?";
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentid) as uniqueStudent FROM crs.studentcoursemapping";
 		public static final String SELECT_COURSEMAPPING = "SELECT courseid, coursecategory FROM crs.studentcoursemapping WHERE studentid=?";
-		public static final String UPDATE_REGISTER=" UPDATE crs.studentcoursemapping SET isRegister=1 WHERE studentid=?";
-		public static final String ADD_COURSES = "INSERT INTO crs.studentcoursemapping VALUES(?,?,?,?)";
-		public static final String COURSE_PREFERENCE = "SELECT coursecategory FROM crs.studentcoursemapping WHERE studentid=? && courseid=?";
+		
 		public static final String SELECT_COURSEID = "SELECT courseid FROM crs.studentcoursemapping WHERE studentid=?";
-		public static final String DELETE_COURSE =  "DELETE FROM crs.studentcoursemapping WHERE studentid=? && courseid=?";
 		public static final String LIST_STUDENT_REG_COURSES = "SELECT gradecard.courseId, courseCatalog.courseName FROM crs.gradecard as gradecard INNER JOIN crs.coursecatalog as courseCatalog ON gradecard.courseId=courseCatalog.courseId WHERE gradecard.studentId=?";
 		public static final String COURSE_CATALOG = "SELECT * FROM crs.coursecatalog";
 		public static final String INSERT_STUDENT = "INSERT INTO crs.student (studentname,studentemail,password,phonenumber) VALUES(?,?,?,?)";
@@ -56,6 +62,14 @@ public class SQLConstants {
 		public static final String INSERT_PROFESSOR ="INSERT INTO crs.professor VALUES(?,?,?,?,?)" ;
 		public static final String SEARCH_PROFESSOR = "SELECT COUNT(professoremail) FROM crs.professor WHERE professoremail=?";
 		public static final String SELECT_PROFESSOR_BY_EMAIL = "SELECT professorid FROM crs.professor WHERE professoremail=?";
+		
+		//JOIN CUSTOM QUERY
+		public static final String LIST_APPROVED_COURSES = "SELECT pcm.courseid, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.professorid=? && pcm.isApproved=1";
+		
+		
+		
+		
+		
 		public static final String RECORD_PAYMENT = "INSERT INTO crs.payment VALUES(?,?,?,?)";
 		public static final String SELECT_PROFESSORS_BY_ID = "SELECT DISTINCT professorid FROM crs.professorcoursemapping";
 		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseid FROM crs.professorcoursemapping WHERE professorid=?";

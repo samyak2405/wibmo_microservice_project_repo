@@ -1,5 +1,6 @@
 package com.wibmo.service;
 import org.apache.logging.log4j.LogManager;
+
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Scanner;
 
-import com.wibmo.model.*;
+import com.wibmo.entity.*;
 import com.wibmo.repository.*;
 import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -52,7 +53,7 @@ public class AdminOperationImpl implements AdminOperation{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
-			if(adminDAO.searchAdmin(user.getUserId()))
+			if(adminDAO.searchAdmin(user.getUserId())>0)
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
@@ -85,6 +86,8 @@ public class AdminOperationImpl implements AdminOperation{
 		// TODO Auto-generated method stub
 		return adminDAO.getAdminById(userEmail);
 	}
+
+	
 
 	
 

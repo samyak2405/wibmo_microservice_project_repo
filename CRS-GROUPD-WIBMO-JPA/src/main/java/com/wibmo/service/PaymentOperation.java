@@ -60,7 +60,7 @@ public interface PaymentOperation {
 	 * @param paymentStatus
 	 * @return the Payment Bean object containing payment record of that particular student.
 	 */
-	public Payment recordPayment(long studentId,boolean paymentStatus);
+	public void recordPayment(long studentId,boolean paymentStatus);
 
 
 }

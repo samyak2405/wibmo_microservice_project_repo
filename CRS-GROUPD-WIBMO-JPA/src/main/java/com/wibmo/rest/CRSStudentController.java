@@ -4,6 +4,7 @@
 package com.wibmo.rest;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -30,8 +31,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wibmo.entity.*;
-import com.wibmo.constant.NotificationConstants;
+import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.Notification;
+import com.wibmo.entity.StudentCourseMap;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
 import com.wibmo.exception.CourseLimitExceededException;
