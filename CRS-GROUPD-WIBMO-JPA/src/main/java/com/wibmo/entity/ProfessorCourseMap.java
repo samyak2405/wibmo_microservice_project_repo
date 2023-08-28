@@ -22,6 +22,10 @@ public class ProfessorCourseMap implements Serializable {
 	private int professorId;
 	
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cb10973967d01aca71b27f45019db46f17b7542
 	@Id
 	@Column
 	private int courseId;
@@ -63,6 +67,24 @@ public class ProfessorCourseMap implements Serializable {
 		this.isApproved = isApproved;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @return the professorId
+	 */
+	public int getProfessorId() {
+		return professorId;
+	}
+
+	/**
+	 * @param professorId the professorId to set
+	 */
+	public void setProfessorId(int professorId) {
+		this.professorId = professorId;
+	}
+
+	
+>>>>>>> 9cb10973967d01aca71b27f45019db46f17b7542
     /**
 
      * @return the courseId

@@ -24,6 +24,7 @@ import com.wibmo.entity.User;
  */
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {
+<<<<<<< HEAD
 	@Modifying
 	@Query(value=SQLConstants.UPDATE_REGISTER, nativeQuery = true)
 	public void registerCourses(@Param("studentId")int studentId);
@@ -82,6 +83,70 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 
 	@Modifying
 	@Query(value=SQLConstants.GRADE_CARD, nativeQuery =  true)
+=======
+//	@Modifying
+//	@Query("SELECT COUNT(*) FROM crs.student WHERE studentemail=?")
+//	public int doesEmailExist(@Param("studentemail") String studentemail);
+
+	@Modifying
+	@Query(value=SQLConstants.UPDATE_REGISTER,nativeQuery=true)
+	public void registerCourses(@Param("studentId")int studentId);
+	
+	@Modifying
+	@Query(value=SQLConstants.ADD_COURSES,nativeQuery=true)
+	public void AddSingleCourse(@Param("studentId")int studentId,@Param("courseId")int courseId,@Param("courseId")int coursePref);
+	
+	@Modifying
+	@Query(value=SQLConstants.COUNT_COURSES,nativeQuery=true)
+	public int getCourseCount(int studentId);
+	
+	@Modifying
+	@Query(value=SQLConstants.DELETE_COURSE,nativeQuery=true)
+	public void dropCourses(@Param("studentId")int studentId,@Param("courseId")int courseId);
+
+	@Modifying
+	@Query(value=SQLConstants.COURSE_PREFERENCE,nativeQuery=true)
+	public int findCoursePreference(@Param("studentId")int studentId,@Param("courseId") int courseId);
+
+	@Modifying
+	@Query(value=SQLConstants.IS_APPROVED,nativeQuery=true)
+	public int isApproved(@Param("studentId")int studentId);
+
+	@Modifying
+	@Query(value=SQLConstants.STUDENT_BY_EMAIL,nativeQuery=true)
+	public int findByEmail(@Param("userEmail")String userEmail);
+
+	@Modifying
+	@Query(value=SQLConstants.SELECT_STUDENTID,nativeQuery=true)
+	public List<Integer> getStudentIds();
+
+	@Modifying
+	@Query(value=SQLConstants.SELECT_REGISTER,nativeQuery=true)
+	public int isStudentRegistered(@Param("studentId")int studentId);
+
+	@Modifying
+	@Query(value=SQLConstants.IS_APPROVED,nativeQuery=true)
+	public int isCourseRegistrationApproved(@Param("studentId")int studentId);
+
+	@Modifying
+	@Query(value=SQLConstants.SELECT_COURSEMAPPING,nativeQuery=true)
+	public List<Object[]> getStudentCourseData(@Param("studentId")int studentId);
+
+	@Modifying
+	@Query(value=SQLConstants.COUNT_STUDENT_COURSES,nativeQuery=true)
+	public int getStudentCourseCount(@Param("courseId")Integer courseId);
+
+	@Modifying
+	@Query(value=SQLConstants.LIST_STUDENT_REG_COURSES,nativeQuery=true)
+	public List<Object[]> listCourse(@Param("studentId")int studentId);
+
+	@Modifying
+	@Query(value=SQLConstants.SELECT_ADDED_COURSE,nativeQuery=true)
+	public List<Object[]> getAddedCourses(@Param("userId")int userId);
+
+	@Modifying
+	@Query(value=SQLConstants.GRADE_CARD,nativeQuery=true)
+>>>>>>> 9cb10973967d01aca71b27f45019db46f17b7542
 	public List<Object[]> viewReportCard(@Param("studentId")int studentId);
 
 	

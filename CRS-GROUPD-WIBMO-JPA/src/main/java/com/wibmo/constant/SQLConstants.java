@@ -19,10 +19,10 @@ public class SQLConstants {
 		public static final String UPDATE_PASSWORD_STUDENT="UPDATE student SET userPassword=?1 WHERE userEmail=?2";
 		
 		public static final String VERIFY_PROFESSOR=" SELECT * FROM professor WHERE userEmail=?1";
-		public static final String UPDATE_PASSWORD_PROFESSOR ="UPDATE professor SET userPassword=? WHERE userEmail=?";
+		public static final String UPDATE_PASSWORD_PROFESSOR ="UPDATE professor SET userPassword=?1 WHERE userEmail=?2";
 
-		public static final String VERIFY_ADMIN=" SELECT * FROM admin WHERE userEmail=?";
-		public static final String UPDATE_PASSWORD_ADMIN="UPDATE admin SET userPassword=? WHERE userEmail=?";
+		public static final String VERIFY_ADMIN=" SELECT * FROM admin WHERE userEmail=?1";
+		public static final String UPDATE_PASSWORD_ADMIN="UPDATE admin SET userPassword=?1 WHERE userEmail=?2";
 		
 		/*
 		 * Student Queries
@@ -48,8 +48,8 @@ public class SQLConstants {
 		
 		public static final String SELECT_STUDENT_BY_EMAIL = "SELECT studentid FROM student WHERE studentemail=?";
 		public static final String SEARCH_STUDENT_BY_ID = "SELECT * FROM student WHERE studentid=?";
-		public static final String STUDENT_BY_EMAIL = "SELECT COUNT(*) FROM student WHERE studentEmail=?";
-		public static final String SELECT_ADDED_COURSE = "SELECT c.courseid,c.courseName FROM coursecatalog c INNER JOIN studentcoursemapping scm ON c.courseid=scm.courseId WHERE scm.studentid=?";
+		public static final String STUDENT_BY_EMAIL = "SELECT COUNT(*) FROM student WHERE userEmail=?1";
+		public static final String SELECT_ADDED_COURSE = "SELECT c.courseId,c.courseName FROM coursecatalog c INNER JOIN crs.studentcoursemapping scm ON c.courseId=scm.courseId WHERE scm.studentId=?1";
 		/*
 		 * Professor Queries
 		 */
@@ -59,8 +59,10 @@ public class SQLConstants {
 		public static final String REQUEST_COURSE="INSERT INTO professorcoursemapping VALUES(?1,?2,0)";
 		public static final String STUDENT_LIST = "SELECT userId,userName, userEmail, userPhonenumber FROM student"
                 + " WHERE userId IN (SELECT studentId FROM studentcoursemapping WHERE courseId=?1)";
+		
 		//JOIN CUSTOM QUERY
-		public static final String SEARCH_PROFESSOR = "SELECT COUNT(professoremail) FROM professor WHERE userEmail=?";
+		// static final String LIST_APPROVED_COURSES = "SELECT pcm.courseId, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseId=cc.courseId WHERE pcm.professorId=?1 && pcm.isApproved=1";
+		public static final String SEARCH_PROFESSOR = "SELECT COUNT(*) FROM professor WHERE userEmail=?1";
 		
 				
 		
@@ -95,7 +97,7 @@ public class SQLConstants {
 		public static final String SEND_NOTIFICATION="INSERT INTO notificationstudentmapping VALUES(?1,?2)";
 		public static final String SELECT_STUDENT_APPROVED = "SELECT studentId FROM gradecard WHERE studentId=?";
 		public static final String SELECT_ADMIN_BY_EMAIL = "SELECT adminId FROM admin WHERE adminEmail=?";
-		public static final String STUDENT_REGISTRATION_REJECTION = "DELETE FROM studentcoursemapping WHERE studentid=?";
+		public static final String STUDENT_REGISTRATION_REJECTION = "DELETE FROM studentcoursemapping WHERE studentId=?";
 		
 	/**
 	 * Common for student And Professor
