@@ -35,11 +35,15 @@ import com.wibmo.exception.UserNotFoundException;
 
 @Service
 public class StudentOperationImpl implements StudentOperation{
-	
+
 	@Autowired
-	private StudentRepository studentDao;
+	public StudentRepository studentDao;
+	@Autowired
+	public CourseRepository course;
+
 	@Autowired
 	private CourseRepository courseDao;
+
 	
 	@Override
 	public void registerCourses(int studentId) {

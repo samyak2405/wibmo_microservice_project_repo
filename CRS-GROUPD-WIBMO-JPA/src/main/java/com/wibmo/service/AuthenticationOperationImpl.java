@@ -20,6 +20,10 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 	@Autowired
 	AuthenticationRepository authenticate;
 	
+	@Autowired
+	StudentRepository studentRepo;
+	
+	
 	@Override
 	public boolean loggedin(String userEmail, String userPassword,int role,StringBuilder msg) {
 		// TODO Auto-generated method stub

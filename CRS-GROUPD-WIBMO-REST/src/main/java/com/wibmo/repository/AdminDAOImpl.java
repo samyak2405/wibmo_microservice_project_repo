@@ -165,6 +165,7 @@ public class AdminDAOImpl implements AdminDAO {
 		   }
 		return listOfCourses;
 	}
+	
 	public void setProfCourse(int professorid, int courseid)
 	{
 		PreparedStatement stmt = null;
@@ -285,7 +286,7 @@ PreparedStatement stmt = null;
 	@Override
 	public int getAdminById(String userEmail) {
 		// TODO Auto-generated method stub
-PreparedStatement stmt = null;
+		PreparedStatement stmt = null;
 		int adminId = 0;
 		try {
 			
@@ -333,7 +334,6 @@ PreparedStatement stmt = null;
 		PreparedStatement stmt = null;
 		List<Integer> courses = new ArrayList<>();
 		try {
-			
 			stmt = conn.prepareStatement(SQLConstants.SELECT_PROFESSOR_COURSES);
 			stmt.setInt(1, professorId);
 			ResultSet rs = stmt.executeQuery();
@@ -348,7 +348,6 @@ PreparedStatement stmt = null;
 		      e.printStackTrace();
 		   }
 		return courses;
-		
 	}
 
 	@Override

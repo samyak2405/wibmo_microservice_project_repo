@@ -4,11 +4,17 @@
 package com.wibmo.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 /**
@@ -17,113 +23,59 @@ import javax.persistence.Table;
 @Entity
 @Table(name="professorcoursemapping")
 public class ProfessorCourseMap implements Serializable {
+
 	@Id
-	@Column
-	private int professorId;
+	private long id;
 	
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 9cb10973967d01aca71b27f45019db46f17b7542
-	@Id
-	@Column
-	private int courseId;
+	@OneToMany
+	@JoinColumn(name="userId")
+	private List<Professor> professor;
 	
 	@ManyToOne
 	@JoinColumn(name="courseId")
-	private CourseCatalog course;
+	private List<CourseCatalog> courseCatalog=new ArrayList<>();;
 	
 	@Column
-	private int isApproved;
+	int isApproved;
 	
 	
-	
-    /**
-	 * @return the course
-	 */
-	public CourseCatalog getCourse() {
-		return course;
+	public long getId() {
+		return id;
 	}
 
-	/**
-	 * @param course the course to set
-	 */
-	public void setCourse(CourseCatalog course) {
-		this.course = course;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	/**
-	 * @return the isApproved
-	 */
+
+
+	public List<Professor> getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(List<Professor> professor) {
+		this.professor = professor;
+	}
+
+	public List<CourseCatalog> getCourseCatalog() {
+		return courseCatalog;
+	}
+
+	public void setCourseCatalog(List<CourseCatalog> courseCatalog) {
+		this.courseCatalog = courseCatalog;
+	}
+
 	public int getIsApproved() {
 		return isApproved;
 	}
 
-	/**
-	 * @param isApproved the isApproved to set
-	 */
 	public void setIsApproved(int isApproved) {
 		this.isApproved = isApproved;
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * @return the professorId
-	 */
-	public int getProfessorId() {
-		return professorId;
-	}
-
-	/**
-	 * @param professorId the professorId to set
-	 */
-	public void setProfessorId(int professorId) {
-		this.professorId = professorId;
-	}
 
 	
->>>>>>> 9cb10973967d01aca71b27f45019db46f17b7542
-    /**
+	
 
-     * @return the courseId
 
-     */
-
-    public int getCourseId() {
-
-        return courseId;
-
-    }
-    
-    /**
-
-     * @return the professorId
-
-     */
-    public int getProfessorId() {
-		return professorId;
-	}
-
-    /**
-
-     * @param sets the professorId
-
-     */
-	public void setProfessorId(int professorId) {
-		this.professorId = professorId;
-	}
-
-    /**
-
-     * @param courseId the courseId to set
-
-     */
-
-    public void setCourseId(int courseId) {
-
-        this.courseId = courseId;
-
-    }
 }

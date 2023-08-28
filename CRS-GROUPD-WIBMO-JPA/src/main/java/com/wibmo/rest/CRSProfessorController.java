@@ -19,7 +19,6 @@ import com.wibmo.entity.GradeCard;
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.validator.ClientValidatorImpl;
 
-
 @RestController
 public class CRSProfessorController {
      @Autowired

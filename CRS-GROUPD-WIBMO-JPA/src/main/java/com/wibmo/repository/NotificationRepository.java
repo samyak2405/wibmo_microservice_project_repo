@@ -20,20 +20,10 @@ import com.wibmo.entity.User;
 @Repository
 public interface NotificationRepository extends CrudRepository<User,Integer> {
 
-<<<<<<< HEAD
 	@Query(value=SQLConstants.SEND_NOTIFICATION, nativeQuery = true)
 	void sendNotificationMessage(@Param("notifId") int notifid, @Param("studentId") long studentId);
 
 	@Query(value=SQLConstants.GET_NOTIFICATION, nativeQuery = true)
 	List<Notification> getNotificationMessage(@Param("studentId")long studentId);
-=======
-	@Query(value=SQLConstants.SEND_NOTIFICATION,nativeQuery=true)
-	void sendNotificationMessage(int notifid, long studentId);
-
-	@Query(value=SQLConstants.GET_NOTIFICATION,nativeQuery=true)
-	List<Notification> getNotificationMessage(long studentId);
->>>>>>> 9cb10973967d01aca71b27f45019db46f17b7542
 	
-	
-
 }
