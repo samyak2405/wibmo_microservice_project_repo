@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.wibmo.dto.AddCourseDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.StudentCourseMap;
@@ -33,7 +34,7 @@ public interface StudentOperation {
 	 * @param studCoMap
 	 * @throws DuplicateCourseEntryException
 	 */
-	public void addCourses(StudentCourseMap studCoMap) throws CourseNotFoundException,CourseLimitExceededException ;
+	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException ;
 	
 	/**
 	 * To drop course from registration list
@@ -73,14 +74,14 @@ public interface StudentOperation {
 	 * @param studId
 	 * @throws UserNotFoundException
 	 */
-	public List<GradeCard> viewReportCard(int studId) throws UserNotApprovedException;
+	public Map<Integer,Map<Integer,String>> viewReportCard(int studId) throws UserNotApprovedException;
 
 	/**
 	 * To check if a student is registered of not.
 	 * @param userId
 	 * @return True if student is registered else returns False.
 	 */
-	public boolean isApproved(int userId) ;
+	public int isApproved(int userId) ;
 
 	public int getStudentByEmail(String userEmail);
 

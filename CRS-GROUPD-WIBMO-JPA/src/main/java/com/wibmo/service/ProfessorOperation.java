@@ -32,10 +32,9 @@ public interface ProfessorOperation {
    * To request to teach a specific course
    * @param professorid
    * @param courseIdList
-   * @return
    * @throws CourseNotFoundException
    */
-  public boolean requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException;
+  public void requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException;
   
   /**
    * To view list of registered student in a specific course.

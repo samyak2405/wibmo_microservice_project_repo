@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
+import com.wibmo.constant.NotificationConstants;
 //import com.wibmo.constant.NotificationConstants;
 import com.wibmo.repository.*;
 
@@ -24,8 +25,7 @@ import com.wibmo.repository.*;
  * To validate admin details
  */
 @Component
-public class AdminValidatorImpl implements ValidatorInterface{
-
+	public class AdminValidatorImpl implements ValidatorInterface{
 	@Autowired
 	StudentRepository studentDAO;
 	
@@ -58,14 +58,15 @@ public class AdminValidatorImpl implements ValidatorInterface{
 	}
 	
 	public List<Boolean> courseRegistrationValidator() {
+		
 		List<Integer> studentIds = studentDAO.getStudentIds();
 		Map<Integer,Integer> courseCount = new HashMap<>();
 		List<Boolean> isSuccess = new ArrayList<>();
 		
 		for(int studentId: studentIds) {
 			int isRegistered = studentDAO.isStudentRegistered(studentId);
-			int isApproved = studentDAO.isRegistrationApproved(studentId);
-			if(isApproved==studentId)
+			int isApproved = studentDAO.isCourseRegistrationApproved(studentId);
+			if(isApproved>0)
 			{
 				continue;
 			}
@@ -76,7 +77,15 @@ public class AdminValidatorImpl implements ValidatorInterface{
 			else
 				System.out.println("Student has Registered Successfully");
 			
-			List<List<Integer>> studentData = studentDAO.getStudentCourseData(studentId);
+			List<Object[]> data = studentDAO.getStudentCourseData(studentId);
+			List<List<Integer>> studentData = new ArrayList<>();
+			for(Object[] result: data)
+			{
+				List<Integer> courseData = new ArrayList<>();
+				courseData.add((Integer)result[0]);
+				courseData.add((Integer)result[1]);
+				studentData.add(courseData);
+			}
 			studentData = sortByCoursePref(studentData);
 			int count = 0;
 			
@@ -132,7 +141,6 @@ public class AdminValidatorImpl implements ValidatorInterface{
 		
 			for(int course:courses) 
 			{
-//				System.out.println(course);
 				if(!set.contains(course))
 				{
 					set.add(course);

@@ -38,13 +38,22 @@ public class AdminOperationImpl implements AdminOperation{
 	@Override
 	public void approveStudent() {
 		// TODO Auto-generated method stub
-		adminDAO.setApprovedStudents();
+		adminDAO.approveStudentRegistration();
 	}
 
 	@Override
-	public void addAdmin(User user) {
+	public void approveStudentById(int userId) throws UserNotFoundException{
 		// TODO Auto-generated method stub
-		adminDAO.addAdmin(user);
+
+		if(studentDAO.findById(userId)==null) {
+			throw new UserNotFoundException(userId);
+		}
+		adminDAO.approveStudentRegistrationById(userId);
+	}
+	@Override
+	public void addAdmin(Admin user) {
+		// TODO Auto-generated method stub
+		adminDAO.save(user);
 	}
 
 	@Override
@@ -58,11 +67,18 @@ public class AdminOperationImpl implements AdminOperation{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
-			if(adminDAO.searchAdmin(user.getUserId())>0)
+			if(adminDAO.findById(user.getUserId())!=null)
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			this.addAdmin(user);
+			Admin admin = new Admin();
+			
+			admin.setUserName(user.getUserName());
+			admin.setUserEmail(user.getUserEmail());
+			admin.setUserPhonenumber(user.getUserPhonenumber());
+			admin.setUserPassword(user.getUserPassword());
+			
+			this.addAdmin(admin);
 			
 			}
 		else
@@ -77,30 +93,7 @@ public class AdminOperationImpl implements AdminOperation{
 		return isSuccess;
 	}
 
-	@Override
-	public void approveStudentById(int id) throws UserNotFoundException{
-		// TODO Auto-generated method stub
-//		List<Integer> studentIds = adminDAO.pendingRegistration();
-//
-//		System.out.println();
-//
-//        System.out.println("===================================================================================");
-//		log.info("Choose from below given student ids");
-//		studentIds.forEach(studentId->log.info(String.format("%20s\n", studentId)));
-//		System.out.println();
-//
-//        System.out.println("===================================================================================");
-//		log.info("Enter the StudentId: ");
-//
-//		
-//		
-//
-//		int studentId = scan.nextInt();
-		if(studentDAO.searchStudentByID(id)==false) {
-			throw new UserNotFoundException(id);
-		}
-		adminDAO.setApprovedStudentById(id);
-	}
+	
 
 	@Override
 	public int getAdminById(String userEmail) {

@@ -9,20 +9,25 @@ import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * Class representing Grade Card
  */
 @Entity
-@Table(name="admin")
+@Table(name="gradecard")
 public class GradeCard implements Serializable {
 	@Id
 	@Column
 	private int studentId;
+	
 	@Id
-	@Column
+	@OneToOne
+	@JoinColumn(name="courseId")
 	private int courseId;
+	
 	@Column
 	private String grade;
 

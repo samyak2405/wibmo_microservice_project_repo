@@ -11,6 +11,7 @@ import java.util.Map;
  */
 public class AddCourseDto {
 	
+	
 	Map<Integer,Integer> courses= new HashMap<>();
 
 	public Map<Integer, Integer> getCourses() {
