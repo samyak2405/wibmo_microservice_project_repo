@@ -6,9 +6,7 @@ import java.util.Map;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.Loggers;
-//import org.apache.log4j.LogManager;
-import org.apache.logging.log4j.core.config.Loggers;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,20 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.wibmo.model.User;
+import com.wibmo.entity.*;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.GradeCard;
-import com.wibmo.model.Student;
+
 import com.wibmo.service.*;
 
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.service.ProfessorOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
-import org.apache.logging.log4j.core.config.Loggers;
 
 @RestController
 public class CRSProfessorController {

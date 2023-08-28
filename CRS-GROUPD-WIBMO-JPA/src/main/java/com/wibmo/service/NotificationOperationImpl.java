@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.Notification;
+import com.wibmo.entity.Notification;
 import com.wibmo.repository.NotificationDAO;
 
 /**

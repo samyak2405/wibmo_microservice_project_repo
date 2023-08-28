@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.User;
+import com.wibmo.entity.*;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
@@ -54,6 +54,11 @@ public interface AdminOperation {
 	public void approveStudentById(int id) throws UserNotFoundException;
 
 
+	/**
+	 * To get admin by id
+	 * @param userEmail
+	 * @return
+	 */
 	public int getAdminById(String userEmail);
 
 }

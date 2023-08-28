@@ -9,7 +9,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.Loggers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +31,7 @@ import com.wibmo.exception.UserAlreadyExistsException;
 //import com.wibmo.client.CRSAdminMenu;
 //import com.wibmo.client.CRSProfessorMenu;
 //import com.wibmo.client.CRSStudentMenu;
-import com.wibmo.model.LoginRequest;
-import com.wibmo.model.User;
+import com.wibmo.entity.*;
 import com.wibmo.service.StudentOperation;
 import com.wibmo.service.StudentOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
@@ -52,9 +50,6 @@ public class CRSClientController
 	
 	@Autowired
 	private AdminOperation adminOp ;
-	
-	@Autowired
-	private ClientValidatorImpl clientValidator;
 	
 	
 	@Autowired
@@ -94,11 +89,6 @@ public class CRSClientController
 		return new ResponseEntity(msg, HttpStatus.NOT_FOUND);
 		
 	}
-	
-	
-	
-	
-	
 	
 	
 	/**
@@ -142,8 +132,6 @@ public class CRSClientController
 				for(User user: users) {
 					adminOp.adminRegistration(user);
 				}
-				
-				
 			} catch (UserAlreadyExistsException e) {
 				// TODO Auto-generated catch block
 				return new ResponseEntity("Admin Already Registerd", HttpStatus.CONFLICT);
@@ -151,12 +139,6 @@ public class CRSClientController
 		}
 		return new ResponseEntity("Registration Successful", HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	/**

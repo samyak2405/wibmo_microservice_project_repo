@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
-import com.wibmo.model.Admin;
+import com.wibmo.entity.*;
 import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AdminOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
@@ -55,9 +55,7 @@ public class CRSAdminController {
 			value="/approveallstudents")
 	public ResponseEntity approveAllStudents()
 	{
-		
 			adminOp.approveStudent();
-			
 		return new ResponseEntity("Approved All Students", HttpStatus.OK);
 	}
 	
@@ -115,6 +113,21 @@ public class CRSAdminController {
 	}
 	
 	
+	
+
+	
+	/**
+	 * To assign a specific course to a professor
+	 * @return
+	 */
+	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
+			method = RequestMethod.POST, 
+			value="/addadmin")
+	public ResponseEntity addAdmin(User user) {
+		adminOp.addAdmin(user);
+		return new ResponseEntity("Course is assigned to professor", HttpStatus.OK);
+		
+	}
 	
 	
 	

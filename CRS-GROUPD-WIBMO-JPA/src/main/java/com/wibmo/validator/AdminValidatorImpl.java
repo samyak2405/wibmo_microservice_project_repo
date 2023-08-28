@@ -17,23 +17,34 @@ import org.springframework.stereotype.Component;
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
 import com.wibmo.constant.NotificationConstants;
+import com.wibmo.entity.ProfessorCourseMap;
 import com.wibmo.repository.AdminDAO;
 import com.wibmo.repository.AdminDAOImpl;
+import com.wibmo.repository.AdminRepository;
+import com.wibmo.repository.ProfessorCourseMappingRepository;
+import com.wibmo.repository.ProfessorRepository;
 import com.wibmo.repository.StudentDAOImpl;
+import com.wibmo.repository.StudentRepository;
 /**
  * To validate admin details
  */
 @Component
 public class AdminValidatorImpl implements ValidatorInterface{
 
+
 	@Autowired
-	StudentDAOImpl studentDAO;
+	public StudentRepository studentRepository;
+	@Autowired
+	public AdminRepository adminRepository;
+	@Autowired
+	public ProfessorRepository professorRepository;
 	
 	@Autowired
-	AdminDAO adminDAO;
+	public ProfessorCourseMappingRepository professorCourseMappingRepository;
 	
 	@Autowired
 	public NotificationOperation notification;
+	
 	@Override
 	/**
 	 * To validate admin using email
@@ -125,9 +136,12 @@ public class AdminValidatorImpl implements ValidatorInterface{
 	
 	public void assignCourseValidator() {
 		
+		
 		List<Integer> professors = adminDAO.getProfessorsIds();
+		
 		Set<Integer> set = new HashSet<>();
-		for(int professor:professors) {
+		for(int professor:professors) 
+		{
 			List<Integer> courses = adminDAO.getProfessorCourses(professor);
 		
 			for(int course:courses) 

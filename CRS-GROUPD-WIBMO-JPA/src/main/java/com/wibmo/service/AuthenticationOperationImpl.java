@@ -14,9 +14,18 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 	@Autowired
 	AuthenticationDAO authenticate;
 	
+	@Autowired
+	StudentRepository studentRepo;
+	
+	
 	@Override
 	public boolean loggedin(String userEmail, String password,int role,StringBuilder msg) {
 		// TODO Auto-generated method stub
+		if(role==1)
+		{
+			studentRepo.findId(userEmail)
+		}
+		
 		boolean verified=authenticate.loggedin(userEmail, password, role,msg);
 		return verified;
 	}

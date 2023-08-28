@@ -9,10 +9,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.GradeCard;
-import com.wibmo.model.StudentCourseMap;
-import com.wibmo.model.User;
+import com.wibmo.entity.*;
 import com.wibmo.exception.*;
 
 /**

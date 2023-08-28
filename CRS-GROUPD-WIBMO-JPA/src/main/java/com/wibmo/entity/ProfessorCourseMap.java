@@ -7,6 +7,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,58 +18,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name="professorcoursemapping")
 public class ProfessorCourseMap implements Serializable {
+
 	@Id
-	@Column
-	private int studentId;
-	@Id
-	@Column
-	private int courseId;
+	private long id;
 	
-    /**
-
-     * @return the studentId
-
-     */
-
-    public int getStudentId() {
-
-        return studentId;
-
-    }
-
-    /**
-
-     * @param studentId the studentId to set
-
-     */
-
-    public void setStudentId(int studentId) {
-
-        this.studentId = studentId;
-
-    }
-
-    /**
-
-     * @return the courseId
-
-     */
-
-    public int getCourseId() {
-
-        return courseId;
-
-    }
-
-    /**
-
-     * @param courseId the courseId to set
-
-     */
-
-    public void setCourseId(int courseId) {
-
-        this.courseId = courseId;
-
-    }
+	@OneToMany
+	@JoinColumn(name="userId")
+	private Professor professor;
+	
+	@ManyToOne
+	@JoinColumn(name="courseId")
+	private CourseCatalog courseCatalog;
+	
+	@Column
+	private int isApproved;
+	
+	
 }

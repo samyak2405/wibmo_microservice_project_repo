@@ -9,15 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.GradeCard;
-import com.wibmo.model.Student;
-import com.wibmo.model.StudentCourseMap;
-import com.wibmo.model.User;
+import com.wibmo.entity.*;
 import com.wibmo.repository.*;
 import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
@@ -34,12 +29,11 @@ public class StudentOperationImpl implements StudentOperation{
 	
 	
 	
-	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());
 	
 	@Autowired
-	public StudentDAO studentDao;
+	public StudentRepository studentDao;
 	@Autowired
-	public CourseDAO course;
+	public CourseRepository course;
 	
 	
 	public static StudentOperationImpl studentOp = new StudentOperationImpl();

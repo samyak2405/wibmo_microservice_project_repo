@@ -4,13 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
-
-import com.wibmo.model.CourseCatalog;
-import com.wibmo.model.Student;
-/**
- * For performing various professor operations.
- */
-import com.wibmo.model.User;
+import com.wibmo.entity.*;
 import com.wibmo.exception.*;
 
 @Service

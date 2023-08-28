@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import com.wibmo.model.*;
 import com.wibmo.repository.*;
+import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
@@ -22,12 +23,9 @@ public class AdminOperationImpl implements AdminOperation{
 	
 	Scanner scan = new Scanner(System.in);
 	
+	@Autowired
+	public AdminRepository adminRepository;
 
-	@Autowired
-	AdminDAO adminDAO;
-	@Autowired
-	StudentDAOImpl studentDAO;
-	
 	@Autowired
 	public ValidatorInterface validate;
 	@Autowired
@@ -42,16 +40,13 @@ public class AdminOperationImpl implements AdminOperation{
 
 	@Override
 	public void addAdmin(User user) {
-		// TODO Auto-generated method stub
-		adminDAO.addAdmin(user);
+		adminRepository.save(user);
 	}
 
 	@Override
 	public void assignCoursesProf() {
 		validate.assignCourseValidator();
-
 	}
-
 	@Override
 	public void adminRegistration(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
@@ -78,23 +73,7 @@ public class AdminOperationImpl implements AdminOperation{
 
 	@Override
 	public void approveStudentById(int id) throws UserNotFoundException{
-		// TODO Auto-generated method stub
-//		List<Integer> studentIds = adminDAO.pendingRegistration();
-//
-//		System.out.println();
-//
-//        System.out.println("===================================================================================");
-//		log.info("Choose from below given student ids");
-//		studentIds.forEach(studentId->log.info(String.format("%20s\n", studentId)));
-//		System.out.println();
-//
-//        System.out.println("===================================================================================");
-//		log.info("Enter the StudentId: ");
-//
-//		
-//		
-//
-//		int studentId = scan.nextInt();
+
 		if(studentDAO.searchStudentByID(id)==false) {
 			throw new UserNotFoundException(id);
 		}

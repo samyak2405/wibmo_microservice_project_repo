@@ -14,4 +14,7 @@ import com.wibmo.entity.User;
 @Repository
 public interface ProfessorRepository extends CrudRepository<User,Integer>{
 
+	
+	
+	
 }
