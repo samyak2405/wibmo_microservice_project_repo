@@ -43,7 +43,7 @@ public interface AdminOperation {
 	/**
 	 * To Add a new Admin
 	 */
-	public void addAdmin(Admin user);
+	public void addAdmin(User user);
  
 	/**
 	 * To assign which course will be taught by which professor
@@ -54,8 +54,6 @@ public interface AdminOperation {
 	 * To approve registration of a new Admin
 	 */
 	public void adminRegistration(User user) throws UserAlreadyExistsException;
-
-	
 
 
 	/**

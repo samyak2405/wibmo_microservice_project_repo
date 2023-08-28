@@ -77,8 +77,8 @@ public class SQLConstants {
 		public static final String APPROVE_STUDENT = "UPDATE student SET isApproved=1";
 		public static final String APPROVE_STUDENT_BY_ID = "UPDATE student SET isApproved=1 WHERE userId=?";
 		public static final String SELECT_PROFESSORS_BY_ID = "SELECT DISTINCT professorId FROM professorcoursemapping";
-		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseId FROM professorcoursemapping WHERE professorId=?";
-		public static final String APPROVE_PROFESSOR_COURSE = "UPDATE professorcoursemapping SET isApproved=1 WHERE professorId=? && courseId=?";
+		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseId FROM professorcoursemapping WHERE professorId=?1";
+		public static final String APPROVE_PROFESSOR_COURSE = "UPDATE professorcoursemapping SET isApproved=1 WHERE professorId=?1 && courseId=?2";
 		public static final String SEARCH_ADMIN = "SELECT userId FROM admin WHERE userEmail=?";
 		public static final String INSERT_GRADECARD = "INSERT INTO gradecard VALUES(?,?,NA)";
 		public static final String SELECT_COURSEMAPPING = "SELECT courseId, coursecategory FROM studentcoursemapping WHERE studentId=?";

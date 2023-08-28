@@ -52,6 +52,10 @@ public interface AdminRepository extends CrudRepository<User,Integer> {
 	@Modifying
 	@Query(value=SQLConstants.STUDENT_REGISTRATION_REJECTION)
 	public void setRejectionStatus(@Param("studentId")int studentId);
+
+	@Modifying
+	@Query(value=SQLConstants.APPROVE_STUDENT)
+	public void setApprovedStudentById(int id);
 	
 
 	

@@ -93,6 +93,7 @@ public class CRSAdminController {
 	 * To assign a specific course to a professor
 	 * @return
 	 */
+	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/assigncourseprof")
@@ -102,10 +103,7 @@ public class CRSAdminController {
 		
 	}
 	
-	
-	
 
-	
 	/**
 	 * To assign a specific course to a professor
 	 * @return
@@ -118,9 +116,6 @@ public class CRSAdminController {
 		return new ResponseEntity("Course is assigned to professor", HttpStatus.OK);
 		
 	}
-	
-	
-	
 	
 	
 	
