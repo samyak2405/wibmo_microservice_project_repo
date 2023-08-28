@@ -156,12 +156,7 @@ public class StudentOperationImpl implements StudentOperation{
 		}
 		List<GradeCard> grades = studentDao.viewReportCard(studentId);
 		return grades;
-//		log.info(grades.size());
-//		log.info("Your Grades");
-//		log.info(String.format("%20s %20s", "CourseId","Grade"));
-//		grades.forEach(grade->log.info(String.format("%20s %20s\n"
-//				, grade.getCourseId(),
-//				grade.getGrade())));
+
 	}
 
 	@Override

@@ -36,7 +36,7 @@ public class AdminOperationImpl implements AdminOperation{
 	@Override
 	public void approveStudent() {
 		// TODO Auto-generated method stub
-		adminDAO.setApprovedStudents();
+		adminDAO.approveStudentRegistration();
 	}
 
 	@Override
@@ -53,11 +53,18 @@ public class AdminOperationImpl implements AdminOperation{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
-			if(adminDAO.searchAdmin(user.getUserId())>0)
+			if(adminDAO.findById(user.getUserId())!=null)
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			this.addAdmin(user);
+			Admin admin = new Admin();
+			
+			admin.setUserName(user.getUserName());
+			admin.setUserEmail(user.getUserEmail());
+			admin.setUserPhonenumber(user.getUserPhonenumber());
+			admin.setUserPassword(user.getUserPassword());
+			
+			this.addAdmin(admin);
 			
 			}
 		else

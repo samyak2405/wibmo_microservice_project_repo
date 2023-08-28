@@ -3,38 +3,28 @@
  */
 package com.wibmo.rest;
 
-import java.util.HashMap;
+
 
 import java.util.List;
 import java.util.Map;
 
-import java.util.Scanner;
-
-import javax.print.attribute.standard.Media;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.*;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Notification;
 import com.wibmo.entity.StudentCourseMap;
+import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
 import com.wibmo.exception.CourseLimitExceededException;
@@ -42,12 +32,9 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.service.AdminOperation;
-import com.wibmo.service.AdminOperationImpl;
 import com.wibmo.service.NotificationOperation;
-import com.wibmo.service.NotificationOperationImpl;
 import com.wibmo.service.PaymentOperation;
 import com.wibmo.service.StudentOperation;
-import com.wibmo.service.StudentOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
 
 /**
@@ -70,19 +57,7 @@ public class CRSStudentController {
 	
 	@Autowired
 	public PaymentOperation payment;
-	Scanner scan=new Scanner(System.in);
-	
-	
-	
-	public Logger log=LogManager.getLogger();
-	
-	@GetMapping("/student")
-	public String check()
-	{
-		return "hello";
-	}
-	
-	
+
 	/**
 	 * To add course preferences for the registration.
 	 * @param userId
@@ -90,13 +65,12 @@ public class CRSStudentController {
 	 * @return A message if the courses are added successfully or not.
 	 */
 	@RequestMapping(value="/student/{id}/addCourse",method = RequestMethod.POST)
-	public ResponseEntity addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
+	public ResponseEntity<String> addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
 	{
    		int isRegistered = studentOp.isStudentRegistered(userId);
-		log.info("Student Registration Status: "+isRegistered);
 		if(isRegistered==1)
 		{
-			return new ResponseEntity("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
+			return new ResponseEntity<String>("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
 			
 		}
 		
@@ -109,45 +83,36 @@ public class CRSStudentController {
             else if(entry.getValue()==1)
             	alternativeCount++;
             else
-            	return new ResponseEntity("Wrong Entry",HttpStatus.BAD_REQUEST);
+            	return new ResponseEntity<String>("Wrong Entry",HttpStatus.BAD_REQUEST);
         }
         
         if(primaryCount<4)
         {
-        	return new ResponseEntity("Insufficient primary courses",HttpStatus.BAD_REQUEST);
+        	return new ResponseEntity<String>("Insufficient primary courses",HttpStatus.BAD_REQUEST);
         }
         else if(primaryCount>4)
         {
-        	return new ResponseEntity("Primary course exceed the limit",HttpStatus.BAD_REQUEST);
+        	return new ResponseEntity<String>("Primary course exceed the limit",HttpStatus.BAD_REQUEST);
         }
         
         if(alternativeCount<2)
         {
-        	return new ResponseEntity("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
+        	return new ResponseEntity<String>("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
         }
         else if(alternativeCount>2)
         {
-        	return new ResponseEntity("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
+        	return new ResponseEntity<String>("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
         }
-        
-		
-		StudentCourseMap studCoMap = new StudentCourseMap();
-		studCoMap.setStudentId(userId);
-// 	   studCoMap.setStudentId(userId);
-// 	   log.info("Add Compulsory Courses");
-// 	   this.addCompulsoryCourse(addCourseDto,4);
-// 	   log.info("Add Alternative Courses");
-// 	   this.addAlternativeCourse(addCourseDto,2);
- 	   studCoMap.setCourses(addCourseDto.getCourses());
+       
  	   try {
-		studentOp.addCourses(studCoMap);
-		return new ResponseEntity("Course Added Successfully",HttpStatus.OK); 
+		studentOp.addCourses(userId,addCourseDto);
+		return new ResponseEntity<String>("Course Added Successfully",HttpStatus.OK); 
 		
  	   } catch (CourseNotFoundException e) {
-		return new ResponseEntity("No Course added",HttpStatus.NOT_FOUND); 
+		return new ResponseEntity<String>("No Course added",HttpStatus.NOT_FOUND); 
  	   }catch(CourseLimitExceededException e)
  	   {
-		return new ResponseEntity("Course Limit Exceeded",HttpStatus.CONFLICT); 
+		return new ResponseEntity<String>("Course Limit Exceeded",HttpStatus.CONFLICT); 
  	   }
  	   
 		
@@ -161,32 +126,32 @@ public class CRSStudentController {
 	 * @return A message if the courses are added successfully or not.
 	 */
 	@RequestMapping(value="/student/{id}/dropCourse",method = RequestMethod.POST)
-	public ResponseEntity dropCourse(@RequestBody DropCourseDTO dropCourseDto)
+	public ResponseEntity<String> dropCourse(@RequestBody DropCourseDTO dropCourseDto)
 	{
 		int isRegistered = studentOp.isStudentRegistered(dropCourseDto.getStudentId());
     	if(isRegistered==1)
 		{
-    		return new ResponseEntity("\"Your Registration is completed. You can't drop courses\";",HttpStatus.CONFLICT); 
+    		return new ResponseEntity<String>("\"Your Registration is completed. You can't drop courses\";",HttpStatus.CONFLICT); 
 		}
        try {
  	   int coursePref = studentOp.dropCourses(dropCourseDto.getStudentId(),dropCourseDto.getCourseId()); 
  	   
  	   if(coursePref==0) {
-   		return new ResponseEntity("You have to add Complusory course",HttpStatus.CONFLICT); 
+   		return new ResponseEntity<String>("You have to add Complusory course",HttpStatus.CONFLICT); 
 
  	   }
  	   if(coursePref==1) {
- 		  return new ResponseEntity("You have to add Alternative course",HttpStatus.CONFLICT); 
+ 		  return new ResponseEntity<String>("You have to add Alternative course",HttpStatus.CONFLICT); 
  	   }
  	   }
  	   catch(UserNotFoundException e) {
  		   
- 		  return new ResponseEntity("User with id "+e.getUserId()+" is not found",HttpStatus.NOT_FOUND); 
+ 		  return new ResponseEntity<String>("User with id "+e.getUserId()+" is not found",HttpStatus.NOT_FOUND); 
  		   
  	   } catch(CourseNotFoundException e) {
- 		  return new ResponseEntity("Course with id "+e.getCourseId()+" is not found",HttpStatus.NOT_FOUND); 
+ 		  return new ResponseEntity<String>("Course with id "+e.getCourseId()+" is not found",HttpStatus.NOT_FOUND); 
  	   }
-       return new ResponseEntity("Drop is Successful!! ",HttpStatus.OK); 
+       return new ResponseEntity<String>("Drop is Successful!! ",HttpStatus.OK); 
 	}
 	
 	
@@ -196,7 +161,7 @@ public class CRSStudentController {
 	 * @return
 	 */
 	@RequestMapping(value="/student/{id}/registerCourse",method = RequestMethod.POST)	
-	public ResponseEntity registerCourses(@PathVariable(value="id") int userId)
+	public ResponseEntity<?> registerCourses(@PathVariable(value="id") int userId)
 	{
 		studentOp.registerCourses(userId);
 		return ResponseEntity.ok("Applied For Course Registration Successfully");
@@ -234,7 +199,7 @@ public class CRSStudentController {
 	 * @return a list of grades.
 	 */
 	@RequestMapping(value="/student/{id}/viewReportCard",method = RequestMethod.GET)
-	public ResponseEntity<List<GradeCard>> viewReportCard(@PathVariable(value="id") int userId)
+	public ResponseEntity viewReportCard(@PathVariable(value="id") int userId)
 	{
  	   try {
  	   return ResponseEntity.ok(studentOp.viewReportCard(userId)); 
@@ -256,7 +221,7 @@ public class CRSStudentController {
 	 * @return
 	 */
 	@RequestMapping(value="/student/{id}/viewNotifications",method = RequestMethod.GET)
-	public ResponseEntity<List<Notification>> viewNotifications(@PathVariable(name = "id") int studentId)
+	public ResponseEntity viewNotifications(@PathVariable(name = "id") int studentId)
 	{
 		List<Notification>notifications=notificationOp.getNotificationMessage(studentId);
 		if(notifications!=null)
@@ -281,9 +246,9 @@ public class CRSStudentController {
 	 */
 	
 	@RequestMapping(value="/student/{id}/payfee/{paymentMethod}",method = RequestMethod.POST)
-	public ResponseEntity payFee(@PathVariable(value="id") int userId,@PathVariable(value="paymentMethod") String paymentMethod ,@RequestParam(required = false) String onlineMethod) {
+	public ResponseEntity<String> payFee(@PathVariable(value="id") int userId,@PathVariable(value="paymentMethod") String paymentMethod ,@RequestParam(required = false) String onlineMethod) {
 		  boolean status=false;
-		 if(studentOp.isApproved(userId)) {
+		 if(studentOp.isApproved(userId)>0) {
 			 
 	    	   if(paymentMethod.equals("offline"))
 	    	   {
@@ -311,18 +276,18 @@ public class CRSStudentController {
 	    	   if(status==true)
 	 	  	  {
 	 	  		  notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
-	 	  		  return new ResponseEntity("Payment Successful",HttpStatus.OK);
+	 	  		  return new ResponseEntity<String>("Payment Successful",HttpStatus.OK);
 
 	 	  	  }
 	 	  	  	
 	 	  	  else
 	 	  	  {
 	 				  notificationOp.sendNotification(NotificationConstants.PAYMENT_REJECTED_NOTIFICATION, userId);
-	 				 return new ResponseEntity("Payment Failed",HttpStatus.NOT_ACCEPTABLE);
+	 				 return new ResponseEntity<String>("Payment Failed",HttpStatus.NOT_ACCEPTABLE);
 	 	  	  }
 	    	   }
 	     else {
-	    	 return new ResponseEntity("Student courses are not approved by admin",HttpStatus.NOT_ACCEPTABLE);
+	    	 return new ResponseEntity<String>("Student courses are not approved by admin",HttpStatus.NOT_ACCEPTABLE);
 	    	   }
 		 
 	}

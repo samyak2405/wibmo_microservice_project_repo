@@ -2,7 +2,6 @@
  * 
  */
 package com.wibmo.service;
-import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 	
 	
 	@Override
-	public boolean loggedin(String userEmail, String password,int role,StringBuilder msg) {
+	public boolean loggedin(String userEmail, String userPassword,int role,StringBuilder msg) {
 		// TODO Auto-generated method stub
 		
 		User user = null;
@@ -45,8 +44,12 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 		{
 			user=authenticate.adminLoggedin(userEmail);
 		}
-		
-		if( password.equalsIgnoreCase(user.getUserPassword()))
+		if(user==null)
+		{
+			msg.append("User Not Found");
+			return false;
+		}
+		if( userPassword.equalsIgnoreCase(user.getUserPassword()))
 		{
 			
 			if(role==1) {
@@ -78,17 +81,17 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 	}
 
 	@Override
-	public void updatePassword(String userEmail, String password,int role) {
+	public void updatePassword(String userEmail, String userPassword,int role) {
 		// TODO Auto-generated method stub
 		
 		if(role==1) {
-		authenticate.updateStudentPassword(userEmail,password);
+		authenticate.updateStudentPassword(userEmail,userPassword);
 		}
 		else if(role==2) {
-			authenticate.updateProfessorPassword(userEmail,password);
+			authenticate.updateProfessorPassword(userEmail,userPassword);
 		}
 		else if(role==3) {
-			authenticate.updateAdminPassword(userEmail,password);
+			authenticate.updateAdminPassword(userEmail,userPassword);
 		}
 	}
 

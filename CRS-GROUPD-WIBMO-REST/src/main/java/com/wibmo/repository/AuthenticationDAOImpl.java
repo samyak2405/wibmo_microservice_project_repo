@@ -24,9 +24,10 @@ import com.wibmo.utils.DButils;
 
 @Repository
 public class AuthenticationDAOImpl implements AuthenticationDAO {
+	//plug logger in AuthenticationDAOImpl 
 	
-	
-		
+		private Logger logger=LogManager.getLogger();
+		//Plug logger in AuthenticationDAOImpl
 		
 		Connection conn = DButils.getConnection();
 
@@ -68,7 +69,9 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 								return true;
 							}
 							else {
+
 								msg.append("Registration Not Approved");
+
 								return false;
 							}
 								
@@ -90,10 +93,11 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		        
 			}catch(SQLException se){
 			      //Handle errors for JDBC
-			      
+			      logger.error("SQL Exception: "+se.getMessage());
 			   }catch(Exception e){
 			      //Handle errors for Class.forName
-				   
+				   logger.error("Unknown Exception");
+			      
 			   }
 			
 			return false;

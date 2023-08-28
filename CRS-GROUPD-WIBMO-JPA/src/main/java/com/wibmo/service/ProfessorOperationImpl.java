@@ -29,8 +29,7 @@ import com.wibmo.exception.*;
 
 @Service
 public class ProfessorOperationImpl implements ProfessorOperation{
-
-	private Logger log=LogManager.getLogger();
+	
 	@Autowired
 	ProfessorRepository professorDao;	
 	@Autowired
@@ -55,23 +54,17 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 	
 	@Override
-	public boolean requestCourseOffering(int professorid,List<Integer> courseIdList)throws CourseNotFoundException {
+	public void requestCourseOffering(int professorid,List<Integer> courseIdList)throws CourseNotFoundException {
 
         // TODO Auto-generated method stub
 		for(Integer courseId:courseIdList)
 		{
 			if(courseDao.findById(courseId)==null)
-			{
 				throw new CourseNotFoundException(courseId);
-			}
-		}
-		
-		for(Integer courseId: courseIdList)
-		{
 			professorDao.requestCourseOffering(professorid,courseId);
 		}
-		
-        return false;
+			
+		return;
     }
 
 	@Override
@@ -92,7 +85,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	public List<CourseCatalog> viewCourseCatalog() {
 		Iterable<CourseCatalog>courses= courseDao.findAll();
 		List<CourseCatalog> list = new ArrayList<>();
-		courses.forEach(course->list.add(course));
+		courses.forEach(list::add);
 		return list;
 	}
 
@@ -128,9 +121,11 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	@Override
 	public Map<Integer,String> listOfApprovedCourses(int userId) {
 		// TODO Auto-generated method stub
-		//JOIN CUSTOM QUERY
-//		Map<Integer,String> courses = professorDao.listOfApprovedCourses(userId);
+
+		List<Object[]> list = professorDao.listOfApprovedCourses(userId);
 		Map<Integer,String> courses = new HashMap<>();
+		for(Object[] result:list) 
+			courses.put((Integer)result[0],(String)result[1]);
 		return courses;
 	}
 

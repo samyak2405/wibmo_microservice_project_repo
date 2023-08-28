@@ -9,7 +9,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.wibmo.entity.*;
+import com.wibmo.entity.Admin;
+import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 
@@ -27,6 +28,11 @@ public interface AdminOperation {
 	 * To Approve Student Registration
 	 */	
 	public void approveStudent();
+	
+	/**
+	 * To approve a specific student
+	 */
+	public void approveStudentById(int id) throws UserNotFoundException;
  
 	
 	/**
@@ -37,7 +43,7 @@ public interface AdminOperation {
 	/**
 	 * To Add a new Admin
 	 */
-	public void addAdmin(User admin);
+	public void addAdmin(Admin user);
  
 	/**
 	 * To assign which course will be taught by which professor
@@ -49,10 +55,7 @@ public interface AdminOperation {
 	 */
 	public void adminRegistration(User user) throws UserAlreadyExistsException;
 
-	/**
-	 * To approve a specific student
-	 */
-	public void approveStudentById(int id) throws UserNotFoundException;
+	
 
 
 	/**

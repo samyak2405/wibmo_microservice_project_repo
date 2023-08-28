@@ -12,7 +12,7 @@ import javax.persistence.Table;
 /**
  * 
  */
-@Entity
+
 public class LoginRequest implements Serializable {
 	
 	private String userEmail;

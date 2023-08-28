@@ -9,7 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
+=======
+>>>>>>> c9f88bff8401d451186ec476f71418accc47a9ec
 import javax.persistence.Table;
 
 /**

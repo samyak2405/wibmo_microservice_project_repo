@@ -30,10 +30,6 @@ public class NotificationOperationImpl implements NotificationOperation {
 	{
 		List<Notification>notifications=notification.getNotificationMessage(studentId);
 		return notifications;
-//		if(notifications!=null)
-//			notifications.forEach(notif->log.info(notif.getNotificationMessage()));
-//		else
-//			log.info("No Notifications");
 	}
 	
 	public void sendNotification(int notifid, long studentId)

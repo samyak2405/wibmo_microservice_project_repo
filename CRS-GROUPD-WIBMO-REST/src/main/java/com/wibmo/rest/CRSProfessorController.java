@@ -33,7 +33,6 @@ import com.wibmo.service.*;
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.service.ProfessorOperationImpl;
 import com.wibmo.validator.ClientValidatorImpl;
-import org.apache.logging.log4j.core.config.Loggers;
 
 @RestController
 public class CRSProfessorController {
@@ -49,7 +48,6 @@ public class CRSProfessorController {
     
     String userEmail;
 	int userId;
-
 	
 	
 	

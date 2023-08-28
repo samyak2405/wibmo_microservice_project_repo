@@ -16,6 +16,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wibmo.dto.AddCourseDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Student;
@@ -35,6 +36,7 @@ import com.wibmo.exception.UserNotFoundException;
 @Service
 public class StudentOperationImpl implements StudentOperation{
 	
+<<<<<<< HEAD
 	
 	
 <<<<<<< HEAD
@@ -46,14 +48,13 @@ public class StudentOperationImpl implements StudentOperation{
 =======
 //	public Logger log=Logger.getLogger(StudentOperationImpl.class.getName());
 	
+=======
+>>>>>>> c9f88bff8401d451186ec476f71418accc47a9ec
 	@Autowired
 	private StudentRepository studentDao;
 	@Autowired
 	private CourseRepository courseDao;
 >>>>>>> d9f69a998a971e6389e6f88834a69ba04323332a
-	
-	@Autowired
-	private StudentOperation studentOp;
 	
 	@Override
 	public void registerCourses(int studentId) {
@@ -69,14 +70,13 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 	
 	@Override
-	public void addCourses(StudentCourseMap studentCoMap) throws CourseNotFoundException,CourseLimitExceededException {
+	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException {
 		
-		Map<Integer,Integer>map=studentCoMap.getCourses();
-		if(studentDao.getCourseCount(studentCoMap.getStudentId())>6)
+		if(studentDao.getCourseCount(userId)>6)
 		{
 			throw new CourseLimitExceededException();
 		}
-		for(Map.Entry<Integer,Integer>entry:map.entrySet())
+		for(Map.Entry<Integer,Integer>entry:addCourseDto.getCourses().entrySet())
 		{
 			int courseId=entry.getKey();
 			int pref=entry.getValue();
@@ -85,15 +85,15 @@ public class StudentOperationImpl implements StudentOperation{
 				throw new CourseNotFoundException(courseId);
 			}
 		}
-		int studentId = studentCoMap.getStudentId();
-		for(Map.Entry<Integer, Integer> entry:studentCoMap.getCourses().entrySet())
+		int studentId = userId;
+		for(Map.Entry<Integer, Integer> entry:addCourseDto.getCourses().entrySet())
 			studentDao.AddSingleCourse(studentId, entry.getKey(), entry.getValue());
 	}
 	
 	@Override
 	public int dropCourses(int studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
-		Set<Integer> courses = new HashSet<>();
+
 		if(studentDao.findById(studentId)==null)
 		{
 			throw new UserNotFoundException(studentId);
@@ -112,17 +112,13 @@ public class StudentOperationImpl implements StudentOperation{
 		// TODO Auto-generated method stub
 		int isPresent = studentDao.isApproved(studentId);
 		if(isPresent>0)
-		{
 			throw new UserNotApprovedException(studentId);
-		}
 		
-		Map<Integer,String> courses = studentDao.listCourse(studentId);
-//		if(courses.size()==0)
-//		{
-//			log.info("Course Registration pending");
-//			
-//		}
-//		log.info("List of Courses Approved");
+		List<Object[]> list = studentDao.listCourse(studentId);
+		Map<Integer,String> courses = new HashMap<>();
+		for(Object[] result:list) {
+			courses.put((Integer)result[0],(String)result[1]);
+		}
 		return courses;
 		
 	}
@@ -140,7 +136,7 @@ public class StudentOperationImpl implements StudentOperation{
 		// TODO Auto-generated method stub
 		Student student = new Student();
 
-		if(studentDao.findByEmail(user.getUserEmail())==null)
+		if(studentDao.findByEmail(user.getUserEmail())>0)
 		{
 			throw new StudentAlreadyRegisteredException(user.getUserEmail());
 		}
@@ -153,39 +149,44 @@ public class StudentOperationImpl implements StudentOperation{
 
 
 	@Override
-	public List<GradeCard> viewReportCard(int studentId) throws UserNotApprovedException {
+	public Map<Integer,Map<Integer,String>> viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
-		if(studentDao.isApproved(studentId)==false)
+		if(studentDao.isApproved(studentId)<1)
 		{
 			throw new UserNotApprovedException(studentId);
 		}
-		List<GradeCard> grades = studentDao.viewReportCard(studentId);
+		List<Object[]> results = studentDao.viewReportCard(studentId);
+		 Map<Integer,Map<Integer,String>> grades  = new HashMap<>();
+		 for(Object[] result:results) {
+			 if(!grades.containsKey((Integer)studentId)) {
+				 grades.put((Integer)studentId, new HashMap<>());
+			 }
+			 grades.get(studentId).put((Integer)result[0], (String)result[1]);
+		 }
 		return grades;
-//		log.info(grades.size());
-//		log.info("Your Grades");
-//		log.info(String.format("%20s %20s", "CourseId","Grade"));
-//		grades.forEach(grade->log.info(String.format("%20s %20s\n"
-//				, grade.getCourseId(),
-//				grade.getGrade())));
+
 	}
 
 	@Override
-	public boolean isApproved(int userId) {
+	public int isApproved(int userId) {
 		// TODO Auto-generated method stub
-		boolean flag= studentDao.isApproved(userId);
+		int flag= studentDao.isApproved(userId);
 		return flag;
 	}
 
 	@Override
 	public int getStudentByEmail(String userEmail) {
-		int studentId = studentDao.getStudentByEmail(userEmail);
+		int studentId = studentDao.findByEmail(userEmail);
 		return studentId;
 	}
 
 	@Override
 	public Map<Integer, String> getAddedCourses(int userId) {
 		// TODO Auto-generated method stub
-		Map<Integer,String> map = studentDao.getAddedCourses(userId);
+		List<Object[]> list = studentDao.getAddedCourses(userId);
+		Map<Integer,String> map = new HashMap<>();
+		for(Object[] result:list)
+			map.put((Integer)result[0], (String)result[1]);
 		return map;
 	}
 
