@@ -4,6 +4,7 @@
 package com.wibmo.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -28,15 +29,15 @@ public class ProfessorCourseMap implements Serializable {
 	
 	@OneToMany
 	@JoinColumn(name="userId")
-	private Professor professor;
+	private List<Professor> professor;
 	
 	@ManyToOne
 	@JoinColumn(name="courseId")
-	private List<CourseCatalog> courseCatalog;
+	private List<CourseCatalog> courseCatalog=new ArrayList<>();;
 	
-
 	@Column
-	private int isApproved;
+	int isApproved;
+	
 	
 	public long getId() {
 		return id;
@@ -46,11 +47,13 @@ public class ProfessorCourseMap implements Serializable {
 		this.id = id;
 	}
 
-	public Professor getProfessor() {
+
+
+	public List<Professor> getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(Professor professor) {
+	public void setProfessor(List<Professor> professor) {
 		this.professor = professor;
 	}
 
