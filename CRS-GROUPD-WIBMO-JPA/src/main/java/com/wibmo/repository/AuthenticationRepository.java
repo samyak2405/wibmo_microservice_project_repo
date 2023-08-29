@@ -27,7 +27,7 @@ public interface AuthenticationRepository extends CrudRepository<User,Integer> {
     @Query(value="SELECT * FROM professor WHERE userEmail=:userEmail",nativeQuery=true)
 	public User professorLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value="SELECT * FROM admin WHERE userEmail=:userEmail",nativeQuery=true)
+    @Query(value="SELECT * FROM user WHERE userEmail=:userEmail",nativeQuery=true)
 	public User adminLoggedin(@Param("userEmail") String userEmail);
     
     

@@ -36,7 +36,7 @@ public interface ProfessorRepository extends CrudRepository<Professor,Integer>{
 	@Query(value=SQLConstants.STUDENT_LIST, nativeQuery = true)
 	public Optional<List<Student>> findStudentByCourseId(@Param("courseId")int courseId);
 	
-  	@Modifying
+  	
 	@Query(value=SQLConstants.SEARCH_PROFESSOR, nativeQuery =  true)
 	public int findProfessorByEmail(@Param("userEmail")String userEmail);
 	
