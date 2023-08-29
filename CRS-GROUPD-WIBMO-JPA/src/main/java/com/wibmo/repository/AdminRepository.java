@@ -28,16 +28,18 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	@Transactional
 	@Query(value="UPDATE student SET isApproved=1",nativeQuery=true)
 	public void approveStudentRegistration();
-
+	
+	@Transactional
 	@Modifying
+	
 	@Query(value=SQLConstants.APPROVE_STUDENT_BY_ID,nativeQuery=true)
 	public void approveStudentRegistrationById(@Param("userId")int userId);
 
-	@Modifying
+	
 	@Query(value=SQLConstants.SELECT_PROFESSORS_BY_ID,nativeQuery=true)
 	public List<Integer> getProfessorsIds();
 
-	@Modifying
+	
 	@Query(value=SQLConstants.SELECT_PROFESSOR_COURSES,nativeQuery=true)
 	public List<Integer> getProfessorCourses(@Param("professorId")int professorId);
 

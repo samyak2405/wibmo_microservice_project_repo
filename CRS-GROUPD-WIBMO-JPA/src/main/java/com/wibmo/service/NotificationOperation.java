@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.entity.Notification;
+import com.wibmo.exception.UserNotFoundException;
 
 /**
  * For sending and receiving notifications
@@ -22,7 +23,7 @@ public interface NotificationOperation {
 	 */
 	
 	
-	public List<Notification> getNotificationMessage(int studentId);
+	public List<Notification> getNotificationMessage(int studentId) throws UserNotFoundException;
 
 	public void sendNotification(int notificationId, int userId);
 	

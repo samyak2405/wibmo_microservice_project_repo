@@ -76,7 +76,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 				CourseCatalog course=courseRepository.findById(courseId).get();
 				if(!set.contains(courseId))
-				{
+				{   set.add(courseId);
 					ProfessorCourseMap professorCourseMap=professorCourseMappingRepository.findByProfessorAndCourseCatalog(professor, course);
 					professorCourseMap.setIsApproved(1);
 					professorCourseMappingRepository.save(professorCourseMap);
@@ -122,7 +122,7 @@ public class AdminOperationImpl implements AdminOperation{
 	@Override
 	public void approveStudentById(int id) throws UserNotFoundException{
 
-		if(studentRepository.findById(id)==null) {
+		if(studentRepository.findById(id).isEmpty()==true) {
 			throw new UserNotFoundException(id);
 		}
 		studentRepository.setApprovedStudentById(id);
