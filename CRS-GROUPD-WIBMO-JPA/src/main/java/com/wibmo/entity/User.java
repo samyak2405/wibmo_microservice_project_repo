@@ -20,12 +20,11 @@ import java.io.Serializable;
  */
 
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public class User implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="userId")
 	private int userId;
 	@Column(name="userName")

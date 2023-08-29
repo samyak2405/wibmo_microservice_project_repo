@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.dto.GradeCardDto;
@@ -41,7 +42,12 @@ public class CRSProfessorController {
          	
 				professorOp.requestCourseOffering(userId,courseIdList);
 				return new ResponseEntity<String>("Courses request sent for approval to Admin",HttpStatus.OK);
-			} catch (CourseNotFoundException e) {
+			}
+		 catch (UserNotFoundException e) {
+				return new ResponseEntity<String>("User with UserId:"+userId+" Not Found",HttpStatus.NOT_FOUND);
+			}
+		 
+		 catch (CourseNotFoundException e) {
 				return new ResponseEntity<String>("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 			}
 	}
@@ -53,8 +59,12 @@ public class CRSProfessorController {
 	 */
 	@RequestMapping(value="/professor/{userId}/approvedcourses",method = RequestMethod.GET)
 	public ResponseEntity<Map<Integer,String>> approvedCourses(@PathVariable(value="userId") int userId)
-	{
+	{try {
 		 return new ResponseEntity<Map<Integer, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
+	}
+		 catch (UserNotFoundException e) {
+				return new ResponseEntity("User with UserId:"+userId+" Not Found",HttpStatus.NOT_FOUND);
+			}
 	}	
 	
 	
@@ -68,13 +78,16 @@ public class CRSProfessorController {
 	 * @return list of students registered for particular courseId.
 	 */
 	@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
-    public ResponseEntity studentList(@PathVariable(value="userId") int userId,@PathVariable(value="courseId") int courseId) {
+    public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") int courseId) {
 
         try {
-     	    return new ResponseEntity(professorOp.viewStudentList(courseId),HttpStatus.OK);
+     	    return new ResponseEntity(professorOp.viewStudentList(professorId,courseId),HttpStatus.OK);
 		} catch (CourseNotFoundException e) {
 			return new ResponseEntity("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 
+		}catch(CourseNotAssignedException e)
+    	{
+			return new ResponseEntity<String>("Course with id:"+e.getCourseId()+" Not Assigned",HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -95,13 +108,13 @@ public class CRSProfessorController {
 	 * @return message if professor has set the grades successfully or not .
 	 */
 	
-	@RequestMapping(value="/professor/setgrades",method = RequestMethod.POST)
-	public ResponseEntity<String> setGrades(@RequestBody List<GradeCardDto> gradecard ) {
+	@RequestMapping(value="/professor/{id}/setgrades",method = RequestMethod.POST)
+	public ResponseEntity<String> setGrades(@PathVariable(name = "id") int professorID,@RequestBody List<GradeCardDto> gradecard ) {
 		   
 
 	try {
 		for(GradeCardDto gradeCard: gradecard) {
-			professorOp.setGrades(gradeCard.getStudentId(),gradeCard.getCourseId(),gradeCard.getGrades());
+			professorOp.setGrades(professorID,gradeCard.getStudentId(),gradeCard.getCourseId(),gradeCard.getGrades());
 		}
 		return new ResponseEntity<String>("Added grades",HttpStatus.OK);
 	} catch (UserNotFoundException e) {
@@ -110,6 +123,10 @@ public class CRSProfessorController {
 	}catch(CourseNotFoundException e)
 	{
 		return new ResponseEntity<String>("Course with id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
+	}
+	catch(CourseNotAssignedException e)
+	{
+		return new ResponseEntity<String>("Course with id:"+e.getCourseId()+" Not Assigned",HttpStatus.NOT_FOUND);
 	}
 		
 	}

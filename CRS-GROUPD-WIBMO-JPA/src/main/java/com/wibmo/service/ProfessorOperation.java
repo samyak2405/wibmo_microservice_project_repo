@@ -26,7 +26,7 @@ public interface ProfessorOperation {
 	 * @throws UserNotFoundException
 	 * @throws CourseNotFoundException
 	 */
-  public void setGrades(int studentId,int courseId,String grade) throws UserNotFoundException,CourseNotFoundException ;
+  public void setGrades(int professorId, int studentId,int courseId,String grade) throws UserNotFoundException,CourseNotFoundException,CourseNotAssignedException ;
   
   /**
    * To request to teach a specific course
@@ -34,14 +34,14 @@ public interface ProfessorOperation {
    * @param courseIdList
    * @throws CourseNotFoundException
    */
-  public void requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException;
+  public void requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException,UserNotFoundException ;
   
   /**
    * To view list of registered student in a specific course.
    * @param courseId
    * @throws CourseNotFoundException
    */
-  public List<Student> viewStudentList(Integer courseId) throws CourseNotFoundException;
+  public List<Student> viewStudentList(int professorId,Integer courseId) throws CourseNotFoundException,CourseNotAssignedException;
   
   /**
    * To view the list of all the courses
@@ -58,6 +58,6 @@ public interface ProfessorOperation {
 
 public int getProfessorById(String userEmail);
 
-public Map<Integer,String> listOfApprovedCourses(int userId);
+public Map<Integer,String> listOfApprovedCourses(int userId) throws UserNotFoundException;
   
 }

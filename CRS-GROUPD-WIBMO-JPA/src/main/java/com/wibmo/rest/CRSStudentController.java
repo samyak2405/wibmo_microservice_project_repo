@@ -27,6 +27,7 @@ import com.wibmo.entity.StudentCourseMap;
 import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
+import com.wibmo.dto.GradeCardResponseDTO;
 import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotApprovedException;
@@ -110,7 +111,13 @@ public class CRSStudentController {
 		
  	   } catch (CourseNotFoundException e) {
 		return new ResponseEntity<String>("No Course added",HttpStatus.NOT_FOUND); 
- 	   }catch(CourseLimitExceededException e)
+		
+ 	   }
+ 	  catch (UserNotFoundException e) {
+ 			return new ResponseEntity<String>("User Not Found",HttpStatus.NOT_FOUND); 
+ 			
+ 	 	   }
+ 	   catch(CourseLimitExceededException e)
  	   {
 		return new ResponseEntity<String>("Course Limit Exceeded",HttpStatus.CONFLICT); 
  	   }
@@ -162,9 +169,15 @@ public class CRSStudentController {
 	 */
 	@RequestMapping(value="/student/{id}/registerCourse",method = RequestMethod.POST)	
 	public ResponseEntity<?> registerCourses(@PathVariable(value="id") int userId)
-	{
+	{try {
 		studentOp.registerCourses(userId);
 		return ResponseEntity.ok("Applied For Course Registration Successfully");
+		}
+		 catch(UserNotFoundException e) {
+	 		   
+	 		  return new ResponseEntity<String>("User with id "+e.getUserId()+" is not found",HttpStatus.NOT_FOUND); 
+	 		   
+	 	   } 
 	}
 	
 	/**
@@ -200,7 +213,7 @@ public class CRSStudentController {
 	 * @return a list of grades.
 	 */
 	@RequestMapping(value="/student/{id}/viewReportCard",method = RequestMethod.GET)
-	public ResponseEntity viewReportCard(@PathVariable(value="id") int userId)
+	public ResponseEntity<GradeCardResponseDTO> viewReportCard(@PathVariable(value="id") int userId)
 	{
  	   try {
  	   return ResponseEntity.ok(studentOp.viewReportCard(userId)); 
@@ -223,7 +236,7 @@ public class CRSStudentController {
 	 */
 	@RequestMapping(value="/student/{id}/viewNotifications",method = RequestMethod.GET)
 	public ResponseEntity viewNotifications(@PathVariable(name = "id") int studentId)
-	{
+	{try {
 		List<Notification>notifications=notificationOp.getNotificationMessage(studentId);
 		if(notifications!=null)
 		{
@@ -233,7 +246,13 @@ public class CRSStudentController {
 		else
 		{
 	 		 return new ResponseEntity("No Notifications",HttpStatus.NOT_FOUND);
-		}
+		}}
+		
+		 catch(UserNotFoundException e) {
+	 		   
+	 		  return new ResponseEntity<String>("User with id "+e.getUserId()+" is not found",HttpStatus.NOT_FOUND); 
+	 		   
+	 	   } 
 		
 	}
 	

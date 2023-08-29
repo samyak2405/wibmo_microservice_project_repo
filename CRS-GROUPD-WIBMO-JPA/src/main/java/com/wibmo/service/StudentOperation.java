@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.dto.AddCourseDto;
+import com.wibmo.dto.GradeCardResponseDTO;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.StudentCourseMap;
@@ -30,7 +31,7 @@ public interface StudentOperation {
 	/**
 	 * 
 	 */
-	public void registerCourses(int studentId);
+	public void registerCourses(int studentId) throws UserNotFoundException;
 	
 	/**
 	 * To add new course for registration
@@ -38,7 +39,7 @@ public interface StudentOperation {
 	 * @throws DuplicateCourseEntryException
 	 */
 	@Transactional
-	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException ;
+	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException,UserNotFoundException ;
 	
 	/**
 	 * To drop course from registration list
@@ -79,7 +80,7 @@ public interface StudentOperation {
 	 * @param studId
 	 * @throws UserNotFoundException
 	 */
-	public Map<Integer,Map<Integer,String>> viewReportCard(int studId) throws UserNotApprovedException;
+	public GradeCardResponseDTO viewReportCard(int studId) throws UserNotApprovedException;
 
 	/**
 	 * To check if a student is registered of not.
