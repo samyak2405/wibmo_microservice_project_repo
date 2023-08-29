@@ -7,6 +7,7 @@ package com.wibmo.dto;
  * 
  */
 public class GradeCardDto {
+	
 	private int studentId;
 	private int courseId;
 	private String grades;

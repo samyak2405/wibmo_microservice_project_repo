@@ -13,6 +13,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.Professor;
 import com.wibmo.entity.ProfessorCourseMap;
 import com.wibmo.constant.*;
 
@@ -33,5 +35,7 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	@Transactional
 	@Query(value="UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 AND courseId=?2",nativeQuery = true)
 	public void approveCourseProf(@Param("userId")int professorId,@Param("courseId") int courseId);
+	
+	public ProfessorCourseMap findByProfessorAndCourseCatalog(Professor professor, CourseCatalog course);
 	
 }

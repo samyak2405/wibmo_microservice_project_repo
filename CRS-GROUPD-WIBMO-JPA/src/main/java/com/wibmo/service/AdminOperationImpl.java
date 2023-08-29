@@ -42,6 +42,9 @@ public class AdminOperationImpl implements AdminOperation{
 	@Autowired
 	public NotificationOperation notification;
 	
+	@Autowired
+	public CourseRepository courseRepository;
+	
 
 	@Override
 	public void approveStudent() {
@@ -63,18 +66,19 @@ public class AdminOperationImpl implements AdminOperation{
 	public void assignCoursesProf() 
 	{
 		List<Integer> professorsIds = professorCourseMappingRepository.listProfessorIds();
-
 		Set<Integer> set = new HashSet<>();
 		for(int professorId:professorsIds) 
 		{
+			Professor professor=professorRepository.findById(professorId).get();
 			List<Integer> coursesIds = professorCourseMappingRepository.getProfessorCourses(professorId);
-			
 			for(int courseId:coursesIds) 
 			{
+				CourseCatalog course=courseRepository.findById(courseId).get();
 				if(!set.contains(courseId))
 				{
-					set.add(courseId);
-					professorCourseMappingRepository.approveCourseProf(professorId,courseId);
+					ProfessorCourseMap professorCourseMap=professorCourseMappingRepository.findByProfessorAndCourseCatalog(professor, course);
+					professorCourseMap.setIsApproved(1);
+					professorCourseMappingRepository.save(professorCourseMap);
 				}
 				else
 					System.out.println("Course already assigned to another professor");

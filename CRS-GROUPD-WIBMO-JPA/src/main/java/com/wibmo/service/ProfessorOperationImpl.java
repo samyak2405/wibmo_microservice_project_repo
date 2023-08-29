@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Professor;
 import com.wibmo.entity.ProfessorCourseMap;
 import com.wibmo.entity.Student;
@@ -41,6 +42,9 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	StudentRepository studentDao;
 	@Autowired
 	CourseRepository courseDao;
+	@Autowired
+	GradeCardRepository gradeCardRepository;
+	
 	
 	@Autowired
 	private StudentCourseMappingRepository studentCourseRepo;
@@ -61,8 +65,10 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		{
 			throw new UserNotFoundException(studentId);
 		}
-		
-		professorDao.setGrades(grade,studentId, courseId);
+		GradeCard gradeCard=gradeCardRepository.findByStudentAndCatalog(studentDao.findById(studentId).get(),
+				courseDao.findById(courseId).get());
+		gradeCard.setGrade(grade);
+		gradeCardRepository.save(gradeCard);
 	}
 	
 	@Override

@@ -16,11 +16,8 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-
 @Table(name="notificationstudentmapping")
 public class NotificationStudentMapping {
-	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
