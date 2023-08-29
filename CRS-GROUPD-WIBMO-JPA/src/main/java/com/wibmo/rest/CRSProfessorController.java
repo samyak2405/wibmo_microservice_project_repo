@@ -17,6 +17,7 @@ import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.dto.GradeCardDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.Student;
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.validator.ClientValidatorImpl;
 
@@ -67,12 +68,12 @@ public class CRSProfessorController {
 	 * @return list of students registered for particular courseId.
 	 */
 	@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
-    public ResponseEntity<Object> studentList(@PathVariable(value="userId") int userId,@PathVariable(value="courseId") int courseId) {
+    public ResponseEntity studentList(@PathVariable(value="userId") int userId,@PathVariable(value="courseId") int courseId) {
 
         try {
-     	    return new ResponseEntity<Object>(professorOp.viewStudentList(courseId),HttpStatus.OK);
+     	    return new ResponseEntity(professorOp.viewStudentList(courseId),HttpStatus.OK);
 		} catch (CourseNotFoundException e) {
-			return new ResponseEntity<Object>("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
+			return new ResponseEntity("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 
 		}
 	}

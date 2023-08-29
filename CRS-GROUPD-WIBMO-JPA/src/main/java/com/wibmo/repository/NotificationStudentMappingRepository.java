@@ -18,5 +18,6 @@ import java.util.List;
 @Repository
 public interface NotificationStudentMappingRepository extends CrudRepository<NotificationStudentMapping,Integer>
 {
+	
 	public List<NotificationStudentMapping> findByStudent(Student student);
 }

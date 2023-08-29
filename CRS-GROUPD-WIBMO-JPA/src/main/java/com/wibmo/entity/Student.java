@@ -23,7 +23,18 @@ public class Student extends User {
 	private int isapproved;
 	
 
+	public Student() {
+		
+	}
 	
+	public Student(Student student) {
+		this.setUserId(student.getUserId());
+		this.setUserName(student.getUserName());
+		this.setUserEmail(student.getUserEmail());
+		this.setUserPassword(student.getUserPassword());
+		this.setUserPhonenumber(student.getUserPhonenumber());
+		this.isapproved = student.isapproved;
+	}
 	public int getIsapproved() {
 		return isapproved;
 	}

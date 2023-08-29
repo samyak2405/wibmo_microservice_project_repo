@@ -33,7 +33,7 @@ public interface ProfessorRepository extends CrudRepository<Professor,Integer>{
   
 	@Query(value="SELECT userId,userName, userEmail, userPhonenumber FROM student"
             + " WHERE userId IN (SELECT userId FROM studentcoursemapping WHERE courseId=?1)", nativeQuery = true)
-	public Optional<List<Student>> findStudentByCourseId(@Param("courseId")int courseId);
+	public List<Object[]> findStudentByCourseId(@Param("courseId")int courseId);
 	
   
 	@Query(value=SQLConstants.SEARCH_PROFESSOR, nativeQuery =  true)
