@@ -183,12 +183,13 @@ public class CRSStudentController {
  		       return new ResponseEntity("Course Registration pending",HttpStatus.TOO_EARLY); 
  				
  			}
- 			else 
- 				return ResponseEntity.ok(courses);
+ 			return ResponseEntity.ok(courses);
+ 			
  	   }
  	   catch(UserNotApprovedException e) {
  		  return new ResponseEntity("User with id "+e.getUserId()+" is not approved by admin",HttpStatus.NOT_FOUND); 
  	   }
+ 	  
 	}
 	
 	

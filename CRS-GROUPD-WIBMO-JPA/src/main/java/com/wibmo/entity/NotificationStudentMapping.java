@@ -16,7 +16,8 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="notificationStudentMapping")
+
+@Table(name="notificationstudentmapping")
 public class NotificationStudentMapping {
 	
 	
@@ -32,6 +33,8 @@ public class NotificationStudentMapping {
 	@ManyToOne
 	@JoinColumn(name="notificationId")
 	private Notification notification;
+	
+	public NotificationStudentMapping() {}
 	
 	public NotificationStudentMapping(Student student, Notification notification) {
 		this.student = student;

@@ -26,6 +26,7 @@ public class Notification implements Serializable{
 	@Column
 	private String notificationMessage;
 	
+	public Notification() {}
 	
 	public Notification(int id, String notificationMessage) {
 		this.id = id;

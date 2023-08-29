@@ -41,9 +41,9 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	@Query(value=SQLConstants.SELECT_PROFESSOR_COURSES,nativeQuery=true)
 	public List<Integer> getProfessorCourses(@Param("professorId")int professorId);
 
-	@Modifying
-	@Query(value=SQLConstants.APPROVE_PROFESSOR_COURSE,nativeQuery=true)
-	public void approveCourse(@Param("professorId")int professor,@Param("courseId")int courseId);
+//	@Modifying
+//	@Query(value="UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 && courseId=?2",nativeQuery=true)
+//	public void approveCourse(@Param("userId")int professor,@Param("courseId")int courseId);
 
 	@Query(value=SQLConstants.SEARCH_ADMIN,nativeQuery=true)
 	public int getAdminById(@Param("userEmail")String userEmail);
