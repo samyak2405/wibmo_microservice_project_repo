@@ -5,6 +5,8 @@ package com.wibmo.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -21,9 +23,10 @@ import com.wibmo.entity.User;
 @Repository
 public interface AdminRepository extends CrudRepository<Admin,Integer> {
 
-
+	
 	@Modifying
-	@Query(value=SQLConstants.APPROVE_STUDENT,nativeQuery=true)
+	@Transactional
+	@Query(value="UPDATE student SET isApproved=1",nativeQuery=true)
 	public void approveStudentRegistration();
 
 	@Modifying

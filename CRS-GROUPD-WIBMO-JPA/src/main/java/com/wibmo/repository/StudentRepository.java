@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -29,12 +30,9 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value=SQLConstants.UPDATE_REGISTER, nativeQuery = true)
 	public void registerCourses(@Param("studentId")int studentId);
 	
-	@Modifying
-	@Query(value=SQLConstants.ADD_COURSES, nativeQuery = true)
-	public void AddSingleCourse(@Param("studentId")int studentId,@Param("courseId")int courseId,@Param("coursecategory")int coursePref);
-	
-	
-	@Query(value=SQLConstants.COUNT_COURSES, nativeQuery=true)
+
+
+	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE userId=?1", nativeQuery=true)
 	public int getCourseCount(@Param("studentId")int studentId);
 	
 	@Modifying
@@ -55,8 +53,8 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value=SQLConstants.SELECT_STUDENTID, nativeQuery =  true)
 	public List<Integer> getStudentIds();
 
-	@Query(value=SQLConstants.SELECT_REGISTER, nativeQuery = true)
-	public int isStudentRegistered(@Param("studentId")int studentId);
+	@Query(value="SELECT COUNT(*) FROM studentcoursemapping WHERE userId=:studentId", nativeQuery = true)
+	public Integer isStudentRegistered(@Param("studentId")int studentId);
 
 	@Query(value=SQLConstants.IS_APPROVED, nativeQuery =  true)
 	public int isCourseRegistrationApproved(@Param("studentId")int studentId);

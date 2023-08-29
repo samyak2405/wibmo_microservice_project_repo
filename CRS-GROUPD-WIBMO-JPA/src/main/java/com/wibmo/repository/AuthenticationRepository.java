@@ -22,13 +22,13 @@ import com.wibmo.entity.*;
 @Repository
 public interface AuthenticationRepository extends CrudRepository<User,Integer> {
 	
-    @Query(value="SELECT * FROM student WHERE userEmail=?1 ",nativeQuery=true)
+    @Query(value="SELECT * FROM student WHERE userEmail=:userEmail",nativeQuery=true)
 	public Student studentLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value="SELECT * FROM professor WHERE userEmail=?1",nativeQuery=true)
+    @Query(value="SELECT * FROM professor WHERE userEmail=:userEmail",nativeQuery=true)
 	public Professor professorLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value="SELECT * FROM admin WHERE userEmail=:userEmail AND role=3",nativeQuery=true)
+    @Query(value="SELECT * FROM admin WHERE userEmail=:userEmail",nativeQuery=true)
 	public Admin adminLoggedin(@Param("userEmail") String userEmail);
     
     
