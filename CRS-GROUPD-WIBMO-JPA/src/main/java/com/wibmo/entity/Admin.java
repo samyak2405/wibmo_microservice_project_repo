@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="admin")
 public class Admin extends User{
+	
 	@Column
 	private int isApproved;
 

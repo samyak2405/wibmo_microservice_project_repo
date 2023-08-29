@@ -36,6 +36,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 			
 		user=authenticate.studentLoggedin(userEmail);
 		
+		
 		}
 		else if(role==2)
 		{
@@ -88,7 +89,9 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 		// TODO Auto-generated method stub
 		
 		if(role==1) {
+			
 		authenticate.updateStudentPassword(userEmail,userPassword);
+		
 		}
 		else if(role==2) {
 			authenticate.updateProfessorPassword(userEmail,userPassword);

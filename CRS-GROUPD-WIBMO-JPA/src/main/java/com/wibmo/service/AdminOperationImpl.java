@@ -13,7 +13,6 @@ import java.util.Set;
 
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;
-import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
@@ -89,11 +88,17 @@ public class AdminOperationImpl implements AdminOperation{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
-			if(adminRepository.findById(user.getUserId())!=null)
+			if(adminRepository.findByEmail(user.getUserEmail())>0)
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			adminRepository.save((Admin) user);
+			Admin admin = new Admin();
+			admin.setUserName(user.getUserName());
+			admin.setUserEmail(user.getUserEmail());
+			admin.setUserPhonenumber(user.getUserPhonenumber());
+			admin.setUserPassword(user.getUserPassword());
+			
+			adminRepository.save(admin);
 			}
 		else
 			//System.out.println("Invalid Email Id");

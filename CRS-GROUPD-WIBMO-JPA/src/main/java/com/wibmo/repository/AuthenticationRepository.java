@@ -22,24 +22,24 @@ import com.wibmo.entity.*;
 @Repository
 public interface AuthenticationRepository extends CrudRepository<User,Integer> {
 	
-    @Query(value="SELECT * FROM User WHERE userEmail=:userEmail AND role=1",nativeQuery=true)
-	public User studentLoggedin(@Param("userEmail") String userEmail);
+    @Query(value="SELECT * FROM student WHERE userEmail=?1 ",nativeQuery=true)
+	public Student studentLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value="SELECT * FROM user WHERE userEmail=:userEmail AND role=2",nativeQuery=true)
-	public User professorLoggedin(@Param("userEmail") String userEmail);
+    @Query(value="SELECT * FROM professor WHERE userEmail=?1",nativeQuery=true)
+	public Professor professorLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value="SELECT * FROM user WHERE userEmail=:userEmail AND role=3",nativeQuery=true)
-	public User adminLoggedin(@Param("userEmail") String userEmail);
+    @Query(value="SELECT * FROM admin WHERE userEmail=:userEmail AND role=3",nativeQuery=true)
+	public Admin adminLoggedin(@Param("userEmail") String userEmail);
     
     
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_STUDENT,nativeQuery=true)
+    @Query(value="UPDATE student SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateStudentPassword(@Param("userEmail") String userEmail,String userPassword);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_PROFESSOR,nativeQuery=true)
+    @Query(value="UPDATE professor SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateProfessorPassword(@Param("userEmail") String userEmail,String userPassword);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_ADMIN,nativeQuery=true)
+    @Query(value="UPDATE admin SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateAdminPassword(@Param("userEmail") String userEmail,String userPassword);
 //	User findByUseremail(String useremail);
 
