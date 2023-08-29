@@ -17,8 +17,10 @@ import com.wibmo.repository.*;
 public class PaymentOperationImpl implements PaymentOperation{
 
 	
-		paymentBean = new Payment();
-	}
+		Payment paymentBean = new Payment();
+		
+		@Autowired
+		PaymentRepository paymentDao;
 	
 	@Override
 	public int getAmount(long studentId) {

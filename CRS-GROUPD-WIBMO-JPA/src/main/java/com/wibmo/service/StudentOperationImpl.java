@@ -12,11 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.transaction.Transactional;
-
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.dto.AddCourseDto;
@@ -49,7 +46,6 @@ public class StudentOperationImpl implements StudentOperation{
 
 	
 	@Override
-	
 	public void registerCourses(int studentId) {
 		// TODO Auto-generated method stub
 		//Logic will be implemented in ADMIN Panel
@@ -125,8 +121,8 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	@Transactional
 	public void registerStudent(User user)throws StudentAlreadyRegisteredException {
+		
 		// TODO Auto-generated method stub
 		Student student = new Student();
 
@@ -140,6 +136,7 @@ public class StudentOperationImpl implements StudentOperation{
 		student.setUserPassword(user.getUserPassword());
 		student.setUserId(user.getUserId());
 		studentDao.save(student);
+		
 	}
 
 

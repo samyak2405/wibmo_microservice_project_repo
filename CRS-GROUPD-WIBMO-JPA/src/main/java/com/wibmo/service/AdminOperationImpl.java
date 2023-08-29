@@ -89,11 +89,18 @@ public class AdminOperationImpl implements AdminOperation{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
-			if(adminRepository.findById(user.getUserId())!=null)
+			if(adminRepository.findById(user.getUserId()).isEmpty()==false)
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			adminRepository.save((Admin) user);
+			Admin admin=new Admin();
+			admin.setUserEmail(user.getUserEmail());
+			admin.setUserId(user.getUserId());
+			admin.setUserName(user.getUserName());
+			admin.setUserPassword(user.getUserPassword());
+			admin.setUserPhonenumber(admin.getUserPhonenumber());
+			admin.setIsApproved(0);
+			adminRepository.save(admin);
 			}
 		else
 			//System.out.println("Invalid Email Id");

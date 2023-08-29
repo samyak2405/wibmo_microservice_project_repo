@@ -11,7 +11,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import javax.transaction.Transactional;
 
 import java.io.Serializable;
 
@@ -22,6 +21,7 @@ import java.io.Serializable;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="userId")
@@ -37,8 +37,7 @@ public class User implements Serializable {
 	
 	@Column(name="userPassword")
 	private String userPassword;
-	@Column(name="role")
-	private int role;
+	
 	
 	/*
 	 * @return userId
@@ -100,22 +99,5 @@ public class User implements Serializable {
 	public void setUserPhonenumber(long userPhonenumber) {
 		this.userPhonenumber = userPhonenumber;
 	}
-
-	/**
-	 * @return the role
-	 */
-	public int getRole() {
-		return role;
-	}
-
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(int role) {
-		this.role = role;
-	}
-	
-	
-	
 	
 }
