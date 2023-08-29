@@ -21,5 +21,4 @@ public interface ValidatorInterface {
 	public boolean emailValidator(String email);
 	public List<List<Integer>> sortByCoursePref(List<List<Integer>> list);
 	public List<Boolean> courseRegistrationValidator();
-	public void assignCourseValidator() ;
 }

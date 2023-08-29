@@ -6,11 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;
+import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
@@ -23,12 +26,18 @@ public class AdminOperationImpl implements AdminOperation{
 	
 	Scanner scan = new Scanner(System.in);
 	
-
 	@Autowired
-	AdminRepository adminDAO;
-	@Autowired
-	StudentRepository studentDAO;
+	public AdminRepository adminRepository;
 	
+	@Autowired
+	public StudentRepository studentRepository;
+	
+	@Autowired
+	public ProfessorRepository professorRepository;
+	
+	@Autowired
+	public ProfessorCourseMappingRepository professorCourseMappingRepository;
+
 	@Autowired
 	public ValidatorInterface validate;
 	@Autowired
@@ -38,48 +47,53 @@ public class AdminOperationImpl implements AdminOperation{
 	@Override
 	public void approveStudent() {
 		// TODO Auto-generated method stub
-		adminDAO.approveStudentRegistration();
+		adminRepository.approveStudentRegistration();
 	}
 
+	
+	
+	
 	@Override
-	public void approveStudentById(int userId) throws UserNotFoundException{
-		// TODO Auto-generated method stub
+	public void addAdmin(User user) {
+		adminRepository.save(user);
+	}
 
-		if(studentDAO.findById(userId)==null) {
-			throw new UserNotFoundException(userId);
+	
+	
+	@Override
+	public void assignCoursesProf() 
+	{
+		List<Integer> professorsIds = professorCourseMappingRepository.listProfessorIds();
+		Set<Integer> set = new HashSet<>();
+		for(int professorId:professorsIds) 
+		{
+			List<Integer> coursesIds = professorCourseMappingRepository.getProfessorCourses(professorId);
+		
+			for(int courseId:coursesIds) 
+			{
+				if(!set.contains(courseId))
+				{
+					set.add(courseId);
+					professorCourseMappingRepository.approveCourseProf(professorId,courseId);
+				}
+				else
+					System.out.println("Course already assigned to another professor");
+				}
 		}
-		adminDAO.approveStudentRegistrationById(userId);
 	}
-	@Override
-	public void addAdmin(Admin user) {
-		// TODO Auto-generated method stub
-		adminDAO.save(user);
-	}
-
-	@Override
-	public void assignCoursesProf() {
-		validate.assignCourseValidator();
-
-	}
-
+	
+	
+	
 	@Override
 	public void adminRegistration(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
 		if(validate.emailValidator(user.getUserEmail()))
 			{
-			if(adminDAO.findById(user.getUserId())!=null)
+			if(adminRepository.findById(user.getUserId())!=null)
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			Admin admin = new Admin();
-			
-			admin.setUserName(user.getUserName());
-			admin.setUserEmail(user.getUserEmail());
-			admin.setUserPhonenumber(user.getUserPhonenumber());
-			admin.setUserPassword(user.getUserPassword());
-			
-			this.addAdmin(admin);
-			
+			adminRepository.save(user);
 			}
 		else
 			//System.out.println("Invalid Email Id");
@@ -93,12 +107,19 @@ public class AdminOperationImpl implements AdminOperation{
 		return isSuccess;
 	}
 
-	
+	@Override
+	public void approveStudentById(int id) throws UserNotFoundException{
+
+		if(studentRepository.findById(id)==null) {
+			throw new UserNotFoundException(id);
+		}
+//		adminRepository.setApprovedStudentById(id);
+	}
 
 	@Override
 	public int getAdminById(String userEmail) {
 		// TODO Auto-generated method stub
-		return adminDAO.getAdminById(userEmail);
+		return adminRepository.getAdminById(userEmail);
 	}
 
 	

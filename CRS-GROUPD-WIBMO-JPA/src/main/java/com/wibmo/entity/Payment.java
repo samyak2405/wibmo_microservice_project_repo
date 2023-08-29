@@ -27,10 +27,12 @@ public class Payment implements Serializable{
 	@Column
 	private long transactionId;
 	@Column
-	private int amount=100000;
+	private int amount;
 	
 	
-	
+	public Payment(){
+		amount = 1000000;
+	}
 	/**
 	 * @return User ID
 	 */

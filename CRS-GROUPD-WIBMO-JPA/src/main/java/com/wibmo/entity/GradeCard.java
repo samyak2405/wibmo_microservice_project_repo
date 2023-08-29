@@ -11,7 +11,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,8 +27,9 @@ public class GradeCard implements Serializable {
 	private int studentId;
 	
 	@Id
-	@OneToOne
-	@JoinColumn(name="courseId")
+	@Column
+//	@ManyToOne
+//	@JoinColumn(name="courseId")
 	private int courseId;
 	
 	@Column

@@ -80,7 +80,6 @@ public class CRSClientController
 		return new ResponseEntity<StringBuilder>(msg, HttpStatus.NOT_FOUND);
 		
 	}
-
 	/**
 	 * User Registration
 	 * @param role
@@ -122,8 +121,6 @@ public class CRSClientController
 				for(User user: users) {
 					adminOp.adminRegistration(user);
 				}
-				
-				
 			} catch (UserAlreadyExistsException e) {
 				// TODO Auto-generated catch block
 				return new ResponseEntity<String>("Admin Already Registerd", HttpStatus.CONFLICT);
@@ -131,12 +128,6 @@ public class CRSClientController
 		}
 		return new ResponseEntity<String>("Registration Successful", HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	/**

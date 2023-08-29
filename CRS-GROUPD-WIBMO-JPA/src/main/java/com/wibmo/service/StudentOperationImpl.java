@@ -35,11 +35,15 @@ import com.wibmo.exception.UserNotFoundException;
 
 @Service
 public class StudentOperationImpl implements StudentOperation{
-	
+
 	@Autowired
-	private StudentRepository studentDao;
+	public StudentRepository studentDao;
+	@Autowired
+	public CourseRepository course;
+
 	@Autowired
 	private CourseRepository courseDao;
+
 	
 	@Override
 	public void registerCourses(int studentId) {
@@ -96,7 +100,7 @@ public class StudentOperationImpl implements StudentOperation{
 	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		int isPresent = studentDao.isApproved(studentId);
-		if(isPresent>0)
+		if(isPresent<1)
 			throw new UserNotApprovedException(studentId);
 		
 		List<Object[]> list = studentDao.listCourse(studentId);

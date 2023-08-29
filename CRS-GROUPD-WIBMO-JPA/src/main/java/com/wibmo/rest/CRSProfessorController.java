@@ -19,7 +19,6 @@ import com.wibmo.entity.GradeCard;
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.validator.ClientValidatorImpl;
 
-
 @RestController
 public class CRSProfessorController {
      @Autowired
@@ -95,7 +94,7 @@ public class CRSProfessorController {
 	 */
 	
 	@RequestMapping(value="/professor/setgrades",method = RequestMethod.POST)
-	public ResponseEntity<String>  setGrades(@RequestBody List<GradeCard> gradecard ) {
+	public ResponseEntity<String> setGrades(@RequestBody List<GradeCard> gradecard ) {
 		   
 
 	try {

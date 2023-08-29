@@ -13,16 +13,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="student")
 public class Student extends User {
-@Column
-private int isapproved;
-
-public int getIsapproved() {
-	return isapproved;
-}
-
-public void setIsapproved(int isapproved) {
-	this.isapproved = isapproved;
-}
-
+	
+	@Column(name="isApproved")
+	private int isapproved;
+	
+	public int getIsapproved() {
+		return isapproved;
+	}
+	
+	public void setIsapproved(int isapproved) {
+		this.isapproved = isapproved;
+	}
 
 }
