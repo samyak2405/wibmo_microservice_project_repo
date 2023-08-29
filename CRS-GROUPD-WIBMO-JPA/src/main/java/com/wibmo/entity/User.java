@@ -11,7 +11,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import javax.transaction.Transactional;
 
 import java.io.Serializable;
 
@@ -22,6 +21,7 @@ import java.io.Serializable;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="userId")
@@ -100,8 +100,5 @@ public class User implements Serializable {
 		this.userPhonenumber = userPhonenumber;
 	}
 
-	
-	
-	
 	
 }
