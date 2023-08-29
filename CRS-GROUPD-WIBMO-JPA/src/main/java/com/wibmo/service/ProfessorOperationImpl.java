@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,15 +95,16 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 
 
 	@Override
+	@Transactional
 	public void registerProfessor(User user) throws UserAlreadyExistsException{
 		// TODO Auto-generated method stub
-		
+		Professor professor = new Professor();
 		if(professorDao.findProfessorByEmail(user.getUserEmail())>0)
 		{
 			throw new UserAlreadyExistsException(user.getUserEmail());
 		}
-		
-		Professor professor = new Professor();
+		System.out.println("123");
+		professor.setUserId(user.getUserId());
 		professor.setUserName(user.getUserName());
 		professor.setUserEmail(user.getUserEmail());
 		professor.setUserPhonenumber(user.getUserPhonenumber());

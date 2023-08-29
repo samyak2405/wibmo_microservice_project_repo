@@ -6,17 +6,17 @@ package com.wibmo.service;
 
 import javax.transaction.Transactional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
-
-
 import com.wibmo.entity.Student;
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;
 /**
  * 
  */
+
 @Service
 @Transactional
 public class AuthenticationOperationImpl implements AuthenticationOperation{
@@ -35,6 +35,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 		if(role==1) {
 			
 		user=authenticate.studentLoggedin(userEmail);
+		
 		
 		}
 		else if(role==2)
@@ -88,7 +89,9 @@ public class AuthenticationOperationImpl implements AuthenticationOperation{
 		// TODO Auto-generated method stub
 		
 		if(role==1) {
+			
 		authenticate.updateStudentPassword(userEmail,userPassword);
+		
 		}
 		else if(role==2) {
 			authenticate.updateProfessorPassword(userEmail,userPassword);

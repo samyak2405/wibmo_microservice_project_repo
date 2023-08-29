@@ -3,6 +3,7 @@
  */
 package com.wibmo.entity;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 /**
  * Bean class for User entity
  */
+
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -37,7 +39,7 @@ public class User implements Serializable {
 	
 	@Column(name="userPassword")
 	private String userPassword;
-	
+
 	
 	/*
 	 * @return userId
@@ -99,5 +101,6 @@ public class User implements Serializable {
 	public void setUserPhonenumber(long userPhonenumber) {
 		this.userPhonenumber = userPhonenumber;
 	}
+
 	
 }
