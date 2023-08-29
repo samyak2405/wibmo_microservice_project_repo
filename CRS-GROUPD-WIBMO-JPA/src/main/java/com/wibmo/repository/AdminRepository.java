@@ -45,7 +45,6 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	@Query(value=SQLConstants.APPROVE_PROFESSOR_COURSE,nativeQuery=true)
 	public void approveCourse(@Param("professorId")int professor,@Param("courseId")int courseId);
 
-	@Modifying
 	@Query(value=SQLConstants.SEARCH_ADMIN,nativeQuery=true)
 	public int getAdminById(@Param("userEmail")String userEmail);
 
