@@ -54,7 +54,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	
 	@Override
 	@Transactional
-	public void setGrades(int studentId, int courseId,String grade)throws UserNotFoundException,CourseNotFoundException
+	public void setGrades(int professorId,int studentId, int courseId,String grade)throws UserNotFoundException,CourseNotFoundException,CourseNotAssignedException
 	{
 		
 		if(courseDao.findById(courseId)==null)
@@ -64,6 +64,11 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 		else if(studentDao.findById(studentId)==null)
 		{
 			throw new UserNotFoundException(studentId);
+		}
+		ProfessorCourseMap professorCourseMap=professorCoMapRepo.findByProfessorAndCourseCatalog(professorDao.findById(professorId).get(),courseDao.findById(courseId).get());
+		if((professorCourseMap==null)||((professorCourseMap!=null)&&(professorCourseMap.getIsApproved()==0)))
+		{
+			throw new CourseNotAssignedException(courseId);
 		}
 		GradeCard gradeCard=gradeCardRepository.findByStudentAndCatalog(studentDao.findById(studentId).get(),
 				courseDao.findById(courseId).get());
@@ -97,11 +102,16 @@ public class ProfessorOperationImpl implements ProfessorOperation{
     }
 
 	@Override
-	public List<Student> viewStudentList(Integer courseId) throws CourseNotFoundException{
+	public List<Student> viewStudentList(int professorId,Integer courseId) throws CourseNotFoundException,CourseNotAssignedException{
 		
 		if(courseDao.findById(courseId)==null)
 		{
 			throw new CourseNotFoundException(courseId);
+		}
+		ProfessorCourseMap professorCourseMap=professorCoMapRepo.findByProfessorAndCourseCatalog(professorDao.findById(professorId).get(),courseDao.findById(courseId).get());
+		if((professorCourseMap==null)||((professorCourseMap!=null)&&(professorCourseMap.getIsApproved()==0)))
+		{
+			throw new CourseNotAssignedException(courseId);
 		}
 		List<StudentCourseMap> studentCo = studentCourseRepo.findByCourse(
 				courseDao.findById(courseId).get()

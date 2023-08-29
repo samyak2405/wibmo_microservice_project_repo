@@ -84,8 +84,4 @@ public class CourseCatalog implements Serializable{
 		this.prerequisites = prerequisites;
 	}
 	
-	
-	
-	
-	
 }

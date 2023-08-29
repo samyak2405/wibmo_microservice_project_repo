@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.dto.AddCourseDto;
+import com.wibmo.dto.GradeCardResponseDTO;
 import com.wibmo.dto.SendCourseDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
@@ -50,6 +51,9 @@ public class StudentOperationImpl implements StudentOperation{
 	
 	@Autowired
 	private StudentCourseMappingRepository studCoMapRepo;
+	
+	@Autowired
+	private GradeCardRepository gradeCardRepository;
 
 	
 	@Override
@@ -157,22 +161,20 @@ public class StudentOperationImpl implements StudentOperation{
 
 
 	@Override
-	public Map<Integer,Map<Integer,String>> viewReportCard(int studentId) throws UserNotApprovedException {
+	public GradeCardResponseDTO viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if(studentDao.isApproved(studentId)<1)
 		{
 			throw new UserNotApprovedException(studentId);
 		}
-		List<Object[]> results = studentDao.viewReportCard(studentId);
-		 Map<Integer,Map<Integer,String>> grades  = new HashMap<>();
-		 for(Object[] result:results) {
-			 if(!grades.containsKey((Integer)studentId)) {
-				 grades.put((Integer)studentId, new HashMap<>());
-			 }
-			 grades.get(studentId).put((Integer)result[0], (String)result[1]);
-		 }
-		return grades;
-
+		GradeCardResponseDTO gradeCardResponseDTO=new GradeCardResponseDTO();
+		gradeCardResponseDTO.setStudentId(studentId);
+		List<GradeCard>gradeCard=gradeCardRepository.findByStudent(studentDao.findById(studentId).get());
+		for(GradeCard grade:gradeCard)
+		{
+			gradeCardResponseDTO.addGradeDetails(grade.getCatalog().getCourseId(), grade.getCatalog().getCourseName(), grade.getGrade());
+		}
+		return gradeCardResponseDTO;
 	}
 
 	@Override

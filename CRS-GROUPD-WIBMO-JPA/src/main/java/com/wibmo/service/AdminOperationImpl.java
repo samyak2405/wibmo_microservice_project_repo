@@ -57,6 +57,7 @@ public class AdminOperationImpl implements AdminOperation{
 	
 	@Override
 	public void addAdmin(User user) {
+		
 		adminRepository.save((Admin) user);
 	}
 

@@ -53,6 +53,7 @@ public class GradeCard implements Serializable {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+	
 	public CourseCatalog getCatalog() {
 		return catalog;
 	}

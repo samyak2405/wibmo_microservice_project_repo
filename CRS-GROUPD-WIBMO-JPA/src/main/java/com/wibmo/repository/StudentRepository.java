@@ -75,9 +75,6 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value=SQLConstants.SELECT_ADDED_COURSE, nativeQuery =  true)
 	public List<Object[]> getAddedCourses(@Param("userId")int userId);
 
-	
-	@Query(value="SELECT courseId, grade FROM gradecard where userId=?1", nativeQuery =  true)
-	public List<Object[]> viewReportCard(@Param("studentId")int studentId);
 
 	@Modifying
 	@Query(value=SQLConstants.APPROVE_STUDENT,nativeQuery =  true)

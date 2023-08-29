@@ -27,6 +27,7 @@ import com.wibmo.entity.StudentCourseMap;
 import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
+import com.wibmo.dto.GradeCardResponseDTO;
 import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotApprovedException;
@@ -200,7 +201,7 @@ public class CRSStudentController {
 	 * @return a list of grades.
 	 */
 	@RequestMapping(value="/student/{id}/viewReportCard",method = RequestMethod.GET)
-	public ResponseEntity viewReportCard(@PathVariable(value="id") int userId)
+	public ResponseEntity<GradeCardResponseDTO> viewReportCard(@PathVariable(value="id") int userId)
 	{
  	   try {
  	   return ResponseEntity.ok(studentOp.viewReportCard(userId)); 
