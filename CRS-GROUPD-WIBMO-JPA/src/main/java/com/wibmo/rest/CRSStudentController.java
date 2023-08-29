@@ -248,12 +248,15 @@ public class CRSStudentController {
 	@RequestMapping(value="/student/{id}/payfee/{paymentMethod}",method = RequestMethod.POST)
 	public ResponseEntity<String> payFee(@PathVariable(value="id") int userId,@PathVariable(value="paymentMethod") String paymentMethod ,@RequestParam(required = false) String onlineMethod) {
 		  boolean status=false;
+		 
 		 if(studentOp.isApproved(userId)>0) {
 			 
 	    	   if(paymentMethod.equals("offline"))
 	    	   {
 	    		   status=payment.offline(userId);
+	    		  
 	 	  		  payment.recordPayment(userId, status);
+	 	  		 
 	 	  		  
 	    	   }
 	    	   if(paymentMethod.equals("online")) {

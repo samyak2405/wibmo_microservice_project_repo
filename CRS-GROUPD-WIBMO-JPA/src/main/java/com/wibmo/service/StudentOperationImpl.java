@@ -181,7 +181,9 @@ public class StudentOperationImpl implements StudentOperation{
 	@Override
 	public int isApproved(int userId) {
 		// TODO Auto-generated method stub
+		
 		int flag= studentDao.isApproved(userId);
+		
 		return flag;
 	}
 

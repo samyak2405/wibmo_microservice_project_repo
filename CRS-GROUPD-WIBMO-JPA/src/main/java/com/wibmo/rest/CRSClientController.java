@@ -106,9 +106,10 @@ public class CRSClientController
 			}
 		}
 		else if(role==2)
-		{
+		{	
 			try {
 				for(User user: users) {
+					
 					professorOp.registerProfessor(user);
 				}
 			} catch (UserAlreadyExistsException e) {
@@ -119,6 +120,7 @@ public class CRSClientController
 		{
 			try {
 				for(User user: users) {
+					
 					adminOp.adminRegistration(user);
 				}
 			} catch (UserAlreadyExistsException e) {

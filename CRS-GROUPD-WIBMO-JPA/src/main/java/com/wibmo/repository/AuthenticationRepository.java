@@ -3,6 +3,7 @@
  */
 package com.wibmo.repository;
 
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -32,14 +33,16 @@ public interface AuthenticationRepository extends CrudRepository<User,Integer> {
     
     
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_STUDENT,nativeQuery=true)
+    @Query(value="UPDATE student SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateStudentPassword(@Param("userEmail") String userEmail,String userPassword);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_PROFESSOR,nativeQuery=true)
+    @Query(value="UPDATE professor SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateProfessorPassword(@Param("userEmail") String userEmail,String userPassword);
 	@Modifying
-    @Query(value=SQLConstants.UPDATE_PASSWORD_ADMIN,nativeQuery=true)
+    @Query(value="UPDATE admin SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateAdminPassword(@Param("userEmail") String userEmail,String userPassword);
+//	User findByUseremail(String useremail);
+
 	
 
 }

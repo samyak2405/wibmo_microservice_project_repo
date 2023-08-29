@@ -5,7 +5,10 @@ package com.wibmo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.wibmo.entity.Payment;
 import com.wibmo.repository.*;
 
@@ -17,13 +20,22 @@ import com.wibmo.repository.*;
 public class PaymentOperationImpl implements PaymentOperation{
 
 	@Autowired
-	private PaymentRepository paymentDao;
+
+    private PaymentRepository paymentDao;
+
+    
+
+    Payment paymentBean;
+
+    public PaymentOperationImpl()
+
+    {
+
+        paymentBean = new Payment();
+
+    }
 	
-	Payment paymentBean;
-	public PaymentOperationImpl()
-	{
-		paymentBean = new Payment();
-	}
+	
 	
 	@Override
 	public int getAmount(long studentId) {
@@ -42,6 +54,7 @@ public class PaymentOperationImpl implements PaymentOperation{
 
 
 	@Override
+	@Transactional
 	public boolean offline(long studentId) {
 		
 		paymentBean.setPaymentStatus(1);
@@ -63,10 +76,14 @@ public class PaymentOperationImpl implements PaymentOperation{
 	}
  
 	@Override
+	
 	public boolean wallet(long studentId) {
 		this.paymentBean.setPaymentStatus(0);
 		return false;
 	}
+	
+	@Override
+	@Transactional
 	
 	public void recordPayment(long studentId,boolean paymentStatus)
 	{
@@ -77,6 +94,7 @@ public class PaymentOperationImpl implements PaymentOperation{
 		
 		this.paymentBean.setUserId(studentId);
 		this.paymentBean.setTransactionId(1000000+studentId);
+		
 		this.paymentDao.save(paymentBean);
 	}
 	
