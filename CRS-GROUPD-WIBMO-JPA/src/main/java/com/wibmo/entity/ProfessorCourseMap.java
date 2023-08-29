@@ -30,7 +30,6 @@ public class ProfessorCourseMap implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
-<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private Professor professor;
@@ -38,15 +37,6 @@ public class ProfessorCourseMap implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="courseId")
 	private CourseCatalog courseCatalog;
-=======
-//	@OneToMany
-//	@JoinColumn(name="userId")
-//	private List<Professor> professor;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="courseId")
-//	private List<CourseCatalog> courseCatalog;
->>>>>>> 0597778d140a697fcdb7ecd4a68f9cd0331109ee
 	
 	@Column
 	int isApproved;
