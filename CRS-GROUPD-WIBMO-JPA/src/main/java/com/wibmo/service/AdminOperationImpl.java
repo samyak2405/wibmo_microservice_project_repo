@@ -55,7 +55,7 @@ public class AdminOperationImpl implements AdminOperation{
 	
 	@Override
 	public void addAdmin(User user) {
-		adminRepository.save(user);
+		adminRepository.save((Admin) user);
 	}
 
 	
@@ -93,7 +93,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			adminRepository.save(user);
+			adminRepository.save((Admin) user);
 			}
 		else
 			//System.out.println("Invalid Email Id");
@@ -113,7 +113,7 @@ public class AdminOperationImpl implements AdminOperation{
 		if(studentRepository.findById(id)==null) {
 			throw new UserNotFoundException(id);
 		}
-		adminRepository.setApprovedStudentById(id);
+		studentRepository.setApprovedStudentById(id);
 	}
 
 	@Override

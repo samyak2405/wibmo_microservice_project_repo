@@ -99,7 +99,7 @@ public class CRSProfessorController {
 
 	try {
 		for(GradeCard gradeCard: gradecard) {
-			professorOp.setGrades(gradeCard.getStudentId(),gradeCard.getCourseId(),gradeCard.getGrade());
+			professorOp.setGrades(gradeCard.getStudent().getUserId(),gradeCard.getCatalog().getCourseId(),gradeCard.getGrade());
 		}
 		return new ResponseEntity<String>("Added grades",HttpStatus.OK);
 	} catch (UserNotFoundException e) {

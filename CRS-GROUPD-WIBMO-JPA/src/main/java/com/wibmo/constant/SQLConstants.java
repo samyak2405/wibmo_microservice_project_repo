@@ -74,7 +74,7 @@ public class SQLConstants {
 		/*
 		 * Admin Queries
 		 * */
-		public static final String APPROVE_STUDENT = "UPDATE student SET isApproved=1";
+		public static final String APPROVE_STUDENT = "UPDATE student SET isApproved=1 WHERE userId=?1";
 		public static final String APPROVE_STUDENT_BY_ID = "UPDATE student SET isApproved=1 WHERE userId=?";
 		public static final String SELECT_PROFESSORS_BY_ID = "SELECT DISTINCT professorId FROM professorcoursemapping";
 		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseId FROM professorcoursemapping WHERE professorId=?1";

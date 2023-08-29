@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,15 +27,16 @@ import javax.persistence.Table;
 public class ProfessorCourseMap implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name="userId")
-	private List<Professor> professor;
+	private Professor professor;
 	
 	@ManyToOne
 	@JoinColumn(name="courseId")
-	private List<CourseCatalog> courseCatalog=new ArrayList<>();;
+	private CourseCatalog courseCatalog;
 	
 	@Column
 	int isApproved;
@@ -49,19 +52,19 @@ public class ProfessorCourseMap implements Serializable {
 
 
 
-	public List<Professor> getProfessor() {
+	public Professor getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(List<Professor> professor) {
+	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
 
-	public List<CourseCatalog> getCourseCatalog() {
+	public CourseCatalog getCourseCatalog() {
 		return courseCatalog;
 	}
 
-	public void setCourseCatalog(List<CourseCatalog> courseCatalog) {
+	public void setCourseCatalog(CourseCatalog courseCatalog) {
 		this.courseCatalog = courseCatalog;
 	}
 

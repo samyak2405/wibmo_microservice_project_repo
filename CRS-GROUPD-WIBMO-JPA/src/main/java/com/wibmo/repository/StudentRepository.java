@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wibmo.entity.Student;
 import com.wibmo.constant.SQLConstants;
@@ -48,35 +49,27 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value=SQLConstants.IS_APPROVED, nativeQuery = true)
 	public int isApproved(@Param("studentId")int studentId);
 
-	@Modifying
 	@Query(value=SQLConstants.STUDENT_BY_EMAIL, nativeQuery =  true)
 	public int findByEmail(@Param("userEmail")String userEmail);
 
-	@Modifying
 	@Query(value=SQLConstants.SELECT_STUDENTID, nativeQuery =  true)
 	public List<Integer> getStudentIds();
 
-	@Modifying
 	@Query(value=SQLConstants.SELECT_REGISTER, nativeQuery = true)
 	public int isStudentRegistered(@Param("studentId")int studentId);
 
-	@Modifying
 	@Query(value=SQLConstants.IS_APPROVED, nativeQuery =  true)
 	public int isCourseRegistrationApproved(@Param("studentId")int studentId);
 
-	@Modifying
 	@Query(value=SQLConstants.SELECT_COURSEMAPPING, nativeQuery =  true)
 	public List<Object[]> getStudentCourseData(@Param("studentId")int studentId);
 
-	@Modifying
 	@Query(value=SQLConstants.COUNT_STUDENT_COURSES, nativeQuery =  true)
 	public int getStudentCourseCount(@Param("courseId")Integer courseId);
 
-	@Modifying
 	@Query(value=SQLConstants.LIST_STUDENT_REG_COURSES, nativeQuery = true)
 	public List<Object[]> listCourse(@Param("studentId")int studentId);
 
-	@Modifying
 	@Query(value=SQLConstants.SELECT_ADDED_COURSE, nativeQuery =  true)
 	public List<Object[]> getAddedCourses(@Param("userId")int userId);
 
@@ -84,5 +77,9 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value=SQLConstants.GRADE_CARD, nativeQuery =  true)
 	public List<Object[]> viewReportCard(@Param("studentId")int studentId);
 
+	@Modifying
+	@Query(value=SQLConstants.APPROVE_STUDENT,nativeQuery =  true)
+	public void setApprovedStudentById(int id);
+	
 	
 }

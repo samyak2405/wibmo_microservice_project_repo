@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
@@ -16,19 +18,23 @@ import java.io.Serializable;
  * Bean class for User entity
  */
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column 
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(name="userId")
 	private int userId;
-	@Column
+	@Column(name="userName")
 	private String userName;
-	@Column
+	
+	@Column(name="userEmail")
 	private String userEmail;
-	@Column
+	
+	@Column(name="userPhonenumber")
 	private long userPhonenumber;
-	@Column
+	
+	@Column(name="userPassword")
 	private String userPassword;
 	
 	

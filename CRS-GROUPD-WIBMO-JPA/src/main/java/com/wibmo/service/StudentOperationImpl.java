@@ -133,6 +133,7 @@ public class StudentOperationImpl implements StudentOperation{
 		student.setUserEmail(user.getUserEmail());
 		student.setUserPhonenumber(user.getUserPhonenumber());
 		student.setUserPassword(user.getUserPassword());
+		student.setUserId(user.getUserId());
 		studentDao.save(student);
 	}
 
