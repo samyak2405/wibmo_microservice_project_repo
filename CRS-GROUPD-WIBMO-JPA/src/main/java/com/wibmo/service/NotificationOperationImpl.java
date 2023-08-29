@@ -40,7 +40,6 @@ public class NotificationOperationImpl implements NotificationOperation {
 		List<Notification>notifications=notificationMappings.stream().map(notifs->new Notification(notifs.getNotification())).collect(Collectors.toList());
 		return notifications;
 	}
-
 	@Override
 	public void sendNotification(int notificationId, int userId) 
 	{
