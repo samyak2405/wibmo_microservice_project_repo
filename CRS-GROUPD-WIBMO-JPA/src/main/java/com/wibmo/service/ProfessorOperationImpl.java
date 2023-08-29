@@ -73,9 +73,13 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	
 	@Override
 	@Transactional
-	public void requestCourseOffering(int professorid,List<Integer> courseIdList)throws CourseNotFoundException {
+	public void requestCourseOffering(int professorid,List<Integer> courseIdList)throws CourseNotFoundException,UserNotFoundException {
 
         // TODO Auto-generated method stub
+		if(professorDao.findById(professorid).isEmpty()==true)
+		{
+			throw new UserNotFoundException(professorid);
+		}
 		for(Integer courseId:courseIdList)
 		{
 			if(courseDao.findById(courseId)==null)
@@ -152,9 +156,12 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 
 	@Override
-	public Map<Integer,String> listOfApprovedCourses(int userId) {
+	public Map<Integer,String> listOfApprovedCourses(int userId) throws UserNotFoundException{
 		// TODO Auto-generated method stub
-
+		if(professorDao.findById(userId).isEmpty()==true)
+		{
+			throw new UserNotFoundException(userId);
+		}
 		List<Object[]> list = professorDao.listOfApprovedCourses(userId);
 		Map<Integer,String> courses = new HashMap<>();
 		for(Object[] result:list) 

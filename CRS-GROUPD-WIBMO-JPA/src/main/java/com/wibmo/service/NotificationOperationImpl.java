@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.wibmo.entity.Notification;
 import com.wibmo.entity.NotificationStudentMapping;
 import com.wibmo.entity.Student;
+import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.repository.*;
 
 /**
@@ -35,8 +36,12 @@ public class NotificationOperationImpl implements NotificationOperation {
 	public StudentRepository studentRepository;
 	
 	@Override
-	public List<Notification> getNotificationMessage(int studentId) 
+	public List<Notification> getNotificationMessage(int studentId) throws UserNotFoundException 
 	{
+		if(studentRepository.findById(studentId).isEmpty()==true)
+		{
+			throw new UserNotFoundException(studentId);
+		}
 		List<NotificationStudentMapping> notificationMappings=notificationStudentMappingRepository.findByStudent(studentRepository.findById(studentId).get());
 		List<Notification>notifications=notificationMappings.stream().map(notifs->new Notification(notifs.getNotification())).collect(Collectors.toList());
 		return notifications;

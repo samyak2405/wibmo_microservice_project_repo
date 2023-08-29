@@ -75,7 +75,7 @@ public class AdminOperationImpl implements AdminOperation{
 			{
 				CourseCatalog course=courseRepository.findById(courseId).get();
 				if(!set.contains(courseId))
-				{
+				{   set.add(courseId);
 					ProfessorCourseMap professorCourseMap=professorCourseMappingRepository.findByProfessorAndCourseCatalog(professor, course);
 					professorCourseMap.setIsApproved(1);
 					professorCourseMappingRepository.save(professorCourseMap);

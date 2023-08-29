@@ -30,7 +30,7 @@ public interface StudentOperation {
 	/**
 	 * 
 	 */
-	public void registerCourses(int studentId);
+	public void registerCourses(int studentId) throws UserNotFoundException;
 	
 	/**
 	 * To add new course for registration
@@ -38,7 +38,7 @@ public interface StudentOperation {
 	 * @throws DuplicateCourseEntryException
 	 */
 	@Transactional
-	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException ;
+	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException,UserNotFoundException ;
 	
 	/**
 	 * To drop course from registration list

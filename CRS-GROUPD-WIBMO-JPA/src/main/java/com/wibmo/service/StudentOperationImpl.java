@@ -56,17 +56,23 @@ public class StudentOperationImpl implements StudentOperation{
 
 	
 	@Override
-	public void registerCourses(int studentId) {
+	public void registerCourses(int studentId) throws UserNotFoundException {
 		// TODO Auto-generated method stub
 		//Logic will be implemented in ADMIN Panel
-		
+		if(studentDao.findById(studentId).isEmpty()==true)
+		{
+			throw new UserNotFoundException(studentId);
+		}
 		studentDao.registerCourses(studentId);
 	}
 
 	@Override
 	@Transactional
-	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException {
-		
+	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException,UserNotFoundException {
+		if(studentDao.findById(userId).isEmpty()==true)
+		{
+			throw new UserNotFoundException(userId);
+		}
 		if(studentDao.getCourseCount(userId)>6)
 		{
 			throw new CourseLimitExceededException();
@@ -75,7 +81,7 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			int courseId=entry.getKey();
 			int pref=entry.getValue();
-			if(courseDao.findById(courseId)==null)
+			if(courseDao.findById(courseId).isEmpty()==true)
 			{
 				throw new CourseNotFoundException(courseId);
 			}
@@ -101,11 +107,11 @@ public class StudentOperationImpl implements StudentOperation{
 	public int dropCourses(int studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
 
-		if(studentDao.findById(studentId)==null)
+		if(studentDao.findById(studentId).isEmpty()==true)
 		{
 			throw new UserNotFoundException(studentId);
 		}
-		if(courseDao.findById(courseId)==null)
+		if(courseDao.findById(courseId).isEmpty()==true)
 		{
 			throw new CourseNotFoundException(studentId);
 		}

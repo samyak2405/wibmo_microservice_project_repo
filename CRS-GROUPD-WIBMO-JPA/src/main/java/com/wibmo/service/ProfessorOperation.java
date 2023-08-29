@@ -34,7 +34,7 @@ public interface ProfessorOperation {
    * @param courseIdList
    * @throws CourseNotFoundException
    */
-  public void requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException;
+  public void requestCourseOffering(int professorid,List<Integer> courseIdList) throws CourseNotFoundException,UserNotFoundException ;
   
   /**
    * To view list of registered student in a specific course.
@@ -58,6 +58,6 @@ public interface ProfessorOperation {
 
 public int getProfessorById(String userEmail);
 
-public Map<Integer,String> listOfApprovedCourses(int userId);
+public Map<Integer,String> listOfApprovedCourses(int userId) throws UserNotFoundException;
   
 }

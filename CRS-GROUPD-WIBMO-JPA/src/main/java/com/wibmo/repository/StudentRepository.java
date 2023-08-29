@@ -81,8 +81,8 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 
 	@Modifying
 	@Transactional
-	@Query(value="UPDATE student SET isApproved=1",nativeQuery =  true)
-	public void setApprovedStudentById(int id);
+	@Query(value="UPDATE student SET isApproved=1 WHERE userId=?1",nativeQuery =  true)
+	public void setApprovedStudentById(@Param("userId")int id);
 	
 	
 }

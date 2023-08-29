@@ -41,7 +41,12 @@ public class CRSProfessorController {
          	
 				professorOp.requestCourseOffering(userId,courseIdList);
 				return new ResponseEntity<String>("Courses request sent for approval to Admin",HttpStatus.OK);
-			} catch (CourseNotFoundException e) {
+			}
+		 catch (UserNotFoundException e) {
+				return new ResponseEntity<String>("User with UserId:"+userId+" Not Found",HttpStatus.NOT_FOUND);
+			}
+		 
+		 catch (CourseNotFoundException e) {
 				return new ResponseEntity<String>("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 			}
 	}
@@ -53,8 +58,12 @@ public class CRSProfessorController {
 	 */
 	@RequestMapping(value="/professor/{userId}/approvedcourses",method = RequestMethod.GET)
 	public ResponseEntity<Map<Integer,String>> approvedCourses(@PathVariable(value="userId") int userId)
-	{
+	{try {
 		 return new ResponseEntity<Map<Integer, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
+	}
+		 catch (UserNotFoundException e) {
+				return new ResponseEntity("User with UserId:"+userId+" Not Found",HttpStatus.NOT_FOUND);
+			}
 	}	
 	
 	
