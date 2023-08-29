@@ -9,13 +9,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.entity.CourseCatalog;
-import com.wibmo.entity.StudentCourseMap;
+import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.Student;
 
 /**
  * 
  */
 @Repository
-public interface StudentCourseMappingRepository extends CrudRepository<StudentCourseMap, Integer>  {
+public interface GradeCardRepository extends CrudRepository<GradeCard,Integer>{
 
-	public List<StudentCourseMap> findByCourse(CourseCatalog course); 
+	public GradeCard findByStudentAndCatalog(Student student, CourseCatalog catalog);
 }

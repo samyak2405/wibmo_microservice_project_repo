@@ -18,5 +18,4 @@ public class NotificationConstants {
 	public static final int PAYMENT_SUCCESS_NOTIFICATION=5;
 	public static final int PAYMENT_REJECTED_NOTIFICATION=6;
 	
-	
 }

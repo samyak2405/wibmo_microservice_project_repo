@@ -34,7 +34,7 @@ public class SQLConstants {
 		
 		public static final String UPDATE_REGISTER=" UPDATE studentcoursemapping SET isRegister=1 WHERE studentid=?1";
 		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM studentcoursemapping WHERE studentId=?1";
-		public static final String IS_APPROVED = "SELECT COUNT(*) FROM gradecard where studentId=?1";
+		public static final String IS_APPROVED = "SELECT COUNT(*) FROM gradecard where userId=?1";
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentId) as uniqueStudent FROM studentcoursemapping";
 		public static final String COUNT_STUDENT_COURSES = "SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?";
 		
@@ -78,9 +78,9 @@ public class SQLConstants {
 		 * */
 		public static final String APPROVE_STUDENT = "UPDATE student SET isApproved=1";
 		public static final String APPROVE_STUDENT_BY_ID = "UPDATE student SET isApproved=1 WHERE userId=?";
-		public static final String SELECT_PROFESSORS_BY_ID = "SELECT DISTINCT professorId FROM professorcoursemapping";
-		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseId FROM professorcoursemapping WHERE professorId=?1";
-		public static final String APPROVE_PROFESSOR_COURSE = "UPDATE professorcoursemapping SET isApproved=1 WHERE professorId=?1 && courseId=?2";
+		public static final String SELECT_PROFESSORS_BY_ID = "SELECT DISTINCT userId FROM professorcoursemapping";
+		public static final String SELECT_PROFESSOR_COURSES = "SELECT courseId FROM professorcoursemapping WHERE userId=?1";
+		public static final String APPROVE_PROFESSOR_COURSE = "UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 && courseId=?2";
 		public static final String SEARCH_ADMIN = "SELECT userId FROM admin WHERE userEmail=?";
 		public static final String INSERT_GRADECARD = "INSERT INTO gradecard VALUES(?,?,NA)";
 		public static final String SELECT_COURSEMAPPING = "SELECT courseId, coursecategory FROM studentcoursemapping WHERE studentId=?";
@@ -112,7 +112,7 @@ public class SQLConstants {
 			
 		// Join Queries //
 	    //For listing registered courses for a student
-		public static final String LIST_STUDENT_REG_COURSES = "SELECT gradecard.courseId, courseCatalog.courseName FROM gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON gradecard.courseId=courseCatalog.courseId WHERE gradecard.studentId=?1";
+		public static final String LIST_STUDENT_REG_COURSES = "SELECT gradecard.courseId, courseCatalog.courseName FROM gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON gradecard.courseId=courseCatalog.courseId WHERE gradecard.userId=?1";
 
 		// For listing approved courses of professor
 		public static final String LIST_APPROVED_COURSES = "SELECT pcm.courseid, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.professorid=?1 AND pcm.isApproved=1";

@@ -26,26 +26,28 @@ import com.wibmo.entity.User;
  */
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {
+	
 	@Modifying
-	@Query(value=" UPDATE studentcoursemapping SET isRegister=1 WHERE userid=?1", nativeQuery = true)
+	@Transactional
+	@Query(value=" UPDATE studentcoursemapping SET isRegister=1 WHERE userId=?1", nativeQuery = true)
 	public void registerCourses(@Param("studentId")int studentId);
 	
 
 
 	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE userId=?1", nativeQuery=true)
-	public int getCourseCount(@Param("studentId")int studentId);
+	public int getCourseCount(@Param("userId")int studentId);
 	
 	@Modifying
 	@Query(value="DELETE FROM studentcoursemapping WHERE userId=? && courseId=?", nativeQuery =  true)
-	public void dropCourses(@Param("studentId")int studentId,@Param("courseId")int courseId);
+	public void dropCourses(@Param("userId")int studentId,@Param("courseId")int courseId);
 
 	
-	@Query(value="SELECT coursecategory FROM studentcoursemapping WHERE userId=?1 AND courseId=?2", nativeQuery = true )
-	public int findCoursePreference(@Param("studentId")int studentId,@Param("courseId") int courseId);
+	@Query(value="SELECT isRegister FROM studentcoursemapping WHERE userId=:studentId AND courseId=:courseId", nativeQuery = true )
+	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") int courseId);
 
 	
-	@Query(value="SELECT COUNT(*) FROM gradecard where student_userId=?1", nativeQuery = true)
-	public int isApproved(@Param("student_userId")int studentId);
+	@Query(value="SELECT COUNT(*) FROM gradecard where userId=?1", nativeQuery = true)
+	public int isApproved(@Param("userId")int studentId);
 
 	@Query(value="SELECT COUNT(*) FROM student WHERE userEmail=?1", nativeQuery =  true)
 	public int findByEmail(@Param("userEmail")String userEmail);
@@ -53,7 +55,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value="SELECT DISTINCT(userId) as uniqueStudent FROM studentcoursemapping", nativeQuery =  true)
 	public List<Integer> getStudentIds();
 
-	@Query(value="SELECT COUNT(*) FROM studentcoursemapping WHERE userId=:studentId", nativeQuery = true)
+	@Query(value="SELECT COUNT(*) FROM studentcoursemapping WHERE userId=:studentId AND isRegister=1", nativeQuery = true)
 	public Integer isStudentRegistered(@Param("studentId")int studentId);
 
 	@Query(value="SELECT COUNT(*) FROM gradecard where userId=?1",nativeQuery =  true)
@@ -65,14 +67,16 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?", nativeQuery =  true)
 	public int getStudentCourseCount(@Param("courseId")Integer courseId);
 
-	@Query(value="SELECT gradecard.courseId, courseCatalog.courseName FROM gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON gradecard.courseId=courseCatalog.courseId WHERE gradecard.student_userId=?1", nativeQuery = true)
+	@Query(value="SELECT gradecard.courseId, courseCatalog.courseName FROM "
+			+ "gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON"
+			+ " gradecard.courseId=courseCatalog.courseId WHERE gradecard.userId=?1", nativeQuery = true)
 	public List<Object[]> listCourse(@Param("studentId")int studentId);
 
 	@Query(value="SELECT c.courseId,c.courseName FROM coursecatalog c INNER JOIN crs.studentcoursemapping scm ON c.courseId=scm.courseId WHERE scm.userId=?1", nativeQuery =  true)
 	public List<Object[]> getAddedCourses(@Param("userId")int userId);
 
 	
-	@Query(value="SELECT courseId, grade FROM gradecard where student_userId=?1", nativeQuery =  true)
+	@Query(value="SELECT courseId, grade FROM gradecard where userId=?1", nativeQuery =  true)
 	public List<Object[]> viewReportCard(@Param("studentId")int studentId);
 
 	@Modifying

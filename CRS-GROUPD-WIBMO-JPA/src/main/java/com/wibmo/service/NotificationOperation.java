@@ -20,12 +20,10 @@ public interface NotificationOperation {
 	 * @param studentId
 	 * @return list of notifications
 	 */
-	public List<Notification> getNotificationMessage(long studentId);
 	
-	/**
-	 * To send a notification message to a user
-	 * @param notifid
-	 * @param studentId
-	 */
-	public void sendNotification(int notifid, long studentId);
+	
+	public List<Notification> getNotificationMessage(int studentId);
+
+	public void sendNotification(int notificationId, int userId);
+	
 }

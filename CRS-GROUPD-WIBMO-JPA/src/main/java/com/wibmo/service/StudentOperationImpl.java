@@ -5,6 +5,7 @@ package com.wibmo.service;
 
 import java.util.ArrayList;
 
+
 import java.util.HashMap;
 
 
@@ -14,10 +15,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.SendCourseDto;
@@ -59,12 +62,7 @@ public class StudentOperationImpl implements StudentOperation{
 		
 		studentDao.registerCourses(studentId);
 	}
-	
-	@Override
-	public void AddSingleCourse(int studentId,int courseId,int coursePref) {
-//		studentDao.AddSingleCourse(studentId, courseId, coursePref);
-	}
-	
+
 	@Override
 	@Transactional
 	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException {
@@ -88,9 +86,9 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			StudentCourseMap studCoMapping = new StudentCourseMap();
 			studCoMapping.setStudent(studentDao.findById(userId).get());
-			System.out.println(studCoMapping.getStudent().getUserId());
+			
 			studCoMapping.setCourse(courseDao.findById(entry.getKey()).get());
-			System.out.println(studCoMapping.getCourse().getCourseId());
+			
 			studCoMapping.setCoursePref(entry.getValue());
 			studCoMapping.setIsRegister(0);
 			studCoMapRepo.save(studCoMapping);
@@ -99,6 +97,7 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 	
 	@Override
+	@Transactional
 	public int dropCourses(int studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub
 
@@ -110,9 +109,10 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			throw new CourseNotFoundException(studentId);
 		}
-		int coursePref = studentDao.findCoursePreference(studentId,courseId);
+		Integer isRegister= studentDao.findCoursePreference(studentId,courseId);
 		studentDao.dropCourses(studentId,courseId);
-		return coursePref;
+		
+		return isRegister;
 	}
 
 	@Override

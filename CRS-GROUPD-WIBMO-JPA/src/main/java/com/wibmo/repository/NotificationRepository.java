@@ -20,13 +20,7 @@ import com.wibmo.entity.User;
  * 
  */
 @Repository
-public interface NotificationRepository extends CrudRepository<User,Integer> {
-	@Transactional
-    @Modifying
-	@Query(value="INSERT INTO notificationstudentmapping VALUES(?1,?2)", nativeQuery = true)
-	void sendNotificationMessage(@Param("notifId") int notifid, @Param("studentId") long studentId);
-	@Transactional
-	@Query(value="SELECT * FROM notification WHERE notificationId IN (SELECT notifId FROM notificationstudentmapping WHERE studentId=?1)", nativeQuery = true)
-	List<Notification> getNotificationMessage(@Param("studentId")long studentId);
+public interface NotificationRepository extends CrudRepository<Notification,Integer> {
+
 	
 }
