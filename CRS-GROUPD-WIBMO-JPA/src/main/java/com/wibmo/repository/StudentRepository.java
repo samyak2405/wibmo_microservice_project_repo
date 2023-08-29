@@ -81,7 +81,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 
 	@Modifying
 	@Query(value=SQLConstants.APPROVE_STUDENT,nativeQuery =  true)
-	public void setApprovedStudentById(int id);
+	public void setApprovedStudentById(@Param("userId")int id);
 	
 	
 }
