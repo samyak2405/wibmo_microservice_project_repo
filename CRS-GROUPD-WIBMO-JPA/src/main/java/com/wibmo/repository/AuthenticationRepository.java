@@ -19,13 +19,13 @@ import com.wibmo.entity.*;
  */
 @Repository
 public interface AuthenticationRepository extends CrudRepository<User,Integer> {
-	@Modifying
+	
     @Query(value=SQLConstants.VERIFY_STUDENT,nativeQuery=true)
 	public Student studentLoggedin(@Param("userEmail") String userEmail);
-	@Modifying
+	
     @Query(value=SQLConstants.VERIFY_PROFESSOR,nativeQuery=true)
 	public Professor professorLoggedin(@Param("userEmail") String userEmail);
-	@Modifying
+	
     @Query(value=SQLConstants.VERIFY_ADMIN,nativeQuery=true)
 	public Admin adminLoggedin(@Param("userEmail") String userEmail);
 	@Modifying

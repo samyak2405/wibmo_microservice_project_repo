@@ -7,7 +7,7 @@ package com.wibmo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wibmo.entity.Student;
 import com.wibmo.entity.*;
@@ -15,7 +15,9 @@ import com.wibmo.repository.*;
 /**
  * 
  */
+
 @Service
+@Transactional
 public class AuthenticationOperationImpl implements AuthenticationOperation{
 	@Autowired
 	AuthenticationRepository authenticate;

@@ -17,9 +17,7 @@ import java.io.Serializable;
 /**
  * Bean class for User entity
  */
-@Entity
-@Table(name="user")
-@Inheritance
+
 
 @Entity
 @Table(name="user")
