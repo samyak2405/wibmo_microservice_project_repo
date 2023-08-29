@@ -28,22 +28,23 @@ public class GradeCard implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private long id;
+	private int id;
 	
-	@ManyToOne(targetEntity = Student.class)
+	@ManyToOne
+	@JoinColumn(name="userId")
 	private Student student;
 	
-	@Id
 	@ManyToOne
 	@JoinColumn(name="courseId")
 	private CourseCatalog catalog;
 	
-	
+	@Column
+	private String grade;
 	
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public Student getStudent() {
@@ -58,8 +59,7 @@ public class GradeCard implements Serializable {
 	public void setCatalog(CourseCatalog catalog) {
 		this.catalog = catalog;
 	}
-	@Column
-	private String grade;
+	
 
 
 	/**

@@ -34,7 +34,7 @@ public class SQLConstants {
 		
 		public static final String UPDATE_REGISTER=" UPDATE studentcoursemapping SET isRegister=1 WHERE studentid=?1";
 		public static final String COUNT_COURSES = "SELECT COUNT(courseid) as courseCount FROM studentcoursemapping WHERE studentId=?1";
-		public static final String IS_APPROVED = "SELECT COUNT(*) FROM gradecard where studentId=?1";
+		public static final String IS_APPROVED = "SELECT COUNT(*) FROM gradecard where userId=?1";
 		public static final String SELECT_STUDENTID = "SELECT DISTINCT(studentId) as uniqueStudent FROM studentcoursemapping";
 		public static final String COUNT_STUDENT_COURSES = "SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?";
 		
