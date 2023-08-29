@@ -19,11 +19,14 @@ import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.NotificationOperationImpl;
 import com.wibmo.constant.NotificationConstants;
 import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.NotificationStudentMapping;
 import com.wibmo.entity.ProfessorCourseMap;
 
 import com.wibmo.repository.AdminRepository;
 import com.wibmo.repository.CourseRepository;
 import com.wibmo.repository.GradeCardRepository;
+import com.wibmo.repository.NotificationRepository;
+import com.wibmo.repository.NotificationStudentMappingRepository;
 import com.wibmo.repository.ProfessorCourseMappingRepository;
 import com.wibmo.repository.ProfessorRepository;
 import com.wibmo.repository.StudentRepository;
@@ -54,6 +57,12 @@ public class AdminValidatorImpl implements ValidatorInterface{
 	
 	@Autowired
 	private GradeCardRepository gradeRepository;
+	
+	@Autowired
+	private NotificationStudentMappingRepository notificationStudentMappingRepository;
+	
+	@Autowired
+	private NotificationRepository notificationRepository;
 	
 	@Override
 	/**
@@ -148,13 +157,23 @@ public class AdminValidatorImpl implements ValidatorInterface{
 			}
 			if(count==4)
 			{
+			
+				notificationStudentMappingRepository.save(new NotificationStudentMapping( studentRepository.findById(studentId).get(),
+						notificationRepository.findById(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION).get()));
 				
+				notificationStudentMappingRepository.save(new NotificationStudentMapping(studentRepository.findById(studentId).get(),
+						notificationRepository.findById(NotificationConstants.FEE_PAYMENT_NOTIFICATION).get()));
+
 //				notification.sendNotification(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION, studentId);
 //				
 //				notification.sendNotification(NotificationConstants.FEE_PAYMENT_NOTIFICATION, studentId);
 				isSuccess.add(true);
 			}
 			else {
+				
+				notificationStudentMappingRepository.save(new NotificationStudentMapping( studentRepository.findById(studentId).get(),
+						notificationRepository.findById(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION).get()));
+
 //				adminRepository.setRejectionStatus(studentId);		
 //				notification.sendNotification(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION, studentId);
 				isSuccess.add(false);

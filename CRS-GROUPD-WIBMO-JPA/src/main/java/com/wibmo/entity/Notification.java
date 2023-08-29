@@ -25,6 +25,18 @@ public class Notification implements Serializable{
 	private int id;
 	@Column
 	private String notificationMessage;
+	
+	
+	public Notification(int id, String notificationMessage) {
+		this.id = id;
+		this.notificationMessage = notificationMessage;
+	}
+
+	public Notification(Notification notification) {
+		this.id = notification.getId();
+		this.notificationMessage = notification.notificationMessage;
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 *@return Notification ID 
@@ -33,6 +45,8 @@ public class Notification implements Serializable{
 		return id;
 	}
 	
+
+
 	/**
 	 * @param Set the Notification ID
 	 */
