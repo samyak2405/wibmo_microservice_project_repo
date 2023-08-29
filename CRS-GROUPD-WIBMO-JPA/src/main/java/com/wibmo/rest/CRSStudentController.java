@@ -270,7 +270,7 @@ public class CRSStudentController {
 	        		  payment.recordPayment(userId, status);  
 	    		  }
 	    		   
-	    		   
+	    		  payment.recordPayment(userId, status); 
 	    	   }
 	    	   if(status==true)
 	 	  	  {

@@ -50,6 +50,8 @@ public class SQLConstants {
 		public static final String SEARCH_STUDENT_BY_ID = "SELECT * FROM student WHERE studentid=?";
 		public static final String STUDENT_BY_EMAIL = "SELECT COUNT(*) FROM student WHERE userEmail=?1";
 		public static final String SELECT_ADDED_COURSE = "SELECT c.courseId,c.courseName FROM coursecatalog c INNER JOIN crs.studentcoursemapping scm ON c.courseId=scm.courseId WHERE scm.studentId=?1";
+		
+		
 		/*
 		 * Professor Queries
 		 */

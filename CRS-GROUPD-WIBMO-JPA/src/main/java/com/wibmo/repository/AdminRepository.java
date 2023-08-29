@@ -55,7 +55,6 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	public void setRejectionStatus(@Param("studentId")int studentId);
 
 
-
 	
 	
 }

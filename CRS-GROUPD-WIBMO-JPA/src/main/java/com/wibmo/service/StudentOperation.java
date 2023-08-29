@@ -7,6 +7,7 @@ import java.util.List;
 
 import java.util.Map;
 
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ import com.wibmo.exception.*;
  * For performing various student operations
  */
 @Service
+@Transactional
 public interface StudentOperation {
 	
 	
@@ -66,6 +68,7 @@ public interface StudentOperation {
 	 * @param user
 	 * @throws StudentAlreadyRegisteredException
 	 */
+	@Transactional
 	public void registerStudent(User user) throws StudentAlreadyRegisteredException;
 	
 
