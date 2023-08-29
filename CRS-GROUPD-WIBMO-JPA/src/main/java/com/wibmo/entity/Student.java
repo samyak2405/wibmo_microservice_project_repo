@@ -2,10 +2,13 @@
  * 
  */
 package com.wibmo.entity;
+import java.util.List;
+
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 /**
@@ -15,8 +18,11 @@ import javax.transaction.Transactional;
 @Table(name="student")
 public class Student extends User {
 	
+	
 	@Column(name="isApproved")
 	private int isapproved;
+	
+
 	
 	public int getIsapproved() {
 		return isapproved;

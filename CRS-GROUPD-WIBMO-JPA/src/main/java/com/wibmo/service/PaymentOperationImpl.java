@@ -16,12 +16,7 @@ import com.wibmo.repository.*;
 @Service
 public class PaymentOperationImpl implements PaymentOperation{
 
-	Payment paymentBean;
 	
-	@Autowired
-	PaymentRepository paymentDao;
-	
-	public PaymentOperationImpl() {
 		paymentBean = new Payment();
 	}
 	

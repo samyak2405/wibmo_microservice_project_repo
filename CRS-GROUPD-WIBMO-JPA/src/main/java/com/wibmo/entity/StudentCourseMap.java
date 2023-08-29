@@ -9,8 +9,15 @@ import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Class representing mapping between Students and Courses.
  */
@@ -18,13 +25,22 @@ import javax.persistence.Table;
 @Table(name="studentcoursemapping")
 public class StudentCourseMap implements Serializable
 {
+
+
 	@Id
-	@Column(name="studentid")
-	private int studentId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
+	private int id;
 	
-	@Id
-	@Column(name="courseid")
-	private int courseId;
+
+	@ManyToOne
+	@JoinColumn(name="userId")
+	private Student student;
+	
+	@ManyToOne
+	@JoinColumn(name="courseId")
+	private CourseCatalog course;
+	
 	
 	@Column(name="coursecategory")
 	private int coursePref;
@@ -32,20 +48,15 @@ public class StudentCourseMap implements Serializable
 	@Column(name="isRegister")
 	private int isRegister;
 	
-	/**
-	 * @return the courseId
-	 */
-	public int getCourseId() {
-		return courseId;
+
+
+	public int getId() {
+		return id;
 	}
 
-	/**
-	 * @param courseId the courseId to set
-	 */
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
+	public void setId(int id) {
+		this.id = id;
 	}
-
 	/**
 	 * @return the coursePref
 	 */
@@ -71,16 +82,19 @@ public class StudentCourseMap implements Serializable
 		return isRegister;
 	}
 
-	/**
-	 * @return the studentId
-	 */
-	public int getStudentId() {
-		return studentId;
+	public Student getStudent() {
+		return student;
 	}
-	/**
-	 * @param studentId the studentId to set
-	 */
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public CourseCatalog getCourse() {
+		return course;
+	}
+
+	public void setCourse(CourseCatalog course) {
+		this.course = course;
 	}
 }

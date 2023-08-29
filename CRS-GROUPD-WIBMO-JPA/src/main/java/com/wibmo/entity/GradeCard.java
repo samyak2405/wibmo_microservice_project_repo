@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,43 +24,44 @@ import javax.persistence.Table;
 @Entity
 @Table(name="gradecard")
 public class GradeCard implements Serializable {
-	@Id
-	@Column
-	private int studentId;
 	
 	@Id
-	@Column
-//	@ManyToOne
-//	@JoinColumn(name="courseId")
-	private int courseId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private long id;
 	
+	@ManyToOne(targetEntity = Student.class)
+	private Student student;
+	
+	@Id
+	@ManyToOne
+	@JoinColumn(name="courseId")
+	private CourseCatalog catalog;
+	
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	public CourseCatalog getCatalog() {
+		return catalog;
+	}
+	public void setCatalog(CourseCatalog catalog) {
+		this.catalog = catalog;
+	}
 	@Column
 	private String grade;
 
-	/**
-	 * @return the studentId
-	 */
-	public int getStudentId() {
-		return studentId;
-	}
-	/**
-	 * @param studentId the studentId to set
-	 */
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-	/**
-	 * @return the courseId
-	 */
-	public int getCourseId() {
-		return courseId;
-	}
-	/**
-	 * @param courseId the courseId to set
-	 */
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
+
 	/**
 	 * @return the grade
 	 */

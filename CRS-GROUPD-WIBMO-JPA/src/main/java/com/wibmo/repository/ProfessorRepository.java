@@ -14,6 +14,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.constant.SQLConstants;
+import com.wibmo.entity.Professor;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.User;
 
@@ -21,7 +22,7 @@ import com.wibmo.entity.User;
  * 
  */
 @Repository
-public interface ProfessorRepository extends CrudRepository<User,Integer>{
+public interface ProfessorRepository extends CrudRepository<Professor,Integer>{
 	
   	@Modifying
 	@Query(value=SQLConstants.SET_GRADES, nativeQuery = true)

@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 
@@ -21,19 +22,21 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name="user")
-@Inheritance(strategy= InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="userId")
 	private int userId;
 	@Column(name="userName")
 	private String userName;
+	
 	@Column(name="userEmail")
 	private String userEmail;
+	
 	@Column(name="userPhonenumber")
 	private long userPhonenumber;
+	
 	@Column(name="userPassword")
 	private String userPassword;
 	@Column(name="role")

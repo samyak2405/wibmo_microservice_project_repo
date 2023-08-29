@@ -12,13 +12,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.constant.SQLConstants;
+import com.wibmo.entity.Admin;
 import com.wibmo.entity.User;
 
 /**
  * 
  */
 @Repository
-public interface AdminRepository extends CrudRepository<User,Integer> {
+public interface AdminRepository extends CrudRepository<Admin,Integer> {
 
 
 	@Modifying
@@ -53,10 +54,6 @@ public interface AdminRepository extends CrudRepository<User,Integer> {
 	@Query(value=SQLConstants.STUDENT_REGISTRATION_REJECTION,nativeQuery=true)
 	public void setRejectionStatus(@Param("studentId")int studentId);
 
-//	@Modifying
-//	@Query(value=SQLConstants.APPROVE_STUDENT)
-//	public void setApprovedStudentById(int id);
-	
 
 	
 	
