@@ -37,8 +37,7 @@ public class User implements Serializable {
 	
 	@Column(name="userPassword")
 	private String userPassword;
-	@Column(name="role")
-	private int role;
+
 	
 	/*
 	 * @return userId
@@ -101,19 +100,6 @@ public class User implements Serializable {
 		this.userPhonenumber = userPhonenumber;
 	}
 
-	/**
-	 * @return the role
-	 */
-	public int getRole() {
-		return role;
-	}
-
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(int role) {
-		this.role = role;
-	}
 	
 	
 	

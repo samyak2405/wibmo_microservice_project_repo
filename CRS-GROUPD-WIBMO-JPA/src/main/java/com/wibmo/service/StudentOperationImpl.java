@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -20,6 +21,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.dto.AddCourseDto;
+import com.wibmo.dto.SendCourseDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Student;
@@ -46,6 +48,9 @@ public class StudentOperationImpl implements StudentOperation{
 
 	@Autowired
 	private CourseRepository courseDao;
+	
+	@Autowired
+	private StudentCourseMappingRepository studCoMapRepo;
 
 	
 	@Override
@@ -59,10 +64,11 @@ public class StudentOperationImpl implements StudentOperation{
 	
 	@Override
 	public void AddSingleCourse(int studentId,int courseId,int coursePref) {
-		studentDao.AddSingleCourse(studentId, courseId, coursePref);
+//		studentDao.AddSingleCourse(studentId, courseId, coursePref);
 	}
 	
 	@Override
+	@Transactional
 	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException {
 		
 		if(studentDao.getCourseCount(userId)>6)
@@ -78,9 +84,20 @@ public class StudentOperationImpl implements StudentOperation{
 				throw new CourseNotFoundException(courseId);
 			}
 		}
-		int studentId = userId;
+		
+
 		for(Map.Entry<Integer, Integer> entry:addCourseDto.getCourses().entrySet())
-			studentDao.AddSingleCourse(studentId, entry.getKey(), entry.getValue());
+		{
+			StudentCourseMap studCoMapping = new StudentCourseMap();
+			studCoMapping.setStudent(studentDao.findById(userId).get());
+			System.out.println(studCoMapping.getStudent().getUserId());
+			studCoMapping.setCourse(courseDao.findById(entry.getKey()).get());
+			System.out.println(studCoMapping.getCourse().getCourseId());
+			studCoMapping.setCoursePref(entry.getValue());
+			studCoMapping.setIsRegister(0);
+			studCoMapRepo.save(studCoMapping);
+		}
+			
 	}
 	
 	@Override
@@ -186,9 +203,9 @@ public class StudentOperationImpl implements StudentOperation{
 	}
 
 	@Override
-	public int isStudentRegistered(int userId) {
+	public Integer isStudentRegistered(int userId) {
 		// TODO Auto-generated method stub
-		int isRegistered = studentDao.isStudentRegistered(userId);
+		Integer isRegistered = studentDao.isStudentRegistered(userId);
 		return isRegistered;
 	}
 

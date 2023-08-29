@@ -6,6 +6,7 @@ package com.wibmo.service;
 import java.util.List;
 
 import java.util.Map;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -36,6 +37,7 @@ public interface StudentOperation {
 	 * @param studCoMap
 	 * @throws DuplicateCourseEntryException
 	 */
+	@Transactional
 	public void addCourses(int userId,AddCourseDto addCourseDto) throws CourseNotFoundException,CourseLimitExceededException ;
 	
 	/**
@@ -89,7 +91,7 @@ public interface StudentOperation {
 	public int getStudentByEmail(String userEmail);
 
 	public Map<Integer, String> getAddedCourses(int userId);
-	public int isStudentRegistered(int userId);
+	public Integer isStudentRegistered(int userId);
 	public void AddSingleCourse(int studentId,int courseId,int coursePref);
 	
 }
