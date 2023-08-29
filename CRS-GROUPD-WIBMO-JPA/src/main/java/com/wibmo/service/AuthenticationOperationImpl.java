@@ -4,11 +4,12 @@
 package com.wibmo.service;
 
 
+import javax.transaction.Transactional;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.wibmo.entity.Student;
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;

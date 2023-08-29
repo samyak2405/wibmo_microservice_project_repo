@@ -5,6 +5,8 @@ package com.wibmo.repository;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -20,14 +22,16 @@ import com.wibmo.entity.*;
 @Repository
 public interface AuthenticationRepository extends CrudRepository<User,Integer> {
 	
-    @Query(value=SQLConstants.VERIFY_STUDENT,nativeQuery=true)
-	public Student studentLoggedin(@Param("userEmail") String userEmail);
+    @Query(value="SELECT * FROM User WHERE userEmail=:userEmail AND role=1",nativeQuery=true)
+	public User studentLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value=SQLConstants.VERIFY_PROFESSOR,nativeQuery=true)
-	public Professor professorLoggedin(@Param("userEmail") String userEmail);
+    @Query(value="SELECT * FROM user WHERE userEmail=:userEmail AND role=2",nativeQuery=true)
+	public User professorLoggedin(@Param("userEmail") String userEmail);
 	
-    @Query(value=SQLConstants.VERIFY_ADMIN,nativeQuery=true)
-	public Admin adminLoggedin(@Param("userEmail") String userEmail);
+    @Query(value="SELECT * FROM user WHERE userEmail=:userEmail AND role=3",nativeQuery=true)
+	public User adminLoggedin(@Param("userEmail") String userEmail);
+    
+    
 	@Modifying
     @Query(value=SQLConstants.UPDATE_PASSWORD_STUDENT,nativeQuery=true)
 	public void updateStudentPassword(@Param("userEmail") String userEmail,String userPassword);
