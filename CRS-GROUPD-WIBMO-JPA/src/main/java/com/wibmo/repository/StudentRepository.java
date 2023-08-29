@@ -46,8 +46,8 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") int courseId);
 
 	
-	@Query(value="SELECT COUNT(*) FROM gradecard where student_userId=?1", nativeQuery = true)
-	public int isApproved(@Param("student_userId")int studentId);
+	@Query(value="SELECT COUNT(*) FROM gradecard where userId=?1", nativeQuery = true)
+	public int isApproved(@Param("userId")int studentId);
 
 	@Query(value=SQLConstants.STUDENT_BY_EMAIL, nativeQuery =  true)
 	public int findByEmail(@Param("userEmail")String userEmail);
@@ -67,14 +67,16 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?", nativeQuery =  true)
 	public int getStudentCourseCount(@Param("courseId")Integer courseId);
 
-	@Query(value=SQLConstants.LIST_STUDENT_REG_COURSES, nativeQuery = true)
+	@Query(value="SELECT gradecard.courseId, courseCatalog.courseName FROM "
+			+ "gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON"
+			+ " gradecard.courseId=courseCatalog.courseId WHERE gradecard.userId=?1", nativeQuery = true)
 	public List<Object[]> listCourse(@Param("studentId")int studentId);
 
 	@Query(value=SQLConstants.SELECT_ADDED_COURSE, nativeQuery =  true)
 	public List<Object[]> getAddedCourses(@Param("userId")int userId);
 
 	
-	@Query(value=SQLConstants.GRADE_CARD, nativeQuery =  true)
+	@Query(value="SELECT courseId, grade FROM gradecard where userId=?1", nativeQuery =  true)
 	public List<Object[]> viewReportCard(@Param("studentId")int studentId);
 
 	@Modifying

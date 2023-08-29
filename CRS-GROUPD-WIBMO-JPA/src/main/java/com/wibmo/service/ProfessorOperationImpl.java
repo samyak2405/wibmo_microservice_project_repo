@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Professor;
+import com.wibmo.entity.ProfessorCourseMap;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.User;
 import com.wibmo.repository.*;
@@ -39,7 +40,11 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	@Autowired
 	CourseRepository courseDao;
 	
+	@Autowired
+	private ProfessorCourseMappingRepository professorCoMapRepo;
+	
 	@Override
+	@Transactional
 	public void setGrades(int studentId, int courseId,String grade)throws UserNotFoundException,CourseNotFoundException
 	{
 		
@@ -56,6 +61,7 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 	}
 	
 	@Override
+	@Transactional
 	public void requestCourseOffering(int professorid,List<Integer> courseIdList)throws CourseNotFoundException {
 
         // TODO Auto-generated method stub
@@ -65,7 +71,17 @@ public class ProfessorOperationImpl implements ProfessorOperation{
 				throw new CourseNotFoundException(courseId);
 		}
 		
-		courseIdList.forEach((courseId)->professorDao.requestCourseOffering(professorid,courseId));	
+		
+		
+		courseIdList.forEach((courseId)->
+		{
+			ProfessorCourseMap profCoMap = new ProfessorCourseMap();
+			profCoMap.setProfessor(professorDao.findById(professorid).get());
+			profCoMap.setCourseCatalog(courseDao.findById(courseId).get());
+			profCoMap.setIsApproved(0);
+			professorCoMapRepo.save(profCoMap);
+			System.out.println("Done");
+		});	
 		return;
     }
 

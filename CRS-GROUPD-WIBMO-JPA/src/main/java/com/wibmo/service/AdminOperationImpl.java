@@ -63,11 +63,12 @@ public class AdminOperationImpl implements AdminOperation{
 	public void assignCoursesProf() 
 	{
 		List<Integer> professorsIds = professorCourseMappingRepository.listProfessorIds();
+
 		Set<Integer> set = new HashSet<>();
 		for(int professorId:professorsIds) 
 		{
 			List<Integer> coursesIds = professorCourseMappingRepository.getProfessorCourses(professorId);
-		
+			
 			for(int courseId:coursesIds) 
 			{
 				if(!set.contains(courseId))

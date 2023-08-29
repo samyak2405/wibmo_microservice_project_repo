@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -25,15 +27,12 @@ import com.wibmo.entity.User;
 public interface ProfessorRepository extends CrudRepository<Professor,Integer>{
 	
   	@Modifying
-	@Query(value=SQLConstants.SET_GRADES, nativeQuery = true)
-	public void setGrades(@Param("grade")String grade,@Param("studentId") int studentId,@Param("courseId") int courseId);
-	
-  	@Modifying
-	@Query(value=SQLConstants.REQUEST_COURSE, nativeQuery = true)
-	public void requestCourseOffering(@Param("professorId")int professorid,@Param("courseId")int courseId);
+	@Query(value="UPDATE gradecard SET grade=?1 WHERE userId=?2 AND courseId=?3", nativeQuery = true)
+	public void setGrades(@Param("grade")String grade,@Param("userId") int studentId,@Param("courseId") int courseId);
 	
   
-	@Query(value=SQLConstants.STUDENT_LIST, nativeQuery = true)
+	@Query(value="SELECT userId,userName, userEmail, userPhonenumber FROM student"
+            + " WHERE userId IN (SELECT userId FROM studentcoursemapping WHERE courseId=?1)", nativeQuery = true)
 	public Optional<List<Student>> findStudentByCourseId(@Param("courseId")int courseId);
 	
   
@@ -45,7 +44,7 @@ public interface ProfessorRepository extends CrudRepository<Professor,Integer>{
 	public int getProfessorById(@Param("userEmail")String userEmail);
 
   	
-  	@Query(value=SQLConstants.LIST_APPROVED_COURSES, nativeQuery = true)
+  	@Query(value="SELECT pcm.courseid, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.userId=?1 AND pcm.isApproved=1", nativeQuery = true)
 	public List<Object[]> listOfApprovedCourses(@Param("professorId") int userId);
 	
 }

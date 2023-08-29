@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.dto.GradeCardDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.service.ProfessorOperation;
@@ -94,12 +95,12 @@ public class CRSProfessorController {
 	 */
 	
 	@RequestMapping(value="/professor/setgrades",method = RequestMethod.POST)
-	public ResponseEntity<String> setGrades(@RequestBody List<GradeCard> gradecard ) {
+	public ResponseEntity<String> setGrades(@RequestBody List<GradeCardDto> gradecard ) {
 		   
 
 	try {
-		for(GradeCard gradeCard: gradecard) {
-			professorOp.setGrades(gradeCard.getStudent().getUserId(),gradeCard.getCatalog().getCourseId(),gradeCard.getGrade());
+		for(GradeCardDto gradeCard: gradecard) {
+			professorOp.setGrades(gradeCard.getStudentId(),gradeCard.getCourseId(),gradeCard.getGrades());
 		}
 		return new ResponseEntity<String>("Added grades",HttpStatus.OK);
 	} catch (UserNotFoundException e) {
