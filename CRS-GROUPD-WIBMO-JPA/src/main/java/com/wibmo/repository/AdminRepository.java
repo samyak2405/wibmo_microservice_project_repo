@@ -50,10 +50,6 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	public int getAdminById(@Param("userEmail")String userEmail);
 
 	@Modifying
-	@Query(value=SQLConstants.INSERT_GRADECARD,nativeQuery=true)
-	public void setGradeCard(@Param("studentId")int studentId,@Param("courseId") int courseId);
-
-	@Modifying
 	@Query(value=SQLConstants.STUDENT_REGISTRATION_REJECTION,nativeQuery=true)
 	public void setRejectionStatus(@Param("studentId")int studentId);
 	@Query(value="SELECT COUNT(*) FROM admin WHERE userEmail=?1", nativeQuery =  true)

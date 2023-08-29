@@ -92,7 +92,6 @@ public interface StudentOperation {
 
 	public Map<Integer, String> getAddedCourses(int userId);
 	public Integer isStudentRegistered(int userId);
-	public void AddSingleCourse(int studentId,int courseId,int coursePref);
 	
 }
 		

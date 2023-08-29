@@ -68,41 +68,41 @@ public class CRSStudentController {
 	public ResponseEntity<String> addCourse(@PathVariable(value = "id") int userId,@RequestBody AddCourseDto addCourseDto)
 	{
    		int isRegistered = studentOp.isStudentRegistered(userId);
-		if(isRegistered==1)
+		if(isRegistered>=1)
 		{
 			return new ResponseEntity<String>("\"Your Registration is completed. You can't add courses\";",HttpStatus.CONFLICT); 
 			
 		}
 		
-		int primaryCount=0;
-		int alternativeCount=0;
-        for (Map.Entry<Integer,Integer> entry : addCourseDto.getCourses().entrySet()) 
-        {
-            if(entry.getValue()==0)
-            	primaryCount++;
-            else if(entry.getValue()==1)
-            	alternativeCount++;
-            else
-            	return new ResponseEntity<String>("Wrong Entry",HttpStatus.BAD_REQUEST);
-        }
-        
-        if(primaryCount<4)
-        {
-        	return new ResponseEntity<String>("Insufficient primary courses",HttpStatus.BAD_REQUEST);
-        }
-        else if(primaryCount>4)
-        {
-        	return new ResponseEntity<String>("Primary course exceed the limit",HttpStatus.BAD_REQUEST);
-        }
-        
-        if(alternativeCount<2)
-        {
-        	return new ResponseEntity<String>("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
-        }
-        else if(alternativeCount>2)
-        {
-        	return new ResponseEntity<String>("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
-        }
+//		int primaryCount=0;
+//		int alternativeCount=0;
+//        for (Map.Entry<Integer,Integer> entry : addCourseDto.getCourses().entrySet()) 
+//        {
+//            if(entry.getValue()==0)
+//            	primaryCount++;
+//            else if(entry.getValue()==1)
+//            	alternativeCount++;
+//            else
+//            	return new ResponseEntity<String>("Wrong Entry",HttpStatus.BAD_REQUEST);
+//        }
+//        
+//        if(primaryCount<4)
+//        {
+//        	return new ResponseEntity<String>("Insufficient primary courses",HttpStatus.BAD_REQUEST);
+//        }
+//        else if(primaryCount>4)
+//        {
+//        	return new ResponseEntity<String>("Primary course exceed the limit",HttpStatus.BAD_REQUEST);
+//        }
+//        
+//        if(alternativeCount<2)
+//        {
+//        	return new ResponseEntity<String>("Insufficient alternative courses",HttpStatus.BAD_REQUEST);
+//        }
+//        else if(alternativeCount>2)
+//        {
+//        	return new ResponseEntity<String>("Alternative course exceed the limit",HttpStatus.BAD_REQUEST);
+//        }
        
  	   try {
 		studentOp.addCourses(userId,addCourseDto);
@@ -129,7 +129,7 @@ public class CRSStudentController {
 	public ResponseEntity<String> dropCourse(@RequestBody DropCourseDTO dropCourseDto)
 	{
 		int isRegistered = studentOp.isStudentRegistered(dropCourseDto.getStudentId());
-    	if(isRegistered==1)
+    	if(isRegistered>=1)
 		{
     		return new ResponseEntity<String>("\"Your Registration is completed. You can't drop courses\";",HttpStatus.CONFLICT); 
 		}
