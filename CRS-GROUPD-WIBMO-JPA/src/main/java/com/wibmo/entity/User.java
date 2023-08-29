@@ -3,8 +3,10 @@
  */
 package com.wibmo.entity;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
@@ -13,8 +15,10 @@ import java.io.Serializable;
 /**
  * Bean class for User entity
  */
+@Entity
+@Table(name="user")
+@Inheritance
 
-@MappedSuperclass
 public class User implements Serializable {
 	@Id
 	@Column

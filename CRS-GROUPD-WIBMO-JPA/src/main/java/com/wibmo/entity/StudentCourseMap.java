@@ -4,6 +4,7 @@
 package com.wibmo.entity;
 
 import java.io.Serializable;
+
 import java.util.Map;
 
 import javax.persistence.Column;

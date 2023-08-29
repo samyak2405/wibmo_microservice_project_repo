@@ -3,13 +3,14 @@
  */
 package com.wibmo.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.wibmo.entity.Student;
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.*;
 
@@ -36,6 +37,8 @@ public interface AuthenticationRepository extends CrudRepository<User,Integer> {
 	@Modifying
     @Query(value=SQLConstants.UPDATE_PASSWORD_ADMIN,nativeQuery=true)
 	public void updateAdminPassword(@Param("userEmail") String userEmail,String userPassword);
+//	User findByUseremail(String useremail);
+
 	
 
 }
