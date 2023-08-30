@@ -22,6 +22,20 @@ public class Student extends User {
 	@Column(name="isApproved")
 	private int isapproved;
 	
+	/**
+	 * @return the courseRegistrationStatus
+	 */
+	public int getCourseRegistrationStatus() {
+		return courseRegistrationStatus;
+	}
+
+	/**
+	 * @param courseRegistrationStatus the courseRegistrationStatus to set
+	 */
+	public void setCourseRegistrationStatus(int courseRegistrationStatus) {
+		this.courseRegistrationStatus = courseRegistrationStatus;
+	}
+
 	@Column(name="courseRegistrationStatus")
 	private int courseRegistrationStatus;
 

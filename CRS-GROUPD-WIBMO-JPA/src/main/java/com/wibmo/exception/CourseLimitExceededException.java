@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class CourseLimitExceededException extends Exception {
 
-	long courseId;
+	String courseId;
 	public CourseLimitExceededException  () {
 		
 	}
 	
-	public CourseLimitExceededException  (long courseId) {
+	public CourseLimitExceededException  (String courseId) {
 		this.courseId = courseId;
 	}
 	
-	public long getCourseId()  {
+	public String getCourseId()  {
 		return courseId;
 	}
 }

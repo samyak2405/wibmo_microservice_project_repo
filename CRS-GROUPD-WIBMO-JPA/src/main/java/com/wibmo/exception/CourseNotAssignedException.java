@@ -8,16 +8,16 @@ package com.wibmo.exception;
  */
 public class CourseNotAssignedException extends Exception {
 	
-	long courseId;
+	String courseId;
 	public CourseNotAssignedException() {
 		
 	}
 	
-	public CourseNotAssignedException(int courseId) {
+	public CourseNotAssignedException(String courseId) {
 		this.courseId = courseId;
 	}
 	
-	public long getCourseId() {
+	public String getCourseId() {
 		return courseId;
 	}
 }

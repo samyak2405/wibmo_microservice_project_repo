@@ -34,7 +34,7 @@ public class CRSProfessorController {
 	 */
 	
 	@RequestMapping(value="/professor/{userId}/requestcourse",method = RequestMethod.POST)
-	public ResponseEntity<String> freezeList(@PathVariable(value="userId") int userId,@RequestBody List<Integer> courseIdList) {
+	public ResponseEntity<String> freezeList(@PathVariable(value="userId") int userId,@RequestBody List<String> courseIdList) {
 		 try {
          	
 				professorOp.requestCourseOffering(userId,courseIdList);
@@ -75,7 +75,7 @@ public class CRSProfessorController {
 	 * @return list of students registered for particular courseId.
 	 */
 	@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
-    public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") int courseId) {
+    public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") String courseId) {
 
         try {
      	    return new ResponseEntity(professorOp.viewStudentList(professorId,courseId),HttpStatus.OK);

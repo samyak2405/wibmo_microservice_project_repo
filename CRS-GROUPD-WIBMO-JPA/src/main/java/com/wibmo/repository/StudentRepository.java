@@ -39,11 +39,11 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	
 	@Modifying
 	@Query(value="DELETE FROM studentcoursemapping WHERE userId=? && courseId=?", nativeQuery =  true)
-	public void dropCourses(@Param("userId")int studentId,@Param("courseId")int courseId);
+	public void dropCourses(@Param("userId")int studentId,@Param("courseId")String courseId);
 
 	
 	@Query(value="SELECT isRegister FROM studentcoursemapping WHERE userId=:studentId AND courseId=:courseId", nativeQuery = true )
-	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") int courseId);
+	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") String courseId);
 
 	
 	@Query(value="SELECT COUNT(*) FROM gradecard where userId=?1", nativeQuery = true)
@@ -65,7 +65,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	public List<Object[]> getStudentCourseData(@Param("studentId")int studentId);
 
 	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?", nativeQuery =  true)
-	public int getStudentCourseCount(@Param("courseId")Integer courseId);
+	public int getStudentCourseCount(@Param("courseId")String courseId);
 
 	@Query(value="SELECT gradecard.courseId, courseCatalog.courseName FROM "
 			+ "gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON"

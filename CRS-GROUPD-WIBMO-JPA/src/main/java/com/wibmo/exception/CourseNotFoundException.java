@@ -14,18 +14,18 @@ public class CourseNotFoundException extends Exception{
 	
 	
 
-	long courseId;
+	String courseId;
 	
 	
 	public CourseNotFoundException() {
 		
 	}
 	
-	public CourseNotFoundException(long courseId) {
+	public CourseNotFoundException(String courseId) {
 		this.courseId = courseId;
 	}
 	
-	public long getCourseId() {
+	public String getCourseId() {
 		return courseId;
 	}
 	

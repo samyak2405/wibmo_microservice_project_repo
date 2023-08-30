@@ -26,7 +26,7 @@ public interface ProfessorOperation {
 	 * @throws UserNotFoundException
 	 * @throws CourseNotFoundException
 	 */
-	public void setGrades(int professorId, int studentId, int courseId, String grade)
+	public void setGrades(int professorId, int studentId, String courseId, String grade)
 			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException;
 
 	/**
@@ -36,7 +36,7 @@ public interface ProfessorOperation {
 	 * @param courseIdList
 	 * @throws CourseNotFoundException
 	 */
-	public void requestCourseOffering(int professorid, List<Integer> courseIdList)
+	public void requestCourseOffering(int professorid, List<String> courseIdList)
 			throws CourseNotFoundException, UserNotFoundException;
 
 	/**
@@ -47,7 +47,7 @@ public interface ProfessorOperation {
 	 * @return List<Student> for particular course with courseId under professor
 	 *         with professorId
 	 */
-	public List<Student> viewStudentList(int professorId, Integer courseId)
+	public List<Student> viewStudentList(int professorId, String courseId)
 			throws CourseNotFoundException, CourseNotAssignedException;
 
 	/**
