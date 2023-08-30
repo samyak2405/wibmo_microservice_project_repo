@@ -32,7 +32,7 @@ import com.wibmo.service.StudentOperation;
  * 
  */
 @RestController
-public class CRSClientController 
+public class CRSAuthenticationController 
 {	
 	@Autowired
 	private StudentOperation studentOp ;

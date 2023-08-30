@@ -4,32 +4,25 @@
 package com.wibmo.service;
 
 import java.util.List;
-
 import java.util.Map;
-import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
-
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.GradeCardResponseDTO;
 import com.wibmo.entity.CourseCatalog;
-import com.wibmo.entity.GradeCard;
-import com.wibmo.entity.StudentCourseMap;
 import com.wibmo.entity.User;
 import com.wibmo.exception.*;
 
 /**
- * For performing various student operations
+ * Student Operation Interface
  */
 @Service
 @Transactional
 public interface StudentOperation {
 	
-	
 	/**
-	 * 
+	 * Student Register for course
+	 * @param studentId
 	 */
 	public void registerCourses(int studentId) throws UserNotFoundException;
 	
@@ -89,9 +82,26 @@ public interface StudentOperation {
 	 */
 	public int isApproved(int userId) ;
 
+	/**
+	 * To get the Student by Email
+	 * @param userEmail
+	 * @return count of student with given email
+	 */
 	public int getStudentByEmail(String userEmail);
 
+	/**
+	 * To get the list of courses
+	 * @param userId
+	 * @return Map<Integer,String> contains courseId and courseName with userId
+	 */
 	public Map<Integer, String> getAddedCourses(int userId);
+	
+	/**
+	 * Check whether student is registered or not
+	 * 
+	 * @param userId
+	 * @return 1 if student is registered
+	 */
 	public Integer isStudentRegistered(int userId);
 	
 }

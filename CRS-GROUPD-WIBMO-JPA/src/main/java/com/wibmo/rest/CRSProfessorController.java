@@ -20,14 +20,11 @@ import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Student;
 import com.wibmo.service.ProfessorOperation;
-import com.wibmo.validator.ClientValidatorImpl;
 
 @RestController
 public class CRSProfessorController {
      @Autowired
 	private ProfessorOperation professorOp;
-     @Autowired
-	public ClientValidatorImpl clientValidator ;
 	
 	/**
 	 * To request the courses.  
