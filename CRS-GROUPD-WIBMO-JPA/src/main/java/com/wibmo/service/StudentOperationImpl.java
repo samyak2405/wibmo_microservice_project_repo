@@ -77,10 +77,12 @@ public class StudentOperationImpl implements StudentOperation{
 		{
 			throw new UserNotFoundException(userId);
 		}
+		
 		if(studentDao.getCourseCount(userId)>6)
 		{
 			throw new CourseLimitExceededException();
 		}
+		
 		for(Map.Entry<Integer,Integer>entry:addCourseDto.getCourses().entrySet())
 		{
 			int courseId=entry.getKey();
@@ -91,22 +93,18 @@ public class StudentOperationImpl implements StudentOperation{
 			}
 		}
 		
-
 		for(Map.Entry<Integer, Integer> entry:addCourseDto.getCourses().entrySet())
 		{
 			StudentCourseMap studCoMapping = new StudentCourseMap();
 			studCoMapping.setStudent(studentDao.findById(userId).get());
-			
 			studCoMapping.setCourse(courseDao.findById(entry.getKey()).get());
-			
 			studCoMapping.setCoursePref(entry.getValue());
 			studCoMapping.setIsRegister(0);
 			studCoMapRepo.save(studCoMapping);
-		}
-			
+		}	
 	}
 	
-	@Override
+	@Override  
 	@Transactional
 	public int dropCourses(int studentId,int courseId) throws CourseNotFoundException,UserNotFoundException {
 		// TODO Auto-generated method stub

@@ -11,19 +11,28 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserAlreadyExistsException extends Exception {
-	
+
 	private String userEmail;
-	
-	
-	public UserAlreadyExistsException () {
-		
+
+	public UserAlreadyExistsException() {
+
 	}
-	
+
+	/**
+	 * sets the userEmail
+	 * 
+	 * @param userEmail
+	 */
 	public UserAlreadyExistsException(String userEmail) {
-		this.userEmail= userEmail;
+		this.userEmail = userEmail;
 	}
-	
-	public String getUserId()  {
+
+	/**
+	 * returns the userEmail
+	 * 
+	 * @return userEmail
+	 */
+	public String getUserId() {
 		return userEmail;
 	}
 }

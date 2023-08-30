@@ -11,6 +11,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
+
+/**
+ * Application starts execution from here
+ */
+
 @EnableJpaRepositories("com.wibmo.repository")
 @EntityScan(basePackages = "com.wibmo.entity")
 @ComponentScan("com.wibmo.*")
