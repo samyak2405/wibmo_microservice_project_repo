@@ -42,8 +42,6 @@ public class AdminValidatorImpl implements ValidatorInterface {
 	@Autowired
 	public ProfessorCourseMappingRepository professorCourseMappingRepository;
 
-	@Autowired
-	public NotificationOperation notification;
 
 	@Autowired
 	private CourseRepository courseRepository;
@@ -51,11 +49,6 @@ public class AdminValidatorImpl implements ValidatorInterface {
 	@Autowired
 	private GradeCardRepository gradeRepository;
 
-	@Autowired
-	private NotificationStudentMappingRepository notificationStudentMappingRepository;
-
-	@Autowired
-	private NotificationRepository notificationRepository;
 
 	@Override
 	/**

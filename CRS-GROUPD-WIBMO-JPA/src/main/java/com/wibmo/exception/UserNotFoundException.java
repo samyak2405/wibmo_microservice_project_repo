@@ -12,18 +12,27 @@ import org.springframework.stereotype.Component;
 public class UserNotFoundException extends Exception {
 
 	long userId;
-	
-	
-	public UserNotFoundException () {
-		
+
+	public UserNotFoundException() {
+
 	}
-	
-	public UserNotFoundException (long userId) {
+
+	/**
+	 * sets the userId
+	 * 
+	 * @param userId
+	 */
+	public UserNotFoundException(long userId) {
 		this.userId = userId;
 	}
-	
-	public long getUserId()  {
+
+	/**
+	 * returns the userId
+	 * 
+	 * @return userId
+	 */
+	public long getUserId() {
 		return userId;
 	}
-	
+
 }
