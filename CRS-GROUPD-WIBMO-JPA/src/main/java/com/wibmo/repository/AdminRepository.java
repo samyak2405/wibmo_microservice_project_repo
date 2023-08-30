@@ -26,12 +26,11 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	
 	@Modifying
 	@Transactional
-	@Query(value="UPDATE student SET isApproved=1",nativeQuery=true)
+	@Query(value=SQLConstants.APPROVE_STUDENT,nativeQuery=true)
 	public void approveStudentRegistration();
 	
 	@Transactional
 	@Modifying
-	
 	@Query(value=SQLConstants.APPROVE_STUDENT_BY_ID,nativeQuery=true)
 	public void approveStudentRegistrationById(@Param("userId")int userId);
 
@@ -43,9 +42,7 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	@Query(value=SQLConstants.SELECT_PROFESSOR_COURSES,nativeQuery=true)
 	public List<Integer> getProfessorCourses(@Param("professorId")int professorId);
 
-//	@Modifying
-//	@Query(value="UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 && courseId=?2",nativeQuery=true)
-//	public void approveCourse(@Param("userId")int professor,@Param("courseId")int courseId);
+
 
 	@Query(value=SQLConstants.SEARCH_ADMIN,nativeQuery=true)
 	public int getAdminById(@Param("userEmail")String userEmail);
@@ -53,6 +50,7 @@ public interface AdminRepository extends CrudRepository<Admin,Integer> {
 	@Modifying
 	@Query(value=SQLConstants.STUDENT_REGISTRATION_REJECTION,nativeQuery=true)
 	public void setRejectionStatus(@Param("studentId")int studentId);
+	
 	@Query(value="SELECT COUNT(*) FROM admin WHERE userEmail=?1", nativeQuery =  true)
 	public int findByEmail(@Param("userEmail")String userEmail);
 

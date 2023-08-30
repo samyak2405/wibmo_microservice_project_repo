@@ -41,7 +41,7 @@ public interface AuthenticationRepository extends CrudRepository<User,Integer> {
 	@Modifying
     @Query(value="UPDATE admin SET userPassword=?2 WHERE userEmail=?1",nativeQuery=true)
 	public void updateAdminPassword(@Param("userEmail") String userEmail,String userPassword);
-//	User findByUseremail(String useremail);
+
 
 	
 
