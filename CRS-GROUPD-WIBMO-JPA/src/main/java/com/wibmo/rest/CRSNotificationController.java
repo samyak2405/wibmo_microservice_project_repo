@@ -35,9 +35,9 @@ public class CRSNotificationController {
 	 * @param userId
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, value = "/sendNotification")
-	public ResponseEntity<Object> sendNotification(@RequestBody NotificationDto notificationDto) {
+	public ResponseEntity sendNotification(@RequestBody NotificationDto notificationDto) {
 		notificationOp.sendNotification(notificationDto.getUserId(), notificationDto.getNotificationMessage());
-		return new ResponseEntity<Object>(HttpStatus.OK);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
 	/**

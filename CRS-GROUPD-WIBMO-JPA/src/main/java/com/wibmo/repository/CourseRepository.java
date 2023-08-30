@@ -7,13 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.entity.CourseCatalog;
-import com.wibmo.entity.User;
 
 /**
- * 
+ * Repository related to Course CRUD operations
  */
 @Repository
-public interface CourseRepository extends CrudRepository<CourseCatalog,Integer>{
+public interface CourseRepository extends CrudRepository<CourseCatalog, Integer> {
 
 	public CourseCatalog findByCourseId(String CourseId);
 }

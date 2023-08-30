@@ -10,18 +10,27 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserNotApprovedException extends Exception {
-int userId;
-	
-	
-	public UserNotApprovedException () {
-		
+	int userId;
+
+	public UserNotApprovedException() {
+
 	}
-	
-	public UserNotApprovedException (int userId) {
+
+	/**
+	 * sets the userId
+	 * 
+	 * @param userId
+	 */
+	public UserNotApprovedException(int userId) {
 		this.userId = userId;
 	}
-	
-	public int getUserId()  {
+
+	/**
+	 * returns the userId
+	 * 
+	 * @return userId
+	 */
+	public int getUserId() {
 		return userId;
 	}
 }

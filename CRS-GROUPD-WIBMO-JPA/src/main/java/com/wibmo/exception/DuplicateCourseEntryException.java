@@ -13,7 +13,7 @@ public class DuplicateCourseEntryException extends Exception {
 	private String courseId;
 	
 	public DuplicateCourseEntryException() {
-		
+
 	}
 	
 	public DuplicateCourseEntryException(String courseId) {

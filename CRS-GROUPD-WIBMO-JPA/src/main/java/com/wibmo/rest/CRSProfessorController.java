@@ -16,9 +16,8 @@ import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.dto.GradeCardDto;
-import com.wibmo.entity.CourseCatalog;
-import com.wibmo.entity.GradeCard;
-import com.wibmo.entity.Student;
+
+import com.wibmo.entity.*;
 import com.wibmo.service.ProfessorOperation;
 
 @RestController
@@ -126,6 +125,11 @@ public class CRSProfessorController {
 		return new ResponseEntity<String>("Course with id:"+e.getCourseId()+" Not Assigned",HttpStatus.NOT_FOUND);
 	}
 		
+	}
+	
+	@RequestMapping(value="/viewProfessor",method = RequestMethod.GET)
+	public ResponseEntity<List<Professor>> viewProfessor(){
+		return new ResponseEntity<List<Professor>>(professorOp.viewProfessor(),HttpStatus.OK);
 	}
 
 }

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
+ * Data transfer Object for Course addition
  */
 public class AddCourseDto {
 	

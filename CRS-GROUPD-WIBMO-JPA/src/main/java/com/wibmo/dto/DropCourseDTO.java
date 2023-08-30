@@ -6,7 +6,7 @@ package com.wibmo.dto;
 import java.io.Serializable;
 
 /**
- * 
+ * Data transfer Object for Course Deletion
  */
 public class DropCourseDTO implements Serializable {
 	private int studentId;
@@ -14,6 +14,10 @@ public class DropCourseDTO implements Serializable {
 	public int getStudentId() {
 		return studentId;
 	}
+
+	/**
+	 * @param sets studentId
+	 */
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
@@ -23,6 +27,4 @@ public class DropCourseDTO implements Serializable {
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
-	
-	
 }

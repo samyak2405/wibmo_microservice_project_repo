@@ -202,4 +202,13 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 		return courses;
 	}
 
+	@Override
+	public List<Professor> viewProfessor() {
+		Iterable<Professor> professors = professorDao.findAll();
+		List<Professor> list = new ArrayList<>();
+		professors.forEach(professor->
+			list.add(professor));
+		return list;
+	}
+
 }
