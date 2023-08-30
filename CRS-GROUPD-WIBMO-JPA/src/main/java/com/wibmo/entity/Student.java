@@ -22,7 +22,10 @@ public class Student extends User {
 	@Column(name="isApproved")
 	private int isapproved;
 	
+	@Column(name="courseRegistrationStatus")
+	private int courseRegistrationStatus;
 
+	
 	public Student() {
 		
 	}
