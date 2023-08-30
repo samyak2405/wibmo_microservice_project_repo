@@ -34,10 +34,10 @@ public class CRSNotificationController {
 	 * To send notifications
 	 * @param userId
 	 */
-	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, value = "/approvecourseregistration")
-	public ResponseEntity<Object> sendNotification(@RequestBody NotificationDto notificationDto) {
+	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, value = "/sendNotification")
+	public ResponseEntity sendNotification(@RequestBody NotificationDto notificationDto) {
 		notificationOp.sendNotification(notificationDto.getUserId(), notificationDto.getNotificationMessage());
-		return new ResponseEntity<Object>(HttpStatus.OK);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class CRSNotificationController {
 	 * @return List<Notification> contains list of all notifications for a particular userId
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, 
-			value = "/approvecourseregistration/{userId}")
+			value = "/getNotification/{userId}")
 	public ResponseEntity<List<Notification>> viewNotification(@PathVariable("userId")int userId) {
 		List<Notification> notifications;
 		try {
