@@ -22,5 +22,5 @@ import com.wibmo.entity.User;
 @Repository
 public interface NotificationRepository extends CrudRepository<Notification,Integer> {
 
-	
+	public Notification findByNotificationMessage(String notificationMessage);
 }

@@ -4,6 +4,7 @@
 package com.wibmo.validator;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -12,13 +13,29 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public interface ValidatorInterface {
-	
+
 	/**
 	 * To validate a user using email
+	 * 
 	 * @param email
 	 * @return
 	 */
 	public boolean emailValidator(String email);
+
+	/**
+	 * Sort the list in order of coure preference
+	 * 
+	 * @param List<List<Integer>> contains courses with courseId and
+	 *                            coursePreference
+	 * @return sorted List<List<Integer>>
+	 */
 	public List<List<Integer>> sortByCoursePref(List<List<Integer>> list);
-	public List<Boolean> courseRegistrationValidator();
+
+	/**
+	 * Algorithm for assigning courses to students
+	 * 
+	 * @return List<Boolean> which contains true if student's course registration is
+	 *         success otherwise false
+	 */
+	public Map<Integer,Boolean> courseRegistrationValidator();
 }

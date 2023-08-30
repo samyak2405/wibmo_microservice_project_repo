@@ -1,11 +1,10 @@
-/**
- * 
- */
 package com.wibmo.rest;
 
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.ws.rs.core.MediaType;
 
@@ -20,24 +19,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.entity.*;
 import com.wibmo.service.AdminOperation;
-import com.wibmo.validator.ClientValidatorImpl;
 
 /**
- * 
+ * Admin Controller
  */
-
 @RestController
 public class CRSAdminController {
 	
 	@Autowired
 	public AdminOperation adminOp;
-	
-	@Autowired
-	public ClientValidatorImpl clientValidator;
-	
+
 	/**
 	 * To approve all the registered students at once
-	 * @return
+	 * @return Response Status 200(OK)
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
@@ -49,11 +43,10 @@ public class CRSAdminController {
 		return new ResponseEntity<String>("Approved All Students", HttpStatus.OK);
 	}
 	
-	
 	/**
 	 * To approve a student by id
 	 * @param id
-	 * @return
+	 * @return Response status 200(OK) if student is approved with id otherwise 404(NOT_FOUND)
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
@@ -70,18 +63,19 @@ public class CRSAdminController {
 	
 	/**
 	 * To approve the course Registration of all the students.
-	 * @return
+	 * @return Response status 200(OK)
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.PUT, 
 			value="/approvecourseregistration")
 	public ResponseEntity<List<String>> approveCourseRegistration()
 	{
-		List<Boolean> registrationStatus = adminOp.approveCourseRegistration();
+		Map<Integer,Boolean> registrationStatus = adminOp.approveCourseRegistration();
+		
 		List<String> responseMessage = new ArrayList<>();
 		
-		for(Boolean status:registrationStatus) {
-			if(status)
+		for(Entry<Integer,Boolean> entry: registrationStatus.entrySet()) {
+			if(entry.getValue())
 				responseMessage.add("Student Registration Successful");
 			else
 				responseMessage.add("Student Registration Unsuccessful");
@@ -91,7 +85,7 @@ public class CRSAdminController {
 	
 	/**
 	 * To assign a specific course to a professor
-	 * @return
+	 * @return Response status 200(OK)
 	 */
 	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
@@ -106,14 +100,14 @@ public class CRSAdminController {
 
 	/**
 	 * To assign a specific course to a professor
-	 * @return
+	 * @return Response status 200(OK)
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
 			method = RequestMethod.POST, 
 			value="/addadmin")
-	public ResponseEntity addAdmin(User user) {
+	public ResponseEntity<String> addAdmin(User user) {
 		adminOp.addAdmin(user);
-		return new ResponseEntity("Course is assigned to professor", HttpStatus.OK);
+		return new ResponseEntity<String>("Course is assigned to professor", HttpStatus.OK);
 		
 	}
 	
