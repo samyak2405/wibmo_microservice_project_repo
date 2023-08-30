@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -70,17 +73,11 @@ public class AdminValidatorImpl implements ValidatorInterface {
 	 *                            coursePreference
 	 * @return sorted List<List<Integer>>
 	 */
-	public List<List<Integer>> sortByCoursePref(List<List<Integer>> list) {
-		Collections.sort(list, new Comparator<List<Integer>>() {
-			public int compare(List<Integer> a, List<Integer> b) {
-				return a.get(1) - b.get(1);
-			}
-		});
-		return list;
-	}
+
 
 	/**
 	 * Algorithm for assigning courses to students
+	 * @param studentId 
 	 * 
 	 * @return Map<Integer,Boolean> which contains studentId and their respective
 	 *         status of registration
@@ -89,10 +86,11 @@ public class AdminValidatorImpl implements ValidatorInterface {
 
 		List<Integer> studentIds = studentRepository.getStudentIds();
 
-		Map<Integer, Integer> courseCount = new HashMap<>();
+		Map<String, Integer> courseCount = new HashMap<>();
 		Map<Integer, Boolean> isSuccess = new HashMap<>();
 
-		for (int studentId : studentIds) {
+		for(int studentId:studentIds)
+		{
 			int isRegistered = studentRepository.isStudentRegistered(studentId);
 			int isApproved = studentRepository.isCourseRegistrationApproved(studentId);
 			if (isApproved > 0) {
@@ -105,38 +103,42 @@ public class AdminValidatorImpl implements ValidatorInterface {
 				System.out.println("Student has Registered Successfully");
 
 			List<Object[]> data = studentRepository.getStudentCourseData(studentId);
-			List<List<Integer>> studentData = new ArrayList<>();
-			for (Object[] result : data) {
-				List<Integer> courseData = new ArrayList<>();
-				courseData.add((Integer) result[0]);
-				courseData.add((Integer) result[1]);
-				studentData.add(courseData);
-			}
-			studentData = sortByCoursePref(studentData);
+			Map<String,Integer> studentData = new HashMap<>();
+			for (Object[] result : data) 
+				studentData.put((String)result[0], (Integer)result[1]);
+			studentData = studentData.entrySet()
+					  .stream()
+					  .sorted(Map.Entry.comparingByValue())
+					  .collect(Collectors.toMap(
+					    Map.Entry::getKey, 
+					    Map.Entry::getValue, 
+					    (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+			
 			int count = 0;
 
-			for (List<Integer> course : studentData) {
-				int studentPerCourseCount = studentRepository.getStudentCourseCount(course.get(0));
+			for (Entry<String,Integer>course : studentData.entrySet()) {
+				
+				int studentPerCourseCount = studentRepository.getStudentCourseCount(course.getKey());
 				if (count == 4)
 					break;
 				if (studentPerCourseCount >= 3 && studentPerCourseCount <= 10) {
 					count++;
-					courseCount.getOrDefault(course.get(0), courseCount.getOrDefault(course.get(0), 0) + 1);
+					courseCount.getOrDefault(course.getKey(), courseCount.getOrDefault(course.getKey(), 0) + 1);
 					GradeCard gradeCard = new GradeCard();
 					gradeCard.setStudent(studentRepository.findById(studentId).get());
-					gradeCard.setCatalog(courseRepository.findById(course.get(0)).get());
+					gradeCard.setCatalog(courseRepository.findByCourseId(course.getKey()));
 					gradeCard.setGrade("NA");
 					gradeRepository.save(gradeCard);
 				} else if (studentPerCourseCount < 3) {
 					continue;
 				} else if (studentPerCourseCount > 10) {
-					if (courseCount.getOrDefault(course.get(0), 0) < 10) {
+					if (courseCount.getOrDefault(course.getKey(), 0) < 10) {
 						count++;
-						courseCount.getOrDefault(course.get(0), courseCount.getOrDefault(course.get(0), 0) + 1);
-						courseCount.getOrDefault(course.get(0), courseCount.getOrDefault(course.get(0), 0) + 1);
+						courseCount.getOrDefault(course.getKey(), courseCount.getOrDefault(course.getKey(), 0) + 1);
+						courseCount.getOrDefault(course.getKey(), courseCount.getOrDefault(course.getKey(), 0) + 1);
 						GradeCard gradeCard = new GradeCard();
 						gradeCard.setStudent(studentRepository.findById(studentId).get());
-						gradeCard.setCatalog(courseRepository.findById(course.get(0)).get());
+						gradeCard.setCatalog(courseRepository.findByCourseId(course.getKey()));
 						gradeCard.setGrade("NA");
 						gradeRepository.save(gradeCard);
 					} else

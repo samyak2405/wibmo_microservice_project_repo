@@ -11,27 +11,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class CourseNotFoundException extends Exception {
 
-	long courseId;
-
+	String courseId;
+	
+	
 	public CourseNotFoundException() {
 
 	}
-
-	/**
-	 * Sets the courseId
-	 * 
-	 * @param courseId
-	 */
-	public CourseNotFoundException(long courseId) {
+	
+	public CourseNotFoundException(String courseId) {
 		this.courseId = courseId;
 	}
-
-	/**
-	 * returns the courseId
-	 * 
-	 * @return courseId
-	 */
-	public long getCourseId() {
+	
+	public String getCourseId() {
 		return courseId;
 	}
 

@@ -21,27 +21,25 @@ import javax.persistence.Table;
 @Table(name = "coursecatalog")
 public class CourseCatalog implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private int courseId;
+	private String courseId;
 	@Column
 	private String courseName;
 	@Column
 	private String professorName;
 	@Column
 	private String prerequisites;
-
 	/**
 	 * @return the courseId
 	 */
-	public int getCourseId() {
+	public String getCourseId() {
 		return courseId;
 	}
 
 	/**
 	 * @param courseId the courseId to set
 	 */
-	public void setCourseId(int courseId) {
+	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
 

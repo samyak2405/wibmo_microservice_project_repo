@@ -29,7 +29,6 @@ public interface ValidatorInterface {
 	 *                            coursePreference
 	 * @return sorted List<List<Integer>>
 	 */
-	public List<List<Integer>> sortByCoursePref(List<List<Integer>> list);
 
 	/**
 	 * Algorithm for assigning courses to students

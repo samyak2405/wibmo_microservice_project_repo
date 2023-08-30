@@ -8,7 +8,7 @@ package com.wibmo.dto;
  */
 public class SendCourseDto {
 	int userId;
-	int courseId;
+	String courseId;
 	int courseCategory;
 	int isRegister;
 
@@ -36,14 +36,14 @@ public class SendCourseDto {
 	/**
 	 * @return the courseId
 	 */
-	public int getCourseId() {
+	public String getCourseId() {
 		return courseId;
 	}
 
 	/**
 	 * @param courseId the courseId to set
 	 */
-	public void setCourseId(int courseId) {
+	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
 

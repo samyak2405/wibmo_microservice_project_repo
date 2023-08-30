@@ -9,7 +9,7 @@ package com.wibmo.dto;
 public class GradeCardDto {
 
 	private int studentId;
-	private int courseId;
+	private String courseId;
 	private String grades;
 
 	/**
@@ -29,14 +29,14 @@ public class GradeCardDto {
 	/**
 	 * @return the courseId
 	 */
-	public int getCourseId() {
+	public String getCourseId() {
 		return courseId;
 	}
 
 	/**
 	 * @param courseId the courseId to set
 	 */
-	public void setCourseId(int courseId) {
+	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
 

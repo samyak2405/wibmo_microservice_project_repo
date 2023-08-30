@@ -46,7 +46,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  */
 	@Modifying
 	@Query(value="DELETE FROM studentcoursemapping WHERE userId=? && courseId=?", nativeQuery =  true)
-	public void dropCourses(@Param("userId")int studentId,@Param("courseId")int courseId);
+	public void dropCourses(@Param("userId")int studentId,@Param("courseId")String courseId);
 
 /**
  * return the status that is student registered or not for a particular course
@@ -55,7 +55,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @return coursePreference
  */
 	@Query(value="SELECT isRegister FROM studentcoursemapping WHERE userId=:studentId AND courseId=:courseId", nativeQuery = true )
-	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") int courseId);
+	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") String courseId);
 
 /**
  * returns the status of approval
@@ -104,7 +104,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @return coursecount
  */
 	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?", nativeQuery =  true)
-	public int getStudentCourseCount(@Param("courseId")Integer courseId);
+	public int getStudentCourseCount(@Param("courseId")String courseId);
 /**
  * returns the list of custom object containing details related to listing of course
  * @param studentId
