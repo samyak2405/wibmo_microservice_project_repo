@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.Professor;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.User;
 import com.wibmo.exception.*;
@@ -81,5 +82,7 @@ public interface ProfessorOperation {
 	 * @throws UserNotFoundException
 	 */
 	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
+
+	public List<Professor> viewProfessor();
 
 }
