@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.entity.Professor;
@@ -153,7 +154,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 */
 	@Override
 	@Transactional
-	public void registerProfessor(User user) throws UserAlreadyExistsException {
+	public void registerProfessor(RegisterUserDto user) throws UserAlreadyExistsException {
 		// TODO Auto-generated method stub
 		Professor professor = new Professor();
 		if (professorDao.findProfessorByEmail(user.getUserEmail()) > 0) {

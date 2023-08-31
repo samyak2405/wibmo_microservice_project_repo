@@ -1,11 +1,16 @@
 package com.wibmo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wibmo.entity.Payment;
+import com.wibmo.entity.PaymentStudentMapper;
+import com.wibmo.entity.Student;
+import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.repository.*;
 
 /**
@@ -13,9 +18,14 @@ import com.wibmo.repository.*;
  */
 @Service
 public class PaymentOperationImpl implements PaymentOperation {
-
 	@Autowired
-	private PaymentRepository paymentDao;
+	private PaymentRepository paymentRepository;
+	
+	@Autowired
+	private PaymentStudentMapperRepository paymentStudentMapperRepository;
+	
+	@Autowired
+	private StudentRepository studentRepository;
 
 	Payment paymentBean;
 
@@ -108,19 +118,41 @@ public class PaymentOperationImpl implements PaymentOperation {
 	 * @param paymentStatus
 	 * @return the Payment Bean object containing payment record of that particular
 	 *         student.
+	 * @throws StudentAlreadyRegisteredException 
 	 */
 	@Override
 	@Transactional
-	public void recordPayment(long studentId, boolean paymentStatus) {
+	public String recordPayment(int studentId, String paymentmethod,boolean paymentStatus) throws StudentAlreadyRegisteredException {
+		
+		Student student = studentRepository.findById(studentId).get();
+		Payment payment = new Payment();
+		PaymentStudentMapper paymentStudentMapper=new PaymentStudentMapper();
+		
+		if(student.getCourseRegistrationStatus()==1)
+		{
+			throw new StudentAlreadyRegisteredException();
+		}
+		payment.setPaymentType(paymentmethod);		
 		if (paymentStatus)
-			this.paymentBean.setPaymentStatus(1);
+		{
+			payment.setPaymentStatus(1);
+			student.setCourseRegistrationStatus(1);
+		}
 		else
+		{
 			this.paymentBean.setPaymentStatus(0);
-
-		this.paymentBean.setUserId(studentId);
-		this.paymentBean.setTransactionId(1000000 + studentId);
-
-		this.paymentDao.save(paymentBean);
+		}
+		paymentStudentMapper.setPayment(payment);
+		paymentStudentMapper.setStudent(student);
+	
+		//this.paymentBean.setUserId(studentId);
+		//this.paymentBean.setTransactionId(1000000 + studentId);
+		System.out.println("transaction"+payment.getTransactionId());
+		studentRepository.save(student);
+		paymentRepository.save(payment);
+		paymentStudentMapperRepository.save(paymentStudentMapper);
+		return payment.getTransactionId().toString();
+	
 	}
 
 }

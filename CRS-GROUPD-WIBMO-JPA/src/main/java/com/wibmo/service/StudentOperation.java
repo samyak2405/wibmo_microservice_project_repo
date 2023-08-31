@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.GradeCardResponseDTO;
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.User;
 import com.wibmo.exception.*;
@@ -65,7 +66,7 @@ public interface StudentOperation {
 	 * @throws StudentAlreadyRegisteredException
 	 */
 	@Transactional
-	public void registerStudent(User user) throws StudentAlreadyRegisteredException;
+	public void registerStudent(RegisterUserDto user) throws StudentAlreadyRegisteredException;
 	
 
 	/**

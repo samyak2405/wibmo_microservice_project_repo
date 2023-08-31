@@ -4,11 +4,15 @@
 package com.wibmo.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Class representing the payment
@@ -17,15 +21,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "payment")
 public class Payment implements Serializable {
+
 	@Id
-	@Column(name = "studentId")
-	private long userId;
+	@Column
+	@GeneratedValue(generator ="uuid2")
+	@GenericGenerator(name="uuid2",strategy = "org.hibernate.id.UUIDGenerator")
+	private UUID transactionId;
+	
 	@Column
 	private int paymentStatus;
-	@Column
-	private long transactionId;
+
 	@Column
 	private int amount;
+	
+	/**
+	 * @return the paymentType
+	 */
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	/**
+	 * @param paymentType the paymentType to set
+	 */
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	@Column
+	private String paymentType;
 
 	public Payment() {
 		amount = 1000000;
@@ -34,28 +58,18 @@ public class Payment implements Serializable {
 	/**
 	 * @return User ID
 	 */
-	public long getUserId() {
-		return userId;
-	}
-
-	/**
-	 * @param Get User Id
-	 */
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
 
 	/**
 	 * @return Transaction Id
 	 */
-	public long getTransactionId() {
+	public UUID getTransactionId() {
 		return transactionId;
 	}
 
 	/**
 	 * @param Get Transaction Id
 	 */
-	public void setTransactionId(long transactionId) {
+	public void setTransactionId(UUID transactionId) {
 		this.transactionId = transactionId;
 	}
 

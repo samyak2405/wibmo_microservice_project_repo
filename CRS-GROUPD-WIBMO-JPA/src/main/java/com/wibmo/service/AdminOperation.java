@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
@@ -40,7 +42,7 @@ public interface AdminOperation {
 	 * 
 	 * @param User contains admin details
 	 */
-	public void adminRegistration(User user) throws UserAlreadyExistsException;
+	public void adminRegistration(RegisterUserDto user) throws UserAlreadyExistsException;
 
 	/**
 	 * To Approve Student Course Registration

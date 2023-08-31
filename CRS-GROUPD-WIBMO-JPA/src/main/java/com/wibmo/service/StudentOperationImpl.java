@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.GradeCardResponseDTO;
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.GradeCard;
+import com.wibmo.entity.SemesterRegistration;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.StudentCourseMap;
 import com.wibmo.entity.User;
@@ -41,6 +43,9 @@ public class StudentOperationImpl implements StudentOperation {
 
 	@Autowired
 	private GradeCardRepository gradeCardRepository;
+	
+	@Autowired
+	private SemesterRegistrationRepository semesterRegistrationRepository;
 
 	/**
 	 * Student Register for course
@@ -158,10 +163,10 @@ public class StudentOperationImpl implements StudentOperation {
 	 * @throws StudentAlreadyRegisteredException
 	 */
 	@Override
-	public void registerStudent(User user) throws StudentAlreadyRegisteredException {
-
+	public void registerStudent(RegisterUserDto user) throws StudentAlreadyRegisteredException {
 		// TODO Auto-generated method stub
 		Student student = new Student();
+		SemesterRegistration semesterRegistration=new SemesterRegistration();
 
 		if (studentDao.findByEmail(user.getUserEmail()) > 0) {
 			throw new StudentAlreadyRegisteredException(user.getUserEmail());
@@ -171,8 +176,15 @@ public class StudentOperationImpl implements StudentOperation {
 		student.setUserPhonenumber(user.getUserPhonenumber());
 		student.setUserPassword(user.getUserPassword());
 		student.setUserId(user.getUserId());
+		
+		semesterRegistration.setStudent(student);
+		semesterRegistration.setBranch(user.getBranch());
+		semesterRegistration.setSemester(user.getSemester());
+		semesterRegistration.setStudentName(user.getUserName());
+		student.setSemesterRegistration(semesterRegistration);
 		studentDao.save(student);
-
+		semesterRegistrationRepository.save(semesterRegistration);
+		
 	}
 
 	/**

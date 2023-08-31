@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Professor;
 import com.wibmo.entity.Student;
@@ -63,8 +64,8 @@ public interface ProfessorOperation {
 	 * 
 	 * @param user
 	 * @throws UserAlreadyExistsException
-	 */
-	public void registerProfessor(User user) throws UserAlreadyExistsException;
+	 */ 
+	public void registerProfessor(RegisterUserDto user) throws UserAlreadyExistsException;
 
 	/**
 	 * Find professor using Email

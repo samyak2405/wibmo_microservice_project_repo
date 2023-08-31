@@ -26,6 +26,7 @@ import com.wibmo.dto.DropCourseDTO;
 import com.wibmo.dto.GradeCardResponseDTO;
 import com.wibmo.exception.CourseLimitExceededException;
 import com.wibmo.exception.CourseNotFoundException;
+import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.service.AdminOperation;
@@ -126,7 +127,7 @@ public class CRSStudentController {
 	public ResponseEntity<?> registerCourses(@PathVariable(value = "id") int userId) {
 		try {
 			studentOp.registerCourses(userId);
-			return ResponseEntity.ok("Applied For Course Registration Successfully");
+			return ResponseEntity.ok("Applied For Course Registration Successfully. Now go to billing Section");
 		} catch (UserNotFoundException e) {
 
 			return new ResponseEntity<String>("User with id " + e.getUserId() + " is not found", HttpStatus.NOT_FOUND);
@@ -213,35 +214,35 @@ public class CRSStudentController {
 	@RequestMapping(value = "/student/{id}/payfee/{paymentMethod}", method = RequestMethod.POST)
 	public ResponseEntity<String> payFee(@PathVariable(value = "id") int userId,
 			@PathVariable(value = "paymentMethod") String paymentMethod,
-			@RequestParam(required = false) String onlineMethod) {
+			@RequestParam(required = false) String onlineMethod) 
+	{
 		boolean status = false;
-
+		String transactionId = null;
+try {
 		if (studentOp.isApproved(userId) > 0) {
 
 			if (paymentMethod.equals("offline")) {
 				status = payment.offline(userId);
-
-				payment.recordPayment(userId, status);
-
+				transactionId=payment.recordPayment(userId,paymentMethod, status);
 			}
-			if (paymentMethod.equals("online")) {
+			else if (paymentMethod.equals("online")) {
 				if (onlineMethod.equals("UPI")) {
 					status = payment.UPI(userId);
-					payment.recordPayment(userId, status);
+					transactionId=payment.recordPayment(userId,paymentMethod, status);
 				} else if (onlineMethod.equals("cards")) {
 					status = payment.cards(userId);
-					payment.recordPayment(userId, status);
+					transactionId=payment.recordPayment(userId,paymentMethod, status);
 				} else if (onlineMethod.equals("Wallet")) {
 					status = payment.wallet(userId);
-					payment.recordPayment(userId, status);
+					transactionId=payment.recordPayment(userId,paymentMethod, status);
 				}
 
-				payment.recordPayment(userId, status);
+				transactionId=payment.recordPayment(userId,paymentMethod, status);
 			}
+			
 			if (status == true) {
 //				notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
-				return new ResponseEntity<String>("Payment Successful", HttpStatus.OK);
-
+				return new ResponseEntity<String>("Payment Successful with TransactionId:"+transactionId, HttpStatus.OK);
 			}
 
 			else {
@@ -252,6 +253,10 @@ public class CRSStudentController {
 			return new ResponseEntity<String>("Student courses are not approved by admin", HttpStatus.NOT_ACCEPTABLE);
 		}
 
+	}catch(StudentAlreadyRegisteredException e)
+	{
+			return new ResponseEntity<String>("Student as already registered", HttpStatus.NOT_ACCEPTABLE);
+	}
 	}
 
 }

@@ -93,9 +93,15 @@ public class AdminValidatorImpl implements ValidatorInterface {
 		{
 			int isRegistered = studentRepository.isStudentRegistered(studentId);
 			int isApproved = studentRepository.isCourseRegistrationApproved(studentId);
+			int feePaymentStatus=studentRepository.findById(studentId).get().getCourseRegistrationStatus();
 			if (isApproved > 0) {
 				continue;
 			}
+			if(feePaymentStatus==0)
+			{
+				continue;
+			}
+			
 			if (isRegistered == 0) {
 				System.out.println("Student has not Registered till now");
 				continue;

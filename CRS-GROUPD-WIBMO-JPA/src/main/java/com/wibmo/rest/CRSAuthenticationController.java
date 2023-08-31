@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AuthenticationOperation;
 import com.wibmo.service.ProfessorOperation;
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.dto.UpdatePasswordDto;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -91,12 +92,12 @@ public class CRSAuthenticationController
 			method = RequestMethod.POST,
 			value = "/register/{role}")
 	public ResponseEntity<String> registerRequest(@PathVariable int role, 
-			@RequestBody List<User> users)
+			@RequestBody List<RegisterUserDto> users)
 	{
 		if(role==1)
 		{
 			try {
-				for(User user: users) {
+				for(RegisterUserDto user: users) {
 					studentOp.registerStudent(user);
 				}
 				
@@ -108,7 +109,7 @@ public class CRSAuthenticationController
 		else if(role==2)
 		{	
 			try {
-				for(User user: users) {
+				for(RegisterUserDto user: users) {
 					
 					professorOp.registerProfessor(user);
 				}
@@ -119,7 +120,7 @@ public class CRSAuthenticationController
 		else if(role==3)
 		{
 			try {
-				for(User user: users) {
+				for(RegisterUserDto user: users) {
 					
 					adminOp.adminRegistration(user);
 				}

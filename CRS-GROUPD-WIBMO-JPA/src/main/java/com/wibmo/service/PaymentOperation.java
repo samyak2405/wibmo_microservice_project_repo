@@ -2,6 +2,8 @@ package com.wibmo.service;
 
 import org.springframework.stereotype.Service;
 
+import com.wibmo.exception.StudentAlreadyRegisteredException;
+
 /**
  * Payment Service Interface
  */
@@ -63,6 +65,6 @@ public interface PaymentOperation {
 	 * @return the Payment Bean object containing payment record of that particular
 	 *         student.
 	 */
-	public void recordPayment(long studentId, boolean paymentStatus);
+	public String recordPayment(int studentId,String paymentMethod, boolean paymentStatus) throws StudentAlreadyRegisteredException;
 
 }

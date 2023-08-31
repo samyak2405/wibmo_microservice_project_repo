@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -98,7 +99,7 @@ public class AdminOperationImpl implements AdminOperation {
 	 * @param User contains admin details
 	 */
 	@Override
-	public void adminRegistration(User user) throws UserAlreadyExistsException {
+	public void adminRegistration(RegisterUserDto user) throws UserAlreadyExistsException {
 		// TODO Auto-generated method stub
 		if (validate.emailValidator(user.getUserEmail())) {
 			if (adminRepository.findById(user.getUserId()).isEmpty() == false) {
