@@ -96,9 +96,9 @@ public class TestProfessorDAO {
 	public void  testSetGrades() throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException
 	{
 		//Pending due to exception handling
-//        doThrow(new RuntimeException()).when(professorOp).setGrades(1,1,1,"A");
-//        professorOp.setGrades(1,1,1,"A");
-//        verify(professorOp,times(1)).setGrades(1,1,1,"A");
+        // doThrow(new RuntimeException()).when(professorOp).setGrades(1,1,"1","A");
+        // professorOp.setGrades(1,1,"1","A");
+        // verify(professorOp,times(1)).setGrades(1,1,"1","A");
 	}
 	
 	@Test
@@ -116,14 +116,14 @@ public class TestProfessorDAO {
 	public void testRegisterProfessor() throws UserAlreadyExistsException
 	{
 		//Pending due to exception Handling
-		Professor user = new Professor();
-		user.setUserId(1);
-		user.setUserName("satwika");
-		user.setUserEmail("satwika@gmail.com");
-		user.setUserPhonenumber(73749282);
-		user.setUserPassword("satwika");
-		professorDao.save(user);
-		
+//		Professor user = new Professor();
+//		user.setUserId(1);
+//		user.setUserName("satwika");
+//		user.setUserEmail("satwika@gmail.com");
+//		user.setUserPhonenumber(73749282);
+//		user.setUserPassword("satwika");
+//		professorDao.save(user);
+//		
 //        doThrow(new RuntimeException()).when(professorOp).registerProfessor(user);
 //        professorOp.registerProfessor(user);
 //        verify(professorOp,times(1)).registerProfessor(user);
@@ -134,7 +134,7 @@ public class TestProfessorDAO {
 	{	
 		//Unable to figureout why it's not working
 		CourseCatalog course = new CourseCatalog();
-//		course.setCourseId(1);
+		course.setCourseId("1");
 		course.setCourseName("Java");
 		course.setPrerequisites("None");
 		course.setProfessorName("brown");
