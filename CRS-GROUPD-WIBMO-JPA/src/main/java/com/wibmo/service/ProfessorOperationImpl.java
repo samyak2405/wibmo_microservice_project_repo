@@ -52,22 +52,22 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 */
 	@Override
 	@Transactional
-	public void setGrades(int professorId, int studentId, int courseId, String grade)
+	public void setGrades(int professorId, int studentId, String courseId, String grade)
 			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException {
 
-		if (courseDao.findById(courseId) == null) {
+		if (courseDao.findByCourseId(courseId) == null) {
 			throw new CourseNotFoundException(courseId);
 		} else if (studentDao.findById(studentId) == null) {
 			throw new UserNotFoundException(studentId);
 		}
 		ProfessorCourseMap professorCourseMap = professorCoMapRepo.findByProfessorAndCourseCatalog(
-				professorDao.findById(professorId).get(), courseDao.findById(courseId).get());
+				professorDao.findById(professorId).get(), courseDao.findByCourseId(courseId));
 		if ((professorCourseMap == null)
 				|| ((professorCourseMap != null) && (professorCourseMap.getIsApproved() == 0))) {
 			throw new CourseNotAssignedException(courseId);
 		}
 		GradeCard gradeCard = gradeCardRepository.findByStudentAndCatalog(studentDao.findById(studentId).get(),
-				courseDao.findById(courseId).get());
+				courseDao.findByCourseId(courseId));
 		gradeCard.setGrade(grade);
 		gradeCardRepository.save(gradeCard);
 	}
@@ -81,22 +81,22 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 */
 	@Override
 	@Transactional
-	public void requestCourseOffering(int professorid, List<Integer> courseIdList)
+	public void requestCourseOffering(int professorid, List<String> courseIdList)
 			throws CourseNotFoundException, UserNotFoundException {
 
 		// TODO Auto-generated method stub
 		if (professorDao.findById(professorid).isEmpty() == true) {
 			throw new UserNotFoundException(professorid);
 		}
-		for (Integer courseId : courseIdList) {
-			if (courseDao.findById(courseId) == null)
+		for (String courseId : courseIdList) {
+			if (courseDao.findByCourseId(courseId) == null)
 				throw new CourseNotFoundException(courseId);
 		}
 
 		courseIdList.forEach((courseId) -> {
 			ProfessorCourseMap profCoMap = new ProfessorCourseMap();
 			profCoMap.setProfessor(professorDao.findById(professorid).get());
-			profCoMap.setCourseCatalog(courseDao.findById(courseId).get());
+			profCoMap.setCourseCatalog(courseDao.findByCourseId(courseId));
 			profCoMap.setIsApproved(0);
 			professorCoMapRepo.save(profCoMap);
 			System.out.println("Done");
@@ -113,19 +113,19 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 *         with professorId
 	 */
 	@Override
-	public List<Student> viewStudentList(int professorId, Integer courseId)
+	public List<Student> viewStudentList(int professorId, String courseId)
 			throws CourseNotFoundException, CourseNotAssignedException {
 
-		if (courseDao.findById(courseId) == null) {
+		if (courseDao.findByCourseId(courseId) == null) {
 			throw new CourseNotFoundException(courseId);
 		}
 		ProfessorCourseMap professorCourseMap = professorCoMapRepo.findByProfessorAndCourseCatalog(
-				professorDao.findById(professorId).get(), courseDao.findById(courseId).get());
+				professorDao.findById(professorId).get(), courseDao.findByCourseId(courseId));
 		if ((professorCourseMap == null)
 				|| ((professorCourseMap != null) && (professorCourseMap.getIsApproved() == 0))) {
 			throw new CourseNotAssignedException(courseId);
 		}
-		List<StudentCourseMap> studentCo = studentCourseRepo.findByCourse(courseDao.findById(courseId).get());
+		List<StudentCourseMap> studentCo = studentCourseRepo.findByCourse(courseDao.findByCourseId(courseId));
 
 		List<Student> students = studentCo.stream().map(studentMap -> new Student(studentMap.getStudent()))
 				.collect(Collectors.toList());

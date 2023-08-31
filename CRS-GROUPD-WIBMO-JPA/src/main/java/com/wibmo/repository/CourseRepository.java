@@ -14,4 +14,5 @@ import com.wibmo.entity.CourseCatalog;
 @Repository
 public interface CourseRepository extends CrudRepository<CourseCatalog, Integer> {
 
+	public CourseCatalog findByCourseId(String CourseId);
 }

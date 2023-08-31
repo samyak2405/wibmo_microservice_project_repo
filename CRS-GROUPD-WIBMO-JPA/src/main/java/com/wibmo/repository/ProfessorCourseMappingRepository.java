@@ -48,10 +48,9 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 */
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 AND courseId=?2", nativeQuery = true)
-	public void approveCourseProf(@Param("userId") int professorId, @Param("courseId") int courseId);
-
-	/**
+	@Query(value="UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 AND courseId=?2",nativeQuery = true)
+	public void approveCourseProf(@Param("userId")int professorId,@Param("courseId") String courseId);
+		/**
 	 * returns the professorcoursemap related to professor and course
 	 * 
 	 * @param professor

@@ -11,19 +11,14 @@ import java.util.Map;
  */
 public class AddCourseDto {
 	
-	Map<Integer, Integer> courses = new HashMap<>();
+	
+	Map<String,Integer> courses= new HashMap<>();
 
-	/**
-	 * @return returns courses
-	 */
-	public Map<Integer, Integer> getCourses() {
+	public Map<String, Integer> getCourses() {
 		return courses;
 	}
 
-	/**
-	 * @param map of courses
-	 */
-	public void setCourses(Map<Integer, Integer> courses) {
+	public void setCourses(Map<String, Integer> courses) {
 		this.courses = courses;
 	}
 

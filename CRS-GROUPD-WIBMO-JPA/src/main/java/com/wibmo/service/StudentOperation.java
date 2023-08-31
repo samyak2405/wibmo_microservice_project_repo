@@ -42,7 +42,7 @@ public interface StudentOperation {
 	 * @throws CourseNotFoundException
 	 * @throws UserNotFoundException
 	 */
-	public int dropCourses(int studentId, int courseId) throws CourseNotFoundException,UserNotFoundException;
+	public int dropCourses(int studentId, String courseId) throws CourseNotFoundException,UserNotFoundException;
 	
 	
 	/**

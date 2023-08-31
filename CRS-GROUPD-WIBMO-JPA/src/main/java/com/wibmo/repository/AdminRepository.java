@@ -84,4 +84,9 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	@Query(value = "SELECT COUNT(*) FROM admin WHERE userEmail=?1", nativeQuery = true)
 	public int findByEmail(@Param("userEmail") String userEmail);
 
+	@Modifying
+	@Transactional
+	@Query(value="UPDATE admin SET isApproved=1 WHERE userId=?1",nativeQuery=true)
+	public void setAdminApproval(@Param("userId")int userId);
+
 }

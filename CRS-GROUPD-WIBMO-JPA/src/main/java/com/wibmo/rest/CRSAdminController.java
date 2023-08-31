@@ -103,11 +103,11 @@ public class CRSAdminController {
 	 * @return Response status 200(OK)
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, 
-			method = RequestMethod.POST, 
-			value="/addadmin")
-	public ResponseEntity<String> addAdmin(User user) {
-		adminOp.addAdmin(user);
-		return new ResponseEntity<String>("Course is assigned to professor", HttpStatus.OK);
+			method = RequestMethod.PUT, 
+			value="/approveadmin/{userId}")
+	public ResponseEntity<String> approveAdmin(@PathVariable("userId")int userId) {
+		adminOp.approveAdmin(userId);
+		return new ResponseEntity<String>("Admin with Id: "+userId+" approved by Primary Admins",HttpStatus.OK);
 		
 	}
 	
