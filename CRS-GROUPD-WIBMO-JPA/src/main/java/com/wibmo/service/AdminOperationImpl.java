@@ -63,9 +63,10 @@ public class AdminOperationImpl implements AdminOperation {
 	 * @param User contains Admin details
 	 */
 	@Override
-	public void addAdmin(User user) {
+	public Admin addAdmin(User user) {
 
-		adminRepository.save((Admin) user);
+		Admin admin = adminRepository.save((Admin) user);
+		return admin;
 	}
 
 	/**
@@ -144,13 +145,13 @@ public class AdminOperationImpl implements AdminOperation {
 	}
 
 	/**
-	 * To get Admin by id
+	 * To get Admin by email
 	 * 
 	 * @param userEmail
-	 * @return
+	 * @return Admin
 	 */
 	@Override
-	public int getAdminById(String userEmail) {
+	public int getAdminByEmail(String userEmail) {
 		// TODO Auto-generated method stub
 		return adminRepository.getAdminById(userEmail);
 	}
