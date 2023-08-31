@@ -1,292 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
 
-        <artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.15</version>
 
-        <version>2.7.15</version>
+		<relativePath /> <!-- lookup parent from repository -->
 
-        <relativePath/> <!-- lookup parent from repository -->
+	</parent>
 
-    </parent>
+	<groupId>com.wibmo</groupId>
 
-    <groupId>com.wibmo</groupId>
+	<artifactId>demoApplication</artifactId>
 
-    <artifactId>demoApplication</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-    <version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
-    <packaging>war</packaging>
+	<name>CRS-GROUPD-WIBMO-JPA-DEMO</name>
 
-    <name>CRS-GROUPD-WIBMO-JPA-DEMO</name>
+	<description>Demo project for Spring Boot</description>
 
-    <description>Demo project for Spring Boot</description>
+	<properties>
 
-    <properties>
+		<java.version>11</java.version>
 
-        <java.version>11</java.version>
+	</properties>
 
-    </properties>
+	<dependencies>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 
-    <dependencies>
 
-        
+		<dependency>
 
- 
 
-            <dependency>
+			<groupId>io.springfox</groupId>
 
- 
 
-            <groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
 
- 
 
-            <artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
 
- 
 
-            <version>3.0.0</version>
+		</dependency>
 
- 
 
-        </dependency>
+		<dependency>
 
- 
 
-        <dependency>
+			<groupId>io.springfox</groupId>
 
- 
 
-            <groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
 
- 
 
-            <artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
 
- 
 
-            <version>3.0.0</version>
+		</dependency>
 
- 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
 
-        </dependency>
 
- 
+		<dependency>
 
-        <dependency>
+			<groupId>org.springframework.boot</groupId>
 
- 
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 
-            <groupId>io.springfox</groupId>
+		</dependency>
 
- 
+		<dependency>
 
-            <artifactId>springfox-boot-starter</artifactId>
+			<groupId>org.springframework.boot</groupId>
 
- 
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 
-            <version>3.0.0</version>
+		</dependency>
 
- 
+		<dependency>
 
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
 
-        
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 
-        
+		</dependency>
 
-        <dependency>
+		<dependency>
 
-            <groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>
 
-            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
 
-        </dependency>
+		</dependency>
 
-        <dependency>
+		<dependency>
 
-            <groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>
 
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
 
-        </dependency>
+		</dependency>
 
-        <dependency>
+		<dependency>
 
-            <groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>
 
-            <artifactId>spring-boot-starter-data-rest</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 
-        </dependency>
+		</dependency>
 
-        <dependency>
+		<dependency>
 
-            <groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>
 
-            <artifactId>spring-boot-starter-jdbc</artifactId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
 
-        </dependency>
+		</dependency>
 
-        <dependency>
 
-            <groupId>org.springframework.boot</groupId>
+		<dependency>
 
-            <artifactId>spring-boot-starter-jersey</artifactId>
+			<groupId>org.springframework.boot</groupId>
 
-        </dependency>
+			<artifactId>spring-boot-devtools</artifactId>
 
-        <dependency>
+			<scope>runtime</scope>
 
-            <groupId>org.springframework.boot</groupId>
+			<optional>true</optional>
 
-            <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
-        </dependency>
+		<dependency>
 
-        <dependency>
+			<groupId>com.mysql</groupId>
 
-            <groupId>org.springframework.boot</groupId>
+			<artifactId>mysql-connector-j</artifactId>
 
-            <artifactId>spring-boot-starter-web-services</artifactId>
+			<scope>runtime</scope>
 
-        </dependency>
+		</dependency>
 
- 
+		<dependency>
 
-        <dependency>
+			<groupId>org.springframework.boot</groupId>
 
-            <groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
 
-            <artifactId>spring-boot-devtools</artifactId>
+			<scope>provided</scope>
 
-            <scope>runtime</scope>
+		</dependency>
 
-            <optional>true</optional>
 
-        </dependency>
+		<dependency>
 
-        <dependency>
+			<groupId>org.springframework.boot</groupId>
 
-            <groupId>com.mysql</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
 
-            <artifactId>mysql-connector-j</artifactId>
+			<scope>test</scope>
 
-            <scope>runtime</scope>
+		</dependency>
 
-        </dependency>
+		<dependency>
 
-        <dependency>
+			<groupId>org.springframework.restdocs</groupId>
 
-            <groupId>org.springframework.boot</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
 
-            <artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>test</scope>
 
-            <scope>provided</scope>
+		</dependency>
 
-        </dependency>
 
-        
+	</dependencies>
 
-        <dependency>
 
-            <groupId>org.springframework.boot</groupId>
+	<build>
 
-            <artifactId>spring-boot-starter-test</artifactId>
+		<plugins>
 
-            <scope>test</scope>
+			<plugin>
 
-        </dependency>
+				<groupId>org.asciidoctor</groupId>
 
-        <dependency>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
 
-            <groupId>org.springframework.restdocs</groupId>
+				<version>2.2.1</version>
 
-            <artifactId>spring-restdocs-mockmvc</artifactId>
+				<executions>
 
-            <scope>test</scope>
+					<execution>
 
-        </dependency>
+						<id>generate-docs</id>
 
-        
+						<phase>prepare-package</phase>
 
-    </dependencies>
+						<goals>
 
- 
+							<goal>process-asciidoc</goal>
 
-    <build>
+						</goals>
 
-        <plugins>
+						<configuration>
 
-            <plugin>
+							<backend>html</backend>
 
-                <groupId>org.asciidoctor</groupId>
+							<doctype>book</doctype>
 
-                <artifactId>asciidoctor-maven-plugin</artifactId>
+						</configuration>
 
-                <version>2.2.1</version>
+					</execution>
 
-                <executions>
+				</executions>
 
-                    <execution>
+				<dependencies>
 
-                        <id>generate-docs</id>
+					<dependency>
 
-                        <phase>prepare-package</phase>
+						<groupId>org.springframework.restdocs</groupId>
 
-                        <goals>
+						<artifactId>spring-restdocs-asciidoctor</artifactId>
 
-                            <goal>process-asciidoc</goal>
+						<version>${spring-restdocs.version}</version>
 
-                        </goals>
+					</dependency>
 
-                        <configuration>
+				</dependencies>
 
-                            <backend>html</backend>
+			</plugin>
 
-                            <doctype>book</doctype>
+			<plugin>
 
-                        </configuration>
+				<groupId>org.springframework.boot</groupId>
 
-                    </execution>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 
-                </executions>
+			</plugin>
 
-                <dependencies>
+		</plugins>
 
-                    <dependency>
+	</build>
 
-                        <groupId>org.springframework.restdocs</groupId>
-
-                        <artifactId>spring-restdocs-asciidoctor</artifactId>
-
-                        <version>${spring-restdocs.version}</version>
-
-                    </dependency>
-
-                </dependencies>
-
-            </plugin>
-
-            <plugin>
-
-                <groupId>org.springframework.boot</groupId>
-
-                <artifactId>spring-boot-maven-plugin</artifactId>
-
-            </plugin>
-
-        </plugins>
-
-    </build>
-
- 
 
 </project>

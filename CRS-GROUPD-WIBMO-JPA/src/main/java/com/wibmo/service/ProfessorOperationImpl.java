@@ -203,6 +203,10 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 		return courses;
 	}
 
+/**
+ * returns list of professors
+ * 	@return list of professors
+ */
 	@Override
 	public List<Professor> viewProfessor() {
 		Iterable<Professor> professors = professorDao.findAll();

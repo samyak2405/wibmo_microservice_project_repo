@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.dto.RegisterUserDto;
+import com.wibmo.entity.Admin;
 import com.wibmo.entity.User;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
@@ -30,7 +31,7 @@ public interface AdminOperation {
 	 * 
 	 * @param User contains admin details
 	 */
-	public void addAdmin(User user);
+	public void approveAdmin(int userId);
 
 	/**
 	 * To assign which course will be taught by which professor
@@ -60,11 +61,11 @@ public interface AdminOperation {
 	public void approveStudentById(int id) throws UserNotFoundException;
 
 	/**
-	 * To get admin by id
+	 * To get admin by Email
 	 * 
 	 * @param userEmail
 	 * @return
 	 */
-	public int getAdminById(String userEmail);
+	public int getAdminByEmail(String userEmail);
 
 }
