@@ -50,19 +50,14 @@ public class TestAdminDao {
 	 * Test to check add admin
 	 */
 	@Test
-	public void addAdminTest() {
-		Admin user = new Admin();
-		user.setUserId(2);
-		user.setUserName("samyak");
-		user.setUserEmail("samyak@gmail.com");
-		user.setUserPhonenumber(1234567);
-		user.setUserPassword("samyak");
-		adminRepo.save(user);
-		when(adminOp.addAdmin(user)).thenReturn(user);
+	public void approveAdminTest() {
+		int userId = 1;
 		
-		Admin admin = adminOp.addAdmin(user);
+		doNothing().when(adminRepo).setAdminApproval(userId);
 		
-		assertEquals("samyak@gmail.com",admin.getUserEmail());
+		adminOp.approveAdmin(userId);
+		
+		verify(adminRepo,times(1)).setAdminApproval(userId);
 	}
 	
 	/**
@@ -74,9 +69,9 @@ public class TestAdminDao {
 		int id = 1;
 		
 		try {
-			doNothing().when(adminOp).approveStudentById(id);
+			doNothing().when(adminRepo).approveStudentRegistrationById(id);
 			adminOp.approveStudentById(id);
-			verify(adminOp,times(1)).approveStudentById(id);
+			verify(adminRepo,times(1)).approveStudentRegistrationById(id);
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}
