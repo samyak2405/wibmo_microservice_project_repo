@@ -38,7 +38,7 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 * @return list of courses
 	 */
 	@Query(value = "SELECT courseId FROM professorcoursemapping WHERE userId=?1", nativeQuery = true)
-	public List<Integer> getProfessorCourses(@Param("userId") int professorId);
+	public List<String> getProfessorCourses(@Param("userId") int professorId);
 
 	/**
 	 * sets professorId and courseId in professorcoursemapper table

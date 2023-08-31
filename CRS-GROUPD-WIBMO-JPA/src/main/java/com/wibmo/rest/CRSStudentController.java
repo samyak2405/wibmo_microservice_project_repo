@@ -219,7 +219,7 @@ public class CRSStudentController {
 		boolean status = false;
 		String transactionId = null;
 try {
-		if (studentOp.isApproved(userId) > 0) {
+		if (studentOp.isRegistered(userId)) {
 
 			if (paymentMethod.equals("offline")) {
 				status = payment.offline(userId);

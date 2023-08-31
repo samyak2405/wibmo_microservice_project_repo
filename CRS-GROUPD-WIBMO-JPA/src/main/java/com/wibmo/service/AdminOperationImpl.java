@@ -75,12 +75,12 @@ public class AdminOperationImpl implements AdminOperation {
 	@Override
 	public void assignCoursesProf() {
 		List<Integer> professorsIds = professorCourseMappingRepository.listProfessorIds();
-		Set<Integer> set = new HashSet<>();
+		Set<String> set = new HashSet<>();
 		for (int professorId : professorsIds) {
 			Professor professor = professorRepository.findById(professorId).get();
-			List<Integer> coursesIds = professorCourseMappingRepository.getProfessorCourses(professorId);
-			for (int courseId : coursesIds) {
-				CourseCatalog course = courseRepository.findById(courseId).get();
+			List<String> coursesIds = professorCourseMappingRepository.getProfessorCourses(professorId);
+			for (String courseId : coursesIds) {
+				CourseCatalog course = courseRepository.findByCourseId(courseId);
 				if (!set.contains(courseId)) {
 					set.add(courseId);
 					ProfessorCourseMap professorCourseMap = professorCourseMappingRepository
@@ -110,7 +110,7 @@ public class AdminOperationImpl implements AdminOperation {
 			admin.setUserId(user.getUserId());
 			admin.setUserName(user.getUserName());
 			admin.setUserPassword(user.getUserPassword());
-			admin.setUserPhonenumber(admin.getUserPhonenumber());
+			admin.setUserPhonenumber(user.getUserPhonenumber());
 			admin.setIsApproved(0);
 			adminRepository.save(admin);
 		} else

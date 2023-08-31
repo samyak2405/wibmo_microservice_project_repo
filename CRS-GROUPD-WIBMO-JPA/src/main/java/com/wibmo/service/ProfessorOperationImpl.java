@@ -50,12 +50,15 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @param grade
 	 * @throws UserNotFoundException
 	 * @throws CourseNotFoundException
+	 * @throws StudentNotPresentInCourseException 
 	 */
 	@Override
 	@Transactional
 	public void setGrades(int professorId, int studentId, String courseId, String grade)
-			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException {
-
+			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException, StudentNotPresentInCourseException {
+		System.out.println("operation "+grade);
+		System.out.println();
+		System.out.println();
 		if (courseDao.findByCourseId(courseId) == null) {
 			throw new CourseNotFoundException(courseId);
 		} else if (studentDao.findById(studentId) == null) {
@@ -69,7 +72,13 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 		}
 		GradeCard gradeCard = gradeCardRepository.findByStudentAndCatalog(studentDao.findById(studentId).get(),
 				courseDao.findByCourseId(courseId));
+		if(gradeCard==null)
+		{
+			throw new StudentNotPresentInCourseException(studentId);
+		}
+		
 		gradeCard.setGrade(grade);
+		
 		gradeCardRepository.save(gradeCard);
 	}
 
@@ -191,15 +200,15 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
-	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
+	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
 		// TODO Auto-generated method stub
 		if (professorDao.findById(userId).isEmpty() == true) {
 			throw new UserNotFoundException(userId);
 		}
 		List<Object[]> list = professorDao.listOfApprovedCourses(userId);
-		Map<Integer, String> courses = new HashMap<>();
+		Map<String, String> courses = new HashMap<>();
 		for (Object[] result : list)
-			courses.put((Integer) result[0], (String) result[1]);
+			courses.put((String) result[0], (String) result[1]);
 		return courses;
 	}
 

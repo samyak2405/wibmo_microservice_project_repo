@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
+import com.wibmo.exception.StudentNotPresentInCourseException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.dto.GradeCardDto;
 
@@ -54,9 +55,9 @@ public class CRSProfessorController {
 	 * @return list of approved courses
 	 */
 	@RequestMapping(value="/professor/{userId}/approvedcourses",method = RequestMethod.GET)
-	public ResponseEntity<Map<Integer,String>> approvedCourses(@PathVariable(value="userId") int userId)
+	public ResponseEntity<Map<String,String>> approvedCourses(@PathVariable(value="userId") int userId)
 	{try {
-		 return new ResponseEntity<Map<Integer, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
+		 return new ResponseEntity<Map<String, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
 	}
 		 catch (UserNotFoundException e) {
 				return new ResponseEntity("User with UserId:"+userId+" Not Found",HttpStatus.NOT_FOUND);
@@ -73,7 +74,7 @@ public class CRSProfessorController {
 	 * @param courseId
 	 * @return list of students registered for particular courseId.
 	 */
-	@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
+	@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.GET)
     public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") String courseId) {
 
         try {
@@ -123,6 +124,9 @@ public class CRSProfessorController {
 	catch(CourseNotAssignedException e)
 	{
 		return new ResponseEntity<String>("Course with id:"+e.getCourseId()+" Not Assigned",HttpStatus.NOT_FOUND);
+	}catch(StudentNotPresentInCourseException e)
+	{
+		return new ResponseEntity<String>("Student with id:"+e.getUserId()+" Not Present in the course.",HttpStatus.NOT_FOUND);
 	}
 		
 	}

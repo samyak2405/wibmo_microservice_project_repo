@@ -29,7 +29,7 @@ public interface ProfessorOperation {
 	 * @throws CourseNotFoundException
 	 */
 	public void setGrades(int professorId, int studentId, String courseId, String grade)
-			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException;
+			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException,StudentNotPresentInCourseException;
 
 	/**
 	 * To request to teach a specific course
@@ -82,7 +82,7 @@ public interface ProfessorOperation {
 	 * @return Map<Integer,String> containing CourseId and CourseName
 	 * @throws UserNotFoundException
 	 */
-	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
+	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
 
 	public List<Professor> viewProfessor();
 
