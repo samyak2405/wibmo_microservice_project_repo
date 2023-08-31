@@ -45,11 +45,11 @@ public class TestStudentDAO {
 	
 	@Test
 	public void testDropCourses() {
-		doNothing().when(studentDao).dropCourses(1,1);
+		doNothing().when(studentDao).dropCourses(1,"1");
 
-        studentDao.dropCourses(1,1);
+        studentDao.dropCourses(1,"1");
 
-        verify(studentDao,times(1)).dropCourses(1,1);
+        verify(studentDao,times(1)).dropCourses(1,"1");
 	
 	}
 	

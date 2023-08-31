@@ -10,11 +10,7 @@ import java.io.Serializable;
  */
 public class DropCourseDTO implements Serializable {
 	private int studentId;
-	private int courseId;
-
-	/**
-	 * @return returns studentId
-	 */
+	private String courseId;
 	public int getStudentId() {
 		return studentId;
 	}
@@ -25,18 +21,10 @@ public class DropCourseDTO implements Serializable {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-
-	/**
-	 * @return returns courseId
-	 */
-	public int getCourseId() {
+	public String getCourseId() {
 		return courseId;
 	}
-
-	/**
-	 * @param sets courseId
-	 */
-	public void setCourseId(int courseId) {
+	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
 }

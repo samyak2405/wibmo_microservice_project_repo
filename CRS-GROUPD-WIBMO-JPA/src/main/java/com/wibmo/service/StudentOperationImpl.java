@@ -73,20 +73,18 @@ public class StudentOperationImpl implements StudentOperation {
 		if (studentDao.getCourseCount(userId) > 6) {
 			throw new CourseLimitExceededException();
 		}
-		for (Map.Entry<Integer, Integer> entry : addCourseDto.getCourses().entrySet()) {
-			int courseId = entry.getKey();
+		for (Map.Entry<String, Integer> entry : addCourseDto.getCourses().entrySet()) {
+			String courseId = entry.getKey();
 			int pref = entry.getValue();
-			if (courseDao.findById(courseId).isEmpty() == true) {
+			if (courseDao.findByCourseId(courseId)==null) {
 				throw new CourseNotFoundException(courseId);
 			}
 		}
 
-		for (Map.Entry<Integer, Integer> entry : addCourseDto.getCourses().entrySet()) {
+		for (Map.Entry<String, Integer> entry : addCourseDto.getCourses().entrySet()) {
 			StudentCourseMap studCoMapping = new StudentCourseMap();
 			studCoMapping.setStudent(studentDao.findById(userId).get());
-
-			studCoMapping.setCourse(courseDao.findById(entry.getKey()).get());
-
+			studCoMapping.setCourse(courseDao.findByCourseId(entry.getKey()));
 			studCoMapping.setCoursePref(entry.getValue());
 			studCoMapping.setIsRegister(0);
 			studCoMapRepo.save(studCoMapping);
@@ -105,18 +103,17 @@ public class StudentOperationImpl implements StudentOperation {
 	 */
 	@Override
 	@Transactional
-	public int dropCourses(int studentId, int courseId) throws CourseNotFoundException, UserNotFoundException {
+	public int dropCourses(int studentId, String courseId) throws CourseNotFoundException, UserNotFoundException {
 		// TODO Auto-generated method stub
 
 		if (studentDao.findById(studentId).isEmpty() == true) {
 			throw new UserNotFoundException(studentId);
 		}
-		if (courseDao.findById(courseId).isEmpty() == true) {
-			throw new CourseNotFoundException(studentId);
+		if (courseDao.findByCourseId(courseId)==null) {
+			throw new CourseNotFoundException(courseId);
 		}
 		Integer isRegister = studentDao.findCoursePreference(studentId, courseId);
 		studentDao.dropCourses(studentId, courseId);
-
 		return isRegister;
 	}
 

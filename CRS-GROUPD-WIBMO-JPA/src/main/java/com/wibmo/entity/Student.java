@@ -16,7 +16,19 @@ public class Student extends User {
 
 	@Column(name = "isApproved")
 	private int isapproved;
+	@Column(name="courseRegistrationStatus")
+	private int courseRegistrationStatus;
 
+	/**
+	 * @param courseRegistrationStatus the courseRegistrationStatus to set
+	 */
+	public void setCourseRegistrationStatus(int courseRegistrationStatus) {
+		this.courseRegistrationStatus = courseRegistrationStatus;
+	}
+
+
+
+	
 	public Student() {
 
 	}

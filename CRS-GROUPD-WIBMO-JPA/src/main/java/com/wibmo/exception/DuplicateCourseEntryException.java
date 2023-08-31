@@ -10,27 +10,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DuplicateCourseEntryException extends Exception {
-	private int courseId;
-
+	private String courseId;
+	
 	public DuplicateCourseEntryException() {
 
 	}
-
-	/**
-	 * sets the courseId
-	 * 
-	 * @param courseId
-	 */
-	public DuplicateCourseEntryException(int courseId) {
+	
+	public DuplicateCourseEntryException(String courseId) {
 		this.courseId = courseId;
 	}
-
-	/**
-	 * returns the courseId
-	 * 
-	 * @return courseId
-	 */
-	public int getCourseid() {
+	
+	public String getCourseid() {
 		return courseId;
 	}
 }

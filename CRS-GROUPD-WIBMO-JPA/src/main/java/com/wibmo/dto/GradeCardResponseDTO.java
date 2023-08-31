@@ -12,8 +12,8 @@ import java.util.Map;
  */
 public class GradeCardResponseDTO {
 	private int studentId;
-	Map<Integer, Map<String, String>> gradeDetails = new HashMap<>();
-
+	Map<String,Map<String,String>>gradeDetails=new HashMap<>();
+	
 	/**
 	 * Adds grade card details
 	 * 
@@ -21,8 +21,9 @@ public class GradeCardResponseDTO {
 	 * @param courseName
 	 * @param grades
 	 */
-	public void addGradeDetails(int courseId, String courseName, String grades) {
-		Map<String, String> innerMap = new HashMap<>();
+	public void addGradeDetails(String courseId,String courseName,String grades)
+	{
+		Map<String,String>innerMap=new HashMap<>();
 		innerMap.put(courseName, grades);
 		gradeDetails.put(courseId, innerMap);
 	}
@@ -30,14 +31,14 @@ public class GradeCardResponseDTO {
 	/**
 	 * @return the gradeDetails
 	 */
-	public Map<Integer, Map<String, String>> getGradeDetails() {
+	public Map<String, Map<String, String>> getGradeDetails() {
 		return gradeDetails;
 	}
 
 	/**
 	 * @param gradeDetails the gradeDetails to set
 	 */
-	public void setGradeDetails(Map<Integer, Map<String, String>> gradeDetails) {
+	public void setGradeDetails(Map<String, Map<String, String>> gradeDetails) {
 		this.gradeDetails = gradeDetails;
 	}
 
