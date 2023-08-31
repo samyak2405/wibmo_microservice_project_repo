@@ -5,6 +5,7 @@ package com.wibmo.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -33,6 +34,9 @@ public class TestAdminDao {
 	
 	@Mock
 	AdminRepository adminRepo;
+	
+	@Mock
+	StudentRepository studentRepo;
 	
 	/**
 	 * Test to check approve student registration
@@ -68,13 +72,17 @@ public class TestAdminDao {
 	public void approveStudentById(){
 		int id = 1;
 		
-		try {
-			doNothing().when(adminRepo).approveStudentRegistrationById(id);
-			adminOp.approveStudentById(id);
+			doThrow(UserNotFoundException.class).when(studentRepo).findById(id);
+			doThrow(new UserNotFoundException(id)).when(adminRepo).approveStudentRegistrationById(1);
+//			doNothing().when(adminRepo).approveStudentRegistrationById(id);
+			try {
+				adminOp.approveStudentById(id);
+			} catch (UserNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			verify(adminRepo,times(1)).approveStudentRegistrationById(id);
-		} catch (UserNotFoundException e) {
-			e.printStackTrace();
-		}
+		
 			
 		
 	}

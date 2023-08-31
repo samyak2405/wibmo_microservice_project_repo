@@ -34,7 +34,7 @@ public class TestAuthenticationDao {
 	}
 	
 	/**
-	 * 
+	 * Test Update Password
 	 */
 	@Test
 	public void updatePasswordTest() {
