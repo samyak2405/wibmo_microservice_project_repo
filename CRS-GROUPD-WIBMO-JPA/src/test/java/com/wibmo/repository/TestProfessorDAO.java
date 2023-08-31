@@ -4,6 +4,7 @@
 package com.wibmo.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -33,15 +34,16 @@ public class TestProfessorDAO {
 	public void findAllProfessor() {
 		//given
 		Professor user = new Professor();
-		user.setUserId(1);
+		user.setUserId(2);
 		user.setUserName("satwika");
 		user.setUserEmail("satwika@gmail.com");
 		user.setUserPhonenumber(73749282);
 		user.setUserPassword("satwika");
 		
+//		
 		List<Professor> users = new ArrayList<>();
 		users.add(user);
-		professorDao.saveAll(users);
+		professorDao.save(user);
 		when(professorDao.findAll()).thenReturn(users);
 		
 		//when
