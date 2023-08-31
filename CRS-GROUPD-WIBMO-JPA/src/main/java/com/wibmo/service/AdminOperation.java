@@ -30,7 +30,7 @@ public interface AdminOperation {
 	 * 
 	 * @param User contains admin details
 	 */
-	public Admin addAdmin(User user);
+	public void approveAdmin(int userId);
 
 	/**
 	 * To assign which course will be taught by which professor

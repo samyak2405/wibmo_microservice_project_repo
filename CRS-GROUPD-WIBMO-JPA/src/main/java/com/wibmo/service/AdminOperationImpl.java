@@ -63,10 +63,9 @@ public class AdminOperationImpl implements AdminOperation {
 	 * @param User contains Admin details
 	 */
 	@Override
-	public Admin addAdmin(User user) {
-
-		Admin admin = adminRepository.save((Admin) user);
-		return admin;
+	public void approveAdmin(int userId) {
+		adminRepository.setAdminApproval(userId);
+		
 	}
 
 	/**
