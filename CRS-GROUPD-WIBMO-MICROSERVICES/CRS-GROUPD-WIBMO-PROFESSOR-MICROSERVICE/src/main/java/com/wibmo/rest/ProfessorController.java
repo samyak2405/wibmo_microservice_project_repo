@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,8 @@ import com.wibmo.service.ProfessorOperation;
  * 
  */
 @RestController
+@RequestMapping(value="/api/professor")
+@CrossOrigin
 public class ProfessorController {
 	 @Autowired
 		private ProfessorOperation professorOp;
@@ -38,7 +41,7 @@ public class ProfessorController {
 		 * @return message if the courses requested by professor  are successfully sent to admin for Approval or not
 		 */
 		
-		@RequestMapping(value="/professor/{userId}/requestcourse",method = RequestMethod.POST)
+		@RequestMapping(value="/{userId}/requestcourse",method = RequestMethod.POST)
 		public ResponseEntity<String> freezeList(@PathVariable(value="userId") int userId,@RequestBody List<String> courseIdList) {
 			 try {
 	         	
@@ -59,7 +62,7 @@ public class ProfessorController {
 		 * @param userId
 		 * @return list of approved courses
 		 */
-		@RequestMapping(value="/professor/{userId}/approvedcourses",method = RequestMethod.GET)
+		@RequestMapping(value="/{userId}/approvedcourses",method = RequestMethod.GET)
 		public ResponseEntity<Map<Integer,String>> approvedCourses(@PathVariable(value="userId") int userId)
 		{try {
 			 return new ResponseEntity<Map<Integer, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
@@ -79,7 +82,7 @@ public class ProfessorController {
 		 * @param courseId
 		 * @return list of students registered for particular courseId.
 		 */
-		@RequestMapping(value="/professor/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
+		@RequestMapping(value="/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
 	    public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") String courseId) {
 
 	        try {
@@ -97,7 +100,7 @@ public class ProfessorController {
 		 * To view course catalog
 		 * @return list of courses in course catalog
 		 */
-		@RequestMapping(value="/professor/coursecatalog",method = RequestMethod.GET)
+		@RequestMapping(value="/coursecatalog",method = RequestMethod.GET)
 		public ResponseEntity<List<CourseCatalog>> courseCatalog() {
 			
 			return ResponseEntity.ok(professorOp.viewCourseCatalog());
@@ -110,7 +113,7 @@ public class ProfessorController {
 		 * @return message if professor has set the grades successfully or not .
 		 */
 		
-		@RequestMapping(value="/professor/{id}/setgrades",method = RequestMethod.POST)
+		@RequestMapping(value="/{id}/setgrades",method = RequestMethod.POST)
 		public ResponseEntity<String> setGrades(@PathVariable(name = "id") int professorID,@RequestBody List<GradeCardDto> gradecard ) {
 		try {
 			for(GradeCardDto gradeCard: gradecard) {
