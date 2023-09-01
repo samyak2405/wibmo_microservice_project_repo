@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.entity.CourseCatalog;
+import com.wibmo.entity.Student;
 import com.wibmo.entity.StudentCourseMap;
 
 /**
@@ -23,4 +24,6 @@ public interface StudentCourseMappingRepository extends CrudRepository<StudentCo
  * @return List<StudentCourseMap>
  */
 	public List<StudentCourseMap> findByCourse(CourseCatalog course); 
+	
+	public int countByStudentAndIsRegister(Student student, int isRegister);
 }

@@ -68,7 +68,17 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 					return false;
 				}
 
-			} else {
+			} 
+			else if(role==3) {
+				if (((Admin) user).getIsApproved() == 1) {
+					msg.append("Login Successful");
+					return true;
+				} else {
+					msg.append("Registration Not Approved");
+					return false;
+				}
+			}
+			else {
 
 				msg.append("Login Successful");
 				return true;

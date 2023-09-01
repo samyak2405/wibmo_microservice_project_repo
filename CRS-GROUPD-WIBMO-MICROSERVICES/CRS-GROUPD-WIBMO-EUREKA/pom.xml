@@ -8,12 +8,14 @@
 		<version>2.7.15</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.wibmo</groupId>
 	<artifactId>CRS-GROUPD-WIBMO-EUREKA</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>CRS-GROUPD-WIBMO-EUREKA</name>
 	<description>This is a Eureka Serverfor Course Registration System</description>
+
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.8</spring-cloud.version>

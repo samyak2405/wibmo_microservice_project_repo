@@ -67,7 +67,7 @@ public interface ProfessorRepository extends CrudRepository<Professor, Integer> 
 	 * @param userId
 	 * @return list of custom Objects
 	 */
-	@Query(value = "SELECT pcm.courseid, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.userId=?1 AND pcm.isApproved=1", nativeQuery = true)
+	@Query(value = "SELECT pcm.courseId, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseId=cc.courseId WHERE pcm.userId=?1 AND pcm.isApproved=1", nativeQuery = true)
 	public List<Object[]> listOfApprovedCourses(@Param("professorId") int userId);
 
 }

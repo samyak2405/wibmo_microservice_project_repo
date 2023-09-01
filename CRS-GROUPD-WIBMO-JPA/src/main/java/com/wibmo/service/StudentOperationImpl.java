@@ -222,6 +222,15 @@ public class StudentOperationImpl implements StudentOperation {
 		return flag;
 	}
 
+	public boolean isRegistered(int userId) 
+	{
+		int count=studCoMapRepo.countByStudentAndIsRegister(studentDao.findById(userId).get(), 1);
+		if(count>=4)
+			return true;
+		else
+			return false;
+			
+	}
 	/**
 	 * To get the Student by Email
 	 * 

@@ -32,6 +32,8 @@ public class GradeCard implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "courseId")
 	private CourseCatalog catalog;
+	
+	
 
 	@Column
 	private String grade;

@@ -11,4 +11,5 @@ public class CrsGroupdWibmoEurekaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrsGroupdWibmoEurekaApplication.class, args);
 	}
+
 }

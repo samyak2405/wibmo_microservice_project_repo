@@ -105,5 +105,12 @@ public interface StudentOperation {
 	 */
 	public Integer isStudentRegistered(int userId);
 	
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public boolean isRegistered(int userId) ;
+	
 }
 		
