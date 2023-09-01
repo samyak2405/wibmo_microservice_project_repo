@@ -49,20 +49,20 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 	 * @return true if user details matched otherwise return false
 	 */
 	@Override
-	public boolean loggedin(String userEmail, String userPassword, int role, StringBuilder msg) {
+	public boolean loggedin(String userEmail, String userPassword, String role, StringBuilder msg) {
 		// TODO Auto-generated method stub
 
 		User user = null;
-		if (role == 1) {
+		if (role.equals("student")) {
 
 			user = authenticate.studentLoggedin(userEmail);
 
-		} else if (role == 2) {
+		} else if (role.equals("professor")) {
 			user = authenticate.professorLoggedin(userEmail);
 
 		}
 
-		else if (role == 3) {
+		else if (role.equals("admin")) {
 			user = authenticate.adminLoggedin(userEmail);
 		}
 		if (user == null) {
@@ -71,7 +71,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 		}
 		if (userPassword.equalsIgnoreCase(user.getUserPassword())) {
 
-			if (role == 1) {
+			if (role.equals("student")) {
 
 				if (((Student) user).getIsapproved() == 1) {
 					msg.append("Login Successful");
@@ -82,7 +82,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 				}
 
 			} 
-			else if(role==3) {
+			else if(role.equals("admin")) {
 				if (((Admin) user).getIsApproved() == 1) {
 					msg.append("Login Successful");
 					return true;
@@ -114,16 +114,16 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 	 * @param User Role
 	 */
 	@Override
-	public void updatePassword(String userEmail, String userPassword, int role) {
+	public void updatePassword(String userEmail, String userPassword, String role) {
 		// TODO Auto-generated method stub
 
-		if (role == 1) {
+		if (role.equals("student")) {
 
 			authenticate.updateStudentPassword(userEmail, userPassword);
 
-		} else if (role == 2) {
+		} else if (role.equals("professor")) {
 			authenticate.updateProfessorPassword(userEmail, userPassword);
-		} else if (role == 3) {
+		} else if (role.equals("admin")) {
 			authenticate.updateAdminPassword(userEmail, userPassword);
 		}
 	}

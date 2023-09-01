@@ -9,7 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +29,6 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
-import com.wibmo.service.AdminOperation;
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.PaymentOperation;
 import com.wibmo.service.StudentOperation;
@@ -38,20 +37,18 @@ import com.wibmo.service.StudentOperation;
  * 
  */
 @RestController
+@RequestMapping(value="/api/student")
+@CrossOrigin
 public class CRSStudentController {
 
 	@Autowired
 	public StudentOperation studentOp;
-
+	
 	@Autowired
-	public AdminOperation adminOp;
-
+	private PaymentOperation payment;
+	
 	@Autowired
-	public NotificationOperation notificationOp;
-
-	@Autowired
-	public PaymentOperation payment;
-
+	private NotificationOperation notificationOp;
 	/**
 	 * To add course preferences for the registration.
 	 * 
@@ -59,7 +56,7 @@ public class CRSStudentController {
 	 * @param addCourseDto
 	 * @return A message if the courses are added successfully or not.
 	 */
-	@RequestMapping(value = "/student/{id}/addCourse", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}/addCourse", method = RequestMethod.POST)
 	public ResponseEntity<String> addCourse(@PathVariable(value = "id") int userId,
 			@RequestBody AddCourseDto addCourseDto) {
 		int isRegistered = studentOp.isStudentRegistered(userId);
@@ -88,7 +85,7 @@ public class CRSStudentController {
 	 * @param dropCourseDto
 	 * @return A message if the courses are added successfully or not.
 	 */
-	@RequestMapping(value = "/student/{id}/dropCourse", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}/dropCourse", method = RequestMethod.POST)
 	public ResponseEntity<String> dropCourse(@RequestBody DropCourseDTO dropCourseDto) {
 		int isRegistered = studentOp.isStudentRegistered(dropCourseDto.getStudentId());
 		if (isRegistered >= 1) {
@@ -123,7 +120,7 @@ public class CRSStudentController {
 	 * @param userId
 	 * @return
 	 */
-	@RequestMapping(value = "/student/{id}/registerCourse", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}/registerCourse", method = RequestMethod.POST)
 	public ResponseEntity<?> registerCourses(@PathVariable(value = "id") int userId) {
 		try {
 			studentOp.registerCourses(userId);
@@ -141,7 +138,7 @@ public class CRSStudentController {
 	 * @param userId
 	 * @return a map of registered courses and their course names.
 	 */
-	@RequestMapping(value = "/student/{id}/listCourse", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}/listCourse", method = RequestMethod.POST)
 	public ResponseEntity<Map<Integer, String>> listCourse(@PathVariable(value = "id") int userId) {
 		try {
 			Map<Integer, String> courses = studentOp.listCourse(userId);
@@ -165,7 +162,7 @@ public class CRSStudentController {
 	 * @param userId
 	 * @return a list of grades.
 	 */
-	@RequestMapping(value = "/student/{id}/viewReportCard", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/viewReportCard", method = RequestMethod.GET)
 	public ResponseEntity<GradeCardResponseDTO> viewReportCard(@PathVariable(value = "id") int userId) {
 		try {
 			return ResponseEntity.ok(studentOp.viewReportCard(userId));
@@ -175,7 +172,7 @@ public class CRSStudentController {
 		}
 	}
 
-	@RequestMapping(value = "/student/viewCourseCatalog", method = RequestMethod.GET)
+	@RequestMapping(value = "/viewCourseCatalog", method = RequestMethod.GET)
 	public ResponseEntity<List<CourseCatalog>> viewCourseCatalog() {
 		return ResponseEntity.ok(studentOp.viewCourseCatalog());
 	}
@@ -186,7 +183,7 @@ public class CRSStudentController {
 	 * @param studentId
 	 * @return
 	 */
-	@RequestMapping(value = "/student/{id}/viewNotifications", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/viewNotifications", method = RequestMethod.GET)
 	public ResponseEntity viewNotifications(@PathVariable(name = "id") int studentId) {
 		try {
 			List<Notification> notifications = notificationOp.getNotificationMessage(studentId);
@@ -211,7 +208,7 @@ public class CRSStudentController {
 	 * @param onlineMethod
 	 * @return message if payment is successful or not
 	 */
-	@RequestMapping(value = "/student/{id}/payfee/{paymentMethod}", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}/payfee/{paymentMethod}", method = RequestMethod.POST)
 	public ResponseEntity<String> payFee(@PathVariable(value = "id") int userId,
 			@PathVariable(value = "paymentMethod") String paymentMethod,
 			@RequestParam(required = false) String onlineMethod) 

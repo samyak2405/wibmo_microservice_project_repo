@@ -96,30 +96,6 @@ public class AdminOperationImpl implements AdminOperation {
 	}
 
 	/**
-	 * To approve registration of a new Admin
-	 * 
-	 * @param User contains admin details
-	 */
-	@Override
-	public void adminRegistration(RegisterUserDto user) throws UserAlreadyExistsException {
-		// TODO Auto-generated method stub
-		if (validate.emailValidator(user.getUserEmail())) {
-			if (adminRepository.findById(user.getUserId()).isEmpty() == false) {
-				throw new UserAlreadyExistsException(user.getUserEmail());
-			}
-			Admin admin = new Admin();
-			admin.setUserEmail(user.getUserEmail());
-			admin.setUserId(user.getUserId());
-			admin.setUserName(user.getUserName());
-			admin.setUserPassword(user.getUserPassword());
-			admin.setUserPhonenumber(user.getUserPhonenumber());
-			admin.setIsApproved(0);
-			adminRepository.save(admin);
-		} else
-			log.info("Invalid Email Id");
-	}
-
-	/**
 	 * To Approve Student Course Registration
 	 * 
 	 * @return List<Boolean> contains true if courses are assigned successfully to

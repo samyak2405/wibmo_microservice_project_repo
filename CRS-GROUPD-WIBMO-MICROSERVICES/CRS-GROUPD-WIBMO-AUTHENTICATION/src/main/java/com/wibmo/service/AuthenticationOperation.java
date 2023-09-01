@@ -29,7 +29,7 @@ public interface AuthenticationOperation {
 	 * 
 	 * @return true if user details matched otherwise return false
 	 */
-	public boolean loggedin(String userEmail, String userPassword, int role, StringBuilder msg);
+	public boolean loggedin(String userEmail, String userPassword, String role, StringBuilder msg);
 
 	/*
 	 * Update User Password
@@ -40,7 +40,7 @@ public interface AuthenticationOperation {
 	 * 
 	 * @param User Role
 	 */
-	public void updatePassword(String userEmail, String userPassword, int role);
+	public void updatePassword(String userEmail, String userPassword, String role);
 	
 	
 	/**

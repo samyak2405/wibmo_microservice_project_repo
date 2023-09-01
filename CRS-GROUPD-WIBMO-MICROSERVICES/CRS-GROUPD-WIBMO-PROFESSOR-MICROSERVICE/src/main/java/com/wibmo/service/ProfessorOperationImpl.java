@@ -157,30 +157,6 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	}
 
 	/**
-	 * For signing up a new professor
-	 * 
-	 * @param user
-	 * @throws UserAlreadyExistsException
-	 */
-	@Override
-	@Transactional
-	public void registerProfessor(RegisterUserDto user) throws UserAlreadyExistsException {
-		// TODO Auto-generated method stub
-		Professor professor = new Professor();
-		if (professorDao.findProfessorByEmail(user.getUserEmail()) > 0) {
-			throw new UserAlreadyExistsException(user.getUserEmail());
-		}
-		System.out.println("123");
-		professor.setUserId(user.getUserId());
-		professor.setUserName(user.getUserName());
-		professor.setUserEmail(user.getUserEmail());
-		professor.setUserPhonenumber(user.getUserPhonenumber());
-		professor.setUserPassword(user.getUserPassword());
-		professorDao.save(professor);
-
-	}
-
-	/**
 	 * Find professor using Email
 	 * 
 	 * @param userEmail
