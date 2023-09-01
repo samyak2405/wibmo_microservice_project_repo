@@ -29,7 +29,6 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
-import com.wibmo.service.AdminOperation;
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.PaymentOperation;
 import com.wibmo.service.StudentOperation;
@@ -42,16 +41,12 @@ public class CRSStudentController {
 
 	@Autowired
 	public StudentOperation studentOp;
-
+	
 	@Autowired
-	public AdminOperation adminOp;
-
+	private PaymentOperation payment;
+	
 	@Autowired
-	public NotificationOperation notificationOp;
-
-	@Autowired
-	public PaymentOperation payment;
-
+	private NotificationOperation notificationOp;
 	/**
 	 * To add course preferences for the registration.
 	 * 

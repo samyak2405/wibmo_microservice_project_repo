@@ -42,13 +42,6 @@ public interface AdminOperation {
 	public void assignCoursesProf();
 
 	/**
-	 * To approve registration of a new Admin
-	 * 
-	 * @param User contains admin details
-	 */
-	public void adminRegistration(RegisterUserDto user) throws UserAlreadyExistsException;
-
-	/**
 	 * To Approve Student Course Registration
 	 * 
 	 * @return List<Boolean> contains true if courses are assigned successfully to

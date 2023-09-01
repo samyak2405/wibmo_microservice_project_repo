@@ -58,16 +58,6 @@ public interface StudentOperation {
 	 * To view the list of offered courses
 	 */
 	public List<CourseCatalog> viewCourseCatalog();
-	
-	
-	/**
-	 * To register a new Student user.
-	 * @param user
-	 * @throws StudentAlreadyRegisteredException
-	 */
-	@Transactional
-	public void registerStudent(RegisterUserDto user) throws StudentAlreadyRegisteredException;
-	
 
 	/**
 	 * To view the Grade card of all the courses of a student.

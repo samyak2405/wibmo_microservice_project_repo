@@ -54,18 +54,18 @@ public class CRSAuthenticationController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/login/{role}")
-	public ResponseEntity<StringBuilder> loginRequest(@PathVariable int role, 
+	public ResponseEntity<StringBuilder> loginRequest(@PathVariable String role, 
 			@RequestBody LoginRequest loginrequest)
 	{
 		StringBuilder msg = new StringBuilder();
 		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role,msg)) {
     		switch(role) {
-    		case 1:
+    		case "student":
     			return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-			case 2:
+			case "professor":
     			//Professor
 				return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-			case 3: 
+			case "admin": 
     			
 				return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
     		}
@@ -83,10 +83,10 @@ public class CRSAuthenticationController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/register/{role}")
-	public ResponseEntity<String> registerRequest(@PathVariable int role, 
+	public ResponseEntity<String> registerRequest(@PathVariable String role, 
 			@RequestBody List<RegisterUserDto> users)
 	{
-		if(role==1)
+		if(role.equals("student"))
 		{
 			try {
 				for(RegisterUserDto user: users) {
@@ -98,7 +98,7 @@ public class CRSAuthenticationController
 				return new ResponseEntity<String>("Student Already Registerd", HttpStatus.CONFLICT);
 			}
 		}
-		else if(role==2)
+		else if(role.equals("professor"))
 		{	
 			try {
 				for(RegisterUserDto user: users) {
@@ -109,7 +109,7 @@ public class CRSAuthenticationController
 				return new ResponseEntity<String>("Professor Already Registerd", HttpStatus.CONFLICT);
 			}
 		}
-		else if(role==3)
+		else if(role.equals("admin"))
 		{
 			try {
 				for(RegisterUserDto user: users) {
@@ -134,7 +134,7 @@ public class CRSAuthenticationController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/updatepassword/{role}")
-	public ResponseEntity<String> updatePasswordRequest(@PathVariable int role, 
+	public ResponseEntity<String> updatePasswordRequest(@PathVariable String role, 
 			@RequestBody UpdatePasswordDto passwordDto)
 	{
 		

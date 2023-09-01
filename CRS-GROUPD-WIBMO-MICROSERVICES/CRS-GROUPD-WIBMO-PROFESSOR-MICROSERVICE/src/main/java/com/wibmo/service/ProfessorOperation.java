@@ -63,14 +63,6 @@ public interface ProfessorOperation {
 	public List<CourseCatalog> viewCourseCatalog();
 
 	/**
-	 * For signing up a new professor
-	 * 
-	 * @param user
-	 * @throws UserAlreadyExistsException
-	 */ 
-	public void registerProfessor(RegisterUserDto user) throws UserAlreadyExistsException;
-
-	/**
 	 * Find professor using Email
 	 * 
 	 * @param userEmail
