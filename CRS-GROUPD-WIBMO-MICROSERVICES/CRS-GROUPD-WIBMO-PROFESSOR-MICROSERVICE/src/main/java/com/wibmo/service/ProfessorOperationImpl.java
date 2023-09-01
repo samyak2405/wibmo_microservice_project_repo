@@ -36,7 +36,7 @@ import com.wibmo.repository.StudentRepository;
  * Professor Service Implementation
  */
 @Service
-public class ProfessorOperationImpl {
+public class ProfessorOperationImpl implements ProfessorOperation {
 	@Autowired
 	ProfessorRepository professorDao;
 	@Autowired

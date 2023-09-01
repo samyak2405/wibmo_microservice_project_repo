@@ -24,7 +24,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableWebMvc
 @EnableSwagger2
 @EnableAutoConfiguration
-
 @Configuration
 @SpringBootApplication
 public class CrsGroupdWibmoJpaDemoApplication {
