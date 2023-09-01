@@ -1,5 +1,4 @@
 INDEX VERSION 1.134+D:\wibmo_microservice_project_repo\.metadata\.plugins\org.eclipse.jdt.core
-<<<<<<< HEAD
 3032143203.index
 780475224.index
 3935827999.index
@@ -25,7 +24,6 @@ INDEX VERSION 1.134+D:\wibmo_microservice_project_repo\.metadata\.plugins\org.ec
 2408037231.index
 2081907874.index
 3327880627.index
-3260668999.index
 223976174.index
 2523072358.index
 4157209938.index
@@ -46,21 +44,3 @@ INDEX VERSION 1.134+D:\wibmo_microservice_project_repo\.metadata\.plugins\org.ec
 490424521.index
 3884514622.index
 671202867.index
-=======
-3702714995.index
-4186114573.index
-2465709773.index
-2703467111.index
-2643018947.index
-4021081424.index
-2141404021.index
-2431042191.index
-710772644.index
-3070916351.index
-1688842749.index
-2623364463.index
-1251971087.index
-933837326.index
-4189323261.index
-3334628634.index
->>>>>>> d9f0e519a19fae89191f08ed90b55d430228a19a

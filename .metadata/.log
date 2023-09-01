@@ -5670,3 +5670,6 @@ java.lang.ClassNotFoundException: org.springframework.ide.vscode.commons.protoco
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-01 11:53:44.680
 !MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-JPA
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-01 12:30:34.038
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-ADMIN-MICROSERVICE
