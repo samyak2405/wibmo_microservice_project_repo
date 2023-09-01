@@ -21,10 +21,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EntityScan(basePackages = "com.wibmo.entity")
 @EnableEurekaClient
 @SpringBootApplication
-public class CrsGroupdWibmoAdminMicroserviceApplication {
+public class CrsGroupdWibmoNotificationMicroserviceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrsGroupdWibmoAdminMicroserviceApplication.class, args);
+		SpringApplication.run(CrsGroupdWibmoNotificationMicroserviceApplication.class, args);
 	}
 
 }
