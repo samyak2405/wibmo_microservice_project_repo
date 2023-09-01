@@ -43,9 +43,7 @@ public class StudentOperationImpl implements StudentOperation {
 
 	@Autowired
 	private GradeCardRepository gradeCardRepository;
-	
-	@Autowired
-	private SemesterRegistrationRepository semesterRegistrationRepository;
+
 
 	/**
 	 * Student Register for course
@@ -156,36 +154,6 @@ public class StudentOperationImpl implements StudentOperation {
 		return list;
 	}
 
-	/**
-	 * To register a new Student user.
-	 * 
-	 * @param user
-	 * @throws StudentAlreadyRegisteredException
-	 */
-	@Override
-	public void registerStudent(RegisterUserDto user) throws StudentAlreadyRegisteredException {
-		// TODO Auto-generated method stub
-		Student student = new Student();
-		SemesterRegistration semesterRegistration=new SemesterRegistration();
-
-		if (studentDao.findByEmail(user.getUserEmail()) > 0) {
-			throw new StudentAlreadyRegisteredException(user.getUserEmail());
-		}
-		student.setUserName(user.getUserName());
-		student.setUserEmail(user.getUserEmail());
-		student.setUserPhonenumber(user.getUserPhonenumber());
-		student.setUserPassword(user.getUserPassword());
-		student.setUserId(user.getUserId());
-		
-		semesterRegistration.setStudent(student);
-		semesterRegistration.setBranch(user.getBranch());
-		semesterRegistration.setSemester(user.getSemester());
-		semesterRegistration.setStudentName(user.getUserName());
-		student.setSemesterRegistration(semesterRegistration);
-		studentDao.save(student);
-		semesterRegistrationRepository.save(semesterRegistration);
-		
-	}
 
 	/**
 	 * To view the Grade card of all the courses of a student.
