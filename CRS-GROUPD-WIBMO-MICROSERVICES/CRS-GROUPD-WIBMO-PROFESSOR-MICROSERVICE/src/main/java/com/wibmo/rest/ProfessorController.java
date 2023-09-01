@@ -6,8 +6,6 @@ package com.wibmo.rest;
 import java.util.List;
 import java.util.Map;
 
-import javax.ws.rs.core.MediaType;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -114,8 +112,6 @@ public class ProfessorController {
 		
 		@RequestMapping(value="/professor/{id}/setgrades",method = RequestMethod.POST)
 		public ResponseEntity<String> setGrades(@PathVariable(name = "id") int professorID,@RequestBody List<GradeCardDto> gradecard ) {
-			   
-
 		try {
 			for(GradeCardDto gradeCard: gradecard) {
 				professorOp.setGrades(professorID,gradeCard.getStudentId(),gradeCard.getCourseId(),gradeCard.getGrades());
