@@ -12,6 +12,7 @@ import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Professor;
 import com.wibmo.entity.Student;
+import com.wibmo.exception.CourseAlreadyRequested;
 import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -42,7 +43,7 @@ public interface ProfessorOperation {
 	 * @throws CourseNotFoundException
 	 */
 	public void requestCourseOffering(int professorid, List<String> courseIdList)
-			throws CourseNotFoundException, UserNotFoundException;
+			throws CourseNotFoundException, UserNotFoundException,CourseAlreadyRequested;
 
 	/**
 	 * To view list of registered student in a specific course.
@@ -77,7 +78,7 @@ public interface ProfessorOperation {
 	 * @return Map<Integer,String> containing CourseId and CourseName
 	 * @throws UserNotFoundException
 	 */
-	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
+	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
 
 	public List<Professor> viewProfessor();
 }

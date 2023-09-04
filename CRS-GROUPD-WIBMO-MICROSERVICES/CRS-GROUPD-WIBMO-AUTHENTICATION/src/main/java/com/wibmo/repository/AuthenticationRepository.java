@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.*;
 
 /**
@@ -21,7 +23,7 @@ public interface AuthenticationRepository extends CrudRepository<User, Integer> 
 	 * @param userEmail
 	 * @return Student
 	 */
-	@Query(value = "SELECT * FROM student WHERE userEmail=:userEmail", nativeQuery = true)
+	@Query(value = SQLConstants.VERIFY_STUDENT, nativeQuery = true)
 	public Student studentLoggedin(@Param("userEmail") String userEmail);
 
 	/**
@@ -30,7 +32,7 @@ public interface AuthenticationRepository extends CrudRepository<User, Integer> 
 	 * @param userEmail
 	 * @return Professor
 	 */
-	@Query(value = "SELECT * FROM professor WHERE userEmail=:userEmail", nativeQuery = true)
+	@Query(value =  SQLConstants.VERIFY_PROFESSOR, nativeQuery = true)
 	public Professor professorLoggedin(@Param("userEmail") String userEmail);
 
 	/**
@@ -39,7 +41,7 @@ public interface AuthenticationRepository extends CrudRepository<User, Integer> 
 	 * @param userEmail
 	 * @return Admin
 	 */
-	@Query(value = "SELECT * FROM admin WHERE userEmail=:userEmail", nativeQuery = true)
+	@Query(value =  SQLConstants.VERIFY_ADMIN, nativeQuery = true)
 	public Admin adminLoggedin(@Param("userEmail") String userEmail);
 
 	/**
@@ -49,7 +51,7 @@ public interface AuthenticationRepository extends CrudRepository<User, Integer> 
 	 * @param userPassword
 	 */
 	@Modifying
-	@Query(value = "UPDATE student SET userPassword=?2 WHERE userEmail=?1", nativeQuery = true)
+	@Query(value = SQLConstants.UPDATE_PASSWORD_STUDENT, nativeQuery = true)
 	public void updateStudentPassword(@Param("userEmail") String userEmail, String userPassword);
 
 	/**
@@ -59,7 +61,7 @@ public interface AuthenticationRepository extends CrudRepository<User, Integer> 
 	 * @param userPassword
 	 */
 	@Modifying
-	@Query(value = "UPDATE professor SET userPassword=?2 WHERE userEmail=?1", nativeQuery = true)
+	@Query(value = SQLConstants.UPDATE_PASSWORD_PROFESSOR, nativeQuery = true)
 	public void updateProfessorPassword(@Param("userEmail") String userEmail, String userPassword);
 
 	/**
@@ -69,7 +71,7 @@ public interface AuthenticationRepository extends CrudRepository<User, Integer> 
 	 * @param userPassword
 	 */
 	@Modifying
-	@Query(value = "UPDATE admin SET userPassword=?2 WHERE userEmail=?1", nativeQuery = true)
+	@Query(value = SQLConstants.UPDATE_PASSWORD_ADMIN, nativeQuery = true)
 	public void updateAdminPassword(@Param("userEmail") String userEmail, String userPassword);
 
 }

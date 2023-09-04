@@ -18,4 +18,5 @@ public class SQLConstants {
 	public static final String SELECT_PROFESSOR_BY_EMAIL = "SELECT userId FROM professor WHERE userEmail=?";
 
 	public static final String LIST_OF_APPROVED_COURSES = "SELECT pcm.courseid, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.userId=?1 AND pcm.isApproved=1";
+	public static final String SEARCH_PROFESSOR_COURSEMAPPING="SELECT COUNT(*) FROM professorcoursemapping WHERE userId=?1";
 }

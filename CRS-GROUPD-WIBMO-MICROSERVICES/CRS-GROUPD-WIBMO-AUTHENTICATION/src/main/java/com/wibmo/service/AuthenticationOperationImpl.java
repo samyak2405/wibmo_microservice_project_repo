@@ -64,6 +64,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 
 		else if (role.equals("admin")) {
 			user = authenticate.adminLoggedin(userEmail);
+			System.out.println("123");
 		}
 		if (user == null) {
 			msg.append("User Not Found");
@@ -176,7 +177,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 		if (professorDao.findProfessorByEmail(user.getUserEmail()) > 0) {
 			throw new UserAlreadyExistsException(user.getUserEmail());
 		}
-		System.out.println("123");
+	
 		professor.setUserId(user.getUserId());
 		professor.setUserName(user.getUserName());
 		professor.setUserEmail(user.getUserEmail());
@@ -194,11 +195,13 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 	@Override
 	public void adminRegistration(RegisterUserDto user) throws UserAlreadyExistsException {
 		// TODO Auto-generated method stub
+		Admin admin = new Admin();
+		
 		if (validate.emailValidator(user.getUserEmail())) {
-			if (adminRepository.findById(user.getUserId()).isEmpty() == false) {
+			if (adminRepository.findByEmail(user.getUserEmail()) > 0) {
 				throw new UserAlreadyExistsException(user.getUserEmail());
 			}
-			Admin admin = new Admin();
+			
 			admin.setUserEmail(user.getUserEmail());
 			admin.setUserId(user.getUserId());
 			admin.setUserName(user.getUserName());
