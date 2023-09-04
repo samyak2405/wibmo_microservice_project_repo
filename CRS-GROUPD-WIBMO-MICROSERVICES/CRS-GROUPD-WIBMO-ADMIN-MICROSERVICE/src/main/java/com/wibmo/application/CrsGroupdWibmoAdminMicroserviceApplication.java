@@ -13,12 +13,20 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * Admin entry Applicaiton
+ */
+
+
+@EnableJpaRepositories("com.wibmo.repository")
+@EntityScan(basePackages = "com.wibmo.entity")
+@EnableSwagger2
 @EnableWebMvc
 @EnableAutoConfiguration
 @ComponentScan("com.wibmo.*")
 @Configuration
-@EnableJpaRepositories("com.wibmo.repository")
-@EntityScan(basePackages = "com.wibmo.entity")
 @EnableEurekaClient
 @SpringBootApplication
 public class CrsGroupdWibmoAdminMicroserviceApplication {

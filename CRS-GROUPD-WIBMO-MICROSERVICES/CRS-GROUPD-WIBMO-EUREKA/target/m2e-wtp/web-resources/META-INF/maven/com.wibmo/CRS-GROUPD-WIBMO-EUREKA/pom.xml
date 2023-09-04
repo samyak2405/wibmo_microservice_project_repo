@@ -21,6 +21,10 @@
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD
+		
+=======
+>>>>>>> feda06ed8d5b9e237b4e1f3250e6a25b3250fa0c
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
