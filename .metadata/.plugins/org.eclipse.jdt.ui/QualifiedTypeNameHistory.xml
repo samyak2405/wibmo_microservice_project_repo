@@ -12,4 +12,6 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
     <fullyQualifiedTypeName name="com.wibmo.entity.CourseCatalog"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+    <fullyQualifiedTypeName name="com.wibmo.exception.CourseAlreadyRequested"/>
+    <fullyQualifiedTypeName name="com.wibmo.constant.SQLConstants"/>
 </qualifiedTypeNameHistroy>
