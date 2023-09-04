@@ -40,7 +40,6 @@ public class ProfessorController {
 		 * @param courseIdList
 		 * @return message if the courses requested by professor  are successfully sent to admin for Approval or not
 		 */
-		
 		@RequestMapping(value="/{userId}/requestcourse",method = RequestMethod.POST)
 		public ResponseEntity<String> freezeList(@PathVariable(value="userId") int userId,@RequestBody List<String> courseIdList) {
 			 try {

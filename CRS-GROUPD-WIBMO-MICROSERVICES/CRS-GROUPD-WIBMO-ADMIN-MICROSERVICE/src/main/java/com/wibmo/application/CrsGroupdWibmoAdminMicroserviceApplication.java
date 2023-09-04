@@ -15,6 +15,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Admin entry Applicaiton
+ */
+
+
 @EnableJpaRepositories("com.wibmo.repository")
 @EntityScan(basePackages = "com.wibmo.entity")
 @EnableSwagger2
