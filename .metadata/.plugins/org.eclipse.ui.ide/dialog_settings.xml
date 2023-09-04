@@ -38,6 +38,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\gavaniya.ketanbhai\OneDrive - Enstage Software Pvt Ltd\Desktop\final\CRS-GROUPD-WIBMO-MICROSERVICES"/>
+			<item value="C:\Users\gavaniya.ketanbhai\OneDrive - Enstage Software Pvt Ltd\Desktop\final"/>
 			<item value="D:\wibmo_microservice_project_repo\CRS-GROUPD-WIBMO-JPA"/>
 			<item value="C:\Users\gavaniya.ketanbhai\OneDrive - Enstage Software Pvt Ltd\Desktop\wibmo_microservice_project_repo\CRS-GROUPD-WIBMO-EUREKA"/>
 			<item value="C:\Users\gavaniya.ketanbhai\OneDrive - Enstage Software Pvt Ltd\Desktop\wibmo_microservice_project_repo"/>

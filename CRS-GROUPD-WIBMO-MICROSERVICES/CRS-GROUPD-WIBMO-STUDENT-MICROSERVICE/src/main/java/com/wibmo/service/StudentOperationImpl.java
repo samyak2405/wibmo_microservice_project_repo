@@ -170,10 +170,30 @@ public class StudentOperationImpl implements StudentOperation {
 		GradeCardResponseDTO gradeCardResponseDTO = new GradeCardResponseDTO();
 		gradeCardResponseDTO.setStudentId(studentId);
 		List<GradeCard> gradeCard = gradeCardRepository.findByStudent(studentDao.findById(studentId).get());
+		
+		double cgpa = 0.0;
+		Map<String, Integer> mapper = new HashMap<>();
+		mapper.put("A",10);
+		mapper.put("B",9);
+		mapper.put("C",8);
+		mapper.put("D",7);
+		mapper.put("E",6);
+		mapper.put("F",5);
+		
+		double cgpaSum=0;
+		
+		for (GradeCard grade : gradeCard) {
+					cgpaSum+=mapper.get(grade.getGrade());
+		}
+		
+		cgpa = cgpaSum/(gradeCard.size()*10);
+		
+		
 		for (GradeCard grade : gradeCard) {
 			gradeCardResponseDTO.addGradeDetails(grade.getCatalog().getCourseId(), grade.getCatalog().getCourseName(),
 					grade.getGrade());
 		}
+		gradeCardResponseDTO.setCgpa(cgpa*10);
 		return gradeCardResponseDTO;
 	}
 

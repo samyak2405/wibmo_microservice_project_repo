@@ -12,4 +12,6 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
     <fullyQualifiedTypeName name="com.wibmo.entity.CourseCatalog"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+    <fullyQualifiedTypeName name="com.wibmo.service.PaymentOperation"/>
+    <fullyQualifiedTypeName name="com.wibmo.service.StudentOperation"/>
 </qualifiedTypeNameHistroy>
