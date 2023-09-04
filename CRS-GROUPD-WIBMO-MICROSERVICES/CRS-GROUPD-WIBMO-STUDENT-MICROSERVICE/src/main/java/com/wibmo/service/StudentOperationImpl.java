@@ -128,16 +128,16 @@ public class StudentOperationImpl implements StudentOperation {
 	 * @throws UserNotApprovedException
 	 */
 	@Override
-	public Map<Integer, String> listCourse(int studentId) throws UserNotApprovedException {
+	public Map<String, String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		int isPresent = studentDao.isApproved(studentId);
 		if (isPresent < 1)
 			throw new UserNotApprovedException(studentId);
 
 		List<Object[]> list = studentDao.listCourse(studentId);
-		Map<Integer, String> courses = new HashMap<>();
+		Map<String, String> courses = new HashMap<>();
 		for (Object[] result : list) {
-			courses.put((Integer) result[0], (String) result[1]);
+			courses.put((String) result[0], (String) result[1]);
 		}
 		return courses;
 

@@ -52,7 +52,7 @@ public interface StudentOperation {
 	 * @return a map of registered courseId and their name.
 	 * @throws UserNotApprovedException
 	 */
-	public Map<Integer,String> listCourse(int studentId) throws UserNotApprovedException;
+	public Map<String,String> listCourse(int studentId) throws UserNotApprovedException;
 	
 	/**
 	 * To view the list of offered courses

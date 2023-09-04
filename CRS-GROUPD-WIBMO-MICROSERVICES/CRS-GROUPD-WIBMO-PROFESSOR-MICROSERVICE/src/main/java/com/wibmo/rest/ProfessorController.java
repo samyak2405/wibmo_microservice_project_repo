@@ -62,9 +62,9 @@ public class ProfessorController {
 		 * @return list of approved courses
 		 */
 		@RequestMapping(value="/{userId}/approvedcourses",method = RequestMethod.GET)
-		public ResponseEntity<Map<Integer,String>> approvedCourses(@PathVariable(value="userId") int userId)
+		public ResponseEntity<Map<String,String>> approvedCourses(@PathVariable(value="userId") int userId)
 		{try {
-			 return new ResponseEntity<Map<Integer, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
+			 return new ResponseEntity<Map<String, String>>(professorOp.listOfApprovedCourses(userId),HttpStatus.OK);
 		}
 			 catch (UserNotFoundException e) {
 					return new ResponseEntity("User with UserId:"+userId+" Not Found",HttpStatus.NOT_FOUND);
@@ -81,7 +81,7 @@ public class ProfessorController {
 		 * @param courseId
 		 * @return list of students registered for particular courseId.
 		 */
-		@RequestMapping(value="/{userId}/{courseId}/studentlist",method = RequestMethod.POST)
+		@RequestMapping(value="/{userId}/{courseId}/studentlist",method = RequestMethod.GET)
 	    public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") String courseId) {
 
 	        try {
