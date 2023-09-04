@@ -90,5 +90,7 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	public void setAdminApproval(@Param("userId")int userId);
 
 	
-	public Admin findByUserEmail(String email); 
+	public Admin findByUserEmail(String email);
+
+	
 }

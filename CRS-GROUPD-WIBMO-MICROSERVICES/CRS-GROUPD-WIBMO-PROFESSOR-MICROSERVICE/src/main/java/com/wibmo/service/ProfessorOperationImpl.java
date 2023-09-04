@@ -21,6 +21,7 @@ import com.wibmo.entity.Professor;
 import com.wibmo.entity.ProfessorCourseMap;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.StudentCourseMap;
+import com.wibmo.exception.CourseAlreadyRequested;
 import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -93,7 +94,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	@Override
 	@Transactional
 	public void requestCourseOffering(int professorid, List<String> courseIdList)
-			throws CourseNotFoundException, UserNotFoundException {
+			throws CourseNotFoundException, UserNotFoundException,CourseAlreadyRequested {
 
 		// TODO Auto-generated method stub
 		if (professorDao.findById(professorid).isEmpty() == true) {
@@ -103,14 +104,17 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 			if (courseDao.findByCourseId(courseId) == null)
 				throw new CourseNotFoundException(courseId);
 		}
-
+		if (professorCoMapRepo.findByUserId(professorid)>0) {
+			
+		    throw new CourseAlreadyRequested(professorid);
+		}
 		courseIdList.forEach((courseId) -> {
 			ProfessorCourseMap profCoMap = new ProfessorCourseMap();
 			profCoMap.setProfessor(professorDao.findById(professorid).get());
 			profCoMap.setCourseCatalog(courseDao.findByCourseId(courseId));
 			profCoMap.setIsApproved(0);
 			professorCoMapRepo.save(profCoMap);
-			System.out.println("Done");
+			
 		});
 		return;
 	}

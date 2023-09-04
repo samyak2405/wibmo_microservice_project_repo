@@ -13,6 +13,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Professor;
 import com.wibmo.entity.ProfessorCourseMap;
@@ -58,5 +59,8 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 * @return professorcoursemap object
 	 */
 	public ProfessorCourseMap findByProfessorAndCourseCatalog(Professor professor, CourseCatalog course);
+
+	@Query(value = "SELECT COUNT(*) FROM professorcoursemapping WHERE userId=?1", nativeQuery = true)
+	public int findByUserId(@Param("userId") int professorId);
 
 }
