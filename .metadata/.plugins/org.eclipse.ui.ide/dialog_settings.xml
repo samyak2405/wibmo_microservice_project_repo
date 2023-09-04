@@ -38,6 +38,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\wibmo_microservice_project_repo\CRS-GROUPD-WIBMO-MICROSERVICES\CRS-WIBMO-API-GATEWAY"/>
 			<item value="D:\wibmo_microservice_project_repo\CRS-GROUPD-WIBMO-MICROSERVICES\CRS-GROUPD-WIBMO-ADMIN-MICROSERVICE"/>
 			<item value="D:\wibmo_microservice_project_repo\CRS-GROUPD-WIBMO-MICROSERVICES\CRS-GROUPD-WIBMO-AUTHENTICATION"/>
 			<item value="D:\wibmo_microservice_project_repo\CRS-GROUPD-WIBMO-MICROSERVICES\CRS-GROUPD-WIBMO-NOTIFICATION-MICROSERVICE"/>
