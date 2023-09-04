@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Notification;
-import com.wibmo.constant.NotificationConstants;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.DropCourseDTO;
 import com.wibmo.dto.GradeCardResponseDTO;
