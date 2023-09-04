@@ -28,6 +28,8 @@ public class SpringCloudConfig {
 						.uri("http://localhost:8084/"))
 				.route(r -> r.path("/api/notification/**")
 						.uri("http://localhost:8085/"))
+				.route(r -> r.path("/api/payment/**")
+						.uri("http://localhost:8086/"))
 				.build();
 	}
 }

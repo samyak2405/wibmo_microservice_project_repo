@@ -8,9 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import com.wibmo.configuration.SpringCloudConfig;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @SpringBootApplication
 @EnableAutoConfiguration
+@EnableSwagger2
 @Configuration
 @Import({SpringCloudConfig.class})
 @EnableEurekaClient

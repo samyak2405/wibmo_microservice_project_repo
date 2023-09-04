@@ -54,7 +54,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @param courseId
  * @return coursePreference
  */
-	@Query(value="SELECT isRegister FROM studentcoursemapping WHERE userId=:studentId AND courseId=:courseId", nativeQuery = true )
+	@Query(value="SELECT coursecategory FROM studentcoursemapping WHERE userId=:studentId AND courseId=:courseId", nativeQuery = true )
 	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") String courseId);
 
 /**

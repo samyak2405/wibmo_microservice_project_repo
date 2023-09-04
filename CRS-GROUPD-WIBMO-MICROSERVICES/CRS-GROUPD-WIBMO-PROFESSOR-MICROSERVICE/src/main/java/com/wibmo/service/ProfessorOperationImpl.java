@@ -177,15 +177,15 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
-	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
+	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
 		// TODO Auto-generated method stub
 		if (professorDao.findById(userId).isEmpty() == true) {
 			throw new UserNotFoundException(userId);
 		}
 		List<Object[]> list = professorDao.listOfApprovedCourses(userId);
-		Map<Integer, String> courses = new HashMap<>();
+		Map<String, String> courses = new HashMap<>();
 		for (Object[] result : list)
-			courses.put((Integer) result[0], (String) result[1]);
+			courses.put((String) result[0], (String) result[1]);
 		return courses;
 	}
 

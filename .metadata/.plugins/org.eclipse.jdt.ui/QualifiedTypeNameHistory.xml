@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jdbc.repository.query.Query"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
+    <fullyQualifiedTypeName name="com.wibmo.repository.UserRepository"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.Claims"/>
     <fullyQualifiedTypeName name="com.wibmo.utils.JwtTokenUtils"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="com.wibmo.entity.Student"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.wibmo.repository.AdminRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.wibmo.repository.ProfessorRepository"/>
+    <fullyQualifiedTypeName name="com.wibmo.service.UserDetailsService"/>
+    <fullyQualifiedTypeName name="com.wibmo.repository.StudentRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
+    <fullyQualifiedTypeName name="com.wibmo.entity.User"/>
+    <fullyQualifiedTypeName name="com.wibmo.service.JwtUserDetailsService"/>
 </qualifiedTypeNameHistroy>

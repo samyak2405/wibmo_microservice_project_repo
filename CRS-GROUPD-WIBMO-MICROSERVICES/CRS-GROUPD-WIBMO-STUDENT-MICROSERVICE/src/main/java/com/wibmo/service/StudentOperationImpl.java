@@ -128,16 +128,16 @@ public class StudentOperationImpl implements StudentOperation {
 	 * @throws UserNotApprovedException
 	 */
 	@Override
-	public Map<Integer, String> listCourse(int studentId) throws UserNotApprovedException {
+	public Map<String, String> listCourse(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		int isPresent = studentDao.isApproved(studentId);
 		if (isPresent < 1)
 			throw new UserNotApprovedException(studentId);
 
 		List<Object[]> list = studentDao.listCourse(studentId);
-		Map<Integer, String> courses = new HashMap<>();
+		Map<String, String> courses = new HashMap<>();
 		for (Object[] result : list) {
-			courses.put((Integer) result[0], (String) result[1]);
+			courses.put((String) result[0], (String) result[1]);
 		}
 		return courses;
 
@@ -170,10 +170,30 @@ public class StudentOperationImpl implements StudentOperation {
 		GradeCardResponseDTO gradeCardResponseDTO = new GradeCardResponseDTO();
 		gradeCardResponseDTO.setStudentId(studentId);
 		List<GradeCard> gradeCard = gradeCardRepository.findByStudent(studentDao.findById(studentId).get());
+		
+		double cgpa = 0.0;
+		Map<String, Integer> mapper = new HashMap<>();
+		mapper.put("A",10);
+		mapper.put("B",9);
+		mapper.put("C",8);
+		mapper.put("D",7);
+		mapper.put("E",6);
+		mapper.put("F",5);
+		
+		double cgpaSum=0;
+		
+		for (GradeCard grade : gradeCard) {
+					cgpaSum+=mapper.get(grade.getGrade());
+		}
+		
+		cgpa = cgpaSum/(gradeCard.size()*10);
+		
+		
 		for (GradeCard grade : gradeCard) {
 			gradeCardResponseDTO.addGradeDetails(grade.getCatalog().getCourseId(), grade.getCatalog().getCourseName(),
 					grade.getGrade());
 		}
+		gradeCardResponseDTO.setCgpa(cgpa*10);
 		return gradeCardResponseDTO;
 	}
 

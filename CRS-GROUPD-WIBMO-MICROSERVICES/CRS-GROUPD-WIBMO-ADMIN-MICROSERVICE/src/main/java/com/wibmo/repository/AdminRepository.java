@@ -28,7 +28,7 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	 */
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE student SET isApproved=1", nativeQuery = true)
+	@Query(value =SQLConstants.APPROVE_STUDENT, nativeQuery = true)
 	public void approveStudentRegistration();
 
 	/**
@@ -82,14 +82,14 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	 * @param userEmail
 	 * @return count
 	 */
-	@Query(value = "SELECT COUNT(*) FROM admin WHERE userEmail=?1", nativeQuery = true)
+	@Query(value = SQLConstants.FIND_BY_EMAIL, nativeQuery = true)
 	public int findByEmail(@Param("userEmail") String userEmail);
 
 	@Modifying
 	@Transactional
-	@Query(value="UPDATE admin SET isApproved=1 WHERE userId=?1",nativeQuery=true)
+	@Query(value=SQLConstants.SET_ADMIN_APPROVAL,nativeQuery=true)
 	public void setAdminApproval(@Param("userId")int userId);
 
 	
-	public Admin findByUserEmail(String email); 
+//	public Admin findByUserEmail(String email); 
 }

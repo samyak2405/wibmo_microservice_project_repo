@@ -4,7 +4,7 @@
 package com.wibmo.dto;
 
 /**
- * 
+ * Student Details Data Transfer Object
  */
 public class RegisterUserDto {
 

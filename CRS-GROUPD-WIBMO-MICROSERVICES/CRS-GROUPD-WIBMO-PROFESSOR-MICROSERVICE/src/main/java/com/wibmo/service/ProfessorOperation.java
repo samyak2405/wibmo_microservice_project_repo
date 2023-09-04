@@ -77,7 +77,7 @@ public interface ProfessorOperation {
 	 * @return Map<Integer,String> containing CourseId and CourseName
 	 * @throws UserNotFoundException
 	 */
-	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
+	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException;
 
 	public List<Professor> viewProfessor();
 }
