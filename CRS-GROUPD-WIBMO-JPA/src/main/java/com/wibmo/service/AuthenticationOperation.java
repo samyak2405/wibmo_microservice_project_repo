@@ -37,5 +37,7 @@ public interface AuthenticationOperation {
 	 * @param User Role
 	 */
 	public void updatePassword(String userEmail, String userPassword, int role);
+	
+	public void authenticate(String username, String password) throws Exception;
 
 }

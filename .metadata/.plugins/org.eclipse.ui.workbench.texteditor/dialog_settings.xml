@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="userId"/>
+		<item key="selection" value="security"/>
 		<list key="findhistory">
+			<item value="security"/>
+			<item value="token"/>
+			<item value="io"/>
 			<item value="adminId"/>
 			<item value="professorId"/>
 			<item value="studentId"/>

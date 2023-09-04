@@ -19,7 +19,6 @@ import java.io.Serializable;
 /**
  * Bean class for User entity
  */
-
 @MappedSuperclass
 public class User implements Serializable {
 
