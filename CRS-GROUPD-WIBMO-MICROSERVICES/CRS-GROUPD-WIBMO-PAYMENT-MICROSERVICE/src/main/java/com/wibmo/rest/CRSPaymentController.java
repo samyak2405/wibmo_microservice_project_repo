@@ -90,7 +90,7 @@ try {
 
 	}catch(StudentAlreadyRegisteredException e)
 	{
-			return new ResponseEntity<String>("Student as already registered", HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<String>("Student has already paid the fee!", HttpStatus.NOT_ACCEPTABLE);
 	}
 	}
 

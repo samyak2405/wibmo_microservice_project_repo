@@ -13,7 +13,6 @@ INDEX VERSION 1.134+D:\wibmo_microservice_project_repo\.metadata\.plugins\org.ec
 4266341809.index
 3928853186.index
 2515337514.index
-2408037231.index
 94302118.index
 1251061096.index
 184414470.index
@@ -24,6 +23,7 @@ INDEX VERSION 1.134+D:\wibmo_microservice_project_repo\.metadata\.plugins\org.ec
 1067715165.index
 883542173.index
 1598715489.index
+334431595.index
 949990096.index
 518515440.index
 1922073757.index
@@ -39,9 +39,7 @@ INDEX VERSION 1.134+D:\wibmo_microservice_project_repo\.metadata\.plugins\org.ec
 1603857970.index
 4095093780.index
 3206337151.index
-3260668999.index
 3972072390.index
-671202867.index
 490424521.index
 3659395477.index
 3121530482.index
