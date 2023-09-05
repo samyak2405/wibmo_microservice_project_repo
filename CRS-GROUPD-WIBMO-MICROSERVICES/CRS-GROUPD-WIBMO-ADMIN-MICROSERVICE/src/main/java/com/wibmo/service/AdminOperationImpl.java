@@ -124,4 +124,9 @@ public class AdminOperationImpl implements AdminOperation {
 		adminRepository.setAdminApproval(userId);
 
 	}
+
+	public int getAdminByEmail(String string) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
