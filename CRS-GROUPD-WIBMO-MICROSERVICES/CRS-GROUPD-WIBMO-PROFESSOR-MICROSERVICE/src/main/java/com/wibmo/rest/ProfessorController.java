@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wibmo.dto.GradeCardDto;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Professor;
-import com.wibmo.exception.CourseAlreadyRequested;
 import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserNotFoundException;
@@ -55,10 +54,6 @@ public class ProfessorController {
 			 catch (CourseNotFoundException e) {
 					return new ResponseEntity<String>("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 				}
-			 catch (CourseAlreadyRequested e) {
-					return new ResponseEntity<String>("User with userid:"+e.getUserId()+" already requested for courses",HttpStatus.NOT_FOUND);
-				}
-			
 		}
 
 		/**

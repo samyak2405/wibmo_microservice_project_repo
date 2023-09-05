@@ -116,9 +116,8 @@ public class CRSAuthenticationController
 		{
 			try {
 				for(RegisterUserDto user: users) {
-					System.out.println(user.getUserPhonenumber());
-					loggedin.adminRegistration(user);
 					
+					loggedin.adminRegistration(user);
 				}
 			} catch (UserAlreadyExistsException e) {
 				// TODO Auto-generated catch block

@@ -107,5 +107,12 @@ public class SQLConstants {
 
 	// For listing approved courses of professor
 	public static final String LIST_APPROVED_COURSES = "SELECT pcm.courseid, cc.courseName FROM professorcoursemapper pcm INNER JOIN coursecatalog cc ON pcm.courseid=cc.courseId WHERE pcm.userId=?1 AND pcm.isApproved=1";
+	
+	
+	public static String findByEmail(String role, int userId)
+	{
+		String query="SELECT * FROM "+role+" WHERE userId="+userId;
+		return query;
+	}
 
 }
