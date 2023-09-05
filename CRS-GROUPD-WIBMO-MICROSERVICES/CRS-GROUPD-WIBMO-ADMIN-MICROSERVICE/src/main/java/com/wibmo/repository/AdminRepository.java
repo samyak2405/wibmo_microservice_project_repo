@@ -5,10 +5,7 @@ package com.wibmo.repository;
 
 import java.util.List;
 
-
 import javax.transaction.Transactional;
-
-import org.hibernate.boot.model.naming.ImplicitNameSource;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -29,7 +26,7 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	 */
 	@Modifying
 	@Transactional
-	@Query(value =SQLConstants.APPROVE_STUDENT, nativeQuery = true)
+	@Query(value = SQLConstants.APPROVE_STUDENT, nativeQuery = true)
 	public void approveStudentRegistration();
 
 	/**
@@ -86,12 +83,22 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	@Query(value = SQLConstants.FIND_BY_EMAIL, nativeQuery = true)
 	public int findByEmail(@Param("userEmail") String userEmail);
 
+	/**
+	 * set status of admin approval
+	 * 
+	 * @param userId
+	 */
 	@Modifying
 	@Transactional
-	@Query(value=SQLConstants.SET_ADMIN_APPROVAL,nativeQuery=true)
-	public void setAdminApproval(@Param("userId")int userId);
+	@Query(value = SQLConstants.SET_ADMIN_APPROVAL, nativeQuery = true)
+	public void setAdminApproval(@Param("userId") int userId);
 
-	
+	/**
+	 * Checking that specific user with userId has been approved
+	 * 
+	 * @param userId
+	 * @param isApproved
+	 * @return
+	 */
 	public Integer countByUserIdAndIsApproved(int userId, int isApproved);
-//	public Admin findByUserEmail(String email); 
 }
