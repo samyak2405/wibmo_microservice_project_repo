@@ -18,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.wibmo.entity.Admin;
+import com.wibmo.exception.UserAlreadyApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.service.AdminOperationImpl;
 
@@ -59,7 +60,15 @@ public class TestAdminDao {
 		
 		doNothing().when(adminRepo).setAdminApproval(userId);
 		
-		adminOp.approveAdmin(userId);
+		try {
+			adminOp.approveAdmin(userId);
+		} catch (UserNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UserAlreadyApprovedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		verify(adminRepo,times(1)).setAdminApproval(userId);
 	}
