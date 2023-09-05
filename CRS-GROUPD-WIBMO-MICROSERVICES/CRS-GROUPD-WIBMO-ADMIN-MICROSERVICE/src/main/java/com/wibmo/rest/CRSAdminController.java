@@ -27,7 +27,7 @@ import com.wibmo.service.AdminOperation;
 @RestController
 @RequestMapping(value="/api/admin")
 @CrossOrigin
-@PreAuthorize("hasAuthority('Role.professor')")
+@PreAuthorize("hasAuthority('Role.admin')")
 public class CRSAdminController {
 	
 	@Autowired
