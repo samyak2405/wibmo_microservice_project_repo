@@ -44,4 +44,9 @@ public class SQLConstants {
 	
 	public static final String STUDENT_COURSE_COUNT = "SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?";
 
+	public static final String LIST_PROFESSOR_IDS = "SELECT DISTINCT userId FROM professorcoursemapping";
+	
+	public static final String GET_PROFESSOR_COURSES = "SELECT courseId FROM professorcoursemapping WHERE userId=?1";
+
+	public static final String APPROVE_COURSE_PROFESSOR = "UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 AND courseId=?2";
 }

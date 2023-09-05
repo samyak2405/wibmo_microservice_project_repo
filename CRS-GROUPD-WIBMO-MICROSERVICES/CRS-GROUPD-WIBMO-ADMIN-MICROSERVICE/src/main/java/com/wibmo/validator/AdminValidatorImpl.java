@@ -10,6 +10,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,7 @@ import com.wibmo.repository.StudentRepository;
 @Component
 public class AdminValidatorImpl implements ValidatorInterface {
 
+	private static final Logger log = LoggerFactory.getLogger(AdminValidatorImpl.class);
 	@Autowired
 	public StudentRepository studentRepository;
 	@Autowired
@@ -85,18 +88,20 @@ public class AdminValidatorImpl implements ValidatorInterface {
 			int isApproved = studentRepository.isCourseRegistrationApproved(studentId);
 			int feePaymentStatus=studentRepository.findById(studentId).get().getCourseRegistrationStatus();
 			if (isApproved > 0) {
+				log.info("Student with id {} not approved",studentId);
 				continue;
 			}
 			if(feePaymentStatus==0)
 			{
+				log.info("Payment not done.");
 				continue;
 			}
 			
 			if (isRegistered == 0) {
-				System.out.println("Student has not Registered till now");
+				log.info("Student has not Registered till now");
 				continue;
 			} else
-				System.out.println("Student has Registered Successfully");
+				log.info("Student has Registered Successfully");
 
 			List<Object[]> data = studentRepository.getStudentCourseData(studentId);
 			Map<String,Integer> studentData = new HashMap<>();

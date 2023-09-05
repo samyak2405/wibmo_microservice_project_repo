@@ -13,6 +13,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.CourseCatalog;
 import com.wibmo.entity.Professor;
 import com.wibmo.entity.ProfessorCourseMap;
@@ -28,7 +29,7 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 * 
 	 * @return list of professor Id
 	 */
-	@Query(value = "SELECT DISTINCT userId FROM professorcoursemapping", nativeQuery = true)
+	@Query(value = SQLConstants.LIST_PROFESSOR_IDS, nativeQuery = true)
 	public List<Integer> listProfessorIds();
 
 	/**
@@ -37,7 +38,7 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 * @param professorId
 	 * @return list of courses
 	 */
-	@Query(value = "SELECT courseId FROM professorcoursemapping WHERE userId=?1", nativeQuery = true)
+	@Query(value = SQLConstants.GET_PROFESSOR_COURSES, nativeQuery = true)
 	public List<String> getProfessorCourses(@Param("userId") int professorId);
 
 	/**
@@ -48,7 +49,7 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 */
 	@Modifying
 	@Transactional
-	@Query(value="UPDATE professorcoursemapping SET isApproved=1 WHERE userId=?1 AND courseId=?2",nativeQuery = true)
+	@Query(value=SQLConstants.APPROVE_COURSE_PROFESSOR,nativeQuery = true)
 	public void approveCourseProf(@Param("userId")int professorId,@Param("courseId") String courseId);
 
 	/**
