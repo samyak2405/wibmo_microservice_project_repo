@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.boot.model.naming.ImplicitNameSource;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -91,5 +92,6 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	public void setAdminApproval(@Param("userId")int userId);
 
 	
+	public Integer countByUserIdAndIsApproved(int userId, int isApproved);
 //	public Admin findByUserEmail(String email); 
 }
