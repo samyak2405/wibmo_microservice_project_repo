@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wibmo.entity.Student;
+import com.wibmo.entity.User;
 
 
 /**
@@ -130,6 +131,9 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Transactional
 	@Query(value="UPDATE student SET isApproved=1 WHERE userId=?1",nativeQuery =  true)
 	public void setApprovedStudentById(@Param("userId")int id);
+
+
+public User findByUserEmail(String userEmail);
 	
 	
 }
