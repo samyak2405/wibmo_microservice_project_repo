@@ -41,9 +41,7 @@ public class CrsGroupdWibmoAdminMicroserviceApplication {
 		SpringApplication.run(CrsGroupdWibmoAdminMicroserviceApplication.class, args);
 	}
 	@Bean
-
 	public Docket apiDocket() {
-
 		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
 
 				.paths(PathSelectors.any()).build();
