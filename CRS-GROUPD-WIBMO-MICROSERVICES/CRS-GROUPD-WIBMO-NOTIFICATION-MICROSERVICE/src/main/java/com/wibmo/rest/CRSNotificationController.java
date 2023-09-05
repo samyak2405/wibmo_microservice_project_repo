@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +34,9 @@ public class CRSNotificationController {
 	@Autowired
 	private NotificationOperation notificationOp;
 
+	@Autowired
+    KafkaTemplate<String, String> kafkaTemplate;
+	
 	/**
 	 * To send notifications
 	 * @param userId
@@ -48,13 +52,20 @@ public class CRSNotificationController {
 	 * @param userId
 	 * @return List<Notification> contains list of all notifications for a particular userId
 	 */
-	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, 
+	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.GET, 
 			value = "/getNotification/{userId}")
 	public ResponseEntity<List<Notification>> viewNotification(@PathVariable("userId")int userId) {
 		List<Notification> notifications;
 		try {
 			notifications = notificationOp.getNotificationMessage(userId);
+			String topic = "student"+userId;
+			
+			for(Notification notify:notifications)
+			{
+				kafkaTemplate.send(topic,notify.getNotificationMessage());
+			}
 			return new ResponseEntity<List<Notification>>(notifications,HttpStatus.OK);
+			
 		} catch (UserNotFoundException e) {
 			return new ResponseEntity<List<Notification>>(HttpStatus.NOT_FOUND);
 		}

@@ -7,11 +7,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+@SpringBootApplication
 @EnableWebMvc
-@EnableAutoConfiguration
 @ComponentScan("com.wibmo.*")
 @Configuration
-@SpringBootApplication
+@EnableAutoConfiguration
 public class CrsGroupdWibmoApacheKafkaApplication {
 
 	public static void main(String[] args) {

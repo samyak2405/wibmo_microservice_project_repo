@@ -1,3 +1,5 @@
+package com.wibmo.rest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Dell
  *
  */
-
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaController {
