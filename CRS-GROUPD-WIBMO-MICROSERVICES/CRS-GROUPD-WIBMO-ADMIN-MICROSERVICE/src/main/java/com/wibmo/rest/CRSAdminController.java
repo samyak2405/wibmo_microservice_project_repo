@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.wibmo.exception.UserAlreadyApprovedException;
 import com.wibmo.exception.UserNotFoundException;
-import com.wibmo.entity.*;
 import com.wibmo.service.AdminOperation;
 
 /**
@@ -80,9 +78,9 @@ public class CRSAdminController {
 		
 		for(Entry<Integer,Boolean> entry: registrationStatus.entrySet()) {
 			if(entry.getValue())
-				responseMessage.add("Student Registration Successful");
+				responseMessage.add("Student Registration Successful with student ID : "+ entry.getKey());
 			else
-				responseMessage.add("Student Registration Unsuccessful");
+				responseMessage.add("Student Registration Unsuccessful with student ID : "+ entry.getKey());
 		}
 		return new ResponseEntity<List<String>>(responseMessage,HttpStatus.OK);
 	}
