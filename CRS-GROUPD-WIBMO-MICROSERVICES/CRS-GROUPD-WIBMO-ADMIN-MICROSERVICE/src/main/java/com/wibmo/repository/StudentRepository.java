@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.Student;
+import com.wibmo.entity.User;
 
 /**
  * Student repository related to student CRUD operations
@@ -76,5 +77,7 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	 */
 	@Query(value = SQLConstants.STUDENT_COURSE_COUNT, nativeQuery = true)
 	public int getStudentCourseCount(@Param("courseId") String courseId);
+
+	public User findByUserEmail(String userEmail);
 
 }

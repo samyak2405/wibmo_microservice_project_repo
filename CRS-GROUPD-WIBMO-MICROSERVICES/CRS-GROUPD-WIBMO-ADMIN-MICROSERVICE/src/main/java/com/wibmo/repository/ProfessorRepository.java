@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.wibmo.entity.Professor;
+import com.wibmo.entity.User;
 
 
 /**
@@ -13,5 +14,7 @@ import com.wibmo.entity.Professor;
  */
 @Repository
 public interface ProfessorRepository extends CrudRepository<Professor, Integer> {
+
+	User findByUserEmail(String userEmail);
 
 }

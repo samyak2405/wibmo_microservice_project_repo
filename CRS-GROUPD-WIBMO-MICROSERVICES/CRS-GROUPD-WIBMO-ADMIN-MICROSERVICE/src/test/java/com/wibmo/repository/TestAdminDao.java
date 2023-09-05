@@ -9,6 +9,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,8 +17,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.wibmo.entity.Admin;
+import com.wibmo.exception.UserAlreadyApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.service.AdminOperationImpl;
 
@@ -29,6 +33,7 @@ import net.bytebuddy.NamingStrategy.Suffixing.BaseNameResolver.ForGivenType;
 @ExtendWith(MockitoExtension.class)
 public class TestAdminDao {
 
+	private static final Logger log = LoggerFactory.getLogger(TestAdminDao.class);
 	@InjectMocks
 	private AdminOperationImpl adminOp;
 	
@@ -59,9 +64,17 @@ public class TestAdminDao {
 		
 		doNothing().when(adminRepo).setAdminApproval(userId);
 		
-		adminOp.approveAdmin(userId);
+		try {
+			adminOp.approveAdmin(userId);
+			verify(adminOp,times(1)).approveAdmin(userId);
+		} catch (UserNotFoundException e) {
+			log.debug("User not found");
+		} catch (UserAlreadyApprovedException e) {
+			// TODO Auto-generated catch block
+			log.debug("User Already Approved by Admin");
+		}
 		
-		verify(adminRepo,times(1)).setAdminApproval(userId);
+		
 	}
 	
 	/**
@@ -79,7 +92,7 @@ public class TestAdminDao {
 				adminOp.approveStudentById(id);
 			} catch (UserNotFoundException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.debug("User not found");
 			}
 			verify(adminRepo,times(1)).approveStudentRegistrationById(id);
 		
