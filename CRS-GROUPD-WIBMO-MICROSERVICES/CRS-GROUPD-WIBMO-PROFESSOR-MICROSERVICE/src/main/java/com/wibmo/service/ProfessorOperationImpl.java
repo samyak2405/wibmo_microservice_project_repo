@@ -21,7 +21,6 @@ import com.wibmo.entity.Professor;
 import com.wibmo.entity.ProfessorCourseMap;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.StudentCourseMap;
-import com.wibmo.exception.CourseAlreadyRequested;
 import com.wibmo.exception.CourseNotAssignedException;
 import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.UserAlreadyExistsException;
@@ -94,7 +93,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	@Override
 	@Transactional
 	public void requestCourseOffering(int professorid, List<String> courseIdList)
-			throws CourseNotFoundException, UserNotFoundException,CourseAlreadyRequested {
+			throws CourseNotFoundException, UserNotFoundException {
 
 		// TODO Auto-generated method stub
 		if (professorDao.findById(professorid).isEmpty() == true) {
@@ -104,17 +103,14 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 			if (courseDao.findByCourseId(courseId) == null)
 				throw new CourseNotFoundException(courseId);
 		}
-		if (professorCoMapRepo.findByUserId(professorid)>0) {
-			
-		    throw new CourseAlreadyRequested(professorid);
-		}
+
 		courseIdList.forEach((courseId) -> {
 			ProfessorCourseMap profCoMap = new ProfessorCourseMap();
 			profCoMap.setProfessor(professorDao.findById(professorid).get());
 			profCoMap.setCourseCatalog(courseDao.findByCourseId(courseId));
 			profCoMap.setIsApproved(0);
 			professorCoMapRepo.save(profCoMap);
-			
+			System.out.println("Done");
 		});
 		return;
 	}
@@ -181,15 +177,15 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
-	public Map<Integer, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
+	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
 		// TODO Auto-generated method stub
 		if (professorDao.findById(userId).isEmpty() == true) {
 			throw new UserNotFoundException(userId);
 		}
 		List<Object[]> list = professorDao.listOfApprovedCourses(userId);
-		Map<Integer, String> courses = new HashMap<>();
+		Map<String, String> courses = new HashMap<>();
 		for (Object[] result : list)
-			courses.put((Integer) result[0], (String) result[1]);
+			courses.put((String) result[0], (String) result[1]);
 		return courses;
 	}
 

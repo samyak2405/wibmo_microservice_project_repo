@@ -11,6 +11,15 @@ public class GradeCardDto {
 	private int studentId;
 	private String courseId;
 	private String grades;
+	private double cgpa;
+	
+	public double getCgpa() {
+		return cgpa;
+	}
+
+	public void setCgpa(double cgpa) {
+		this.cgpa = cgpa;
+	}
 
 	/**
 	 * @return the studentId

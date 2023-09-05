@@ -9,7 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +38,7 @@ import com.wibmo.service.StudentOperation;
  * 
  */
 @RestController
+@PreAuthorize("hasAuthority('Role.student')")
 public class CRSStudentController {
 
 	@Autowired
@@ -141,10 +142,10 @@ public class CRSStudentController {
 	 * @param userId
 	 * @return a map of registered courses and their course names.
 	 */
-	@RequestMapping(value = "/student/{id}/listCourse", method = RequestMethod.POST)
-	public ResponseEntity<Map<Integer, String>> listCourse(@PathVariable(value = "id") int userId) {
+	@RequestMapping(value = "/student/{id}/listCourse", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, String>> listCourse(@PathVariable(value = "id") int userId) {
 		try {
-			Map<Integer, String> courses = studentOp.listCourse(userId);
+			Map<String, String> courses = studentOp.listCourse(userId);
 			if (courses.size() == 0) {
 
 				return new ResponseEntity("Course Registration pending", HttpStatus.TOO_EARLY);

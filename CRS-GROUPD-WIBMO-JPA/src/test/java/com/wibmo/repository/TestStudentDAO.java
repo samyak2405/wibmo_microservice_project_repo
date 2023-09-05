@@ -91,9 +91,9 @@ public class TestStudentDAO {
 		expected.add(obj);
 
 		when(studentDao.listCourse(1)).thenReturn(expected);
-		Map<Integer, String> list=studentOp.listCourse(1);
+		Map<String, String> list=studentOp.listCourse(1);
 		
-		for(Entry<Integer,String> entry:list.entrySet())
+		for(Entry<String, String> entry:list.entrySet())
 			System.out.println(entry.getKey()+" "+entry.getValue());
 		
 		assertEquals(list.size(),1);

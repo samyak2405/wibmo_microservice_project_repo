@@ -54,11 +54,4 @@ public class StudentOperationImpl implements StudentOperation {
 		return isRegistered;
 	}
 
-
-	@Override
-	public boolean isRegistered(int userId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wibmo.service.AdminOperation;
 import com.wibmo.service.AuthenticationOperation;
+import com.wibmo.service.JwtUserDetailsService;
 import com.wibmo.service.ProfessorOperation;
 import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.dto.UpdatePasswordDto;
@@ -28,6 +30,7 @@ import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.entity.LoginRequest;
 import com.wibmo.entity.User;
 import com.wibmo.service.StudentOperation;
+import com.wibmo.utils.JwtTokenUtils;
 
 /**
  * 
@@ -46,7 +49,10 @@ public class CRSAuthenticationController
 	
 	@Autowired
 	AuthenticationOperation loggedin;
-	
+	@Autowired
+	private JwtTokenUtils jwtTokenUtil;
+	@Autowired
+	private JwtUserDetailsService userDetailsService;
 	
 	public Logger log=LogManager.getLogger();
 	
@@ -62,24 +68,37 @@ public class CRSAuthenticationController
 	@RequestMapping(produces = MediaType.APPLICATION_JSON,
 			method = RequestMethod.POST,
 			value = "/login/{role}")
-	public ResponseEntity<StringBuilder> loginRequest(@PathVariable int role, 
+	public ResponseEntity<String> loginRequest(@PathVariable String role, 
 			@RequestBody LoginRequest loginrequest)
-	{
-		StringBuilder msg = new StringBuilder();
-		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role,msg)) {
-    		switch(role) {
-    		case 1:
-    			return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-			case 2:
-    			//Professor
-				return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-			case 3: 
-    			
-				return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-    		}
-    		}
-		return new ResponseEntity<StringBuilder>(msg, HttpStatus.NOT_FOUND);
-		
+	{	
+		try {
+			
+			loggedin.authenticate(loginrequest.getUserEmail()+"#"+role, loginrequest.getUserPassword());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		final UserDetails userDetails = userDetailsService.loadUserByUsername(loginrequest.getUserEmail()+"#"+role);
+		final String token = jwtTokenUtil.generateToken(userDetails,role);
+		return ResponseEntity.ok(token);
+//		
+//		StringBuilder msg = new StringBuilder();
+//		if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role,msg)) {
+//    		switch(role) {
+//    		case 1:
+//    			return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
+//			case 2:
+//    			//Professor
+//				return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
+//			case 3: 
+//    			
+//				return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
+//    		}
+//    		}
+//		
+//		
+//		
+//		return new ResponseEntity<StringBuilder>(msg, HttpStatus.NOT_FOUND);
 	}
 	/**
 	 * User Registration
@@ -131,6 +150,10 @@ public class CRSAuthenticationController
 		}
 		return new ResponseEntity<String>("Registration Successful", HttpStatus.OK);
 	}
+	
+	
+	
+	
 	
 	
 	/**

@@ -13,6 +13,7 @@ public class LoginRequest implements Serializable {
 
 	private String userEmail;
 	private String userPassword;
+	private String role;
 
 	/**
 	 * returns the user email

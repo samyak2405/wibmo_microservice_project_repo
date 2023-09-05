@@ -13,7 +13,15 @@ import java.util.Map;
 public class GradeCardResponseDTO {
 	private int studentId;
 	Map<String,Map<String,String>>gradeDetails=new HashMap<>();
-	
+	private double cgpa;
+	public double getCgpa() {
+		return cgpa;
+	}
+
+	public void setCgpa(double cgpa) {
+		this.cgpa = cgpa;
+	}
+
 	/**
 	 * Adds grade card details
 	 * 

@@ -6,18 +6,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="professorCoMapRepo"/>
+		<item key="selection" value="jwt"/>
 		<list key="findhistory">
-			<item value="professorCoMapRepo"/>
-			<item value="studentRepository"/>
-			<item value="&quot;SELECT COUNT(*) FROM student WHERE userEmail=?1&quot;"/>
-			<item value="&quot;SELECT COUNT(*) FROM admin WHERE userEmail=?1&quot;"/>
-			<item value="adminRepository"/>
-			<item value="professorDao"/>
-			<item value="studentRepo"/>
-			<item value="&quot;UPDATE gradecard SET grade=?1 WHERE userId=?2 AND courseId=?3&quot;"/>
-			<item value="SELECT * FROM student WHERE userEmail"/>
-			<item value="SELECT * FROM student WHERE userEmail=:userEmail"/>
+			<item value="jwt"/>
+			<item value="user"/>
+			<item value="UserDe"/>
+			<item value="security"/>
+			<item value="token"/>
+			<item value="io"/>
 			<item value="adminId"/>
 			<item value="professorId"/>
 			<item value="studentId"/>
@@ -31,8 +27,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1270"/>
-		<item key="DIALOG_Y_ORIGIN" value="333"/>
+		<item key="DIALOG_X_ORIGIN" value="815"/>
+		<item key="DIALOG_Y_ORIGIN" value="346"/>
 		<item key="DIALOG_WIDTH" value="511"/>
 		<item key="DIALOG_HEIGHT" value="523"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
