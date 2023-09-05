@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.Professor;
+import com.wibmo.entity.User;
 
 
 /**
@@ -69,5 +70,7 @@ public interface ProfessorRepository extends CrudRepository<Professor, Integer> 
 	 */
 	@Query(value = "SELECT pcm.courseId, cc.courseName FROM professorcoursemapping pcm INNER JOIN coursecatalog cc ON pcm.courseId=cc.courseId WHERE pcm.userId=?1 AND pcm.isApproved=1", nativeQuery = true)
 	public List<Object[]> listOfApprovedCourses(@Param("professorId") int userId);
+
+	public User findByUserEmail(String userEmail);
 
 }

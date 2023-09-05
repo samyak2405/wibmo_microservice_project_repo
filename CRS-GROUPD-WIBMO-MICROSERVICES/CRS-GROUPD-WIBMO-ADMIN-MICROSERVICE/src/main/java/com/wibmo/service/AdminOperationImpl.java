@@ -16,6 +16,7 @@ import java.util.Set;
 import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;
+import com.wibmo.exception.UserAlreadyApprovedException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
@@ -66,7 +67,15 @@ public class AdminOperationImpl implements AdminOperation {
 	 * @param User contains Admin details
 	 */
 	@Override
-	public void approveAdmin(int userId) {
+	public void approveAdmin(int userId) throws UserNotFoundException,UserAlreadyApprovedException  {
+		
+		if (adminRepository.findById(userId).isEmpty() == true) {
+			throw new UserNotFoundException(userId);
+		}
+		if(adminRepository.countByUserIdAndIsApproved(userId, 1)>0)
+		{
+			throw new UserAlreadyApprovedException(userId);
+		}
 		adminRepository.setAdminApproval(userId);
 		
 	}
