@@ -8,6 +8,7 @@ package com.wibmo.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -28,6 +29,7 @@ import com.wibmo.service.StudentOperation;
 @RestController
 @RequestMapping(value="/api/payment")
 @CrossOrigin
+@PreAuthorize("hasAuthority('Role.admin') and hasAuthority('Role.student')")
 public class CRSPaymentController {
 	
 	@Autowired

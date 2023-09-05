@@ -66,5 +66,7 @@ public interface AuthenticationOperation {
 	 * @param User contains admin details
 	 */
 	public void adminRegistration(RegisterUserDto user) throws UserAlreadyExistsException;
+	
+	public void authenticate(String username, String password) throws Exception;
 
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.Admin;
+import com.wibmo.entity.User;
 
 /**
  * Repository related to Admin CRUD operations
@@ -89,6 +90,8 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	@Transactional
 	@Query(value=SQLConstants.SET_ADMIN_APPROVAL,nativeQuery=true)
 	public void setAdminApproval(@Param("userId")int userId);
+
+	public User findByUserEmail(String userEmail);
 
 	
 //	public Admin findByUserEmail(String email); 
