@@ -156,3 +156,6 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:32:13.444
 !MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:33:29.744
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-NOTIFICATION-MICROSERVICE
