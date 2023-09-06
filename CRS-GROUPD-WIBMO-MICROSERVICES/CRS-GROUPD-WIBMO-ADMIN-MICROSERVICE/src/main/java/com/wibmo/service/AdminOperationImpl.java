@@ -2,7 +2,6 @@ package com.wibmo.service;
 
 import org.apache.logging.log4j.LogManager;
 
-
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +12,9 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.entity.*;
 import com.wibmo.repository.*;
 import com.wibmo.exception.UserAlreadyApprovedException;
-import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.validator.*;
 
@@ -35,8 +32,6 @@ public class AdminOperationImpl implements AdminOperation {
 	public StudentRepository studentRepository;
 	@Autowired
 	public AdminRepository adminRepository;
-
-
 
 	@Autowired
 	public ProfessorRepository professorRepository;
@@ -62,22 +57,30 @@ public class AdminOperationImpl implements AdminOperation {
 	}
 
 	/**
-	 * To Add a new Admin
+	 * To approve a specific student by studentId
 	 * 
-	 * @param User contains Admin details
+	 * @param studentId
 	 */
 	@Override
-	public void approveAdmin(int userId) throws UserNotFoundException,UserAlreadyApprovedException  {
-		
-		if (adminRepository.findById(userId).isEmpty() == true) {
-			throw new UserNotFoundException(userId);
+	public void approveStudentById(int id) throws UserNotFoundException {
+
+		if (studentRepository.findById(id).isEmpty() == true) {
+			throw new UserNotFoundException(id);
 		}
-		if(adminRepository.countByUserIdAndIsApproved(userId, 1)>0)
-		{
-			throw new UserAlreadyApprovedException(userId);
-		}
-		adminRepository.setAdminApproval(userId);
-		
+		studentRepository.setApprovedStudentById(id);
+	}
+
+	/**
+	 * To Approve Student Course Registration
+	 * 
+	 * @return List<Boolean> contains true if courses are assigned successfully to
+	 *         student otherwise false
+	 */
+	@Override
+	public Map<Integer, Boolean> approveCourseRegistration() {
+		// TODO Auto-generated method stub
+		Map<Integer, Boolean> isSuccess = validate.courseRegistrationValidator();
+		return isSuccess;
 	}
 
 	/**
@@ -105,42 +108,25 @@ public class AdminOperationImpl implements AdminOperation {
 	}
 
 	/**
-	 * To Approve Student Course Registration
+	 * To Add a new Admin
 	 * 
-	 * @return List<Boolean> contains true if courses are assigned successfully to
-	 *         student otherwise false
+	 * @param User contains Admin details
 	 */
 	@Override
-	public Map<Integer,Boolean> approveCourseRegistration() {
-		// TODO Auto-generated method stub
-		Map<Integer,Boolean> isSuccess = validate.courseRegistrationValidator();
-		return isSuccess;
-	}
+	public void approveAdmin(int userId) throws UserNotFoundException, UserAlreadyApprovedException {
 
-	/**
-	 * To approve a specific student
-	 * 
-	 * @param studentId
-	 */
-	@Override
-	public void approveStudentById(int id) throws UserNotFoundException {
-
-		if (studentRepository.findById(id).isEmpty() == true) {
-			throw new UserNotFoundException(id);
+		if (adminRepository.findById(userId).isEmpty() == true) {
+			throw new UserNotFoundException(userId);
 		}
-		studentRepository.setApprovedStudentById(id);
+		if (adminRepository.countByUserIdAndIsApproved(userId, 1) > 0) {
+			throw new UserAlreadyApprovedException(userId);
+		}
+		adminRepository.setAdminApproval(userId);
+
 	}
 
-	/**
-	 * To get Admin by email
-	 * 
-	 * @param userEmail
-	 * @return Admin
-	 */
-	@Override
-	public int getAdminByEmail(String userEmail) {
+	public int getAdminByEmail(String string) {
 		// TODO Auto-generated method stub
-		return adminRepository.getAdminById(userEmail);
+		return 0;
 	}
-
 }
