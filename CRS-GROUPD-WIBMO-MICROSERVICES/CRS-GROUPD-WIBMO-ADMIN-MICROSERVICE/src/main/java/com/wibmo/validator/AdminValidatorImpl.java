@@ -159,11 +159,10 @@ public class AdminValidatorImpl implements ValidatorInterface {
 			}
 			if (count == 4) {
 				
-				kafkaTemplate.send(TOPIC, new NotificationDto(studentId,"Approved"));
-				kafkaTemplate.send(TOPIC,new NotificationDto(studentId,"Payment Successful"));
+				kafkaTemplate.send(TOPIC, new NotificationDto(studentId,"Course Registration Approved"));
 				isSuccess.put(studentId, true);
 			} else {				
-				kafkaTemplate.send(TOPIC, new NotificationDto(studentId,"Not Approved"));
+				kafkaTemplate.send(TOPIC, new NotificationDto(studentId,"Course Registration Rejected"));
 			isSuccess.put(studentId, false);
 			}
 

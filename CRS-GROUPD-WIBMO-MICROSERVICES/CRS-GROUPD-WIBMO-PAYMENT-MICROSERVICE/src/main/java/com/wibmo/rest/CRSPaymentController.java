@@ -5,9 +5,12 @@ package com.wibmo.rest;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wibmo.dto.NotificationDto;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.service.PaymentOperation;
 import com.wibmo.service.StudentOperation;
@@ -37,6 +41,12 @@ public class CRSPaymentController {
 	
 	@Autowired
 	private StudentOperation studentOp;
+	private static final String TOPIC = "student";
+	
+
+	@Autowired
+	private KafkaTemplate<String,NotificationDto> kafkaTemplate;
+
 	
 	/**
 	 * payFee
@@ -76,11 +86,15 @@ try {
 			}
 			
 			if (status == true) {
+				kafkaTemplate.send(TOPIC,new NotificationDto(userId,"Payment Successful"));
+		
 //				notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
 				return new ResponseEntity<String>("Payment Successful with TransactionId:"+transactionId, HttpStatus.OK);
 			}
 
 			else {
+				kafkaTemplate.send(TOPIC,new NotificationDto(userId,"Payment Unsuccessful"));
+
 //				notificationOp.sendNotification(NotificationConstants.PAYMENT_REJECTED_NOTIFICATION, userId);
 				return new ResponseEntity<String>("Payment Failed", HttpStatus.NOT_ACCEPTABLE);
 			}
