@@ -31,7 +31,7 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 */
 	@Query(value = SQLConstants.LIST_PROFESSOR_IDS, nativeQuery = true)
 	public List<Integer> listProfessorIds();
-
+	
 	/**
 	 * returns list of courseIds related to professorId
 	 * 
@@ -40,7 +40,15 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	 */
 	@Query(value = SQLConstants.GET_PROFESSOR_COURSES, nativeQuery = true)
 	public List<String> getProfessorCourses(@Param("userId") int professorId);
-
+	
+	/**
+	 * returns the professorcoursemap related to professor and course 
+	 * @param professor
+	 * @param course
+	 * @return professorcoursemap object
+	 */
+	public ProfessorCourseMap findByProfessorAndCourseCatalog(Professor professor, CourseCatalog course);
+	
 	/**
 	 * sets professorId and courseId in professorcoursemapper table
 	 * 
@@ -52,11 +60,5 @@ public interface ProfessorCourseMappingRepository extends CrudRepository<Profess
 	@Query(value=SQLConstants.APPROVE_COURSE_PROFESSOR,nativeQuery = true)
 	public void approveCourseProf(@Param("userId")int professorId,@Param("courseId") String courseId);
 
-	/**
-	 * returns the professorcoursemap related to professor and course 
-	 * @param professor
-	 * @param course
-	 * @return professorcoursemap object
-	 */
-	public ProfessorCourseMap findByProfessorAndCourseCatalog(Professor professor, CourseCatalog course);
+	
 }

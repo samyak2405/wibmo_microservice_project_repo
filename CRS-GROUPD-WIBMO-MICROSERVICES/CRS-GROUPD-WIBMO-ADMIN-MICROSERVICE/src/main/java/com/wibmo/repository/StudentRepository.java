@@ -24,14 +24,6 @@ import com.wibmo.entity.User;
 public interface StudentRepository extends CrudRepository<Student, Integer> {
 
 	/**
-	 * returns the list student Ids.
-	 * 
-	 * @return list of studentIds
-	 */
-	@Query(value = SQLConstants.GET_STUDENT_IDS , nativeQuery = true)
-	public List<Integer> getStudentIds();
-
-	/**
 	 * sets approval of student related to given studentID
 	 * 
 	 * @param id
@@ -40,6 +32,14 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	@Transactional
 	@Query(value = SQLConstants.APPROVE_STUDENT_BY_ID, nativeQuery = true)
 	public void setApprovedStudentById(@Param("userId") int id);
+	
+	/**
+	 * returns the list student Ids.
+	 * 
+	 * @return list of studentIds
+	 */
+	@Query(value = SQLConstants.GET_STUDENT_IDS , nativeQuery = true)
+	public List<Integer> getStudentIds();
 
 	/**
 	 * returns the count of registered students
@@ -49,7 +49,7 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	 */
 	@Query(value = SQLConstants.STUDENT_REGISTERED, nativeQuery = true)
 	public Integer isStudentRegistered(@Param("studentId") int studentId);
-
+	
 	/**
 	 * returns the status of approval of student registration
 	 * 
@@ -58,7 +58,7 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	 */
 	@Query(value = SQLConstants.COURSE_REGISTRATION_APPROVED , nativeQuery = true)
 	public int isCourseRegistrationApproved(@Param("userId") int studentId);
-
+	
 	/**
 	 * returns the list of custom objects containing details related to course ID
 	 * and category
@@ -68,7 +68,7 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	 */
 	@Query(value = SQLConstants.GET_STUDENT_COURSE_DATA, nativeQuery = true)
 	public List<Object[]> getStudentCourseData(@Param("studentId") int studentId);
-
+	
 	/**
 	 * return the count of courses
 	 * 
@@ -78,6 +78,11 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	@Query(value = SQLConstants.STUDENT_COURSE_COUNT, nativeQuery = true)
 	public int getStudentCourseCount(@Param("courseId") String courseId);
 
+	/**
+	 * Find User by Email
+	 * @param userEmail
+	 * @return
+	 */
 	public User findByUserEmail(String userEmail);
 
 }

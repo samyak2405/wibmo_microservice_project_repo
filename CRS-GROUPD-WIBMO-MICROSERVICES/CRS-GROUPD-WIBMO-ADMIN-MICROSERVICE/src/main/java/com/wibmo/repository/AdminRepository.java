@@ -29,6 +29,11 @@ public interface AdminRepository extends CrudRepository<Admin, Integer> {
 	@Transactional
 	@Query(value = SQLConstants.APPROVE_STUDENT, nativeQuery = true)
 	public void approveStudentRegistration();
+	
+	
+	
+	
+	
 
 	/**
 	 * Approve student course registration by student Id

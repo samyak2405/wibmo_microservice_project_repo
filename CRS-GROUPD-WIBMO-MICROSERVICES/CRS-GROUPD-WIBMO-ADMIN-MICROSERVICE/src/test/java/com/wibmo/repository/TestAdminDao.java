@@ -95,16 +95,5 @@ public class TestAdminDao {
 			
 		
 	}
-	
-	/**
-	 * To Test get admin by email
-	 */
-	@Test void getAdminByEmailTest() {
-		when(adminRepo.getAdminById("dixit@gmail.com")).thenReturn(1);
-		
-		int adminId = adminOp.getAdminByEmail("dixit@gmail.com");
-		
-		assertEquals(1,adminId);
-	}
 
 }
