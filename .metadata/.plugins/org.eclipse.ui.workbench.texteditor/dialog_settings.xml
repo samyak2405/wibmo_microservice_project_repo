@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="log.debug"/>
 		<list key="findhistory">
+			<item value="System.out.println"/>
 			<item value="out"/>
 			<item value="system"/>
 			<item value="jwt"/>
@@ -23,6 +24,7 @@
 			<item value="studentcoursemapping"/>
 		</list>
 		<list key="replacehistory">
+			<item value="log.debug"/>
 			<item value="userId"/>
 			<item value="professorcoursemapper"/>
 			<item value="studentcoursemapper"/>
