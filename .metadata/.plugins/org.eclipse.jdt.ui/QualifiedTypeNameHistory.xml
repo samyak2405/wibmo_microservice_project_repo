@@ -20,4 +20,5 @@
     <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
     <fullyQualifiedTypeName name="com.wibmo.entity.User"/>
     <fullyQualifiedTypeName name="com.wibmo.service.JwtUserDetailsService"/>
+    <fullyQualifiedTypeName name="com.wibmo.constant.SQLConstants"/>
 </qualifiedTypeNameHistroy>
