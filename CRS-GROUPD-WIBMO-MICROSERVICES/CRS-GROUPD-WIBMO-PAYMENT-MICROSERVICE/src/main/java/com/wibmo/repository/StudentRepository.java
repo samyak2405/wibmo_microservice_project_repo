@@ -13,6 +13,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.User;
 
@@ -22,23 +23,10 @@ import com.wibmo.entity.User;
  */
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {
-/**
- * marks student as registered according to the studentId
- * @param studentId
- */
-	@Modifying
-	@Transactional
-	@Query(value=" UPDATE studentcoursemapping SET isRegister=1 WHERE userId=?1", nativeQuery = true)
-	public void registerCourses(@Param("studentId")int studentId);
 	
 
-/**
- * returns the count of courses from mapping table according to given studentId
- * @param studentId
- * @return courseCount
- */
-	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE userId=?1", nativeQuery=true)
-	public int getCourseCount(@Param("userId")int studentId);
+
+
 	
 /**
  * delete the entry of student according to studentId and courseId specified
@@ -139,6 +127,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	public User findByUserEmail(String userEmail);
 
 	public int countByUserIdAndCourseRegistrationStatus(int user,int courseRegistrationStatus);
+
 	
 	
 }

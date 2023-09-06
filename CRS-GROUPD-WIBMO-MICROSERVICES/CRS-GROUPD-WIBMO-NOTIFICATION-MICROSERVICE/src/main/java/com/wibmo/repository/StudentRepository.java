@@ -22,15 +22,7 @@ import com.wibmo.entity.User;
  */
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {
-/**
- * marks student as registered according to the studentId
- * @param studentId
- */
-	@Modifying
-	@Transactional
-	@Query(value=" UPDATE studentcoursemapping SET isRegister=1 WHERE userId=?1", nativeQuery = true)
-	public void registerCourses(@Param("studentId")int studentId);
-	
+
 
 /**
  * returns the count of courses from mapping table according to given studentId
@@ -138,5 +130,5 @@ public int countByUserEmailAndIsapproved(String userEmail, int i);
 
 public User findByUserEmail(String userEmail);
 	
-	
+
 }

@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.dto.RegisterUserDto;
@@ -124,6 +125,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 *         with professorId
 	 */
 	@Override
+	@Cacheable(value="Professor", key="#professorId")
 	public List<Student> viewStudentList(int professorId, String courseId)
 			throws CourseNotFoundException, CourseNotAssignedException {
 
@@ -149,6 +151,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @return List<CourseCatalog> containing list of courses
 	 */
 	@Override
+	@Cacheable(value="Professor")
 	public List<CourseCatalog> viewCourseCatalog() {
 		Iterable<CourseCatalog> courses = courseDao.findAll();
 		List<CourseCatalog> list = new ArrayList<>();
@@ -177,6 +180,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
+	@Cacheable(value="Professor", key="#userId")
 	public Map<String, String> listOfApprovedCourses(int userId) throws UserNotFoundException {
 		// TODO Auto-generated method stub
 		if (professorDao.findById(userId).isEmpty() == true) {
@@ -194,6 +198,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
  * 	@return list of professors
  */
 	@Override
+	@Cacheable(value="Professor")
 	public List<Professor> viewProfessor() {
 		Iterable<Professor> professors = professorDao.findAll();
 		List<Professor> list = new ArrayList<>();

@@ -1,11 +1,13 @@
 package com.wibmo.service;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.GradeCardResponseDTO;
@@ -151,6 +153,7 @@ public class StudentOperationImpl implements StudentOperation {
 	 * To view the list of offered courses
 	 */
 	@Override
+	@Cacheable(value="CourseCatalog")
 	public List<CourseCatalog> viewCourseCatalog() {
 		Iterable<CourseCatalog> courses = courseDao.findAll();
 		List<CourseCatalog> list = new ArrayList<>();
@@ -166,6 +169,7 @@ public class StudentOperationImpl implements StudentOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
+	@Cacheable(value="GradeCardResponseDto", key="#studentId")
 	public GradeCardResponseDTO viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if (studentDao.isApproved(studentId) < 1) {

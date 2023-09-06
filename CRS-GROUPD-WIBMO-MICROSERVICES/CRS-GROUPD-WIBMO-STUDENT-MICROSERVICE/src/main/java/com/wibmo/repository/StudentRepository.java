@@ -13,6 +13,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wibmo.constant.SQLConstants;
 import com.wibmo.entity.Student;
 import com.wibmo.entity.User;
 
@@ -28,7 +29,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  */
 	@Modifying
 	@Transactional
-	@Query(value=" UPDATE studentcoursemapping SET isRegister=1 WHERE userId=?1", nativeQuery = true)
+	@Query(value=SQLConstants.IS_REGISTER, nativeQuery = true)
 	public void registerCourses(@Param("studentId")int studentId);
 	
 
@@ -37,7 +38,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @param studentId
  * @return courseCount
  */
-	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE userId=?1", nativeQuery=true)
+	@Query(value=SQLConstants.COURSE_COUNT, nativeQuery=true)
 	public int getCourseCount(@Param("userId")int studentId);
 	
 /**
@@ -46,7 +47,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @param courseId
  */
 	@Modifying
-	@Query(value="DELETE FROM studentcoursemapping WHERE userId=? && courseId=?", nativeQuery =  true)
+	@Query(value=SQLConstants.DELETE, nativeQuery =  true)
 	public void dropCourses(@Param("userId")int studentId,@Param("courseId")String courseId);
 
 /**
@@ -55,7 +56,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @param courseId
  * @return coursePreference
  */
-	@Query(value="SELECT coursecategory FROM studentcoursemapping WHERE userId=:studentId AND courseId=:courseId", nativeQuery = true )
+	@Query(value=SQLConstants.SELECT_COURSE_CATEGORY, nativeQuery = true )
 	public Integer findCoursePreference(@Param("studentId")int studentId,@Param("courseId") String courseId);
 
 /**
@@ -63,77 +64,42 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @param studentId
  * @return isApproved
  */
-	@Query(value="SELECT COUNT(*) FROM gradecard where userId=?1", nativeQuery = true)
+	@Query(value=SQLConstants.IS_APPROVED, nativeQuery = true)
 	public int isApproved(@Param("userId")int studentId);
 /**
  * returns the count of student matching with given mail
  * @param userEmail
  * @return findByEmail
  */
-	@Query(value="SELECT COUNT(*) FROM student WHERE userEmail=?1", nativeQuery =  true)
+	@Query(value=SQLConstants.FIND_BY_EMAIL, nativeQuery =  true)
 	public int findByEmail(@Param("userEmail")String userEmail);
-	
-/**returns the list student Ids.
- * @return list of studentIds
- */
-	@Query(value="SELECT DISTINCT(userId) as uniqueStudent FROM studentcoursemapping", nativeQuery =  true)
-	public List<Integer> getStudentIds();
+
 /**
  * returns the count of registered students 
  * @param studentId
  * @return count of registered students
  */
-	@Query(value="SELECT COUNT(*) FROM studentcoursemapping WHERE userId=:studentId AND isRegister=1", nativeQuery = true)
+	@Query(value=SQLConstants.IS_STUDENT_REGISTERED, nativeQuery = true)
 	public Integer isStudentRegistered(@Param("studentId")int studentId);
-/**
- * returns the status of approval of student registration
- * @param studentId
- * @return course registration approval
- */
-	@Query(value="SELECT COUNT(*) FROM gradecard where userId=?1",nativeQuery =  true)
-	public int isCourseRegistrationApproved(@Param("userId")int studentId);
-/**
- * returns the list of custom objects containing details related to course ID and category
- * @param studentId
- * @return list of custom objects
- */
-	@Query(value="SELECT courseId, coursecategory FROM studentcoursemapping WHERE userId=?", nativeQuery =  true)
-	public List<Object[]> getStudentCourseData(@Param("studentId")int studentId);
-/**
- * return the count of courses
- * @param courseId
- * @return coursecount
- */
-	@Query(value="SELECT COUNT(courseId) as courseCount FROM studentcoursemapping WHERE courseId=?", nativeQuery =  true)
-	public int getStudentCourseCount(@Param("courseId")String courseId);
+
 /**
  * returns the list of custom object containing details related to listing of course
  * @param studentId
  * @return list of custom object
  */
-	@Query(value="SELECT gradecard.courseId, courseCatalog.courseName FROM "
-			+ "gradecard as gradecard INNER JOIN coursecatalog as courseCatalog ON"
-			+ " gradecard.courseId=courseCatalog.courseId WHERE gradecard.userId=?1", nativeQuery = true)
+	@Query(value=SQLConstants.LIST_COURSE, nativeQuery = true)
 	public List<Object[]> listCourse(@Param("studentId")int studentId);
 /**
  * returns the list of object which contain details related to course and student mapping details
  * @param userId
  * @return list of custom object
  */
-	@Query(value="SELECT c.courseId,c.courseName FROM coursecatalog c INNER JOIN crs.studentcoursemapping scm ON c.courseId=scm.courseId WHERE scm.userId=?1", nativeQuery =  true)
+	@Query(value=SQLConstants.GET_ADDEDCOURSES, nativeQuery =  true)
 	public List<Object[]> getAddedCourses(@Param("userId")int userId);
-
-/**
- * sets approval of student related to given studentID
- * @param id
- */
-	@Modifying
-	@Transactional
-	@Query(value="UPDATE student SET isApproved=1 WHERE userId=?1",nativeQuery =  true)
-	public void setApprovedStudentById(@Param("userId")int id);
 
 
 public User findByUserEmail(String userEmail);
-	
+
+
 	
 }

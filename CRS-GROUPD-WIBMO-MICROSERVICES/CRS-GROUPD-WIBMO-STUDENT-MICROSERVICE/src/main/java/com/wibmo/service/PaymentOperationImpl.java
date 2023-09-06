@@ -2,6 +2,7 @@ package com.wibmo.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -12,7 +13,9 @@ import com.wibmo.entity.PaymentStudentMapper;
 import com.wibmo.entity.Student;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.repository.*;
+import org.slf4j.Logger;
 
+import org.slf4j.LoggerFactory;
 /**
  * Payment Service Implementation
  */
@@ -28,6 +31,7 @@ public class PaymentOperationImpl implements PaymentOperation {
 	private StudentRepository studentRepository;
 
 	Payment paymentBean;
+	private static final Logger log = LoggerFactory.getLogger(PaymentOperationImpl.class);
 
 	public PaymentOperationImpl() {
 		paymentBean = new Payment();
@@ -147,7 +151,7 @@ public class PaymentOperationImpl implements PaymentOperation {
 	
 		//this.paymentBean.setUserId(studentId);
 		//this.paymentBean.setTransactionId(1000000 + studentId);
-		System.out.println("transaction"+payment.getTransactionId());
+		log.info("transaction"+payment.getTransactionId());
 		studentRepository.save(student);
 		paymentRepository.save(payment);
 		paymentStudentMapperRepository.save(paymentStudentMapper);

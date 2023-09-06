@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 org.springframework.ide.eclipse.boot.wizard.PopularityTracker.cloud-eureka=4
 org.springframework.ide.eclipse.boot.wizard.PopularityTracker.cloud-starter=3
 org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-jdbc=4
@@ -11,12 +12,34 @@ org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mysql=3
 org.springframework.ide.eclipse.boot.wizard.PopularityTracker.security=8
 org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web-services=4
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=CRS-GROUPD-WIBMO-KAFKA-MICROSERVICES
+=======
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.cache=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.cloud-eureka=3
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.cloud-starter=3
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-jdbc=4
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-jpa=4
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-redis=6
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-rest=4
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.devtools=4
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.jdbc=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.jersey=4
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mysql=4
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.restdocs=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.security=2
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web-services=4
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=com.wibmo.JPA
+>>>>>>> 4f0351f7f06828e61b53d49faff845fe895eaea3
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.7.15
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Demo project for Spring Boot
-org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.example
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.wibmo
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=11
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+<<<<<<< HEAD
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=CRS-GROUPD-WIBMO-KAFKA-MICROSERVICES
+=======
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=DEMO-Redis-Project
+>>>>>>> 4f0351f7f06828e61b53d49faff845fe895eaea3
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.wibmo.application
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=war
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=MAVEN
