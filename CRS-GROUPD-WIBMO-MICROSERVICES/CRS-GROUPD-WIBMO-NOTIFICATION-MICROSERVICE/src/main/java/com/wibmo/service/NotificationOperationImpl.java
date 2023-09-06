@@ -3,12 +3,14 @@ package com.wibmo.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.entity.Notification;
 import com.wibmo.entity.NotificationStudentMapping;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.repository.*;
+import com.wibmo.dto.*;
 
 /**
  * Notification Service Implementation
@@ -31,6 +33,7 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 * @param studentId
 	 * @return list of notifications
 	 */
+	
 	@Override
 	public List<Notification> getNotificationMessage(int studentId) throws UserNotFoundException {
 		if (studentRepository.findById(studentId).isEmpty() == true) {
@@ -48,12 +51,11 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 * @param userId
 	 * @param notificationMessage
 	 */
-	@Override
-	public void sendNotification(int userId,String notificationMessage) {
-		Notification notification = notificationRepository.findByNotificationMessage(notificationMessage);
-		
+	
+	public void sendNotification(NotificationDto notifications) {
 		notificationStudentMappingRepository.save(new NotificationStudentMapping(
-				studentRepository.findById(userId).get(), notification));
+				studentRepository.findById(notifications.getUserId()).get(),
+				notificationRepository.findByNotificationMessage(notifications.getNotificationMessage())));
 	}
 
 }

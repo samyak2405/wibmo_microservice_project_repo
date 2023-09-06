@@ -70,15 +70,19 @@ public class CRSAdminController {
 	 */
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, value = "/approvecourseregistration")
 	public ResponseEntity<List<String>> approveCourseRegistration() {
+		
 		Map<Integer, Boolean> registrationStatus = adminOp.approveCourseRegistration();
-
 		List<String> responseMessage = new ArrayList<>();
 
 		for (Entry<Integer, Boolean> entry : registrationStatus.entrySet()) {
 			if (entry.getValue())
+			{
 				responseMessage.add("Student Registration Successful with student ID : " + entry.getKey());
+			}
 			else
+			{
 				responseMessage.add("Student Registration Unsuccessful with student ID : " + entry.getKey());
+			}
 		}
 		return new ResponseEntity<List<String>>(responseMessage, HttpStatus.OK);
 	}
