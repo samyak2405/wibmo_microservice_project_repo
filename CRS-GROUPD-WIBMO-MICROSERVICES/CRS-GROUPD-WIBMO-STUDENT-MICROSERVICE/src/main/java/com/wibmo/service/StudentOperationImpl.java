@@ -169,7 +169,7 @@ public class StudentOperationImpl implements StudentOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
-	@Cacheable(value="GradeCardResponseDto", key="#studentId")
+//	@Cacheable(value="GradeCard", key="#studentId")
 	public GradeCardResponseDTO viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if (studentDao.isApproved(studentId) < 1) {

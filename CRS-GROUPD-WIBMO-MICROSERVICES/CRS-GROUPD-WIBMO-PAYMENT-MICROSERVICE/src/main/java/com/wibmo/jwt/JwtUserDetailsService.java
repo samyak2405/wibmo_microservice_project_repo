@@ -27,6 +27,7 @@ import java.util.Set;
 @Service
 public class JwtUserDetailsService  implements UserDetailsService{
 
+	
 	@Autowired
 	public com.wibmo.jwt.UserDetailsService userDeatails;
 
@@ -40,9 +41,7 @@ public class JwtUserDetailsService  implements UserDetailsService{
 		
 		String values[]=param.split("#");
 		com.wibmo.entity.User user = userDeatails.getUserByEmail(values[1],values[0]);
-		
-		log.debug(values[0]);
-		log.debug(values[1]);
+	
 		
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + values[0]);

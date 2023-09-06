@@ -3,6 +3,7 @@
  */
 package com.wibmo.dto;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Map;
 /**
  * Data Transfer Object for GradeCardResponse
  */
-public class GradeCardResponseDTO {
+public class GradeCardResponseDTO implements Serializable{
 	private int studentId;
 	Map<String,Map<String,String>>gradeDetails=new HashMap<>();
 	private double cgpa;

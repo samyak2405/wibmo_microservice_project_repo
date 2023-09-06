@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -63,7 +64,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 * @throws CourseNotFoundException
 	 */
 	@Override
-	@Transactional
+	@CachePut(value="setGrades",key="#studentId")
 	public void setGrades(int professorId, int studentId, String courseId, String grade)
 			throws UserNotFoundException, CourseNotFoundException, CourseNotAssignedException {
 
@@ -125,7 +126,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 	 *         with professorId
 	 */
 	@Override
-	@Cacheable(value="Professor", key="#professorId")
+	@Cacheable(value="viewStudentList", key="#professorId")
 	public List<Student> viewStudentList(int professorId, String courseId)
 			throws CourseNotFoundException, CourseNotAssignedException {
 
@@ -142,6 +143,7 @@ public class ProfessorOperationImpl implements ProfessorOperation {
 
 		List<Student> students = studentCo.stream().map(studentMap -> new Student(studentMap.getStudent()))
 				.collect(Collectors.toList());
+//		students.forEach(student->System.out.println(student.getUserEmail()));
 		return students;
 	}
 

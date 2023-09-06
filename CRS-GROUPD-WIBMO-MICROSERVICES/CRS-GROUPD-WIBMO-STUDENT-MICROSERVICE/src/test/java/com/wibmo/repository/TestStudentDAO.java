@@ -80,25 +80,5 @@ public class TestStudentDAO {
 		
 	}
 	
-//	@Test
-//	public void testlistCourse() throws UserNotApprovedException {
-//		
-//		
-//		List<Object[]> expected = new ArrayList<>() ;
-//		Object[] obj = new Object[2];
-//		obj[0]=1;
-//		obj[1]="Math";
-//		expected.add(obj);
-//
-//		when(studentDao.listCourse(1)).thenReturn(expected);
-//		Map<String, String> list=studentOp.listCourse(1);
-//		
-//		for(Entry<String, String> entry:list.entrySet())
-//			System.out.println(entry.getKey()+" "+entry.getValue());
-//		
-//		assertEquals(list.size(),1);
-//		
-//	}
-	
 	
 }

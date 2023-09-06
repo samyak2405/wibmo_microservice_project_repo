@@ -143,10 +143,7 @@ public class PaymentOperationImpl implements PaymentOperation {
 		}
 		paymentStudentMapper.setPayment(payment);
 		paymentStudentMapper.setStudent(student);
-	
-		//this.paymentBean.setUserId(studentId);
-		//this.paymentBean.setTransactionId(1000000 + studentId);
-		System.out.println("transaction"+payment.getTransactionId());
+
 		studentRepository.save(student);
 		paymentRepository.save(payment);
 		paymentStudentMapperRepository.save(paymentStudentMapper);

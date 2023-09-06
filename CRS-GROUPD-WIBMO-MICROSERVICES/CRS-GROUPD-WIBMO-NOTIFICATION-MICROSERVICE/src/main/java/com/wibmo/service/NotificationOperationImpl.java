@@ -54,7 +54,6 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 * @param userId
 	 * @param notificationMessage
 	 */
-	@CachePut(value="Notification", key="#id")
 	public void sendNotification(NotificationDto notifications) {
 		notificationStudentMappingRepository.save(new NotificationStudentMapping(
 				studentRepository.findById(notifications.getUserId()).get(),

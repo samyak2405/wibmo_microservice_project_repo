@@ -84,12 +84,12 @@ public class ProfessorController {
 		 * @return list of students registered for particular courseId.
 		 */
 		@RequestMapping(value="/{userId}/{courseId}/studentlist",method = RequestMethod.GET)
-	    public ResponseEntity studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") String courseId) {
+	    public ResponseEntity<?> studentList(@PathVariable(value="userId") int professorId,@PathVariable(value="courseId") String courseId) {
 
 	        try {
-	     	    return new ResponseEntity(professorOp.viewStudentList(professorId,courseId),HttpStatus.OK);
+	     	    return new ResponseEntity<Object>(professorOp.viewStudentList(professorId,courseId),HttpStatus.OK);
 			} catch (CourseNotFoundException e) {
-				return new ResponseEntity("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
+				return new ResponseEntity<String>("Course with course id:"+e.getCourseId()+" Not Found",HttpStatus.NOT_FOUND);
 
 			}catch(CourseNotAssignedException e)
 	    	{
