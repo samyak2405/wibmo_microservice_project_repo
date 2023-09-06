@@ -17,7 +17,9 @@
     <fullyQualifiedTypeName name="com.wibmo.service.UserDetailsService"/>
     <fullyQualifiedTypeName name="com.wibmo.repository.StudentRepository"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
     <fullyQualifiedTypeName name="com.wibmo.entity.User"/>
     <fullyQualifiedTypeName name="com.wibmo.service.JwtUserDetailsService"/>
+    <fullyQualifiedTypeName name="com.wibmo.jwt.JwtTokenUtils"/>
+    <fullyQualifiedTypeName name="com.wibmo.jwt.JwtUserDetailsService"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
 </qualifiedTypeNameHistroy>

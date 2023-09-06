@@ -31,7 +31,13 @@ public class UserDetailsService {
 		
 		if(role.equals("student"))
 		{
-			user=studentRepository.findByUserEmail(userEmail);
+			
+			
+			int checkIsApproved=studentRepository.countByUserEmailAndIsapproved(userEmail, 1);
+			if(checkIsApproved>0)
+			{
+				user=studentRepository.findByUserEmail(userEmail);
+			}
 		}
 		
 		if(role.equals("professor"))
