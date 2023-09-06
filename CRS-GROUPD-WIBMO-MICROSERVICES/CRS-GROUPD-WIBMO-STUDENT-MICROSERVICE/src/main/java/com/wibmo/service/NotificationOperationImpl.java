@@ -3,6 +3,7 @@ package com.wibmo.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.wibmo.entity.Notification;
@@ -32,6 +33,7 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 * @return list of notifications
 	 */
 	@Override
+	@Cacheable(value="NotificationDto", key="#studentId")
 	public List<Notification> getNotificationMessage(int studentId) throws UserNotFoundException {
 		if (studentRepository.findById(studentId).isEmpty() == true) {
 			throw new UserNotFoundException(studentId);

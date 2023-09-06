@@ -56,17 +56,17 @@ public class CRSNotificationController {
 	 * @param userId
 	 * @return List<Notification> contains list of all notifications for a particular userId
 	 */
-//	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.GET, 
-//			value = "/getNotification/{userId}")
-//	public ResponseEntity<List<Notification>> viewNotification(@PathVariable("userId")int userId) {
-//		List<Notification> notifications;
-//		try {
-//			notifications = notificationOp.getNotificationMessage(userId);
-//			
-//			return new ResponseEntity<List<Notification>>(notifications,HttpStatus.OK);
-//			
-//		} catch (UserNotFoundException e) {
-//			return new ResponseEntity<List<Notification>>(HttpStatus.NOT_FOUND);
-//		}
-//	}
+	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.GET, 
+			value = "/getNotification/{userId}")
+	public ResponseEntity<List<Notification>> viewNotification(@PathVariable("userId")int userId) {
+		List<Notification> notifications;
+		try {
+			notifications = notificationOp.getNotificationMessage(userId);
+			
+			return new ResponseEntity<List<Notification>>(notifications,HttpStatus.OK);
+			
+		} catch (UserNotFoundException e) {
+			return new ResponseEntity<List<Notification>>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
