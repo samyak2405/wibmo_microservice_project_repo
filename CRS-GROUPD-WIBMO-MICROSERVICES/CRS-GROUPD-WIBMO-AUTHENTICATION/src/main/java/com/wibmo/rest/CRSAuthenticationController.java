@@ -31,7 +31,6 @@ import com.wibmo.dto.UpdatePasswordDto;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserAlreadyExistsException;
 import com.wibmo.entity.LoginRequest;
-import com.wibmo.entity.User;
 
  
 

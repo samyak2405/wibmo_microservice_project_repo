@@ -9,9 +9,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,12 +17,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wibmo.entity.Admin;
+
 import com.wibmo.exception.UserAlreadyApprovedException;
 import com.wibmo.exception.UserNotFoundException;
 import com.wibmo.service.AdminOperationImpl;
 
-import net.bytebuddy.NamingStrategy.Suffixing.BaseNameResolver.ForGivenType;
 
 /**
  * 
