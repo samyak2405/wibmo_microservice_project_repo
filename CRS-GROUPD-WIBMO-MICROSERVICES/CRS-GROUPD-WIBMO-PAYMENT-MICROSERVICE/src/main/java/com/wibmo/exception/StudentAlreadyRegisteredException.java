@@ -27,6 +27,10 @@ public class StudentAlreadyRegisteredException extends Exception {
 		this.userEmail = userEmail;
 	}
 
+	public StudentAlreadyRegisteredException(int userId) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * returns the userEmail
 	 * 

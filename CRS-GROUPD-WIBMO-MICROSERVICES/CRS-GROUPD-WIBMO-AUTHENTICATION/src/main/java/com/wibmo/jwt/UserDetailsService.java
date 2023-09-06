@@ -24,14 +24,25 @@ public class UserDetailsService {
 	@Autowired
 	private ProfessorRepository professorRepository;
 	
-	
+	/**
+	 * 
+	 * @param role
+	 * @param userEmail
+	 * @return
+	 */
 	public User getUserByEmail(String role,String userEmail)
 	{
 		User user=null;
 		
 		if(role.equals("student"))
 		{
-			user=studentRepository.findByUserEmail(userEmail);
+			
+			
+			int checkIsApproved=studentRepository.countByUserEmailAndIsapproved(userEmail, 1);
+			if(checkIsApproved>0)
+			{
+				user=studentRepository.findByUserEmail(userEmail);
+			}
 		}
 		
 		if(role.equals("professor"))

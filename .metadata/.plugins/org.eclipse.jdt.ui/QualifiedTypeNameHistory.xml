@@ -1,23 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.data.jdbc.repository.query.Query"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
     <fullyQualifiedTypeName name="com.wibmo.repository.UserRepository"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.Claims"/>
     <fullyQualifiedTypeName name="com.wibmo.utils.JwtTokenUtils"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
-    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="com.wibmo.entity.Student"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.wibmo.repository.AdminRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.wibmo.repository.ProfessorRepository"/>
     <fullyQualifiedTypeName name="com.wibmo.service.UserDetailsService"/>
     <fullyQualifiedTypeName name="com.wibmo.repository.StudentRepository"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
     <fullyQualifiedTypeName name="com.wibmo.entity.User"/>
     <fullyQualifiedTypeName name="com.wibmo.service.JwtUserDetailsService"/>
+<<<<<<< HEAD
+    <fullyQualifiedTypeName name="com.wibmo.jwt.JwtTokenUtils"/>
+    <fullyQualifiedTypeName name="com.wibmo.jwt.JwtUserDetailsService"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
+=======
+    <fullyQualifiedTypeName name="com.wibmo.constant.SQLConstants"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.wibmo.repository.InvoiceRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.wibmo.exception.InvoiceNotFoundException"/>
+    <fullyQualifiedTypeName name="com.wibmo.service.InvoiceServiceInterface"/>
+    <fullyQualifiedTypeName name="com.wibmo.entity.Invoice"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.config.EnableJpaRepositories"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.domain.EntityScan"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Import"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.EnableWebMvc"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="org.springframework.cache.annotation.EnableCaching"/>
+    <fullyQualifiedTypeName name="javax.persistence.Cacheable"/>
+    <fullyQualifiedTypeName name="org.springframework.cache.annotation.CachePut"/>
+    <fullyQualifiedTypeName name="org.springframework.cache.annotation.Cacheable"/>
+>>>>>>> 4f0351f7f06828e61b53d49faff845fe895eaea3
 </qualifiedTypeNameHistroy>

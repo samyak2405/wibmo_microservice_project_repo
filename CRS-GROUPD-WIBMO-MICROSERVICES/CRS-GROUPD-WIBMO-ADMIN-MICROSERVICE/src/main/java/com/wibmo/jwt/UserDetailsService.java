@@ -23,7 +23,12 @@ public class UserDetailsService {
 	@Autowired
 	private ProfessorRepository professorRepository;
 	
-	
+	/**
+	 * 
+	 * @param role
+	 * @param userEmail
+	 * @return User
+	 */
 	public User getUserByEmail(String role,String userEmail)
 	{
 		User user=null;

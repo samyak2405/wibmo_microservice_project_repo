@@ -41,6 +41,7 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 	
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
 	public void authenticate(String username, String password) throws Exception {
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -69,8 +70,12 @@ public class AuthenticationOperationImpl implements AuthenticationOperation {
 
 		User user = null;
 		if (role.equals("student")) {
-
+			
+			int checkIsApproved=studentRepo.countByUserEmailAndIsapproved(userEmail, 1);
+			if(checkIsApproved>0)
+			{
 			user = authenticate.studentLoggedin(userEmail);
+			}
 
 		} else if (role.equals("professor")) {
 			user = authenticate.professorLoggedin(userEmail);

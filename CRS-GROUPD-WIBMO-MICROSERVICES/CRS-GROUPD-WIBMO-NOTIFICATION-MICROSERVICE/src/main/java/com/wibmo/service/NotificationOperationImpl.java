@@ -3,6 +3,8 @@ package com.wibmo.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,7 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 */
 	
 	@Override
+	@Cacheable(value="Notification", key="#studentId")
 	public List<Notification> getNotificationMessage(int studentId) throws UserNotFoundException {
 		if (studentRepository.findById(studentId).isEmpty() == true) {
 			throw new UserNotFoundException(studentId);
@@ -51,7 +54,7 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 * @param userId
 	 * @param notificationMessage
 	 */
-	
+	@CachePut(value="Notification", key="#id")
 	public void sendNotification(NotificationDto notifications) {
 		notificationStudentMappingRepository.save(new NotificationStudentMapping(
 				studentRepository.findById(notifications.getUserId()).get(),

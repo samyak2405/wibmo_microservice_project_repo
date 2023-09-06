@@ -13,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,9 +30,12 @@ import com.wibmo.exception.CourseNotFoundException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.jwt.JwtTokenUtils;
 import com.wibmo.service.NotificationOperation;
 import com.wibmo.service.PaymentOperation;
 import com.wibmo.service.StudentOperation;
+
+import net.bytebuddy.asm.Advice.Return;
 
 /**
  * 
@@ -50,6 +54,8 @@ public class CRSStudentController {
 	
 	@Autowired
 	private NotificationOperation notificationOp;
+	
+
 	/**
 	 * To add course preferences for the registration.
 	 * 
@@ -59,7 +65,13 @@ public class CRSStudentController {
 	 */
 	@RequestMapping(value = "/{id}/addCourse", method = RequestMethod.POST)
 	public ResponseEntity<String> addCourse(@PathVariable(value = "id") int userId,
-			@RequestBody AddCourseDto addCourseDto) {
+			@RequestBody AddCourseDto addCourseDto,@RequestHeader(value="Authorization") String jwt) 
+	{
+		if(!studentOp.innerAuthenticate(userId, jwt))
+		{
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
+			
 		int isRegistered = studentOp.isStudentRegistered(userId);
 		if (isRegistered >= 1)
 			return new ResponseEntity<String>("\"Your Registration is completed. You can't add courses\";",
@@ -87,7 +99,14 @@ public class CRSStudentController {
 	 * @return A message if the courses are added successfully or not.
 	 */
 	@RequestMapping(value = "/{id}/dropCourse", method = RequestMethod.POST)
-	public ResponseEntity<String> dropCourse(@RequestBody DropCourseDTO dropCourseDto) {
+	public ResponseEntity<String> dropCourse(@RequestBody DropCourseDTO dropCourseDto,
+			@RequestHeader(value="Authorization") String jwt) {
+		if(!studentOp.innerAuthenticate(dropCourseDto.getStudentId(), jwt))
+		{
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
+			
+		
 		int isRegistered = studentOp.isStudentRegistered(dropCourseDto.getStudentId());
 		if (isRegistered >= 1) {
 			return new ResponseEntity<String>("\"Your Registration is completed. You can't drop courses\";",
@@ -122,7 +141,12 @@ public class CRSStudentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/registerCourse", method = RequestMethod.POST)
-	public ResponseEntity<?> registerCourses(@PathVariable(value = "id") int userId) {
+	public ResponseEntity<?> registerCourses(@PathVariable(value = "id") int userId,
+			@RequestHeader(value="Authorization") String jwt) {
+		if(!studentOp.innerAuthenticate(userId, jwt))
+		{
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
 		try {
 			studentOp.registerCourses(userId);
 			return ResponseEntity.ok("Applied For Course Registration Successfully. Now go to billing Section");
@@ -140,7 +164,13 @@ public class CRSStudentController {
 	 * @return a map of registered courses and their course names.
 	 */
 	@RequestMapping(value = "/{id}/listCourse", method = RequestMethod.POST)
-	public ResponseEntity<Map<String, String>> listCourse(@PathVariable(value = "id") int userId) {
+	public ResponseEntity<Map<String, String>> listCourse(@PathVariable(value = "id") int userId,
+			@RequestHeader(value="Authorization") String jwt) {
+		if(!studentOp.innerAuthenticate(userId, jwt))
+		{
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
+		
 		try {
 			Map<String, String> courses = studentOp.listCourse(userId);
 			if (courses.size() == 0) {
@@ -164,7 +194,14 @@ public class CRSStudentController {
 	 * @return a list of grades.
 	 */
 	@RequestMapping(value = "/{id}/viewReportCard", method = RequestMethod.GET)
-	public ResponseEntity<GradeCardResponseDTO> viewReportCard(@PathVariable(value = "id") int userId) {
+	public ResponseEntity<GradeCardResponseDTO> viewReportCard(@PathVariable(value = "id") int userId,
+			@RequestHeader(value="Authorization") String jwt) {
+		
+		if(!studentOp.innerAuthenticate(userId, jwt))
+		{
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
+			
 		try {
 			return ResponseEntity.ok(studentOp.viewReportCard(userId));
 		} catch (UserNotApprovedException e) {
@@ -200,61 +237,8 @@ public class CRSStudentController {
 			return new ResponseEntity<String>("User with id " + e.getUserId() + " is not found", HttpStatus.NOT_FOUND);
 		}
 	}
+	
+    
 
-//	/**
-//	 * payFee
-//	 * 
-//	 * @param userId
-//	 * @param paymentMethod
-//	 * @param onlineMethod
-//	 * @return message if payment is successful or not
-//	 */
-//	@RequestMapping(value = "/{id}/payfee/{paymentMethod}", method = RequestMethod.POST)
-//	public ResponseEntity<String> payFee(@PathVariable(value = "id") int userId,
-//			@PathVariable(value = "paymentMethod") String paymentMethod,
-//			@RequestParam(required = false) String onlineMethod) 
-//	{
-//		boolean status = false;
-//		String transactionId = null;
-//try {
-//		if (studentOp.isRegistered(userId)) {
-//
-//			if (paymentMethod.equals("offline")) {
-//				status = payment.offline(userId);
-//				transactionId=payment.recordPayment(userId,paymentMethod, status);
-//			}
-//			else if (paymentMethod.equals("online")) {
-//				if (onlineMethod.equals("UPI")) {
-//					status = payment.UPI(userId);
-//					transactionId=payment.recordPayment(userId,paymentMethod, status);
-//				} else if (onlineMethod.equals("cards")) {
-//					status = payment.cards(userId);
-//					transactionId=payment.recordPayment(userId,paymentMethod, status);
-//				} else if (onlineMethod.equals("Wallet")) {
-//					status = payment.wallet(userId);
-//					transactionId=payment.recordPayment(userId,paymentMethod, status);
-//				}
-//
-//				transactionId=payment.recordPayment(userId,paymentMethod, status);
-//			}
-//			
-//			if (status == true) {
-////				notificationOp.sendNotification(NotificationConstants.PAYMENT_SUCCESS_NOTIFICATION, userId);
-//				return new ResponseEntity<String>("Payment Successful with TransactionId:"+transactionId, HttpStatus.OK);
-//			}
-//
-//			else {
-////				notificationOp.sendNotification(NotificationConstants.PAYMENT_REJECTED_NOTIFICATION, userId);
-//				return new ResponseEntity<String>("Payment Failed", HttpStatus.NOT_ACCEPTABLE);
-//			}
-//		} else {
-//			return new ResponseEntity<String>("Student courses are not approved by admin", HttpStatus.NOT_ACCEPTABLE);
-//		}
-//
-//	}catch(StudentAlreadyRegisteredException e)
-//	{
-//			return new ResponseEntity<String>("Student as already registered", HttpStatus.NOT_ACCEPTABLE);
-//	}
-//	}
 
 }

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 
 import java.util.HashSet;
 import java.util.List;
@@ -51,6 +52,7 @@ public class AdminOperationImpl implements AdminOperation {
 	 * To Approve Student Registration
 	 */
 	@Override
+	@CachePut(value="Admin")
 	public void approveStudent() {
 		// TODO Auto-generated method stub
 		adminRepository.approveStudentRegistration();
@@ -62,6 +64,7 @@ public class AdminOperationImpl implements AdminOperation {
 	 * @param studentId
 	 */
 	@Override
+	@CachePut(value="Admin", key="#id")
 	public void approveStudentById(int id) throws UserNotFoundException {
 
 		if (studentRepository.findById(id).isEmpty() == true) {
@@ -77,6 +80,7 @@ public class AdminOperationImpl implements AdminOperation {
 	 *         student otherwise false
 	 */
 	@Override
+	@CachePut(value="Admin")
 	public Map<Integer, Boolean> approveCourseRegistration() {
 		// TODO Auto-generated method stub
 		Map<Integer, Boolean> isSuccess = validate.courseRegistrationValidator();
@@ -87,6 +91,7 @@ public class AdminOperationImpl implements AdminOperation {
 	 * To assign which course will be taught by which professor
 	 */
 	@Override
+	@CachePut(value="Admin")
 	public void assignCoursesProf() {
 		List<Integer> professorsIds = professorCourseMappingRepository.listProfessorIds();
 		Set<String> set = new HashSet<>();
@@ -113,6 +118,7 @@ public class AdminOperationImpl implements AdminOperation {
 	 * @param User contains Admin details
 	 */
 	@Override
+	@CachePut(value="Admin", key="#userId")
 	public void approveAdmin(int userId) throws UserNotFoundException, UserAlreadyApprovedException {
 
 		if (adminRepository.findById(userId).isEmpty() == true) {

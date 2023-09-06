@@ -13,7 +13,11 @@ import com.wibmo.entity.Notification;
  */
 @Repository
 public interface NotificationRepository extends CrudRepository<Notification, Integer> {
-
+    /**
+     * 
+     * @param notificationMessage
+     * @return Notification
+     */
 	public Notification findByNotificationMessage(String notificationMessage);
 
 }

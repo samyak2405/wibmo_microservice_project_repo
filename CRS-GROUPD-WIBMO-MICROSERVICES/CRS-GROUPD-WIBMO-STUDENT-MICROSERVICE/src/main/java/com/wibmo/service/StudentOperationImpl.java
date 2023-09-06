@@ -1,11 +1,13 @@
 package com.wibmo.service;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.wibmo.dto.AddCourseDto;
 import com.wibmo.dto.GradeCardResponseDTO;
@@ -23,6 +25,7 @@ import com.wibmo.exception.DuplicateCourseEntryException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.jwt.JwtTokenUtils;
 
 /**
  * Student Operation Implementation
@@ -43,6 +46,9 @@ public class StudentOperationImpl implements StudentOperation {
 
 	@Autowired
 	private GradeCardRepository gradeCardRepository;
+	
+	@Autowired
+	private JwtTokenUtils jwtTokenUtils;
 
 
 	/**
@@ -147,6 +153,7 @@ public class StudentOperationImpl implements StudentOperation {
 	 * To view the list of offered courses
 	 */
 	@Override
+	@Cacheable(value="CourseCatalog")
 	public List<CourseCatalog> viewCourseCatalog() {
 		Iterable<CourseCatalog> courses = courseDao.findAll();
 		List<CourseCatalog> list = new ArrayList<>();
@@ -162,6 +169,7 @@ public class StudentOperationImpl implements StudentOperation {
 	 * @throws UserNotFoundException
 	 */
 	@Override
+	@Cacheable(value="GradeCardResponseDto", key="#studentId")
 	public GradeCardResponseDTO viewReportCard(int studentId) throws UserNotApprovedException {
 		// TODO Auto-generated method stub
 		if (studentDao.isApproved(studentId) < 1) {
@@ -259,6 +267,15 @@ public class StudentOperationImpl implements StudentOperation {
 		// TODO Auto-generated method stub
 		Integer isRegistered = studentDao.isStudentRegistered(userId);
 		return isRegistered;
+	}
+
+	@Override
+	public boolean innerAuthenticate(Integer userId, String jwt) {
+		
+		   String token = jwt.substring(jwt.lastIndexOf("Bearer ")+7);
+		   if(jwtTokenUtils.getAllClaimsFromToken(token).get("userId").toString().equals(userId.toString()))
+		   return true;
+		return false;
 	}
 
 }

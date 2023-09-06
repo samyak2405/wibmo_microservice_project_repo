@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wibmo.entity.Student;
+import com.wibmo.entity.User;
 
 
 /**
@@ -21,15 +22,7 @@ import com.wibmo.entity.Student;
  */
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {
-/**
- * marks student as registered according to the studentId
- * @param studentId
- */
-	@Modifying
-	@Transactional
-	@Query(value=" UPDATE studentcoursemapping SET isRegister=1 WHERE userId=?1", nativeQuery = true)
-	public void registerCourses(@Param("studentId")int studentId);
-	
+
 
 /**
  * returns the count of courses from mapping table according to given studentId
@@ -130,6 +123,12 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Transactional
 	@Query(value="UPDATE student SET isApproved=1 WHERE userId=?1",nativeQuery =  true)
 	public void setApprovedStudentById(@Param("userId")int id);
+
+
+public int countByUserEmailAndIsapproved(String userEmail, int i);
+
+
+public User findByUserEmail(String userEmail);
 	
-	
+
 }

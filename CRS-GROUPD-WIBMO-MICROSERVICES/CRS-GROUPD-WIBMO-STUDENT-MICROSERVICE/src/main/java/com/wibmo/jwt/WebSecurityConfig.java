@@ -39,6 +39,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private JwtRequestFilter jwtRequestFilter;
 
 	@Autowired
+	/**
+	 * 
+	 * @param auth
+	 * @throws Exception
+	 */
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		// configure AuthenticationManager so that it knows from where to load
 		// user for matching credentials
@@ -62,6 +67,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 	@Override
+	/**
+	 * @param httpSecurity
+	 * @throws Exception
+	 */
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		// We don't need CSRF for this example
 		httpSecurity.csrf().disable()
