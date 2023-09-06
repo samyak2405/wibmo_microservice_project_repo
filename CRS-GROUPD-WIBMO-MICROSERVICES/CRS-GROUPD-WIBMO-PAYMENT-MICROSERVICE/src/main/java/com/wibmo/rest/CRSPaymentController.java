@@ -29,7 +29,7 @@ import com.wibmo.service.StudentOperation;
 @RestController
 @RequestMapping(value="/api/payment")
 @CrossOrigin
-@PreAuthorize("hasAuthority('Role.admin') and hasAuthority('Role.student')")
+@PreAuthorize("hasAuthority('Role.student')")
 public class CRSPaymentController {
 	
 	@Autowired
