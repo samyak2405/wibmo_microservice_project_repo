@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.wibmo.dto.NotificationDto;
 import com.wibmo.entity.Notification;
 import com.wibmo.exception.UserNotFoundException;
 
@@ -26,6 +27,6 @@ public interface NotificationOperation {
 	 * @param userId
 	 * @param notificationId
 	 */
-	public void sendNotification(int userId,String notificationMessage);
+	public void sendNotification(NotificationDto notificationDto);
 
 }

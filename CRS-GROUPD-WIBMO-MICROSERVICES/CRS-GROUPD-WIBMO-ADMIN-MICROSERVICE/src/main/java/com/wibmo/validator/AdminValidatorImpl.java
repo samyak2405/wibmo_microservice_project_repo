@@ -13,12 +13,16 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+import com.wibmo.constant.NotificationConstants;
+import com.wibmo.dto.NotificationDto;
 import com.wibmo.entity.GradeCard;
 import com.wibmo.repository.AdminRepository;
 import com.wibmo.repository.CourseRepository;
 import com.wibmo.repository.GradeCardRepository;
+import com.wibmo.repository.NotificationRepository;
 import com.wibmo.repository.StudentRepository;
 
 /**
@@ -27,18 +31,22 @@ import com.wibmo.repository.StudentRepository;
 @Component
 public class AdminValidatorImpl implements ValidatorInterface {
 
+	private static final String TOPIC = "student";
+	
 	private static final Logger log = LoggerFactory.getLogger(AdminValidatorImpl.class);
 	@Autowired
 	public StudentRepository studentRepository;
 	@Autowired
 	public AdminRepository adminRepository;
-//	@Autowired
-//	public ProfessorRepository professorRepository;
+	@Autowired
+	public NotificationRepository notificationRepo;
 //
 //	@Autowired
 //	public ProfessorCourseMappingRepository professorCourseMappingRepository;
 
-
+	@Autowired
+	private KafkaTemplate<String,NotificationDto> kafkaTemplate;
+	
 	@Autowired
 	private CourseRepository courseRepository;
 
@@ -78,14 +86,17 @@ public class AdminValidatorImpl implements ValidatorInterface {
 	public Map<Integer, Boolean> courseRegistrationValidator() {
 
 		List<Integer> studentIds = studentRepository.getStudentIds();
-
+		System.out.println("Hello world");
 		Map<String, Integer> courseCount = new HashMap<>();
 		Map<Integer, Boolean> isSuccess = new HashMap<>();
 
 		for(int studentId:studentIds)
 		{
+			System.out.println(studentId);
 			int isRegistered = studentRepository.isStudentRegistered(studentId);
+			System.out.println(isRegistered);
 			int isApproved = studentRepository.isCourseRegistrationApproved(studentId);
+			System.out.println(studentId);
 			int feePaymentStatus=studentRepository.findById(studentId).get().getCourseRegistrationStatus();
 			if (isApproved > 0) {
 				log.info("Student with id {} not approved",studentId);
@@ -147,22 +158,13 @@ public class AdminValidatorImpl implements ValidatorInterface {
 				}
 			}
 			if (count == 4) {
-
-//				notificationStudentMappingRepository.save(new NotificationStudentMapping(
-//						studentRepository.findById(studentId).get(), notificationRepository
-//								.findById(NotificationConstants.APPROVE_REGISTRATION_NOTIFICATION).get()));
-//
-//				notificationStudentMappingRepository
-//						.save(new NotificationStudentMapping(studentRepository.findById(studentId).get(),
-//								notificationRepository.findById(NotificationConstants.FEE_PAYMENT_NOTIFICATION).get()));
-
+				
+				kafkaTemplate.send(TOPIC, new NotificationDto(studentId,"Approved"));
+				kafkaTemplate.send(TOPIC,new NotificationDto(studentId,"Payment Successful"));
 				isSuccess.put(studentId, true);
-			} else {
-
-//				notificationStudentMappingRepository.save(new NotificationStudentMapping(
-//						studentRepository.findById(studentId).get(),
-//						notificationRepository.findById(NotificationConstants.REJECT_REGISTRATION_NOTIFICATION).get()));
-				isSuccess.put(studentId, false);
+			} else {				
+				kafkaTemplate.send(TOPIC, new NotificationDto(studentId,"Not Approved"));
+			isSuccess.put(studentId, false);
 			}
 
 		}

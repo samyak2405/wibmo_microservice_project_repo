@@ -12,6 +12,15 @@ public class NotificationDto implements Serializable{
 	int userId;
 	String notificationMessage;
 	
+	
+	
+	
+	public NotificationDto(int userId, String notificationMessage) {
+		super();
+		this.userId = userId;
+		this.notificationMessage = notificationMessage;
+	}
+
 	/**
 	 * @return the userId
 	 */

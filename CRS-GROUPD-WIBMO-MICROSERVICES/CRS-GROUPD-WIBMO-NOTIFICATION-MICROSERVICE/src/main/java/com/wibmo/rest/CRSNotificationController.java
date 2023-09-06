@@ -10,6 +10,8 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.annotation.KafkaHandler;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +28,8 @@ import com.wibmo.service.NotificationOperation;
 /**
  * Notification REST Controller
  */
+
+@KafkaListener(topics="student")
 @RestController
 @RequestMapping(value="/api/notification")
 @CrossOrigin
@@ -41,33 +45,30 @@ public class CRSNotificationController {
 	 * To send notifications
 	 * @param userId
 	 */
+	
+//	@KafkaListener(topics="student")
+	@KafkaHandler
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, value = "/sendNotification")
-	public ResponseEntity sendNotification(@RequestBody NotificationDto notificationDto) {
-		notificationOp.sendNotification(notificationDto.getUserId(), notificationDto.getNotificationMessage());
+	public ResponseEntity sendNotification(NotificationDto notificationDto) {
+		notificationOp.sendNotification(notificationDto);
 		return new ResponseEntity(HttpStatus.OK);
 	}
-
 	/**
 	 * To view notifications
 	 * @param userId
 	 * @return List<Notification> contains list of all notifications for a particular userId
 	 */
-	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.GET, 
-			value = "/getNotification/{userId}")
-	public ResponseEntity<List<Notification>> viewNotification(@PathVariable("userId")int userId) {
-		List<Notification> notifications;
-		try {
-			notifications = notificationOp.getNotificationMessage(userId);
-			String topic = "student"+userId;
-			
-			for(Notification notify:notifications)
-			{
-				kafkaTemplate.send(topic,notify.getNotificationMessage());
-			}
-			return new ResponseEntity<List<Notification>>(notifications,HttpStatus.OK);
-			
-		} catch (UserNotFoundException e) {
-			return new ResponseEntity<List<Notification>>(HttpStatus.NOT_FOUND);
-		}
-	}
+//	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.GET, 
+//			value = "/getNotification/{userId}")
+//	public ResponseEntity<List<Notification>> viewNotification(@PathVariable("userId")int userId) {
+//		List<Notification> notifications;
+//		try {
+//			notifications = notificationOp.getNotificationMessage(userId);
+//			
+//			return new ResponseEntity<List<Notification>>(notifications,HttpStatus.OK);
+//			
+//		} catch (UserNotFoundException e) {
+//			return new ResponseEntity<List<Notification>>(HttpStatus.NOT_FOUND);
+//		}
+//	}
 }
