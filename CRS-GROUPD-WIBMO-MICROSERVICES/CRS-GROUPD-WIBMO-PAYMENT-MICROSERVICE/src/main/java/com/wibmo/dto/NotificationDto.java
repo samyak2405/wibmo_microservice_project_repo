@@ -10,6 +10,11 @@ public class NotificationDto {
 	int userId;
 	String notificationMessage;
 	
+	public NotificationDto(int userId, String  message) {
+		// TODO Auto-generated constructor stub
+		this.userId = userId;
+		this.notificationMessage=message;
+	} 
 	/**
 	 * @return the userId
 	 */
