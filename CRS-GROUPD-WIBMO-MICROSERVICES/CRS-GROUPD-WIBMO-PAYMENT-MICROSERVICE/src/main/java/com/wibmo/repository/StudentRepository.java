@@ -83,8 +83,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
  * @param studentId
  * @return count of registered students
  */
-	@Query(value="SELECT COUNT(*) FROM studentcoursemapping WHERE userId=:studentId AND isRegister=1", nativeQuery = true)
-	public Integer isStudentRegistered(@Param("studentId")int studentId);
+
 /**
  * returns the status of approval of student registration
  * @param studentId
@@ -132,8 +131,14 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	@Query(value="UPDATE student SET isApproved=1 WHERE userId=?1",nativeQuery =  true)
 	public void setApprovedStudentById(@Param("userId")int id);
 
+	/**
+	 * 
+	 * @param userEmail
+	 * @return
+	 */
+	public User findByUserEmail(String userEmail);
 
-public User findByUserEmail(String userEmail);
+	public int countByUserIdAndCourseRegistrationStatus(int user,int courseRegistrationStatus);
 	
 	
 }

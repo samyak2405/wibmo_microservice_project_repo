@@ -27,9 +27,7 @@ public class JwtUserDetailsService  implements UserDetailsService{
 
 	@Autowired
 	public com.wibmo.jwt.UserDetailsService userDeatails;
-	@Autowired
-	public StudentRepository studentRepository;
-	
+
 	
 //	
 //	public UserDetails loadUserByUsername(String username,String role) throws UsernameNotFoundException {
@@ -51,6 +49,7 @@ public class JwtUserDetailsService  implements UserDetailsService{
 //		userDao.save(newUser);
 //		return newUser;
 //	}
+	
 
 	@Override
 	public UserDetails loadUserByUsername(String param) throws UsernameNotFoundException {
@@ -70,6 +69,14 @@ public class JwtUserDetailsService  implements UserDetailsService{
 				roles);
 	}
 
+	public int loadUserIdByUserName(String param)
+	{
+		
+		String values[]=param.split("#");
+		com.wibmo.entity.User user = userDeatails.getUserByEmail(values[1],values[0]);
+		
+		return user.getUserId();
+	}
 
 
 }

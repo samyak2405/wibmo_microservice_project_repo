@@ -23,6 +23,7 @@ import com.wibmo.exception.DuplicateCourseEntryException;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserNotApprovedException;
 import com.wibmo.exception.UserNotFoundException;
+import com.wibmo.jwt.JwtTokenUtils;
 
 /**
  * Student Operation Implementation
@@ -43,6 +44,9 @@ public class StudentOperationImpl implements StudentOperation {
 
 	@Autowired
 	private GradeCardRepository gradeCardRepository;
+	
+	@Autowired
+	private JwtTokenUtils jwtTokenUtils;
 
 
 	/**
@@ -259,6 +263,15 @@ public class StudentOperationImpl implements StudentOperation {
 		// TODO Auto-generated method stub
 		Integer isRegistered = studentDao.isStudentRegistered(userId);
 		return isRegistered;
+	}
+
+	@Override
+	public boolean innerAuthenticate(Integer userId, String jwt) {
+		
+		   String token = jwt.substring(jwt.lastIndexOf("Bearer ")+7);
+		   if(jwtTokenUtils.getAllClaimsFromToken(token).get("userId").toString().equals(userId.toString()))
+		   return true;
+		return false;
 	}
 
 }

@@ -3140,3 +3140,485 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 14:48:30.331
 !MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-NOTIFICATION-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 16:44:23.984
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-ADMIN-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 16:44:28.091
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-NOTIFICATION-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 16:44:28.091
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 16:44:39.759
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 16:44:43.216
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 16:46:32.140
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+!SESSION 2023-09-06 19:32:16.081 -----------------------------------------------
+eclipse.buildId=4.19.0.202306150758
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2023-09-06 19:32:21.130
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2023-09-06 19:34:49.451
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-09-06 19:34:49.451
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-06 19:34:54.202
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+D:\sts-4.19.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\javaw.exe
+-cp
+D:\sts-4.19.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.47.0.202306150731\servers\spring-boot-language-server\BOOT-INF\classes;D:\sts-4.19.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.47.0.202306150731\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:D:\sts-4.19.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.47.0.202306150731\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=D:/wibmo_microservice_project_repo/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1694009094202
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:54.203
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-06 19:34:54.231
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 11740
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-09-06 19:34:54.521
+!MESSAGE org.springframework.ide.vscode.commons.protocol.spring.SpringModelLanguageServer cannot be found by org.springframework.tooling.boot.ls_1.47.0.202306150731
+!STACK 0
+java.lang.ClassNotFoundException: org.springframework.ide.vscode.commons.protocol.spring.SpringModelLanguageServer cannot be found by org.springframework.tooling.boot.ls_1.47.0.202306150731
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:541)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:536)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:622)
+	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.getServerInterface(LanguageServersRegistry.java:196)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:291)
+	at java.base/java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java:787)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-09-06 19:34:55.696
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\siddharth.singh'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.core 2 0 2023-09-06 19:34:55.737
+!MESSAGE Cannot clean up internal hidden project
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(D:/wibmo_microservice_project_repo/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/11.tree)[568]: java.io.FileNotFoundException: D:\wibmo_microservice_project_repo\.metadata\.plugins\org.eclipse.core.resources\.projects\.org.eclipse.egit.core.cmp\11.tree (The system cannot find the path specified)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:55)
+	at org.eclipse.core.internal.resources.SaveManager.writeTree(SaveManager.java:2154)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:915)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:769)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1067)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1150)
+	at org.eclipse.egit.core.internal.efs.HiddenResources.openProject(HiddenResources.java:321)
+	at org.eclipse.egit.core.internal.efs.HiddenResources.getHiddenProject(HiddenResources.java:274)
+	at org.eclipse.egit.core.internal.efs.HiddenResources.initialize(HiddenResources.java:127)
+	at org.eclipse.core.runtime.jobs.Job$2.run(Job.java:187)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2023-09-06 19:34:55.737
+!MESSAGE Could not write metadata for '/.org.eclipse.egit.core.cmp'.
+!STACK 0
+java.io.FileNotFoundException: D:\wibmo_microservice_project_repo\.metadata\.plugins\org.eclipse.core.resources\.projects\.org.eclipse.egit.core.cmp\11.tree (The system cannot find the path specified)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:55)
+	at org.eclipse.core.internal.resources.SaveManager.writeTree(SaveManager.java:2154)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:915)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:769)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1067)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1150)
+	at org.eclipse.egit.core.internal.efs.HiddenResources.openProject(HiddenResources.java:321)
+	at org.eclipse.egit.core.internal.efs.HiddenResources.getHiddenProject(HiddenResources.java:274)
+	at org.eclipse.egit.core.internal.efs.HiddenResources.initialize(HiddenResources.java:127)
+	at org.eclipse.core.runtime.jobs.Job$2.run(Job.java:187)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.424
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-ADMIN-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.425
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.429
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.430
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.431
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-EUREKA
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.432
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-JPA
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.432
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-KAFKA-MICROSERVICES
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.433
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-NOTIFICATION-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.434
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.435
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-PROFESSOR-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.436
+!MESSAGE Boot project ADDED: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 19:34:56.436
+!MESSAGE Boot project ADDED: CRS-WIBMO-API-GATEWAY
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-09-06 19:35:00.908
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:04:51.986
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:05:35.507
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:06:55.167
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:07:59.439
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:08:54.545
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:08:55.714
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:09:04.035
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:20:21.293
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:21:01.751
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:21:50.416
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:22:56.655
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-09-06 20:25:47.899
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:25:57.037
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:26:19.021
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:26:48.852
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-09-06 20:27:15.479
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:27:26.904
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:28:47.958
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:30:01.007
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:30:06.745
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:30:06.746
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:30:43.375
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:30:51.652
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:32:31.116
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:32:37.009
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:33:03.565
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:36:46.384
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:37:42.653
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2023-09-06 20:39:44.966
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface 2 0 2023-09-06 20:40:13.312
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-09-06 20:40:13.312
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		WorkbenchHandlerServiceHandler("org.springframework.tooling.boot.ls.ToggleComment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:44:12.287
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:47:09.787
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:47:11.842
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:52:13.406
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:57:02.679
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:57:22.140
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-AUTHENTICATION
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 20:59:05.749
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:01:02.728
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-09-06 21:02:16.452
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:03:33.956
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:06:34.415
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:07:01.787
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:07:46.693
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-09-06 21:07:58.757
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:08:02.911
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:08:10.822
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:08:22.632
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:08:46.012
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:09:05.855
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:09:45.178
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:10:05.772
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:11:03.204
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:11:41.445
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-09-06 21:11:41.456
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jface.text 4 0 2023-09-06 21:11:41.573
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException: Cannot read the array length because "this.methods" is null
+	at org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding.getMethods(BinaryTypeBinding.java:1604)
+	at org.eclipse.jdt.internal.compiler.lookup.UnresolvedAnnotationBinding.getElementValuePairs(UnresolvedAnnotationBinding.java:54)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.hashCode(AnnotationBinding.java:277)
+	at org.eclipse.jdt.core.dom.DefaultBindingResolver$AnnotationIdentityBinding.hashCode(DefaultBindingResolver.java:550)
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1012)
+	at java.base/java.util.concurrent.ConcurrentHashMap.putIfAbsent(ConcurrentHashMap.java:1541)
+	at org.eclipse.jdt.core.dom.DefaultBindingResolver.getAnnotationInstance(DefaultBindingResolver.java:565)
+	at org.eclipse.jdt.core.dom.MethodBinding.filterTypeAnnotations(MethodBinding.java:254)
+	at org.eclipse.jdt.core.dom.MethodBinding.getAnnotations(MethodBinding.java:134)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getAnnotations(JavadocHover.java:1182)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.addAnnotations(JavadocHover.java:1142)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:750)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:671)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:663)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:11:56.558
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-STUDENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:16:27.233
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:16:42.070
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:17:41.152
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:19:10.613
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:19:24.386
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:19:34.642
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:19:44.206
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:21:30.938
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-06 21:22:16.924
+!MESSAGE Classpath changed for project: CRS-GROUPD-WIBMO-PAYMENT-MICROSERVICE

@@ -55,10 +55,10 @@ public class JwtUserDetailsService  implements UserDetailsService{
 	public UserDetails loadUserByUsername(String param) throws UsernameNotFoundException {
 		
 		String values[]=param.split("#");
+		
 		com.wibmo.entity.User user = userDeatails.getUserByEmail(values[1],values[0]);
 		
-		System.out.println(values[0]);
-		System.out.println(values[1]);
+		
 		
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + values[0]);
@@ -69,6 +69,14 @@ public class JwtUserDetailsService  implements UserDetailsService{
 				roles);
 	}
 
+	public int loadUserIdByUserName(String param)
+	{
+		
+		String values[]=param.split("#");
+		com.wibmo.entity.User user = userDeatails.getUserByEmail(values[1],values[0]);
+		
+		return user.getUserId();
+	}
 
 
 }

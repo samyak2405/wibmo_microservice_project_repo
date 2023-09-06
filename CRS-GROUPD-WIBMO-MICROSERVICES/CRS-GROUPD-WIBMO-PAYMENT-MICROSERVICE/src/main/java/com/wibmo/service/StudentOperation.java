@@ -6,6 +6,8 @@ package com.wibmo.service;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import com.wibmo.exception.StudentAlreadyRegisteredException;
+
 
 /**
  * Student Operation Interface
@@ -33,8 +35,11 @@ public interface StudentOperation {
 	 * 
 	 * @param userId
 	 * @return 1 if student is registered
+	 * @throws StudentAlreadyRegisteredException 
 	 */
-	public Integer isStudentRegistered(int userId);
+	public Integer isStudentRegistered(int userId) throws StudentAlreadyRegisteredException;
+
+	boolean innerAuthenticate(Integer userId, String jwt);
 	
 //	/**
 //	 * 

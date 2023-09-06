@@ -135,7 +135,6 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 
 public User findByUserEmail(String userEmail);
 
-public int countByUserEmailAndIsapproved(int userId,int isApproved);
 
 
 public int countByUserEmailAndIsapproved(String userEmail, int isApproved);

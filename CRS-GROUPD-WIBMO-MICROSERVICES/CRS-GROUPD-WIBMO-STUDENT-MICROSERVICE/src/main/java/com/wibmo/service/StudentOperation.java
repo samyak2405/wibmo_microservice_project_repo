@@ -21,6 +21,8 @@ import com.wibmo.exception.*;
 @Transactional
 public interface StudentOperation {
 	
+	
+	
 	/**
 	 * Student Register for course
 	 * @param studentId
@@ -101,6 +103,9 @@ public interface StudentOperation {
 	 * @return
 	 */
 	public boolean isRegistered(int userId) ;
+	
+	
+	public boolean innerAuthenticate(Integer userId,String jwt);
 	
 }
 		

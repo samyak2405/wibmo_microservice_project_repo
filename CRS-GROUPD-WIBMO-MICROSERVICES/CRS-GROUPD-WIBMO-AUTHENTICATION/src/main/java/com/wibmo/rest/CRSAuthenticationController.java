@@ -30,11 +30,8 @@ import com.wibmo.dto.RegisterUserDto;
 import com.wibmo.dto.UpdatePasswordDto;
 import com.wibmo.exception.StudentAlreadyRegisteredException;
 import com.wibmo.exception.UserAlreadyExistsException;
+import com.wibmo.jwt.JwtUserDetailsService;
 import com.wibmo.entity.LoginRequest;
-
- 
-
- 
 
 /**
 * 
@@ -50,7 +47,7 @@ public class CRSAuthenticationController
 	@Autowired
 	private com.wibmo.jwt.JwtTokenUtils jwtTokenUtil;
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private JwtUserDetailsService userDetailsService;
 
 
     public Logger log=LogManager.getLogger();
@@ -75,23 +72,9 @@ public class CRSAuthenticationController
 			e.printStackTrace();
 		}
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(loginrequest.getUserEmail()+"#"+role);
-		final String token = jwtTokenUtil.generateToken(userDetails,role);
+		final int userId=userDetailsService.loadUserIdByUserName(loginrequest.getUserEmail()+"#"+role);
+		final String token = jwtTokenUtil.generateToken(userDetails,role,userId);
 		return ResponseEntity.ok(token);
-//        StringBuilder msg = new StringBuilder();
-//        if(loggedin.loggedin(loginrequest.getUserEmail(), loginrequest.getUserPassword(),role,msg)) {
-//            switch(role) {
-//            case "student":
-//                return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-//            case "professor":
-//                //Professor
-//                return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-//            case "admin": 
-//
-//                return new ResponseEntity<StringBuilder>(msg, HttpStatus.OK);
-//            }
-//            }
-//        return new ResponseEntity<StringBuilder>(msg, HttpStatus.NOT_FOUND);
-
     }
     /**
      * User Registration
@@ -170,5 +153,6 @@ public class CRSAuthenticationController
             return new ResponseEntity<String>("User does not exists", HttpStatus.NOT_FOUND);
         }
     }
+    
 
 }

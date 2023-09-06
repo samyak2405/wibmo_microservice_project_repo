@@ -60,7 +60,8 @@ public class JwtTokenUtils implements Serializable {
 	}
 
 	
-	public String generateToken(UserDetails userDetails,String role) {
+	public String generateToken(UserDetails userDetails,String role,int userId)
+	{
 		
 		
 		String authorities = userDetails.getAuthorities().stream()
@@ -71,6 +72,7 @@ public class JwtTokenUtils implements Serializable {
 //		claims.put("userEmail", userDetails.getUsername());
 		claims.put("roles", authorities);
 		claims.put("table",role);
+		claims.put("userId", userId);
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 	
