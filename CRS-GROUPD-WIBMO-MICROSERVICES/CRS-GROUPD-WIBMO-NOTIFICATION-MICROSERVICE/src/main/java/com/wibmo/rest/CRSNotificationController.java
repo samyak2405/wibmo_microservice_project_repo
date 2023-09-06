@@ -29,7 +29,6 @@ import com.wibmo.service.NotificationOperation;
  * Notification REST Controller
  */
 
-@KafkaListener(topics="student")
 @RestController
 @RequestMapping(value="/api/notification")
 @CrossOrigin
@@ -46,8 +45,7 @@ public class CRSNotificationController {
 	 * @param userId
 	 */
 	
-//	@KafkaListener(topics="student")
-	@KafkaHandler
+	@KafkaListener(topics="student", groupId = "students",containerFactory="kafkaListenerContainerFactory")	
 	@RequestMapping(produces = MediaType.APPLICATION_JSON, method = RequestMethod.PUT, value = "/sendNotification")
 	public ResponseEntity sendNotification(NotificationDto notificationDto) {
 		notificationOp.sendNotification(notificationDto);
