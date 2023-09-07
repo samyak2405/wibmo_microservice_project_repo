@@ -33,7 +33,7 @@ public class NotificationOperationImpl implements NotificationOperation {
 	 * @return list of notifications
 	 */
 	@Override
-	@Cacheable(value="NotificationDto", key="#studentId")
+//	@Cacheable(value="NotificationDto", key="#studentId")
 	public List<Notification> getNotificationMessage(int studentId) throws UserNotFoundException {
 		if (studentRepository.findById(studentId).isEmpty() == true) {
 			throw new UserNotFoundException(studentId);
